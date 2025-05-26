@@ -1,0 +1,168 @@
+Language > Specialist: JavaScript > React HUD UI Engineer
+Includes: React, CSS keyframes, component props/state, SVG manipulation, clean architecture
+Requirements: Modular, high-performance, extensible code with real-time feedback and glowing animation. VERBOSITY: 2 = clear but simple components.
+
+Plan: Reactify the AI Squad Command Ring
+We'll build 3 main React components:
+
+SquadSector – handles each radial slice, click events, animations
+
+SquadLog – live log feed that listens for activations
+
+SquadRing – renders all sectors and passes events to SquadLog
+
+All using vanilla React — no Redux yet, just useState.
+
+📁 File: src/components/SquadRing.jsx
+jsx
+Copy
+Edit
+// src/components/SquadRing.jsx
+import React, { useState } from 'react';
+import SquadSector from './SquadSector';
+import SquadLog from './SquadLog';
+
+const squadModules = [
+  'Surveillance', 'Recon', 'Decryption',
+  'Threat Scan', 'Intel Link', 'Stealth Ops'
+];
+
+export default function SquadRing() {
+  const [logs, setLogs] = useState([]);
+
+  const handleActivate = (label) => {
+    const timestamp = new Date().toLocaleTimeString();
+    setLogs(prev => [...prev, `[${timestamp}] Activated: ${label}`]);
+  };
+
+  return (
+    <div className="hud">
+      <svg viewBox="0 0 200 200" className="ring">
+        <g transform="translate(100, 100)">
+          {squadModules.map((label, i) => (
+            <SquadSector key={label} index={i} label={label} onActivate={handleActivate} />
+          ))}
+        </g>
+      </svg>
+      <SquadLog logs={logs} />
+    </div>
+  );
+}
+📁 File: src/components/SquadSector.jsx
+jsx
+Copy
+Edit
+// src/components/SquadSector.jsx
+import React from 'react';
+
+const arcPaths = [
+  "M 0 -80 A 80 80 0 0 1 69.28 -40 Z",
+  "M 69.28 -40 A 80 80 0 0 1 69.28 40 Z",
+  "M 69.28 40 A 80 80 0 0 1 0 80 Z",
+  "M 0 80 A 80 80 0 0 1 -69.28 40 Z",
+  "M -69.28 40 A 80 80 0 0 1 -69.28 -40 Z",
+  "M -69.28 -40 A 80 80 0 0 1 0 -80 Z"
+];
+
+const labelCoords = [
+  [0, -100], [87, -50], [87, 50],
+  [0, 100], [-87, 50], [-87, -50]
+];
+
+export default function SquadSector({ index, label, onActivate }) {
+  return (
+    <>
+      <path
+        className="ring-sector"
+        d={arcPaths[index]}
+        onClick={() => onActivate(label)}
+      />
+      <text
+        className="sector-label"
+        x={labelCoords[index][0]}
+        y={labelCoords[index][1]}>
+        {label}
+      </text>
+    </>
+  );
+}
+📁 File: src/components/SquadLog.jsx
+jsx
+Copy
+Edit
+// src/components/SquadLog.jsx
+import React from 'react';
+
+export default function SquadLog({ logs }) {
+  return (
+    <div className="log-panel">
+      {logs.length === 0
+        ? <div>🧠 Awaiting squad activation...</div>
+        : logs.map((entry, i) => <div key={i}>{entry}</div>)
+      }
+    </div>
+  );
+}
+📁 File: src/App.css (glow styles)
+css
+Copy
+Edit
+/* src/App.css */
+.hud {
+  background: #000;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+.ring {
+  width: 60vmin;
+  height: 60vmin;
+}
+.ring-sector {
+  fill: none;
+  stroke: #00ffff44;
+  stroke-width: 20;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite ease-in-out;
+}
+.ring-sector:hover {
+  stroke: #00ffff;
+  stroke-width: 24;
+  filter: drop-shadow(0 0 8px #00ffff);
+  cursor: pointer;
+}
+@keyframes pulse {
+  0%, 100% { stroke-opacity: 0.3; }
+  50% { stroke-opacity: 1; }
+}
+.sector-label {
+  fill: #00ffff;
+  font-size: 10px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+.log-panel {
+  width: 60vmin;
+  height: 120px;
+  background: #011;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  border: 1px solid #00ffff44;
+  box-shadow: 0 0 10px #00ffff22;
+}
+Would you like me to:
+
+✅ Bundle this as a Vite/React zip you can run immediately?
+
+✅ Or inject it as a component into your Django frontend?
+
+Say “Bundle it up bro” or “Inject it bro” and I’ll handle the next move ⚡
+
+History: We converted the SVG AI Squad Ring into modular React components with animated pulse and live click logs.

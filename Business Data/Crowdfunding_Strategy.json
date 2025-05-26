@@ -1,0 +1,99 @@
+{
+  "created": "2025-05-24T13:02:02.613596",
+  "strategy": {
+    "pre_launch_phase": {
+      "duration": "4-6 weeks before campaign",
+      "goals": [
+        "Build email list of 500+ interested supporters",
+        "Create 20+ pieces of valuable content",
+        "Establish social proof with early sales",
+        "Build relationships with micro-influencers in neurodivergent space"
+      ],
+      "weekly_actions": {
+        "week_1": [
+          "Launch Discord community with 'VIP early access' angle",
+          "Start daily TikTok studio setup series",
+          "Create email capture: 'Get notified when we launch'"
+        ],
+        "week_2": [
+          "Feature first customers using products",
+          "Behind-scenes: Why crowdfunding matters for neurodivergent businesses",
+          "Partner with 3 neurodivergent creators for cross-promotion"
+        ],
+        "week_3": [
+          "Share detailed campaign preview with community",
+          "Run polls: What rewards do you want most?",
+          "Create 'Day in the Life' content showing studio impact"
+        ],
+        "week_4": [
+          "Launch countdown content series",
+          "Send exclusive preview to email list",
+          "Activate partner network for launch day support"
+        ]
+      }
+    },
+    "campaign_structure": {
+      "platforms": {
+        "primary": "GoFundMe (story-focused, community-driven)",
+        "secondary": "PiStarter (crypto-friendly, tech audience)",
+        "tertiary": "JustGiving (for accessibility angle)"
+      },
+      "funding_goals": {
+        "minimum": "£5,000 - Essential studio equipment",
+        "target": "£15,000 - Full studio + first year operations",
+        "stretch": "£25,000 - Community space expansion"
+      },
+      "reward_tiers": {
+        "£5": "Digital thank you + Discord VIP role",
+        "£15": "Mr. Mushroom night light + above",
+        "£25": "Product bundle + STL files + above",
+        "£50": "Custom 3D print + consultation call + above",
+        "£100": "Studio visit + workshop + above",
+        "£250": "Co-design a product + all previous rewards",
+        "£500": "Business mentoring package + all rewards"
+      }
+    },
+    "momentum_tactics": {
+      "launch_day": [
+        "Go live at 9 AM with campaign announcement",
+        "Send personal messages to top 50 supporters",
+        "Post across all platforms with campaign link",
+        "Activate partner cross-promotion plan"
+      ],
+      "first_48_hours": [
+        "Share milestone updates every £1,000 raised",
+        "Thank every backer personally with video response",
+        "Create 'backer spotlight' content",
+        "Run flash challenge: Next 10 backers get bonus reward"
+      ],
+      "sustaining_momentum": [
+        "Weekly live Q&A sessions with backers",
+        "Behind-scenes updates showing fund usage",
+        "Community voting on stretch goal features",
+        "Partner with local news for Welsh business angle"
+      ]
+    },
+    "story_framework": {
+      "hook": "What if being neurodivergent was your business superpower?",
+      "problem": "Brilliant minds stuck in systems that don't work for them",
+      "solution": "First neurodivergent-led creative ecosystem in Wales",
+      "vision": "Every different mind has a place to thrive and create",
+      "urgency": "Mental health crisis + economic opportunity = act now",
+      "social_proof": "Early products already helping community members focus",
+      "call_to_action": "Help us prove neurodivergent businesses can change the world"
+    }
+  },
+  "success_metrics": {
+    "email_signups": "500+ before launch",
+    "social_following": "1000+ TikTok, 500+ Discord",
+    "early_sales": "£500+ in pre-campaign revenue",
+    "media_coverage": "2+ local news features",
+    "campaign_funding": "30% funded in first 48 hours"
+  },
+  "risk_mitigation": {
+    "low_funding": "Pre-built community ensures minimum viable support",
+    "technical_issues": "Multiple platform backup strategy",
+    "negative_feedback": "Strong community advocates for positive response",
+    "campaign_fatigue": "Valuable content keeps engagement high"
+  }
+}

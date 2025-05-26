@@ -1,0 +1,42 @@
+import os
+
+# Define the base directory for the project
+base_dir = "/c/Users/Lyndz/OneDrive/Desktop/HYPERFOCUS DREAM build idea/Hyperfocus_Zone_Ultra_Studio"
+
+# Define folder structure
+folders = [
+    "docs",
+    "product",
+    "marketing",
+    "tools",
+    "ai-prompts",
+    "branding",
+    "launch"
+]
+
+# Define initial files and their content
+files = {
+    "README.md": "# Hyperfocus Zone Ultra Studio\n\nWelcome to the ultimate creative studio for neurodivergent innovation.\n\n## 🔥 Mission\nTo empower neurodivergent creators through AI, 3D printing, and community-driven projects.\n\n## 🌍 Vision\nA global network of inclusive studios where creativity meets support and technology.\n\n## 🚀 Why Join?\nBecause this isn't just a project. It's a movement. Help us build a future where every mind shines.\n",
+    "docs/vision.md": "## Project Vision\n\nCreate a hands-on space where creativity, neurodiversity, and tech meet to make real impact.",
+    "docs/team.md": "## Team Roles\n\n- Project Lead\n- AI Developer\n- 3D Print Designer\n- Community Manager\n- Social Media Wizard",
+    "docs/funding.md": "## Funding Plan\n\nTarget: Crowdfunding + Grants + Pi Network support\n\n- GoFundMe launch\n- Investor 1-Pager\n- PiStarter proposal",
+    "docs/community.md": "## Community Plan\n\n- TikTok, Discord, and IRL events\n- Reward systems and collaboration models",
+    "docs/branding.md": "## Branding Vibe\n\nStyle: Futuristic, playful, a bit rebellious\n\nColors: Hyper blue, glitch green, soft black\n\nFont: Sleek, legible, bold",
+    "product/products.md": "## Product Ideas\n\n- 3D printed HelloFresh Frames\n- Glow-in-the-dark Mr. Mushroom\n- EEP Tools (Driver figurines)\n- Digital ADHD planners",
+    "marketing/strategy.md": "## Marketing Plan\n\n1. TikTok storytelling\n2. Etsy listings with full description\n3. Launch video with emotional hook",
+    "tools/tools.md": "## Toolchain\n\n- ChatGPT Pro\n- GitHub Copilot\n- Canva, CapCut, Leonardo.Ai\n- Tinkercad, Cura\n- Notion + Trello",
+    "ai-prompts/prompts.md": "## Custom Prompts Used\n\n- Ultra AI Business Builder Prompt\n- Squad-Based Team Prompts\n- TikTok Pitch Generator\n\n(See chat logs for more)",
+    "launch/plan.md": "## Launch Phase\n\n- Clean workspace\n- Create first batch of prints\n- Upload branding\n- Build hype video\n- Launch GoFundMe"
+}
+
+# Create directories and files
+os.makedirs(base_dir, exist_ok=True)
+for folder in folders:
+    os.makedirs(os.path.join(base_dir, folder), exist_ok=True)
+
+for file_path, content in files.items():
+    full_path = os.path.join(base_dir, file_path)
+    with open(full_path, 'w') as f:
+        f.write(content)
+
+print(f"Project structure created at: {base_dir}")

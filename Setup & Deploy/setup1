@@ -1,0 +1,139 @@
+#!/usr/bin/env python3
+"""
+🚀 AI Squad Business Creator - Setup1
+====================================
+Core business creation and ideation system
+"""
+
+import json
+import os
+from datetime import datetime
+from pathlib import Path
+
+def create_business_structure():
+    """Create comprehensive business structure"""
+    print("🧠 AI Squad Business Creator Activated!")
+    print("=" * 50)
+    
+    # Create business directories
+    directories = [
+        "production_assets/product_ideas",
+        "production_assets/business_plans", 
+        "production_assets/marketing_materials",
+        "Business Data/analytics",
+        "Business Data/market_research"
+    ]
+    
+    for directory in directories:
+        Path(directory).mkdir(parents=True, exist_ok=True)
+        print(f"📁 Created: {directory}")
+    
+    # Generate business blueprint
+    business_blueprint = {
+        "empire_name": "ChaosGenius Neurodivergent Empire",
+        "mission": "Transform chaos into structured business success",
+        "target_market": "Neurodivergent entrepreneurs and creators",
+        "revenue_streams": [
+            "3D Print Products (40%)",
+            "Digital Tools & Templates (25%)", 
+            "Consulting & Coaching (20%)",
+            "Community & Subscriptions (15%)"
+        ],
+        "initial_products": [
+            {
+                "name": "HelloFresh Frame",
+                "type": "3D Print",
+                "target_price": "£15-25",
+                "description": "ADHD-friendly meal planning organizer"
+            },
+            {
+                "name": "Mr. Mushroom Night Light",
+                "type": "3D Print", 
+                "target_price": "£10-15",
+                "description": "Calming sensory night light"
+            },
+            {
+                "name": "Hyperfocus Zone Planner",
+                "type": "Digital Product",
+                "target_price": "£5-10", 
+                "description": "Neurodivergent productivity system"
+            }
+        ],
+        "phase_1_target": "£5,000 revenue in 6 months",
+        "location": "Llanelli, South Wales",
+        "created_at": datetime.now().isoformat(),
+        "ai_squad_version": "1.0"
+    }
+    
+    # Save business blueprint
+    blueprint_file = f"Business Data/business_blueprint_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(blueprint_file, 'w', encoding='utf-8') as f:
+        json.dump(business_blueprint, f, indent=2, ensure_ascii=False)
+    
+    print(f"💼 Business blueprint created: {blueprint_file}")
+    
+    # Create initial product ideas
+    product_ideas = [
+        {
+            "name": "Chaos Organizer Pro", 
+            "description": "Modular desk organizer for ADHD brains",
+            "category": "3D Print",
+            "estimated_price": "£20-30"
+        },
+        {
+            "name": "Focus Flow Timer",
+            "description": "Visual pomodoro timer with sensory feedback", 
+            "category": "Electronics + 3D Print",
+            "estimated_price": "£25-35"
+        },
+        {
+            "name": "Neurodivergent Starter Pack",
+            "description": "Digital bundle of tools and templates",
+            "category": "Digital Product",
+            "estimated_price": "£15-25"
+        }
+    ]
+    
+    for i, idea in enumerate(product_ideas, 1):
+        idea_file = f"production_assets/product_ideas/ai_generated_idea_{i}_{datetime.now().strftime('%Y%m%d')}.json"
+        with open(idea_file, 'w', encoding='utf-8') as f:
+            json.dump(idea, f, indent=2, ensure_ascii=False)
+        print(f"💡 Product idea created: {idea['name']}")
+    
+    # Generate marketing strategy
+    marketing_strategy = {
+        "target_audience": {
+            "primary": "ADHD entrepreneurs aged 25-45",
+            "secondary": "Neurodivergent students and professionals",
+            "tertiary": "Parents of neurodivergent children"
+        },
+        "channels": [
+            "TikTok (primary) - ADHD tips & product demos",
+            "Etsy (sales) - Direct product sales",
+            "Discord (community) - Support and engagement", 
+            "Instagram (visual) - Product photography",
+            "YouTube (long-form) - Tutorials and reviews"
+        ],
+        "content_strategy": "Document the journey, show the chaos-to-order transformation",
+        "initial_campaign": "30-day ADHD entrepreneur challenge",
+        "created_at": datetime.now().isoformat()
+    }
+    
+    marketing_file = f"production_assets/marketing_materials/marketing_strategy_{datetime.now().strftime('%Y%m%d')}.json"
+    with open(marketing_file, 'w', encoding='utf-8') as f:
+        json.dump(marketing_strategy, f, indent=2, ensure_ascii=False)
+    
+    print(f"📈 Marketing strategy created: {marketing_file}")
+    
+    print("\n✅ AI Squad Business Creator Complete!")
+    print("🚀 Your neurodivergent empire foundation is ready!")
+    print("\n🎯 Next Steps:")
+    print("   1. Review generated business blueprint")
+    print("   2. Customize product ideas to your interests") 
+    print("   3. Set up initial marketing channels")
+    print("   4. Launch first product prototype")
+    
+    return True
+
+if __name__ == "__main__":
+    create_business_structure()

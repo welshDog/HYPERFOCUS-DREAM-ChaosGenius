@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""
+🤝 COMMUNITY BUILDER - Neurodivergent-Safe Space Creator
+======================================================
+Builds authentic community through storytelling and safe spaces
+"""
+
+import json
+from datetime import datetime
+from pathlib import Path
+
+class CommunityBuilder:
+    def __init__(self):
+        self.project_root = Path(__file__).parent.parent
+        
+    def create_discord_setup_guide(self):
+        """Create Discord server setup guide for neurodivergent-friendly community"""
+        
+        discord_structure = {
+            "server_name": "🧠 Hyperfocus Zone - Neurodivergent Creators",
+            "server_description": "Where different minds thrive and create amazing things together 💜",
+            "channels": {
+                "WELCOME & RULES": {
+                    "🚪-welcome": "Community intro & guidelines",
+                    "📋-rules": "Safe space rules (be kind, be authentic, be you)",
+                    "🎯-roles": "Choose your creator type & pronouns"
+                },
+                "SAFE SPACES": {
+                    "💭-adhd-thoughts": "Scatter your thoughts freely",
+                    "🧩-autism-friendly": "Sensory-conscious discussions", 
+                    "🌊-overwhelm-support": "When everything feels like too much",
+                    "🎯-hyperfocus-wins": "Celebrate your deep dive victories"
+                },
+                "CREATE TOGETHER": {
+                    "🧸-3d-printing": "Share prints, fails, and wins",
+                    "🤖-ai-tools": "AI discoveries that actually help",
+                    "🎨-design-feedback": "Kind, constructive design help",
+                    "📱-content-collab": "TikTok/YouTube collaboration"
+                },
+                "BUSINESS BUILDERS": {
+                    "💰-revenue-reality": "Real talk about making money",
+                    "🚀-project-updates": "Share your chaos-to-success journey", 
+                    "🤝-accountability": "Gentle accountability partners",
+                    "💡-idea-bounce": "Bounce wild ideas off each other"
+                },
+                "CHILL ZONES": {
+                    "☕-daily-check-in": "How's your brain today?",
+                    "🐕-pet-pics": "Sir Barksalot & friends",
+                    "🎮-hyperfocus-breaks": "Gaming & mindless fun",
+                    "🌙-after-hours": "Night owl conversations"
+                }
+            },
+            "community_guidelines": [
+                "💜 Different brains are celebrated here",
+                "🛡️ No masking required - be authentically you",
+                "🤝 Support over competition always",
+                "📢 Content warnings for overwhelming topics",
+                "⏰ Respect different energy levels & time zones",
+                "🔄 It's okay to disappear and come back",
+                "✨ Celebrate small wins as much as big ones"
+            ],
+            "onboarding_sequence": {
+                "day_1": "Welcome DM with community intro video",
+                "day_3": "Check-in: How are you settling in?",
+                "day_7": "Invite to share your first project/idea",
+                "day_14": "Connection: Introduce to similar creators",
+                "day_30": "Feedback: How can we support you better?"
+            },
+            "content_themes": {
+                "Monday": "💭 Mind Dump Monday - Share your scattered thoughts",
+                "Tuesday": "🔧 Tool Tuesday - What's helping your brain today?",
+                "Wednesday": "🎯 Win Wednesday - Celebrate any size victory",
+                "Thursday": "💭 Thought Thursday - Deep dive discussions",
+                "Friday": "🎉 Feature Friday - Show off your creations",
+                "Saturday": "🤝 Support Saturday - Help requests & offers", 
+                "Sunday": "🌱 Sunday Reset - Prep for the week ahead"
+            }
+        }
+        
+        guide_file = self.project_root / "Marketing Content" / "Discord_Community_Setup.json"
+        
+        with open(guide_file, 'w', encoding='utf-8') as f:
+            json.dump(discord_structure, f, indent=2, ensure_ascii=False)
+            
+        return guide_file
+    
+    def create_storytelling_templates(self):
+        """Create authentic storytelling templates for social media"""
+        
+        story_templates = {
+            "vulnerable_shares": [
+                "The truth about starting a business with ADHD...",
+                "What they don't tell you about being neurodivergent in business...",
+                "Today my brain did this thing and honestly...",
+                "Can we talk about the reality of 'following your passion' when...",
+                "Plot twist: My biggest business strength comes from my..."
+            ],
+            "behind_scenes": [
+                "POV: Your ADHD brain at 2AM having THE idea...",
+                "Things that happened in my studio today (it's chaos)...",
+                "Real talk: This is what a neurodivergent workspace looks like...",
+                "When hyperfocus hits different...",
+                "The unfiltered truth about my creative process..."
+            ],
+            "community_building": [
+                "Tell me you're neurodivergent without telling me...",
+                "What's one thing you wish people understood about your brain?",
+                "Drop your latest hyperfocus obsession below 👇",
+                "Neurodivergent creators, what's your secret superpower?",
+                "Anyone else's brain work like this or just me?"
+            ],
+            "educational_hooks": [
+                "Here's how ADHD actually helps in business...",
+                "Autism strengths that make amazing entrepreneurs...",
+                "Why neurotypical business advice doesn't work for us...",
+                "The neurodivergent advantage in creative work...",
+                "How to turn your 'weaknesses' into business gold..."
+            ],
+            "call_to_actions": [
+                "Join our Discord if this resonates 💜",
+                "Following for more neurodivergent business tips ✨",
+                "Comment 'ME' if you need this community too",
+                "Link in bio for the full story 🧠",
+                "Who else needs a space like this? Tag them 👇"
+            ]
+        }
+        
+        templates_file = self.project_root / "Marketing Content" / "Storytelling_Templates.json"
+        
+        with open(templates_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                "created": datetime.now().isoformat(),
+                "purpose": "Authentic storytelling templates for community building",
+                "templates": story_templates,
+                "posting_strategy": {
+                    "frequency": "2-3 authentic shares per week",
+                    "tone": "Vulnerable, honest, relatable",
+                    "goal": "Build trust before selling anything",
+                    "engagement_focus": "Comments over likes",
+                    "community_first": "Always prioritize connection over conversion"
+                }
+            }, f, indent=2, ensure_ascii=False)
+            
+        return templates_file
+
+if __name__ == "__main__":
+    builder = CommunityBuilder()
+    
+    discord_guide = builder.create_discord_setup_guide()
+    story_templates = builder.create_storytelling_templates()
+    
+    print("🤝 COMMUNITY BUILDER ACTIVATED!")
+    print(f"✅ Discord setup guide: {discord_guide.name}")
+    print(f"✅ Storytelling templates: {story_templates.name}")
+    print("\n🚀 Ready to build your neurodivergent creator community!")

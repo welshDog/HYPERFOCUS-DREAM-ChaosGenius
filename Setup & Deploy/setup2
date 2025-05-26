@@ -1,0 +1,191 @@
+#!/usr/bin/env python3
+"""
+🔧 AI Squad Advanced Analyzer - Setup2
+=====================================
+Project analysis, optimization, and fixing system
+"""
+
+import json
+import os
+import ast
+import subprocess
+import sys
+from datetime import datetime
+from pathlib import Path
+import sqlite3
+
+def analyze_project_health():
+    """Comprehensive project health analysis"""
+    print("🔧 AI Squad Advanced Analyzer Activated!")
+    print("=" * 50)
+    
+    analysis_results = {
+        "scan_timestamp": datetime.now().isoformat(),
+        "project_health": "analyzing...",
+        "issues_found": [],
+        "fixes_applied": [],
+        "recommendations": [],
+        "files_analyzed": 0,
+        "critical_issues": 0,
+        "warnings": 0
+    }
+    
+    # Check Python files for syntax errors
+    print("🐍 Analyzing Python files...")
+    python_files = list(Path(".").rglob("*.py"))
+    analysis_results["files_analyzed"] = len(python_files)
+    
+    for py_file in python_files:
+        try:
+            with open(py_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Check syntax
+            try:
+                ast.parse(content)
+            except SyntaxError as e:
+                issue = f"Syntax error in {py_file}: {e}"
+                analysis_results["issues_found"].append(issue)
+                analysis_results["critical_issues"] += 1
+                print(f"❌ {issue}")
+            
+            # Check for common issues
+            if "TODO" in content:
+                analysis_results["warnings"] += 1
+                analysis_results["issues_found"].append(f"TODO found in {py_file}")
+            
+            if "import discord" in content and "TOKEN" in content:
+                if not os.path.exists(".env"):
+                    analysis_results["critical_issues"] += 1
+                    analysis_results["issues_found"].append(f"Discord bot in {py_file} requires .env file")
+                    
+        except Exception as e:
+            analysis_results["issues_found"].append(f"Error reading {py_file}: {e}")
+    
+    # Check database health
+    print("🗄️ Checking database health...")
+    if os.path.exists("chaosgenius.db"):
+        try:
+            conn = sqlite3.connect("chaosgenius.db")
+            cursor = conn.cursor()
+            
+            # Check table existence
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            tables = cursor.fetchall()
+            
+            if len(tables) >= 3:  # Expected: projects, ai_sessions, activity_log
+                analysis_results["fixes_applied"].append("Database structure validated")
+            else:
+                analysis_results["issues_found"].append("Database missing expected tables")
+                analysis_results["critical_issues"] += 1
+            
+            conn.close()
+        except Exception as e:
+            analysis_results["issues_found"].append(f"Database error: {e}")
+            analysis_results["critical_issues"] += 1
+    else:
+        analysis_results["issues_found"].append("Database file missing - will be created on first run")
+        analysis_results["warnings"] += 1
+    
+    # Check requirements and dependencies
+    print("📦 Validating dependencies...")
+    if os.path.exists("requirements.txt"):
+        try:
+            result = subprocess.run([sys.executable, "-m", "pip", "check"], 
+                                  capture_output=True, text=True)
+            if result.returncode != 0:
+                analysis_results["issues_found"].append("Dependency conflicts detected")
+                analysis_results["warnings"] += 1
+            else:
+                analysis_results["fixes_applied"].append("Dependencies validated")
+        except Exception as e:
+            analysis_results["issues_found"].append(f"Dependency check failed: {e}")
+    
+    # Check environment configuration
+    print("⚙️ Checking environment setup...")
+    env_files = [".env", ".env.example", ".env.template"]
+    env_exists = any(os.path.exists(f) for f in env_files)
+    
+    if not env_exists:
+        analysis_results["critical_issues"] += 1
+        analysis_results["issues_found"].append("No environment configuration found")
+    else:
+        analysis_results["fixes_applied"].append("Environment configuration present")
+    
+    # Check project structure
+    print("📁 Validating project structure...")
+    required_dirs = [
+        "Business Data",
+        "production_assets", 
+        "Scripts & Prompts",
+        "Setup & Deploy"
+    ]
+    
+    missing_dirs = [d for d in required_dirs if not os.path.exists(d)]
+    if missing_dirs:
+        analysis_results["warnings"] += len(missing_dirs)
+        for dir_name in missing_dirs:
+            analysis_results["issues_found"].append(f"Missing directory: {dir_name}")
+            # Auto-create missing directories
+            os.makedirs(dir_name, exist_ok=True)
+            analysis_results["fixes_applied"].append(f"Created missing directory: {dir_name}")
+    
+    # Generate recommendations
+    print("💡 Generating recommendations...")
+    if analysis_results["critical_issues"] > 0:
+        analysis_results["project_health"] = "CRITICAL - Immediate attention required"
+        analysis_results["recommendations"].extend([
+            "Fix critical syntax errors before deployment",
+            "Set up environment configuration (.env file)",
+            "Resolve database connectivity issues"
+        ])
+    elif analysis_results["warnings"] > 5:
+        analysis_results["project_health"] = "WARNING - Multiple issues to address"
+        analysis_results["recommendations"].extend([
+            "Complete TODO items in code",
+            "Update documentation",
+            "Run comprehensive testing"
+        ])
+    else:
+        analysis_results["project_health"] = "GOOD - Minor optimizations possible"
+        analysis_results["recommendations"].extend([
+            "Consider adding automated testing",
+            "Implement monitoring and logging",
+            "Optimize for production deployment"
+        ])
+    
+    # Apply automatic fixes
+    print("🔧 Applying automatic fixes...")
+    
+    # Create missing .env from template if needed
+    if not os.path.exists(".env") and os.path.exists(".env.example"):
+        import shutil
+        shutil.copy(".env.example", ".env")
+        analysis_results["fixes_applied"].append("Created .env from template")
+        print("✅ Created .env file from template")
+    
+    # Create logs directory
+    os.makedirs("logs", exist_ok=True)
+    analysis_results["fixes_applied"].append("Ensured logs directory exists")
+    
+    # Save analysis report
+    report_file = f"hyperfocus_project_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(report_file, 'w', encoding='utf-8') as f:
+        json.dump(analysis_results, f, indent=2, ensure_ascii=False)
+    
+    print(f"\n📊 Analysis complete! Report saved: {report_file}")
+    print(f"🏥 Project Health: {analysis_results['project_health']}")
+    print(f"❌ Critical Issues: {analysis_results['critical_issues']}")
+    print(f"⚠️ Warnings: {analysis_results['warnings']}")
+    print(f"✅ Fixes Applied: {len(analysis_results['fixes_applied'])}")
+    
+    if analysis_results["recommendations"]:
+        print("\n💡 Recommendations:")
+        for rec in analysis_results["recommendations"]:
+            print(f"   • {rec}")
+    
+    print("\n🚀 Project analysis complete!")
+    return analysis_results
+
+if __name__ == "__main__":
+    analyze_project_health()

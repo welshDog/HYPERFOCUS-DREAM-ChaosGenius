@@ -1,0 +1,221 @@
+{
+  "project_name": "ChaosGenius Engine",
+  "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
+  "generated_at": "2025-05-25T04:31:08.977391",
+  "components": [
+    {
+      "name": "auto_doc_generator.py",
+      "type": "file",
+      "description": "Python module: auto_doc_generator"
+    },
+    {
+      "name": "Business Data",
+      "type": "directory",
+      "description": "Component: Business Data"
+    },
+    {
+      "name": "chaosgenius_discord_bot.py",
+      "type": "file",
+      "description": "Python module: chaosgenius_discord_bot"
+    },
+    {
+      "name": "dashboard.html",
+      "type": "file",
+      "description": "File: dashboard.html"
+    },
+    {
+      "name": "dashboard_api.py",
+      "type": "file",
+      "description": "Python module: dashboard_api"
+    },
+    {
+      "name": "file_organization_log_20250524_024441.json",
+      "type": "file",
+      "description": "Configuration: file_organization_log_20250524_024441"
+    },
+    {
+      "name": "final_exports",
+      "type": "directory",
+      "description": "Component: final_exports"
+    },
+    {
+      "name": "generated_docs",
+      "type": "directory",
+      "description": "Component: generated_docs"
+    },
+    {
+      "name": "graceful_shutdown_example.py",
+      "type": "file",
+      "description": "Python module: graceful_shutdown_example"
+    },
+    {
+      "name": "htmlcov",
+      "type": "directory",
+      "description": "Component: htmlcov"
+    },
+    {
+      "name": "Hyperfocus Bio Zone.html",
+      "type": "file",
+      "description": "File: Hyperfocus Bio Zone.html"
+    },
+    {
+      "name": "logs",
+      "type": "directory",
+      "description": "Component: logs"
+    },
+    {
+      "name": "Marketing Content",
+      "type": "directory",
+      "description": "Component: Marketing Content"
+    },
+    {
+      "name": "production_assets",
+      "type": "directory",
+      "description": "Component: production_assets"
+    },
+    {
+      "name": "production_manager.py",
+      "type": "file",
+      "description": "Python module: production_manager"
+    },
+    {
+      "name": "project_analysis_report_20250525_015239.json",
+      "type": "file",
+      "description": "Configuration: project_analysis_report_20250525_015239"
+    },
+    {
+      "name": "project_analysis_report_20250525_015808.json",
+      "type": "file",
+      "description": "Configuration: project_analysis_report_20250525_015808"
+    },
+    {
+      "name": "README.md",
+      "type": "file",
+      "description": "Main project documentation"
+    },
+    {
+      "name": "Scripts & Prompts",
+      "type": "directory",
+      "description": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "Setup & Deploy",
+      "type": "directory",
+      "description": "Component: Setup & Deploy"
+    },
+    {
+      "name": "start.py",
+      "type": "file",
+      "description": "Python module: start"
+    },
+    {
+      "name": "tests",
+      "type": "directory",
+      "description": "Component: tests"
+    },
+    {
+      "name": "test_chaosgenius_dashboard.py",
+      "type": "file",
+      "description": "Python module: test_chaosgenius_dashboard"
+    },
+    {
+      "name": "The Zone",
+      "type": "directory",
+      "description": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "Tools & Utilities",
+      "type": "directory",
+      "description": "Component: Tools & Utilities"
+    },
+    {
+      "name": "Ultra IPFS",
+      "type": "directory",
+      "description": "Advanced IPFS integration for Web3 features"
+    },
+    {
+      "name": "venv",
+      "type": "directory",
+      "description": "Component: venv"
+    },
+    {
+      "name": "venvve",
+      "type": "directory",
+      "description": "Component: venvve"
+    },
+    {
+      "name": "Welcome & Onboarding",
+      "type": "directory",
+      "description": "Component: Welcome & Onboarding"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "description": "Component: __pycache__"
+    }
+  ],
+  "documentation_tools": [
+    {
+      "name": "ReadmeAI",
+      "purpose": "Automated README generation",
+      "features": [
+        "Structured README files",
+        "Multiple templates",
+        "Multi-language support"
+      ]
+    },
+    {
+      "name": "DocuWriter.ai",
+      "purpose": "Code and API documentation",
+      "features": [
+        "Swagger-compliant docs",
+        "DocBlock generation",
+        "Code refactoring"
+      ]
+    },
+    {
+      "name": "Aidocmaker.com",
+      "purpose": "Professional document creation",
+      "features": [
+        "Business reports",
+        "Proposals",
+        "Research papers"
+      ]
+    },
+    {
+      "name": "Piktochart AI",
+      "purpose": "Visual documentation",
+      "features": [
+        "Infographics",
+        "Visual aids",
+        "Custom graphics"
+      ]
+    },
+    {
+      "name": "Scribe",
+      "purpose": "Process documentation",
+      "features": [
+        "Step-by-step guides",
+        "Screenshot automation",
+        "Training docs"
+      ]
+    }
+  ],
+  "revenue_streams": [
+    "AI Business Creation Consulting",
+    "Hyperfocus Zone Studio Licensing",
+    "Documentation Suite SaaS",
+    "Neurodivergent Business Accelerator",
+    "Custom AI Squad Development"
+  ],
+  "tech_stack": {
+    "languages": [
+      "Python",
+      "HTML",
+      "JavaScript"
+    ],
+    "frameworks": [],
+    "tools": [],
+    "ai_services": []
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "created": "2025-05-25T11:27:30.044423",
+  "launch_timeline": {
+    "week_1_products": {
+      "mr_mushroom_v1": {
+        "name": "Mr. Mushroom Night Light",
+        "price_tiers": {
+          "basic": {
+            "price": "£15",
+            "description": "Single color LED"
+          },
+          "premium": {
+            "price": "£25",
+            "description": "RGB color changing + remote"
+          }
+        },
+        "production_time": "2 hours per unit",
+        "materials_cost": "£3-5 per unit",
+        "profit_margin": "70-80%",
+        "launch_platforms": [
+          "TikTok Shop",
+          "Etsy",
+          "Local Facebook groups"
+        ],
+        "marketing_angle": "Neurodivergent-designed sensory lighting"
+      },
+      "eep_driver_keychain": {
+        "name": "EEP Driver Keychain",
+        "price": "£8",
+        "bulk_pricing": "3 for £20, 5 for £30",
+        "production_time": "30 minutes per unit",
+        "materials_cost": "£1.50 per unit",
+        "profit_margin": "80%+",
+        "target_market": "Car enthusiasts, 3D printing community",
+        "upsell_opportunity": "Custom colors/text for +£3"
+      }
+    },
+    "week_2_digital": {
+      "stl_starter_pack": {
+        "name": "Neurodivergent Creator STL Pack",
+        "price": "£12",
+        "contents": [
+          "Mr. Mushroom files",
+          "EEP Driver variants",
+          "Fidget toys",
+          "Organization tools"
+        ],
+        "delivery": "Instant download",
+        "profit_margin": "95%",
+        "platform": "Etsy digital downloads"
+      },
+      "studio_setup_guide": {
+        "name": "ADHD-Friendly Maker Space Setup Guide",
+        "price": "£25",
+        "format": "PDF + video walkthrough",
+        "unique_selling_point": "Only guide designed specifically for neurodivergent creators",
+        "time_to_create": "Weekend project using existing content"
+      }
+    },
+    "week_3_services": {
+      "custom_3d_design": {
+        "service": "Custom 3D Design + Print",
+        "pricing": "£35-75 depending on complexity",
+        "turnaround": "3-5 days",
+        "target": "Local businesses, personal gifts",
+        "marketing": "Portfolio posts on TikTok/Instagram"
+      },
+      "consultation": {
+        "service": "Neurodivergent Business Setup Call",
+        "price": "£50/hour",
+        "format": "Video call + follow-up resources",
+        "positioning": "The only consultant who actually gets your brain"
+      }
+    }
+  },
+  "sales_strategy": {
+    "pricing_psychology": {
+      "charm_pricing": "£25 feels more accessible than £30",
+      "bundle_power": "3-item bundles increase average order value",
+      "scarcity": "Limited first-batch quantities create urgency",
+      "social_proof": "Every sale becomes content for next sale"
+    },
+    "platform_strategy": {
+      "tiktok_shop": {
+        "advantage": "Direct checkout from videos",
+        "content_type": "Product in use, behind-scenes making",
+        "posting_time": "6-8 PM when your audience is active"
+      },
+      "etsy": {
+        "advantage": "SEO for 'neurodivergent' + '3D printed'",
+        "keywords": [
+          "ADHD friendly",
+          "autism sensory",
+          "neurodivergent",
+          "maker space"
+        ],
+        "photos": "Lifestyle shots showing products in use"
+      },
+      "local_facebook": {
+        "groups": [
+          "Llanelli Buy/Sell",
+          "Welsh Makers",
+          "3D Printing UK"
+        ],
+        "approach": "Community member sharing their creations, not pushy sales"
+      }
+    },
+    "content_to_sales_funnel": {
+      "awareness": "Studio setup videos showing products being made",
+      "interest": "Product benefit videos (how Mr. Mushroom helps focus)",
+      "consideration": "Customer testimonials and real usage",
+      "purchase": "Limited time launch pricing",
+      "retention": "Behind-scenes of their custom order being made"
+    }
+  },
+  "revenue_targets": {
+    "week_1": "£100-300 (first sales momentum)",
+    "month_1": "£500-1000 (consistent sales)",
+    "month_3": "£1500-3000 (word-of-mouth growth)"
+  },
+  "success_metrics": [
+    "First sale within 7 days",
+    "5+ product reviews within 30 days",
+    "50+ Discord members within 30 days",
+    "1000+ TikTok followers within 60 days"
+  ]
+}

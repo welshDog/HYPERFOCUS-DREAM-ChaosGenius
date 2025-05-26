@@ -1,0 +1,239 @@
+#!/usr/bin/env python3
+"""
+🎬 STUDIO SETUP CONTENT CREATOR - ChaosGenius Engine
+==================================================
+AI-powered tool to guide your first revenue-generating content creation
+"""
+
+import json
+import os
+from datetime import datetime, timedelta
+from pathlib import Path
+
+class StudioContentCreator:
+    def __init__(self):
+        self.project_root = Path(__file__).parent.parent
+        self.content_folder = self.project_root / "Marketing Content"
+        self.exports_folder = self.project_root / "final_exports"
+        
+    def generate_day_1_content_plan(self):
+        """Generate complete Day 1 studio setup content strategy"""
+        
+        content_plan = {
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "theme": "ChaosGenius Studio: Day 1 - The Beginning",
+            "target_revenue": "£50-100 from first product listings",
+            
+            "tiktok_content": {
+                "video_1": {
+                    "title": "Setting up my ADHD-friendly creative studio ✨",
+                    "duration": "15-30 seconds",
+                    "hooks": [
+                        "POV: You're starting a neurodivergent-friendly business",
+                        "ADHD brain + 3D printer = chaos magic ✨",
+                        "Day 1 of building my hyperfocus empire"
+                    ],
+                    "content_beats": [
+                        "Show messy-but-organized workspace",
+                        "3D printer in action (satisfying)",
+                        "Mr. Mushroom prototypes",
+                        "Planning boards/sticky notes"
+                    ],
+                    "call_to_action": "Follow for the journey! 🚀",
+                    "hashtags": "#ADHD #SmallBusiness #3DPrinting #NeurodivergentCreator #MrMushroom"
+                },
+                
+                "video_2": {
+                    "title": "First Mr. Mushroom prototype reveal! 🍄",
+                    "duration": "15-30 seconds", 
+                    "hooks": [
+                        "This little guy might change everything...",
+                        "Meet Mr. Mushroom - the ADHD fidget friend",
+                        "From idea to prototype in 24 hours"
+                    ],
+                    "content_beats": [
+                        "Close-up of 3D printing process",
+                        "First prototype reveal",
+                        "Showing size/texture",
+                        "Testing fidget functionality"
+                    ],
+                    "call_to_action": "Want one? Link in bio! 🍄",
+                    "hashtags": "#MrMushroom #ADHDFidgets #3DPrinting #SmallBusiness"
+                }
+            },
+            
+            "instagram_content": {
+                "story_series": {
+                    "title": "Studio Setup Day 1",
+                    "slides": [
+                        "Good morning! Today we start the ChaosGenius journey ☕",
+                        "Setting up the creative space (messy but functional)",
+                        "3D printer warming up for first Mr. Mushroom run",
+                        "Planning the first week's content calendar",
+                        "First prototype coming to life! 🍄"
+                    ]
+                },
+                
+                "reel": {
+                    "title": "ADHD Brain + 3D Printer = Magic ✨",
+                    "music_style": "Upbeat/motivational",
+                    "transitions": "Quick cuts matching beat",
+                    "text_overlays": [
+                        "Day 1: The idea",
+                        "Hour 2: 3D modeling", 
+                        "Hour 4: First print",
+                        "Hour 6: Business launch!"
+                    ]
+                }
+            },
+            
+            "youtube_shorts": {
+                "title": "Starting My Neurodivergent Business - Day 1",
+                "description": "Follow my journey building ChaosGenius - a business designed by and for neurodivergent minds. Today: first Mr. Mushroom prototype!",
+                "tags": ["ADHD", "Small Business", "3D Printing", "Neurodivergent", "Entrepreneur"]
+            },
+            
+            "etsy_listings": {
+                "mr_mushroom_fidget": {
+                    "title": "Mr. Mushroom - ADHD Fidget Friend | 3D Printed Sensory Toy",
+                    "price": "£8.99",
+                    "description": """
+Meet Mr. Mushroom - the perfect fidget companion for neurodivergent minds! 
+
+🍄 Designed specifically for ADHD brains
+✨ Satisfying texture for sensory needs  
+🎯 Perfect size for desk or pocket
+💜 Created by neurodivergent maker
+🌱 Eco-friendly 3D printed material
+
+Each Mr. Mushroom is carefully 3D printed with love in Wales. The unique texture provides just the right amount of sensory input for focus and calm.
+
+Perfect for:
+- Desk fidgeting during work/study
+- Anxiety relief
+- ADHD focus tool  
+- Sensory seekers
+- Gift for neurodivergent friends
+
+Available in multiple colors!
+""",
+                    "tags": ["ADHD", "fidget toy", "sensory", "3D printed", "neurodivergent", "autism", "focus", "anxiety relief"],
+                    "photos_needed": [
+                        "Hero shot on clean background",
+                        "Size comparison (next to hand)",
+                        "Texture detail close-up",
+                        "Multiple colors display",
+                        "In-use lifestyle shot"
+                    ]
+                }
+            }
+        }
+        
+        return content_plan
+    
+    def create_filming_checklist(self):
+        """Create comprehensive filming checklist for today"""
+        
+        checklist = {
+            "pre_filming": [
+                "☐ Charge phone/camera battery",
+                "☐ Clear memory space for videos", 
+                "☐ Set up good lighting (natural light preferred)",
+                "☐ Clean workspace background",
+                "☐ Prepare 3D printer with filament",
+                "☐ Have Mr. Mushroom files ready to print"
+            ],
+            
+            "during_filming": [
+                "☐ Film 3D printer starting up (satisfying content)",
+                "☐ Record time-lapse of printing process",
+                "☐ Capture workspace setup montage",
+                "☐ Film first prototype reveal",
+                "☐ Show size/texture demonstrations",
+                "☐ Record your genuine reactions!"
+            ],
+            
+            "post_filming": [
+                "☐ Edit TikTok videos (15-30 seconds each)",
+                "☐ Create Instagram Stories series", 
+                "☐ Edit YouTube Short",
+                "☐ Take product photos for Etsy",
+                "☐ Upload content with proper hashtags",
+                "☐ Engage with comments within first hour"
+            ],
+            
+            "technical_tips": [
+                "Shoot vertical (9:16) for TikTok/Instagram",
+                "Keep videos under 30 seconds for maximum engagement",
+                "Use trending audio on TikTok",
+                "Add captions for accessibility",
+                "Good lighting = higher engagement"
+            ]
+        }
+        
+        return checklist
+    
+    def generate_content_calendar(self):
+        """Generate 7-day content calendar for consistent posting"""
+        
+        calendar = {}
+        start_date = datetime.now()
+        
+        themes = [
+            "Day 1: Studio Setup & First Print",
+            "Day 2: Mr. Mushroom Variations", 
+            "Day 3: Behind the Scenes - Design Process",
+            "Day 4: Customer Reactions & Feedback",
+            "Day 5: New Product Teaser",
+            "Day 6: Community Building",
+            "Day 7: Week 1 Recap & Goals"
+        ]
+        
+        for i, theme in enumerate(themes):
+            date = start_date + timedelta(days=i)
+            calendar[date.strftime("%Y-%m-%d")] = {
+                "theme": theme,
+                "platforms": ["TikTok", "Instagram", "YouTube Shorts"],
+                "goal": "Build awareness + drive Etsy traffic",
+                "cta": "Visit Etsy shop for Mr. Mushroom!"
+            }
+        
+        return calendar
+
+if __name__ == "__main__":
+    creator = StudioContentCreator()
+    
+    print("🎬 CHAOSGENIUS STUDIO - DAY 1 CONTENT CREATOR")
+    print("=" * 50)
+    
+    # Generate today's content plan
+    content_plan = creator.generate_day_1_content_plan()
+    print("✅ Day 1 content strategy generated!")
+    print(f"📱 TikTok videos planned: {len(content_plan['tiktok_content'])}")
+    print(f"📸 Instagram content ready: Stories + Reel")
+    print(f"🛍️ Etsy listing prepared: Mr. Mushroom Fidget")
+    
+    # Create filming checklist
+    checklist = creator.create_filming_checklist()
+    print(f"\n📋 Filming checklist: {sum(len(tasks) for tasks in checklist.values())} tasks")
+    
+    # Generate content calendar
+    calendar = creator.generate_content_calendar()
+    print(f"📅 7-day content calendar: {len(calendar)} days planned")
+    
+    # Save everything
+    output_data = {
+        "content_plan": content_plan,
+        "filming_checklist": checklist,
+        "content_calendar": calendar,
+        "generated_at": datetime.now().isoformat()
+    }
+    
+    output_file = creator.content_folder / f"Day_1_Studio_Content_Plan_{datetime.now().strftime('%Y%m%d')}.json"
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"\n✅ Complete plan saved: {output_file.name}")
+    print("\n🚀 READY TO FILM AND ACTIVATE REVENUE!")
+    print("💡 Start with TikTok Video 1: 'Setting up my ADHD-friendly creative studio ✨'")
+    print("🎯 Goal: First £50-100 from Etsy within 48 hours!")

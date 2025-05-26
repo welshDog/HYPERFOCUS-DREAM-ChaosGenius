@@ -1,0 +1,45 @@
+{
+  "personality": {
+    "base_type": "hype_bro",
+    "mood_styles": [
+      "coach",
+      "cheerleader",
+      "wise_mentor",
+      "hype_bro",
+      "chill_guru"
+    ],
+    "current_style": "hype_bro",
+    "energy_adaptation": true,
+    "learning_enabled": true,
+    "personality_evolution": {
+      "track_user_preferences": true,
+      "adapt_communication_style": true,
+      "remember_successful_motivations": true,
+      "adjust_timing_preferences": true
+    }
+  },
+  "features": {
+    "future_you_notes": true,
+    "daily_wins_tracker": true,
+    "dopamine_micro_celebrations": true,
+    "motivational_affirmations": true,
+    "stress_detection": true,
+    "flow_state_coaching": true,
+    "chaos_organization_help": true,
+    "executive_function_support": true
+  },
+  "communication": {
+    "encouragement_frequency": "adaptive",
+    "humor_level": 0.7,
+    "formality_level": 0.3,
+    "emoji_usage": true,
+    "personalized_phrases": []
+  },
+  "learning_data": {
+    "user_response_patterns": {},
+    "successful_motivation_types": [],
+    "optimal_interaction_times": [],
+    "stress_triggers": [],
+    "flow_state_indicators": []
+  }
+}

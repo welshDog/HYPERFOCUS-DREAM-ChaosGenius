@@ -1,0 +1,64 @@
+{
+  "technical_quality": {
+    "audio": [
+      "Audio levels consistent (-6dB to -3dB for voice)",
+      "No clipping or distortion",
+      "Background noise removed",
+      "EQ applied for clarity",
+      "Proper LUFS levels for platform"
+    ],
+    "video": [
+      "Resolution correct for platform",
+      "Aspect ratio matches requirement",
+      "Frame rate consistent (24/30fps)",
+      "Color grading applied",
+      "No visual artifacts"
+    ],
+    "sync": [
+      "Audio-video sync perfect",
+      "Captions synchronized",
+      "Timing markers accurate",
+      "Transitions smooth",
+      "No dead space"
+    ]
+  },
+  "content_quality": {
+    "message": [
+      "Hook engaging within 3 seconds",
+      "Problem clearly defined",
+      "Solution compelling",
+      "Benefits specific",
+      "CTA clear and actionable"
+    ],
+    "brand": [
+      "Logo placement correct",
+      "Brand colors consistent",
+      "Tone matches brand voice",
+      "Visual style coherent",
+      "Contact info visible"
+    ]
+  },
+  "platform_compliance": {
+    "tiktok": [
+      "Under 60 seconds",
+      "9:16 aspect ratio",
+      "Captions readable",
+      "Trending elements included",
+      "Hook within 3 seconds"
+    ],
+    "linkedin": [
+      "Professional tone",
+      "Business value clear",
+      "16:9 or 1:1 ratio",
+      "Appropriate length",
+      "Industry-relevant content"
+    ],
+    "youtube": [
+      "SEO-optimized title",
+      "Compelling thumbnail",
+      "Detailed description",
+      "Proper tags",
+      "End screen elements"
+    ]
+  }
+}
