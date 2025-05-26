@@ -164,7 +164,7 @@ class EtsyAPIClient:
             'status': 'mock_data'
         }
     
-    def _mock_orders(self) -> List[Dict[str, Any]:
+    def _mock_orders(self) -> List[Dict[str, Any]]:
         """Fallback mock data for orders"""
         return [
             {'id': '1001', 'total': '£45.99', 'created': '2025-05-26', 'items': 2},
@@ -267,3 +267,113 @@ class TikTokAPIClient:
             'followers': metrics['followers'],
             'videos': metrics['video_count'],
             'engagement_rate': f"{metrics['engagement_rate']:.1f}%",
+            'trending_content': trending,
+            'status': 'connected' if self.is_configured() else 'mock_data'  # Add missing status field
+        }
+    
+    def _mock_account_data(self) -> Dict[str, Any]:
+        """Fallback mock data for TikTok account"""
+        return {
+            'name': 'HYPERFOCUS Creator',
+            'status': 'mock_data'
+        }
+    
+    def _mock_video_metrics(self) -> Dict[str, Any]:
+        """Fallback mock data for video metrics"""
+        return {
+            'total_views': 12000,
+            'total_likes': 350,
+            'total_shares': 50,
+            'followers': 1500,
+            'video_count': 30,
+            'engagement_rate': 3.5
+        }
+
+def fetch_all_metrics() -> Dict[str, SocialMetrics]:
+    """Fetch metrics from all configured social media APIs"""
+    metrics = {}
+    
+    # Etsy metrics
+    etsy_client = EtsyAPIClient()
+    etsy_metrics = etsy_client.get_sales_metrics()
+    metrics['Etsy'] = SocialMetrics(
+        platform='Etsy',
+        metrics=etsy_metrics,
+        last_updated=datetime.now().isoformat(),
+        status=etsy_metrics['status']
+    )
+    
+    # TikTok metrics
+    tiktok_client = TikTokAPIClient()
+    tiktok_metrics = tiktok_client.get_comprehensive_metrics()
+    metrics['TikTok'] = SocialMetrics(
+        platform='TikTok',
+        metrics=tiktok_metrics,
+        last_updated=datetime.now().isoformat(),
+        status='connected'  # Assume connected for mockup
+    )
+    
+    return metrics
+
+class SocialMediaAggregator:
+    """Aggregates metrics from all social media platforms"""
+    
+    def __init__(self):
+        self.etsy_client = EtsyAPIClient()
+        self.tiktok_client = TikTokAPIClient()
+        self.cache = {}
+        self.cache_timeout = 300  # 5 minutes
+    
+    def get_all_metrics(self, use_cache: bool = True) -> Dict[str, Any]:
+        """Get metrics from all platforms"""
+        if use_cache and 'all_metrics' in self.cache:
+            cache_time = self.cache['all_metrics']['timestamp']
+            if time.time() - cache_time < self.cache_timeout:
+                return self.cache['all_metrics']['data']
+        
+        # Fetch fresh data
+        etsy_metrics = self.etsy_client.get_sales_metrics()
+        tiktok_metrics = self.tiktok_client.get_comprehensive_metrics()
+        
+        aggregated = {
+            'etsy': etsy_metrics,
+            'tiktok': tiktok_metrics,
+            'summary': {
+                'total_revenue': float(etsy_metrics['revenue'].replace('£', '').replace(',', '')),
+                'total_engagement': tiktok_metrics['likes'] + tiktok_metrics['shares'],
+                'active_products': etsy_metrics['listings'],
+                'social_reach': tiktok_metrics['views'],
+                'conversion_rate': etsy_metrics['sales'] / max(tiktok_metrics['views'], 1) * 100
+            },
+            'last_updated': datetime.now().isoformat(),
+            'apis_configured': {
+                'etsy': self.etsy_client.is_configured(),
+                'tiktok': self.tiktok_client.is_configured()
+            }
+        }
+        
+        # Cache the result
+        if use_cache:
+            self.cache['all_metrics'] = {
+                'data': aggregated,
+                'timestamp': time.time()
+            }
+        
+        return aggregated
+
+def get_live_social_metrics() -> Dict[str, Any]:
+    """Get live social metrics - main export function"""
+    aggregator = SocialMediaAggregator()
+    return aggregator.get_all_metrics(use_cache=True)
+
+def main():
+    """Main entry point for the script"""
+    logger.info("Fetching all social media metrics...")
+    all_metrics = fetch_all_metrics()
+    
+    # Log or process the metrics as needed
+    for platform, metrics in all_metrics.items():
+        logger.info(f"{platform} Metrics: {json.dumps(metrics.metrics, indent=2)}")
+
+if __name__ == "__main__":
+    main()
