@@ -1,0 +1,288 @@
+#!/usr/bin/env python3
+"""
+🔧 EEP MULT TOOL KEYRING CREATOR - ChaosGenius Engine ULTRA PIVOT
+================================================================
+AI-powered tool to transform your entire product line to EEp mult tool keyrings
+"""
+
+import json
+import os
+from datetime import datetime, timedelta
+from pathlib import Path
+
+class EepMultToolCreator:
+    def __init__(self):
+        self.project_root = Path(__file__).parent.parent
+        self.content_folder = self.project_root / "Marketing Content"
+        self.exports_folder = self.project_root / "final_exports"
+        
+    def generate_eep_mult_tool_strategy(self):
+        """Generate complete EEp mult tool keyring product strategy"""
+        
+        strategy = {
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "product_name": "EEp Mult Tool Keyring",
+            "theme": "The Ultimate Multi-Tool for Every Situation",
+            "target_revenue": "£150-300 from first batch",
+            
+            "product_concept": {
+                "name": "EEp Mult Tool Keyring",
+                "tagline": "Everything, Everywhere, Prepared - The Multi-Tool Revolution",
+                "core_features": [
+                    "Compact keyring design",
+                    "Multiple essential tools in one",
+                    "3D printed for durability", 
+                    "Pocket-sized convenience",
+                    "Emergency preparedness tool",
+                    "ADHD-friendly fidget elements"
+                ],
+                "target_audience": [
+                    "EDC (Everyday Carry) enthusiasts",
+                    "Outdoor adventurers",
+                    "Urban professionals",
+                    "Students and creators",
+                    "Emergency preparedness community",
+                    "Neurodivergent individuals"
+                ]
+            },
+            
+            "tiktok_content": {
+                "video_1": {
+                    "title": "This tiny keyring tool just saved my day! 🔧",
+                    "duration": "15-30 seconds",
+                    "hooks": [
+                        "POV: You need a tool and your keyring has it",
+                        "This £10 keyring tool > £100 toolbox",
+                        "Why I never leave home without my EEp mult tool"
+                    ],
+                    "content_beats": [
+                        "Show problem situation (package to open, screw loose, etc)",
+                        "Pull out EEp mult tool from keys",
+                        "Demonstrate tool solving problem",
+                        "Show satisfied reaction"
+                    ],
+                    "call_to_action": "Get yours before they sell out! 🔧",
+                    "hashtags": "#EDC #MultiTool #EverydayCarry #ProblemSolver #3DPrinted #KeyringTool"
+                },
+                
+                "video_2": {
+                    "title": "Testing my 3D printed mult tool vs. expensive brands 💪",
+                    "duration": "30-60 seconds",
+                    "hooks": [
+                        "£10 vs £50 multi-tool - which wins?",
+                        "I 3D printed the ultimate keyring tool",
+                        "This beats every expensive multi-tool"
+                    ],
+                    "content_beats": [
+                        "Show expensive branded multi-tool",
+                        "Show EEp mult tool keyring",
+                        "Side-by-side functionality tests",
+                        "Reveal price difference",
+                        "Show portability advantage"
+                    ],
+                    "call_to_action": "Link in bio for the budget winner! 🏆",
+                    "hashtags": "#BudgetVsExpensive #3DPrinting #MultiTool #EDC #ValueForMoney"
+                },
+                
+                "video_3": {
+                    "title": "Things my keyring mult tool has saved me from 📝",
+                    "duration": "15-30 seconds",
+                    "hooks": [
+                        "Plot twist: my keyring is more useful than my toolkit",
+                        "Situations where my EEp mult tool was a lifesaver",
+                        "Why this keyring tool lives rent-free in my pocket"
+                    ],
+                    "content_beats": [
+                        "Quick montage of different scenarios",
+                        "Opening packages, tightening screws, cutting tape",
+                        "Emergency situations solved",
+                        "Show compact convenience"
+                    ],
+                    "call_to_action": "Every pocket needs one! 🔑",
+                    "hashtags": "#LifeHacks #EDCTools #PocketTool #EverydayProblems #MultiTool"
+                }
+            },
+            
+            "etsy_listings": {
+                "eep_mult_tool_keyring": {
+                    "title": "EEp Mult Tool Keyring - 3D Printed EDC Multi-Tool | Ultimate Pocket Companion",
+                    "price": "£12.99",
+                    "description": """
+Meet the EEp Mult Tool Keyring - the ultimate everyday carry solution that fits on your keys! 
+
+🔧 Everything, Everywhere, Prepared
+🎯 Multiple essential tools in one compact design
+💪 3D printed for maximum durability
+🔑 Keyring design - never forget it at home
+⚡ Emergency-ready multi-tool
+🧠 ADHD-friendly fidget elements
+
+Features include:
+• Bottle opener
+• Screwdriver tips (flathead & Phillips)
+• Package opener/cutting edge
+• Hex wrench functions
+• Measurement ruler
+• Fidget-friendly texture
+
+Perfect for:
+- EDC enthusiasts and outdoor adventurers
+- Students and professionals
+- Emergency preparedness
+- Anyone who values smart, compact tools
+- Gift for practical people
+
+Each EEp Mult Tool is precision 3D printed in Wales using premium materials. Designed by makers, for makers.
+
+Never be caught without the right tool again!
+""",
+                    "tags": ["EDC", "multi tool", "keyring", "3D printed", "everyday carry", "emergency tool", "pocket tool", "practical gift"],
+                    "photos_needed": [
+                        "Hero shot showing all tool functions",
+                        "Size comparison with standard keys",
+                        "Action shots using different tools",
+                        "Durability test demonstration",
+                        "Lifestyle shot on keyring",
+                        "Close-up texture and build quality"
+                    ]
+                },
+                
+                "eep_mult_tool_pro": {
+                    "title": "EEp Mult Tool PRO - Enhanced Multi-Tool Keyring | Premium EDC",
+                    "price": "£18.99",
+                    "description": """
+The EEp Mult Tool PRO - for when you need maximum functionality in minimum space!
+
+Enhanced features:
+• All standard EEp functions PLUS
+• LED light integration ready
+• Enhanced grip texture
+• Premium material blend
+• Extended tool set
+• Lanyard attachment point
+
+The ultimate EDC upgrade for serious preparedness enthusiasts!
+""",
+                    "tags": ["EDC pro", "premium multi tool", "enhanced keyring tool", "professional grade"],
+                    "photos_needed": [
+                        "Comparison with standard version",
+                        "Premium materials close-up",
+                        "Enhanced features demonstration",
+                        "Professional use scenarios"
+                    ]
+                }
+            }
+        }
+        
+        return strategy
+    
+    def create_content_calendar_eep(self):
+        """Generate 14-day content calendar for EEp mult tool launch"""
+        
+        calendar = {}
+        start_date = datetime.now()
+        
+        themes = [
+            "Day 1: Introducing the EEp Mult Tool Revolution",
+            "Day 2: vs Expensive Multi-Tools Comparison", 
+            "Day 3: Real-World Problem Solving",
+            "Day 4: Behind the Design - 3D Printing Process",
+            "Day 5: Customer Stories & Reviews",
+            "Day 6: EDC Community Features",
+            "Day 7: Week 1 Sales Recap",
+            "Day 8: Emergency Preparedness Focus",
+            "Day 9: Student/Professional Use Cases",
+            "Day 10: Durability Testing",
+            "Day 11: Gift Ideas & Bundles",
+            "Day 12: Pro Version Teaser",
+            "Day 13: Community Challenges",
+            "Day 14: Two Week Success Story"
+        ]
+        
+        for i, theme in enumerate(themes):
+            date = start_date + timedelta(days=i)
+            calendar[date.strftime("%Y-%m-%d")] = {
+                "theme": theme,
+                "platforms": ["TikTok", "Instagram", "YouTube Shorts"],
+                "goal": "Drive Etsy sales + build EDC community",
+                "cta": "Get your EEp Mult Tool - link in bio!"
+            }
+        
+        return calendar
+    
+    def generate_product_variations(self):
+        """Create product line variations for scaling"""
+        
+        variations = {
+            "standard_eep": {
+                "name": "EEp Mult Tool Keyring - Standard",
+                "price": "£12.99",
+                "features": ["Basic multi-tool functions", "Keyring attachment", "Durable 3D print"]
+            },
+            
+            "pro_eep": {
+                "name": "EEp Mult Tool PRO",
+                "price": "£18.99", 
+                "features": ["Enhanced tool set", "Premium materials", "LED integration ready"]
+            },
+            
+            "mini_eep": {
+                "name": "EEp Mini - Wallet Card Tool",
+                "price": "£8.99",
+                "features": ["Credit card size", "Ultra-portable", "Essential tools only"]
+            },
+            
+            "tactical_eep": {
+                "name": "EEp Tactical - Heavy Duty",
+                "price": "£24.99",
+                "features": ["Military-grade materials", "Extended tool set", "Tactical black finish"]
+            },
+            
+            "custom_eep": {
+                "name": "EEp Custom - Personalized",
+                "price": "£19.99",
+                "features": ["Custom engraving", "Color choice", "Personal tool selection"]
+            }
+        }
+        
+        return variations
+
+if __name__ == "__main__":
+    creator = EepMultToolCreator()
+    
+    print("🔧 EEP MULT TOOL KEYRING - CHAOSGENIUS ULTRA PIVOT")
+    print("=" * 60)
+    
+    # Generate strategy
+    strategy = creator.generate_eep_mult_tool_strategy()
+    print("✅ EEp Mult Tool strategy generated!")
+    print(f"🎯 Target Revenue: {strategy['target_revenue']}")
+    print(f"📱 TikTok content planned: {len(strategy['tiktok_content'])} videos")
+    print(f"🛍️ Etsy listings: {len(strategy['etsy_listings'])} products")
+    
+    # Generate calendar
+    calendar = creator.create_content_calendar_eep()
+    print(f"📅 14-day content calendar: {len(calendar)} days planned")
+    
+    # Generate variations
+    variations = creator.generate_product_variations()
+    print(f"🔧 Product variations: {len(variations)} options")
+    
+    # Save everything
+    output_data = {
+        "eep_strategy": strategy,
+        "content_calendar": calendar,
+        "product_variations": variations,
+        "pivot_date": datetime.now().isoformat(),
+        "old_product": "Mr. Mushroom (replaced)",
+        "new_focus": "EEp Mult Tool Keyring Revolution"
+    }
+    
+    output_file = creator.content_folder / f"EEp_Mult_Tool_Strategy_{datetime.now().strftime('%Y%m%d')}.json"
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"\n✅ Complete EEp strategy saved: {output_file.name}")
+    print("\n🚀 ULTRA PIVOT COMPLETE!")
+    print("💡 Start with TikTok: 'This tiny keyring tool just saved my day! 🔧'")
+    print("🎯 New Goal: £150-300 from EEp Mult Tool launch!")

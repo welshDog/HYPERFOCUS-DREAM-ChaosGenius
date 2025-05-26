@@ -1,0 +1,86 @@
+# Step 1: Forge the HTML/CSS "Hyperfocus HUD" starter layout file based on the image idea
+
+layout_code = """\
+<!-- path: templates/hyperfocus_hud.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 ChaosGenius HUD</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #020409;
+      background-image: radial-gradient(#0d1b2a 1px, transparent 1px), radial-gradient(#0d1b2a 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      font-family: 'Share Tech Mono', monospace;
+      color: #00ffff;
+    }
+    .hud-panel {
+      background-color: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00ffff44;
+      box-shadow: 0 0 12px #00ffff22;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+    }
+    .hud-title {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .glow {
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <div class="grid grid-cols-12 gap-4">
+    <!-- Top App Dock -->
+    <div class="col-span-12 flex justify-between items-center hud-panel">
+      <div class="hud-title">🧠 ChaosGenius Hyperfocus HUD</div>
+      <div class="space-x-2">
+        <button class="text-cyan-300 hover:text-white">Chrome</button>
+        <button class="text-cyan-300 hover:text-white">VS Code</button>
+        <button class="text-cyan-300 hover:text-white">System Monitor</button>
+      </div>
+    </div>
+
+    <!-- Left System Panel -->
+    <div class="col-span-3 hud-panel">
+      <div class="glow">🌐 Network Traffic</div>
+      <div class="mt-2">[Map + Graphs]</div>
+    </div>
+
+    <!-- Central Control Core -->
+    <div class="col-span-6 hud-panel text-center">
+      <div class="glow">🛠 Mission Control</div>
+      <div class="text-sm mt-2">Status: Active | Focus: Ultra Studio</div>
+      <div class="mt-4">[Radial Chart HUD Placeholder]</div>
+    </div>
+
+    <!-- Right Feed -->
+    <div class="col-span-3 hud-panel">
+      <div class="glow">📨 AI Comms Feed</div>
+      <div class="mt-2">[Chat / Logs / Clock]</div>
+    </div>
+
+    <!-- Bottom Telemetry -->
+    <div class="col-span-12 hud-panel">
+      <div class="glow">📊 Telemetry Console</div>
+      <div class="mt-2">[CPU | Memory | Disk | Battery | System Logs]</div>
+    </div>
+  </div>
+</body>
+</html>
+"""
+
+# Save the file
+file_path = "/mnt/data/hyperfocus_hud.html"
+with open(file_path, "w") as f:
+    f.write(layout_code)
+
+file_path

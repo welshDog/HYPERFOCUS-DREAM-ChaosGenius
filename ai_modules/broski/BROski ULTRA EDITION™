@@ -1,0 +1,132 @@
+from pathlib import Path
+import json
+
+# Set up folders for BROski Ultra System
+base_path = Path("/mnt/data/BROski_Ultra_System")
+folders = [
+    base_path / "prompts",
+    base_path / "dashboard",
+    base_path / "scripts",
+    base_path / "voice_commands",
+    base_path / "xp_tracker"
+]
+
+# Create folders
+for folder in folders:
+    folder.mkdir(parents=True, exist_ok=True)
+
+# Enhanced system_prompt.json with additional features
+system_prompt_content = {
+    "name": "BROski X - Hyperfocus Zone Edition",
+    "description": "Your neurodivergent-friendly AI sidekick with adaptive modes, role-based support, and gamified focus tracking.",
+    "modes": ["ADHD", "Dyslexia", "Autism"],
+    "roles": {
+        "design": "Helps with creative tasks like 3D prints, visuals, and ideas",
+        "code": "Debugs, writes, and explains code clearly",
+        "hype": "Drops motivation and celebrates wins",
+        "plan": "Breaks down tasks into micro-goals",
+        "reflect": "Helps with introspection and resets",
+        "focus": "Pomodoro-style focus sessions with break reminders",
+        "chaos": "Helps organize overwhelming thoughts into actionable steps"
+    },
+    "flow": [
+        "Ask for energy level (low, mid, hyped)",
+        "Summarize the user's goal in 1 line",
+        "Offer 3 starting ideas: chill / wild / boss",
+        "Gamify with XP or quest titles",
+        "Drop dopamine boost (quote, track win)",
+        "Check in every 25 minutes for focus maintenance"
+    ],
+    "voice_triggers": ["/hype", "/focusmode", "/planit", "/design", "/reset", "/chaos", "/win", "/break"],
+    "personality": {
+        "tone": "Supportive but not condescending",
+        "energy_matching": True,
+        "celebration_style": "Genuine excitement without overwhelming",
+        "failure_response": "Reframe as learning XP, suggest smaller steps"
+    },
+    "adaptive_features": {
+        "attention_span_tracking": True,
+        "overwhelm_detection": True,
+        "hyperfocus_protection": True,
+        "transition_support": True
+    },
+    "integration": {
+        "dashboard_sync": True,
+        "calendar_awareness": True,
+        "energy_pattern_learning": True,
+        "productivity_insights": True
+    }
+}
+
+# Save system_prompt.json
+prompt_file_path = base_path / "prompts" / "system_prompt.json"
+with open(prompt_file_path, "w") as f:
+    json.dump(system_prompt_content, f, indent=2)
+
+# Enhanced XP tracker with more detailed tracking
+xp_tracker_template = {
+    "current_level": 1,
+    "current_xp": 0,
+    "total_lifetime_xp": 0,
+    "milestones": [],
+    "recent_wins": [],
+    "focus_streaks": {
+        "current_streak": 0,
+        "longest_streak": 0,
+        "weekly_sessions": 0
+    },
+    "energy_patterns": {
+        "best_focus_times": [],
+        "energy_level_history": [],
+        "productive_days": []
+    },
+    "achievements": {
+        "unlocked": [],
+        "available": [
+            "First Focus Session",
+            "Week Warrior",
+            "Chaos Tamer",
+            "Creative Genius",
+            "Code Master",
+            "Hyperfocus Hero"
+        ]
+    },
+    "preferences": {
+        "preferred_break_length": 5,
+        "favorite_celebration_style": "text",
+        "reminder_frequency": "gentle"
+    }
+}
+xp_tracker_path = base_path / "xp_tracker" / "xp_log.json"
+with open(xp_tracker_path, "w") as f:
+    json.dump(xp_tracker_template, f, indent=2)
+
+# Add configuration for integration with ChaosGenius Dashboard
+dashboard_config = {
+    "broski_integration": {
+        "enabled": True,
+        "sync_xp_to_dashboard": True,
+        "show_in_neural_activity": True,
+        "voice_command_shortcuts": True
+    },
+    "cyberpunk_mode": {
+        "neon_responses": True,
+        "matrix_style_output": True,
+        "quantum_terminology": True
+    }
+}
+
+dashboard_config_path = base_path / "dashboard" / "integration_config.json"
+with open(dashboard_config_path, "w") as f:
+    json.dump(dashboard_config, f, indent=2)
+
+print(f"BROski Ultra System created at: {base_path}")
+print(f"System prompt saved to: {prompt_file_path}")
+print(f"XP tracker initialized at: {xp_tracker_path}")
+print(f"Dashboard integration config saved to: {dashboard_config_path}")
+
+# Display created files
+print("\nBROski Ultra Files Created:")
+print(f"- Prompt File: {prompt_file_path.relative_to(base_path)}")
+print(f"- XP Tracker: {xp_tracker_path.relative_to(base_path)}")
+print(f"- Dashboard Config: {dashboard_config_path.relative_to(base_path)}")

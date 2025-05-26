@@ -1,0 +1,52 @@
+{
+    "folders": [
+        {
+            "name": "🧠 ChaosGenius Engine",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.organizeImports": true
+        },
+        "python.defaultInterpreterPath": "./venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "markdown.preview.breaks": true,
+        "markdown.preview.linkify": true,
+        "emmet.includeLanguages": {
+            "markdown": "html"
+        },
+        "github.copilot.enable": {
+            "*": true,
+            "yaml": true,
+            "plaintext": true,
+            "markdown": true
+        },
+        "workbench.colorTheme": "GitHub Dark",
+        "workbench.iconTheme": "material-icon-theme",
+        "terminal.integrated.defaultProfile.windows": "PowerShell"
+    },
+    "extensions": {
+        "recommendations": [
+            "github.copilot",
+            "github.copilot-chat",
+            "ms-python.python",
+            "ms-python.autopep8",
+            "yzhang.markdown-all-in-one",
+            "davidanson.vscode-markdownlint",
+            "ms-vscode.vscode-json",
+            "redhat.vscode-yaml",
+            "ms-vscode.live-server",
+            "formulahendry.auto-rename-tag",
+            "bradlc.vscode-tailwindcss",
+            "ms-vscode.vscode-typescript-next",
+            "hediet.vscode-drawio",
+            "ritwickdey.liveserver"
+        ]
+    }
+}

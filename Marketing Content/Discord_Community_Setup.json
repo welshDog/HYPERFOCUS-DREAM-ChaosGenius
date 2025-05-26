@@ -1,0 +1,60 @@
+{
+  "server_name": "🧠 Hyperfocus Zone - Neurodivergent Creators",
+  "server_description": "Where different minds thrive and create amazing things together 💜",
+  "channels": {
+    "WELCOME & RULES": {
+      "🚪-welcome": "Community intro & guidelines",
+      "📋-rules": "Safe space rules (be kind, be authentic, be you)",
+      "🎯-roles": "Choose your creator type & pronouns"
+    },
+    "SAFE SPACES": {
+      "💭-adhd-thoughts": "Scatter your thoughts freely",
+      "🧩-autism-friendly": "Sensory-conscious discussions",
+      "🌊-overwhelm-support": "When everything feels like too much",
+      "🎯-hyperfocus-wins": "Celebrate your deep dive victories"
+    },
+    "CREATE TOGETHER": {
+      "🧸-3d-printing": "Share prints, fails, and wins",
+      "🤖-ai-tools": "AI discoveries that actually help",
+      "🎨-design-feedback": "Kind, constructive design help",
+      "📱-content-collab": "TikTok/YouTube collaboration"
+    },
+    "BUSINESS BUILDERS": {
+      "💰-revenue-reality": "Real talk about making money",
+      "🚀-project-updates": "Share your chaos-to-success journey",
+      "🤝-accountability": "Gentle accountability partners",
+      "💡-idea-bounce": "Bounce wild ideas off each other"
+    },
+    "CHILL ZONES": {
+      "☕-daily-check-in": "How's your brain today?",
+      "🐕-pet-pics": "Sir Barksalot & friends",
+      "🎮-hyperfocus-breaks": "Gaming & mindless fun",
+      "🌙-after-hours": "Night owl conversations"
+    }
+  },
+  "community_guidelines": [
+    "💜 Different brains are celebrated here",
+    "🛡️ No masking required - be authentically you",
+    "🤝 Support over competition always",
+    "📢 Content warnings for overwhelming topics",
+    "⏰ Respect different energy levels & time zones",
+    "🔄 It's okay to disappear and come back",
+    "✨ Celebrate small wins as much as big ones"
+  ],
+  "onboarding_sequence": {
+    "day_1": "Welcome DM with community intro video",
+    "day_3": "Check-in: How are you settling in?",
+    "day_7": "Invite to share your first project/idea",
+    "day_14": "Connection: Introduce to similar creators",
+    "day_30": "Feedback: How can we support you better?"
+  },
+  "content_themes": {
+    "Monday": "💭 Mind Dump Monday - Share your scattered thoughts",
+    "Tuesday": "🔧 Tool Tuesday - What's helping your brain today?",
+    "Wednesday": "🎯 Win Wednesday - Celebrate any size victory",
+    "Thursday": "💭 Thought Thursday - Deep dive discussions",
+    "Friday": "🎉 Feature Friday - Show off your creations",
+    "Saturday": "🤝 Support Saturday - Help requests & offers",
+    "Sunday": "🌱 Sunday Reset - Prep for the week ahead"
+  }
+}

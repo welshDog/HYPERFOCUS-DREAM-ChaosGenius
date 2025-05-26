@@ -1,0 +1,215 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Initialize ChaosGenius Environment",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "venv", "project_env"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "🚀 Run AI Squad Business Creator",
+            "type": "shell",
+            "command": "python",
+            "args": ["Setup & Deploy/setup1"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🔧 Project Analysis & Fix",
+            "type": "shell",
+            "command": "python",
+            "args": ["Setup & Deploy/setup2"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "📚 Generate Documentation Suite",
+            "type": "shell",
+            "command": "python",
+            "args": ["auto_doc_generator.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "🌐 Launch Hyperfocus Zone Preview",
+            "type": "shell",
+            "command": "code",
+            "args": ["README.md"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "⚡ Ultra Mode Deploy",
+            "type": "shell",
+            "command": "python",
+            "args": ["Setup & Deploy/Ultra Mode upgades"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🎛️ Launch ChaosGenius Dashboard",
+            "type": "shell",
+            "command": "python",
+            "args": ["dashboard_api.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "default"
+            }
+        },
+        {
+            "label": "🌐 Open Dashboard in Browser",
+            "type": "shell",
+            "command": "start",
+            "args": ["http://localhost:5000"],
+            "group": "build",
+            "windows": {
+                "command": "start",
+                "args": ["http://localhost:5000"]
+            },
+            "linux": {
+                "command": "xdg-open",
+                "args": ["http://localhost:5000"]
+            },
+            "osx": {
+                "command": "open",
+                "args": ["http://localhost:5000"]
+            }
+        },
+        {
+            "label": "🧪 Run Test Suite",
+            "type": "shell",
+            "command": "pytest",
+            "args": ["tests/", "-v", "--cov=.", "--cov-report=html"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🔧 Daily Maintenance Ultra",
+            "type": "shell",
+            "command": "python",
+            "args": ["scripts/daily_maintenance.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🔐 Validate Configurations",
+            "type": "shell",
+            "command": "python",
+            "args": ["config/config_validator.py"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true
+            }
+        },
+        {
+            "label": "🎛️ Launch Discord Bot",
+            "type": "shell",
+            "command": "python",
+            "args": ["chaosgenius_discord_bot.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "📊 Project Health Check",
+            "type": "shell",
+            "command": "python",
+            "args": ["health_check.py"],
+            "group": "test"
+        },
+        {
+            "label": "🧹 Archive & Cleanup",
+            "type": "shell",
+            "command": "python",
+            "args": ["scripts/archive_old_health_reports.py"],
+            "group": "build"
+        },
+        {
+            "label": "🎯 Full System Startup",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "🔧 Daily Maintenance Ultra",
+                "🔐 Validate Configurations",
+                "🚀 Launch ChaosGenius Dashboard",
+                "🌐 Open Dashboard in Browser"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "deployMode",
+            "description": "Select deployment mode",
+            "default": "development",
+            "type": "pickString",
+            "options": [
+                "development",
+                "staging", 
+                "production"
+            ]
+        }
+    ]
+}

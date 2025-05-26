@@ -1,0 +1,125 @@
+{
+  "start_time": "2025-05-25T11:14:16.833257",
+  "actions": [
+    {
+      "timestamp": "2025-05-25T11:14:16.837014",
+      "type": "RENAME",
+      "description": "Fixed naming: Auto File Organizer Script → Auto_File_Organizer_Script",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:16.838546",
+      "type": "RENAME",
+      "description": "Fixed naming: original_administrator powers → original_administrator_powers",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:16.840050",
+      "type": "RENAME",
+      "description": "Fixed naming: original_ai builder → original_ai_builder",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:16.841941",
+      "type": "RENAME",
+      "description": "Fixed naming: original_AI Squad → original_AI_Squad",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:16.843357",
+      "type": "RENAME",
+      "description": "Fixed naming: original_ANALYZE + SETUP BOOSTER → original_ANALYZE_SETUP_BOOSTER",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:17.362930",
+      "type": "CONSOLIDATE",
+      "description": "Moved duplicate script to backup: auto_organizer_backup_HYPERFOCUS DREAM build idea_20250525",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:19.265143",
+      "type": "OPTIMIZE",
+      "description": "Added .gitignore to venv (168.3MB)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.724117",
+      "type": "OPTIMIZE",
+      "description": "Added .gitignore to venvve (216.8MB)",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.727340",
+      "type": "ARCHIVE",
+      "description": "Archived report (10.9MB): hyperfocus_project_analysis_20250525_104519.json",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.734809",
+      "type": "CREATE",
+      "description": "Created standard folder: src",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.738690",
+      "type": "CREATE",
+      "description": "Created standard folder: docs",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.741202",
+      "type": "CREATE",
+      "description": "Created standard folder: scripts",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.743404",
+      "type": "CREATE",
+      "description": "Created standard folder: config",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.746110",
+      "type": "CREATE",
+      "description": "Created standard folder: assets",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.749480",
+      "type": "CREATE",
+      "description": "Created standard folder: data",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.751894",
+      "type": "CREATE",
+      "description": "Created standard folder: build",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.755175",
+      "type": "CREATE",
+      "description": "Created standard folder: deploy",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.758696",
+      "type": "OPTIMIZE",
+      "description": "Updated master .gitignore with comprehensive rules",
+      "details": {}
+    },
+    {
+      "timestamp": "2025-05-25T11:14:21.761150",
+      "type": "CREATE",
+      "description": "Created project health monitor script",
+      "details": {}
+    }
+  ],
+  "files_processed": 5,
+  "space_freed_mb": 10.91351318359375,
+  "issues_fixed": 0,
+  "optimizations_applied": [],
+  "end_time": "2025-05-25T11:14:21.761637",
+  "duration_minutes": 0.08213966666666667
+}
