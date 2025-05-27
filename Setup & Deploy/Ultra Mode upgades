@@ -1,7 +1,7 @@
 import os
 
-# Define root directory for the mega upgrade
-mega_dir = "/mnt/data/HYPERFOCUS_ZONE_ULTRA_MODE"
+# Define root directory for the mega upgrade - Windows compatible
+mega_dir = os.path.join(os.getcwd(), "HYPERFOCUS_ZONE_ULTRA_MODE")
 
 # Define all ultra-upgraded files and their content
 ultra_files = {
@@ -130,10 +130,10 @@ Together, we don't just create. We shift culture.
 for filepath, content in ultra_files.items():
     full_path = os.path.join(mega_dir, filepath)
     os.makedirs(os.path.dirname(full_path), exist_ok=True)
-    with open(full_path, 'w') as f:
+    with open(full_path, 'w', encoding='utf-8') as f:
         f.write(content)
 
-print(f"Ultra Mode project structure created at: {mega_dir")
+print(f"Ultra Mode project structure created at: {mega_dir}")
 
 # Ultra Mode Deployment Script
 #!/usr/bin/env python3

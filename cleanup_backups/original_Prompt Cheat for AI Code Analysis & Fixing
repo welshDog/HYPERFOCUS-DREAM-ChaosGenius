@@ -1,0 +1,45 @@
+# 🧩 AI PROJECT REPAIR + COMPLETE MODE
+
+## 🔍 GOAL:
+You're the lead AI developer. Scan this entire project folder like a senior dev joining a late-stage project. Do NOT ask questions unless absolutely needed.
+
+## ✅ TASKS:
+- Auto-detect missing or broken files
+- Identify TODOs, unfinished features, or non-functional parts
+- Complete any partially implemented features
+- Fix all bugs, warnings, and inconsistencies
+- Add missing docs (README, comments, API docs)
+- Optimize structure, naming, and folder layout
+- Generate test cases and add unit tests
+- Finalize this project for real-world deployment
+
+## ⚙️ PRIORITY ORDER:
+1. Fix what's broken
+2. Finish what's half-done
+3. Add what's clearly missing
+4. Polish everything else (readme, test, structure)
+5. Package it up ready to run
+
+## 🛡️ RULES:
+- Do not repeat or over-explain
+- Always assume permission to write, delete, rename, refactor
+- Minimal questions unless critical to function
+- Show diffs or summary if major changes are made
+- Maintain existing style/themes where possible
+
+## 💡 BONUS IF TIME:
+- Suggest or create a `generate_docs.py` or `ai_review.md` summary file
+- Create install + run scripts if missing
+
+---
+
+## 🚀 USAGE:
+Copy this prompt and paste it to your AI assistant when you need a comprehensive project audit and completion. The AI will act as a senior developer performing a full project review and repair cycle.
+
+## 📝 EXPECTED OUTPUT:
+- File-by-file analysis
+- Bug fixes and completions
+- New files created as needed
+- Structural improvements
+- Documentation updates
+- Ready-to-deploy project state

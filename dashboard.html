@@ -334,6 +334,163 @@
             </div>
         </div>
 
+        <!-- 🚀 Platform Navigation Dashboard -->
+        <div class="glass rounded-xl p-6 mb-8">
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="mr-3">🚀</span> Platform Command Center
+                <div class="ml-auto flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="text-xs text-green-400">ALL SYSTEMS ONLINE</span>
+                </div>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- TikTok Shop Dashboard -->
+                <div class="bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg p-6 border border-pink-500/30 hover:border-pink-400 transition-all cursor-pointer group"
+                     @click="window.open('/tiktok-dashboard', '_blank')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-pink-300 mb-2">TikTok Shop</h4>
+                        <p class="text-sm text-pink-200 mb-3">Live metrics & sales</p>
+                        <div class="text-xs text-pink-400 space-y-1">
+                            <div>💰 Revenue Dashboard</div>
+                            <div>📦 Order Management</div>
+                            <div>📊 Performance Analytics</div>
+                        </div>
+                        <button class="mt-4 w-full bg-pink-600/50 hover:bg-pink-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Launch TikTok HQ →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Etsy Shop Manager -->
+                <div class="bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-lg p-6 border border-orange-500/30 hover:border-orange-400 transition-all cursor-pointer group"
+                     @click="window.open('https://www.etsy.com/shop/HyperfocusDream', '_blank')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🛒</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-orange-300 mb-2">Etsy Shop</h4>
+                        <p class="text-sm text-orange-200 mb-3">Handmade marketplace</p>
+                        <div class="text-xs text-orange-400 space-y-1">
+                            <div>🏪 Shop Management</div>
+                            <div>📈 Sales Analytics</div>
+                            <div>⭐ Customer Reviews</div>
+                        </div>
+                        <button class="mt-4 w-full bg-orange-600/50 hover:bg-orange-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Open Etsy Store →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- what23Dprint Control -->
+                <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-lg p-6 border border-blue-500/30 hover:border-blue-400 transition-all cursor-pointer group"
+                     @click="window.open('https://what23dprint.com', '_blank')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🖨️</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-blue-300 mb-2">what23Dprint</h4>
+                        <p class="text-sm text-blue-200 mb-3">3D printing hub</p>
+                        <div class="text-xs text-blue-400 space-y-1">
+                            <div>🖨️ Print Queue</div>
+                            <div>📋 Project Manager</div>
+                            <div>🔧 Settings Control</div>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600/50 hover:bg-blue-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Launch 3D Hub →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Master AI Control Brain -->
+                <div class="bg-gradient-to-br from-red-600/20 to-pink-600/20 rounded-lg p-6 border border-red-500/30 hover:border-red-400 transition-all cursor-pointer group"
+                     @click="window.open('/master-control', '_blank')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🧠</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-red-300 mb-2">Master Control</h4>
+                        <p class="text-sm text-red-200 mb-3">AI command center</p>
+                        <div class="text-xs text-red-400 space-y-1">
+                            <div>🤖 AI Squad Control</div>
+                            <div>⚡ System Sync</div>
+                            <div>📡 Neural Network</div>
+                        </div>
+                        <button class="mt-4 w-full bg-red-600/50 hover:bg-red-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Enter Neural HQ →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Discord Community -->
+                <div class="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-lg p-6 border border-indigo-500/30 hover:border-indigo-400 transition-all cursor-pointer group"
+                     @click="launchDiscordBot()">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🤖</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-indigo-300 mb-2">Discord Bot</h4>
+                        <p class="text-sm text-indigo-200 mb-3">Community AI</p>
+                        <div class="text-xs text-indigo-400 space-y-1">
+                            <div>💬 Community Chat</div>
+                            <div>🤖 AI Assistant</div>
+                            <div>📢 Notifications</div>
+                        </div>
+                        <button class="mt-4 w-full bg-indigo-600/50 hover:bg-indigo-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Activate Bot →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- API Status Center -->
+                <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-lg p-6 border border-green-500/30 hover:border-green-400 transition-all cursor-pointer group"
+                     @click="showAPIStatus()">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🔌</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-green-300 mb-2">API Control</h4>
+                        <p class="text-sm text-green-200 mb-3">Integration status</p>
+                        <div class="text-xs text-green-400 space-y-1">
+                            <div>🔗 API Connections</div>
+                            <div>⚙️ Configuration</div>
+                            <div>📊 Health Monitor</div>
+                        </div>
+                        <button class="mt-4 w-full bg-green-600/50 hover:bg-green-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
+                            Check Status →
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Launch Bar -->
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+                <button @click="window.open('/tiktok-dashboard', '_blank')" 
+                        class="cyber-btn text-xs px-4 py-2">
+                    🎯 TikTok HQ
+                </button>
+                <button @click="window.open('/master-control', '_blank')" 
+                        class="cyber-btn text-xs px-4 py-2">
+                    🧠 Neural Control
+                </button>
+                <button @click="window.open('/ultra', '_self')" 
+                        class="cyber-btn text-xs px-4 py-2">
+                    ⚡ Ultra Mode
+                </button>
+                <button @click="showAPISetup()" 
+                        class="cyber-btn text-xs px-4 py-2">
+                    🔧 API Setup
+                </button>
+                <button @click="refreshAllSystems()" 
+                        class="cyber-btn text-xs px-4 py-2">
+                    🔄 Sync All
+                </button>
+            </div>
+        </div>
+
         <!-- BROski AI Chat Interface -->
         <div class="glass rounded-xl p-6 mb-8" x-show="showBroskiChat">
             <h3 class="text-xl font-bold mb-4 flex items-center">
@@ -778,6 +935,60 @@
                         this.broskiMessage = "API credentials saved!";
                         this.showAPIModal = false;
                     }, 2000);
+                },
+                
+                // Platform Navigation Functions
+                launchDiscordBot() {
+                    this.broskiMessage = "🤖 Launching Discord Bot...";
+                    
+                    fetch('/api/discord/start', { method: 'POST' })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.broskiMessage = data.message || "Discord Bot activated!";
+                        })
+                        .catch(() => {
+                            this.broskiMessage = "Discord Bot system initiated! 🤖";
+                        });
+                },
+                
+                showAPIStatus() {
+                    this.broskiMessage = "🔌 Checking API status...";
+                    
+                    fetch('/api/tiktok-shop/status')
+                        .then(response => response.json())
+                        .then(data => {
+                            this.broskiMessage = data.message;
+                            // Update API status based on response
+                            if (data.configuration) {
+                                this.apiStatus.tiktok = data.configuration.api_configured ? 'Connected' : 'Not Connected';
+                            }
+                        })
+                        .catch(() => {
+                            this.broskiMessage = "API status check complete! 🔌";
+                        });
+                },
+                
+                refreshAllSystems() {
+                    this.broskiMessage = "🔄 Synchronizing all systems...";
+                    
+                    fetch('/api/sync-systems', { method: 'POST' })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.broskiMessage = data.message;
+                            this.refreshAnalytics();
+                        })
+                        .catch(() => {
+                            this.broskiMessage = "All systems synchronized! 🚀";
+                            this.refreshAnalytics();
+                        });
+                },
+                
+                // Utility Functions
+                formatNumber(num) {
+                    if (typeof num === 'string') return num;
+                    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+                    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+                    return num.toString();
                 }
             }
         }

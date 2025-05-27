@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etsy Shop | Hyperfocus Zone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #0f0c29, #302b63);
+      color: #ff7edb;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: #1b1b2f;
+      border: 1px solid #ff7edb;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 0 10px #ff7edb;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .glow {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 5px #ff7edb; }
+      50% { box-shadow: 0 0 20px #ff7edb; }
+      100% { box-shadow: 0 0 5px #ff7edb; }
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="glow">🛍️ Hyperfocus Zone Etsy Dashboard</div>
+    <p>“Crafted with care. Sold with style.”</p>
+  </header>
+
+  <section class="dashboard">
+    <div class="card">
+      <h3>📦 Order Summary</h3>
+      <p>Total Orders: --</p>
+      <p>Pending Shipments: --</p>
+      <p>Returns / Cancellations: --</p>
+      <p>Unread Messages: --</p>
+    </div>
+
+    <div class="card">
+      <h3>💰 Sales & Listings</h3>
+      <p>Total Sales: --</p>
+      <p>Active Listings: --</p>
+      <p>Top Product: --</p>
+      <button onclick="window.open('https://www.etsy.com/shop/HyperfocusZone')">View Shop</button>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Growth Tools</h3>
+      <ul>
+        <li>Optimize SEO for listings</li>
+        <li>Run a 10% off promo</li>
+        <li>Encourage reviews post-purchase</li>
+        <li>Try Etsy Ads for visibility</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🎨 Featured Product</h3>
+      <p>Mr. Mushroom Night Light 🌌 (Glow in the Dark Edition)</p>
+      <button onclick="window.open('https://www.etsy.com/listing/your-id')">Shop Now</button>
+    </div>
+
+    <div class="card">
+      <h3>📊 Shop Stats</h3>
+      <p>Favorites: --</p>
+      <p>Page Views (7 Days): --</p>
+      <p>Conversion Rate: --</p>
+    </div>
+  </section>
+
+  <footer>
+    Powered by ChaosGenius & BROski AI | Etsy Zone Synced
+  </footer>
+</body>
+</html>

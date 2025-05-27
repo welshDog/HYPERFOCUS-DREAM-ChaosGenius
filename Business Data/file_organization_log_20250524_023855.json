@@ -1,0 +1,55 @@
+{
+  "timestamp": "20250524_023855",
+  "total_organized": 526,
+  "total_skipped": 0,
+  "folders_processed": 5,
+  "results": [
+    {
+      "folder": "C:\\Users\\Lyndz\\Downloads",
+      "organized": 526,
+      "skipped": 0,
+      "created_categories": [
+        "Documents",
+        "Images",
+        "Archives",
+        "Others",
+        "Executables",
+        "3D Models",
+        "Spreadsheets",
+        "Data",
+        "Fonts",
+        "Web",
+        "Videos"
+      ],
+      "errors": []
+    },
+    {
+      "folder": "C:\\Users\\Lyndz\\Desktop",
+      "organized": 0,
+      "skipped": 0,
+      "created_categories": [],
+      "errors": []
+    },
+    {
+      "folder": "C:\\Users\\Lyndz\\Documents",
+      "organized": 0,
+      "skipped": 0,
+      "created_categories": [],
+      "errors": []
+    },
+    {
+      "folder": "c:\\Users\\Lyndz\\OneDrive\\Desktop\\HYPERFOCUS DREAM build idea\\generated_docs",
+      "organized": 0,
+      "skipped": 0,
+      "created_categories": [],
+      "errors": []
+    },
+    {
+      "folder": "c:\\Users\\Lyndz\\OneDrive\\Desktop\\HYPERFOCUS DREAM build idea\\production_assets",
+      "organized": 0,
+      "skipped": 0,
+      "created_categories": [],
+      "errors": []
+    }
+  ]
+}
