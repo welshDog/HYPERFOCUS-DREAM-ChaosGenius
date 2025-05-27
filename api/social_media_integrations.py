@@ -38,7 +38,9 @@ class EtsyAPIClient:
     
     def __init__(self):
         self.api_key = os.getenv('ETSY_API_KEY')
+        self.shared_secret = os.getenv('ETSY_SHARED_SECRET')
         self.shop_id = os.getenv('ETSY_SHOP_ID') 
+        self.redirect_uri = os.getenv('ETSY_REDIRECT_URI', 'http://localhost:5000/auth/callback')
         self.base_url = 'https://openapi.etsy.com/v3'
         self.headers = {
             'x-api-key': self.api_key,
@@ -48,6 +50,53 @@ class EtsyAPIClient:
     def is_configured(self) -> bool:
         """Check if API credentials are configured"""
         return bool(self.api_key and self.shop_id)
+    
+    def test_connection(self) -> Dict[str, Any]:
+        """Test basic API connection (from HYPERFOCUSZONEGB notes)"""
+        if not self.is_configured():
+            return {
+                'status': 'error',
+                'message': 'API credentials not configured',
+                'configured': False
+            }
+            
+        try:
+            url = f"{self.base_url}/application/shops/{self.shop_id}"
+            response = requests.get(url, headers=self.headers, timeout=10)
+            
+            if response.status_code == 200:
+                return {
+                    'status': 'success',
+                    'message': '✅ Etsy API connection successful!',
+                    'configured': True,
+                    'shop_data': response.json()
+                }
+            elif response.status_code == 401:
+                return {
+                    'status': 'error',
+                    'message': '❌ Invalid API key or unauthorized',
+                    'configured': False
+                }
+            elif response.status_code == 404:
+                return {
+                    'status': 'error', 
+                    'message': '❌ Shop ID not found',
+                    'configured': False
+                }
+            else:
+                return {
+                    'status': 'error',
+                    'message': f'❌ API error: {response.status_code}',
+                    'configured': False
+                }
+                
+        except requests.RequestException as e:
+            logger.error(f"Etsy API connection test failed: {e}")
+            return {
+                'status': 'error',
+                'message': f'❌ Connection failed: {str(e)}',
+                'configured': False
+            }
     
     def get_shop_info(self) -> Dict[str, Any]:
         """Get basic shop information"""
@@ -64,7 +113,8 @@ class EtsyAPIClient:
                     'shop_name': data.get('shop_name', 'HYPERFOCUS DREAM Store'),
                     'total_sales': data.get('total_sales', 0),
                     'currency': data.get('currency_code', 'GBP'),
-                    'status': 'connected'
+                    'status': 'connected',
+                    'api_disclaimer': 'This application uses the Etsy API but is not endorsed or certified by Etsy.'
                 }
             else:
                 logger.warning(f"Etsy API error: {response.status_code}")
@@ -73,7 +123,24 @@ class EtsyAPIClient:
         except requests.RequestException as e:
             logger.error(f"Etsy API request failed: {e}")
             return self._mock_shop_data()
-    
+
+    def get_oauth_url(self) -> str:
+        """Generate OAuth authorization URL for deeper access"""
+        if not self.api_key:
+            return ""
+            
+        # Enhanced OAuth flow from HYPERFOCUSZONEGB notes
+        oauth_params = {
+            'response_type': 'code',
+            'client_id': self.api_key,
+            'redirect_uri': self.redirect_uri,
+            'scope': 'shops_r transactions_r',
+            'state': 'hyperfocus_dream_auth'
+        }
+        
+        params_string = '&'.join([f"{k}={v}" for k, v in oauth_params.items()])
+        return f"https://www.etsy.com/oauth/connect?{params_string}"
+
     def get_recent_orders(self, limit: int = 10) -> List[Dict[str, Any]]:
         """Get recent orders from the shop"""
         if not self.is_configured():

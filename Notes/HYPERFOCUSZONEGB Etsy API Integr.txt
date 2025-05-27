@@ -1,0 +1,67 @@
+🔧 HYPERFOCUSZONEGB: Etsy API Integration Kit
+Here’s what I’ll now generate for you:
+
+✅ 1. .env.example File
+This safely stores sensitive values without hardcoding them in the app:
+
+env
+Copy
+Edit
+# 🛍️ Etsy API Integration for HyperFocusZoneGB
+ETSY_API_KEY=your_keystring_here
+ETSY_SHARED_SECRET=your_shared_secret_here
+ETSY_REDIRECT_URI=http://localhost:5000/auth/callback
+ETSY_SHOP_ID=your_etsy_shop_id_here
+💡 The REDIRECT_URI is used during OAuth (if needed), update this with your deployed URL later.
+
+✅ 2. etsy_connector.py (Basic Auth + Test Fetch)
+python
+Copy
+Edit
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ETSY_API_KEY = os.getenv("ETSY_API_KEY")
+ETSY_SHOP_ID = os.getenv("ETSY_SHOP_ID")
+
+BASE_URL = "https://openapi.etsy.com/v3/application"
+
+def get_shop_details():
+    headers = {
+        "x-api-key": ETSY_API_KEY
+    }
+    url = f"{BASE_URL}/shops/{ETSY_SHOP_ID}"
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"Error: {response.status_code} – {response.text}")
+        return None
+
+if __name__ == "__main__":
+    shop_info = get_shop_details()
+    if shop_info:
+        print("✅ Shop Info Retrieved:")
+        print(shop_info)
+✅ 3. Legal Disclaimer Block (required by Etsy)
+Paste this on your dashboard or site footer:
+
+html
+Copy
+Edit
+<p style="font-size: 12px; color: gray;">
+  This application uses the Etsy API but is not endorsed or certified by Etsy. The term "Etsy" is a trademark of Etsy, Inc.
+</p>
+✅ 4. Do You Want?
+📄 privacy_policy.html (Etsy-compliant)
+
+📄 terms_of_service.html
+
+📊 Live Dashboard module (to show orders, listings, etc.)
+
+🔐 OAuth 2.0 flow (if you ever want deeper access than API Key allows)
+

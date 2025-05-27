@@ -42,14 +42,16 @@
         
         /* Glassmorphism effects */
         .glass { 
-            backdrop-filter: blur(15px); 
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px); 
         }
         .glass-dark { 
-            backdrop-filter: blur(15px); 
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(139, 69, 255, 0.3);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px); 
         }
         
         /* Cyberpunk Grid Background */
@@ -230,7 +232,7 @@
                     <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" title="System Online"></div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button @click="toggleUltraMode()" class="text-purple-300 hover:text-white transition-colors text-sm">
+                    <button @click="toggleUltraMode()" class="text-purple-300 hover:text-white transition-colors text-sm" title="Toggle Ultra Mode" aria-label="Toggle between Ultra Mode and Standard Mode">
                         <span x-text="ultraModeActive ? '🔥 Ultra: ON' : '⭐ Standard'"></span>
                     </button>
                     <a href="/master-control" class="text-purple-300 hover:text-white transition-colors text-sm">Master Control</a>
@@ -484,7 +486,7 @@
                                    x-model="apiCredentials.etsy_shop_id">
                         </div>
                         <div class="mt-2 text-xs text-gray-400">
-                            Get your credentials from <a href="https://www.etsy.com/developers/" target="_blank" class="text-orange-400 hover:underline">Etsy Developers</a>
+                            Get your credentials from <a href="https://www.etsy.com/developers/" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:underline">Etsy Developers</a>
                         </div>
                     </div>
                     
@@ -500,7 +502,7 @@
                                    x-model="apiCredentials.tiktok_access_token">
                         </div>
                         <div class="mt-2 text-xs text-gray-400">
-                            Get your token from <a href="https://developers.tiktok.com/" target="_blank" class="text-pink-400 hover:underline">TikTok for Developers</a>
+                            Get your token from <a href="https://developers.tiktok.com/" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">TikTok for Developers</a>
                         </div>
                     </div>
                 </div>
