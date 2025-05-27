@@ -19,7 +19,16 @@
       "@app.route('/api/broski/chat', methods=['POST'])",
       "@app.route('/api/hyperfocus/toggle', methods=['POST'])",
       "@app.route('/api/squad/status')",
-      "@app.route('/api/gamification/stats')"
+      "@app.route('/api/gamification/stats')",
+      "@app.route('/api/dashboard-stats')",
+      "@app.route('/api/ai-squad/start', methods=['POST'])",
+      "@app.route('/api/projects')",
+      "@app.route('/api/projects/<int:project_id>/update', methods=['POST'])",
+      "@app.route('/api/project-update', methods=['POST'])",
+      "@app.route('/api/empire-status')",
+      "@app.route('/api/hyperfocus-analytics')",
+      "@app.route('/api/launch-ai-squad', methods=['POST'])",
+      "@app.route('/api/run-task/<task_name>')"
     ],
     "functions": [
       "def signal_handler(sig, frame):",
@@ -48,7 +57,16 @@
       "def broski_chat():",
       "def toggle_hyperfocus():",
       "def squad_status():",
-      "def gamification_stats():"
+      "def gamification_stats():",
+      "def dashboard_stats():",
+      "def ai_squad_start():",
+      "def projects_list():",
+      "def update_project(project_id):",
+      "def project_update():",
+      "def empire_status():",
+      "def hyperfocus_analytics():",
+      "def launch_ai_squad():",
+      "def run_task(task_name):"
     ],
     "description": ""
   },

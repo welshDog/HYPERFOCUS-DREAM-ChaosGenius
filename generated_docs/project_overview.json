@@ -1,7 +1,7 @@
 {
   "project_name": "ChaosGenius Engine",
   "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
-  "generated_at": "2025-05-26T21:13:33.614106",
+  "generated_at": "2025-05-27T11:23:47.897754",
   "components": [
     {
       "name": "3d_workspace",
@@ -84,6 +84,11 @@
       "description": "Component: cleanup_backups"
     },
     {
+      "name": "COMPLETE_USER_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
       "name": "config",
       "type": "directory",
       "description": "Component: config"
@@ -104,11 +109,6 @@
       "description": "Python module: dashboard_api"
     },
     {
-      "name": "dashboard_ultra_mode.html",
-      "type": "file",
-      "description": "File: dashboard_ultra_mode.html"
-    },
-    {
       "name": "data",
       "type": "directory",
       "description": "Component: data"
@@ -124,14 +124,14 @@
       "description": "Component: docs"
     },
     {
-      "name": "file_organization_log_20250524_024441.json",
-      "type": "file",
-      "description": "Configuration: file_organization_log_20250524_024441"
-    },
-    {
       "name": "final_exports",
       "type": "directory",
       "description": "Component: final_exports"
+    },
+    {
+      "name": "folder_optimizer.py",
+      "type": "file",
+      "description": "Python module: folder_optimizer"
     },
     {
       "name": "frontend",
@@ -164,49 +164,29 @@
       "description": "Python module: health_check"
     },
     {
-      "name": "health_report_20250525_111451.json",
+      "name": "health_report_20250527_002532.json",
       "type": "file",
-      "description": "Configuration: health_report_20250525_111451"
+      "description": "Configuration: health_report_20250527_002532"
     },
     {
-      "name": "health_report_20250526_005517.json",
+      "name": "health_report_20250527_102617.json",
       "type": "file",
-      "description": "Configuration: health_report_20250526_005517"
+      "description": "Configuration: health_report_20250527_102617"
     },
     {
-      "name": "health_report_20250526_005621.json",
+      "name": "health_report_20250527_105613.json",
       "type": "file",
-      "description": "Configuration: health_report_20250526_005621"
+      "description": "Configuration: health_report_20250527_105613"
     },
     {
-      "name": "health_report_20250526_012308.json",
+      "name": "health_report_20250527_105805.json",
       "type": "file",
-      "description": "Configuration: health_report_20250526_012308"
-    },
-    {
-      "name": "health_report_20250526_112047.json",
-      "type": "file",
-      "description": "Configuration: health_report_20250526_112047"
-    },
-    {
-      "name": "health_report_20250526_112403.json",
-      "type": "file",
-      "description": "Configuration: health_report_20250526_112403"
-    },
-    {
-      "name": "health_report_20250526_204121.json",
-      "type": "file",
-      "description": "Configuration: health_report_20250526_204121"
+      "description": "Configuration: health_report_20250527_105805"
     },
     {
       "name": "htmlcov",
       "type": "directory",
       "description": "Component: htmlcov"
-    },
-    {
-      "name": "Hyperfocus Bio Zone.html",
-      "type": "file",
-      "description": "File: Hyperfocus Bio Zone.html"
     },
     {
       "name": "logs",
@@ -219,11 +199,6 @@
       "description": "Component: Marketing Content"
     },
     {
-      "name": "Master AI Control Brain.html",
-      "type": "file",
-      "description": "File: Master AI Control Brain.html"
-    },
-    {
       "name": "Master_AI_Control_Brain.html",
       "type": "file",
       "description": "File: Master_AI_Control_Brain.html"
@@ -232,6 +207,11 @@
       "name": "neurodivergent",
       "type": "directory",
       "description": "Component: neurodivergent"
+    },
+    {
+      "name": "Notes",
+      "type": "directory",
+      "description": "Component: Notes"
     },
     {
       "name": "optimization_backups",
@@ -249,21 +229,6 @@
       "description": "Python module: production_manager"
     },
     {
-      "name": "project_analysis_report_20250525_015239.json",
-      "type": "file",
-      "description": "Configuration: project_analysis_report_20250525_015239"
-    },
-    {
-      "name": "project_analysis_report_20250525_015808.json",
-      "type": "file",
-      "description": "Configuration: project_analysis_report_20250525_015808"
-    },
-    {
-      "name": "project_analysis_report_20250525_045050.json",
-      "type": "file",
-      "description": "Configuration: project_analysis_report_20250525_045050"
-    },
-    {
       "name": "project_cleanup_organizer.py",
       "type": "file",
       "description": "Python module: project_cleanup_organizer"
@@ -272,26 +237,6 @@
       "name": "project_health_monitor.py",
       "type": "file",
       "description": "Python module: project_health_monitor"
-    },
-    {
-      "name": "project_optimization_log_20250525_111416.json",
-      "type": "file",
-      "description": "Configuration: project_optimization_log_20250525_111416"
-    },
-    {
-      "name": "project_optimization_log_20250526_111714.json",
-      "type": "file",
-      "description": "Configuration: project_optimization_log_20250526_111714"
-    },
-    {
-      "name": "project_optimization_log_20250526_111833.json",
-      "type": "file",
-      "description": "Configuration: project_optimization_log_20250526_111833"
-    },
-    {
-      "name": "project_optimization_log_20250526_204029.json",
-      "type": "file",
-      "description": "Configuration: project_optimization_log_20250526_204029"
     },
     {
       "name": "quantum_productivity",
@@ -359,16 +304,6 @@
       "description": "Component: tests"
     },
     {
-      "name": "test_chaosgenius_dashboard.py",
-      "type": "file",
-      "description": "Python module: test_chaosgenius_dashboard"
-    },
-    {
-      "name": "test_report_20250525_051249.json",
-      "type": "file",
-      "description": "Configuration: test_report_20250525_051249"
-    },
-    {
       "name": "The Zone",
       "type": "directory",
       "description": "Core Hyperfocus Zone implementation"
@@ -407,6 +342,11 @@
       "name": "Welcome & Onboarding",
       "type": "directory",
       "description": "Component: Welcome & Onboarding"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "description": "Component: __pycache__"
     }
   ],
   "documentation_tools": [

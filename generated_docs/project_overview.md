@@ -1,7 +1,7 @@
 # ChaosGenius Engine
 ## AI-Powered Neurodivergent Business Creation Ecosystem
 
-*Generated on: 2025-05-26T21:13:33.614106*
+*Generated on: 2025-05-27T11:23:47.897754*
 
 ## 🎯 Project Components
 
@@ -21,48 +21,37 @@
 - **chaosgenius_discord_bot.py**: Python module: chaosgenius_discord_bot
 - **chaosgenius_system_optimizer.py**: Python module: chaosgenius_system_optimizer
 - **cleanup_backups**: Component: cleanup_backups
+- **COMPLETE_USER_GUIDE.md**: Documentation: COMPLETE_USER_GUIDE
 - **config**: Component: config
 - **dashboard**: Component: dashboard
 - **dashboard.html**: File: dashboard.html
 - **dashboard_api.py**: Python module: dashboard_api
-- **dashboard_ultra_mode.html**: File: dashboard_ultra_mode.html
 - **data**: Component: data
 - **deploy**: Component: deploy
 - **docs**: Component: docs
-- **file_organization_log_20250524_024441.json**: Configuration: file_organization_log_20250524_024441
 - **final_exports**: Component: final_exports
+- **folder_optimizer.py**: Python module: folder_optimizer
 - **frontend**: Component: frontend
 - **gamification**: Component: gamification
 - **generated_docs**: Component: generated_docs
 - **gesture_controls**: Component: gesture_controls
 - **graceful_shutdown_example.py**: Python module: graceful_shutdown_example
 - **health_check.py**: Python module: health_check
-- **health_report_20250525_111451.json**: Configuration: health_report_20250525_111451
-- **health_report_20250526_005517.json**: Configuration: health_report_20250526_005517
-- **health_report_20250526_005621.json**: Configuration: health_report_20250526_005621
-- **health_report_20250526_012308.json**: Configuration: health_report_20250526_012308
-- **health_report_20250526_112047.json**: Configuration: health_report_20250526_112047
-- **health_report_20250526_112403.json**: Configuration: health_report_20250526_112403
-- **health_report_20250526_204121.json**: Configuration: health_report_20250526_204121
+- **health_report_20250527_002532.json**: Configuration: health_report_20250527_002532
+- **health_report_20250527_102617.json**: Configuration: health_report_20250527_102617
+- **health_report_20250527_105613.json**: Configuration: health_report_20250527_105613
+- **health_report_20250527_105805.json**: Configuration: health_report_20250527_105805
 - **htmlcov**: Component: htmlcov
-- **Hyperfocus Bio Zone.html**: File: Hyperfocus Bio Zone.html
 - **logs**: Component: logs
 - **Marketing Content**: Component: Marketing Content
-- **Master AI Control Brain.html**: File: Master AI Control Brain.html
 - **Master_AI_Control_Brain.html**: File: Master_AI_Control_Brain.html
 - **neurodivergent**: Component: neurodivergent
+- **Notes**: Component: Notes
 - **optimization_backups**: Component: optimization_backups
 - **production_assets**: Component: production_assets
 - **production_manager.py**: Python module: production_manager
-- **project_analysis_report_20250525_015239.json**: Configuration: project_analysis_report_20250525_015239
-- **project_analysis_report_20250525_015808.json**: Configuration: project_analysis_report_20250525_015808
-- **project_analysis_report_20250525_045050.json**: Configuration: project_analysis_report_20250525_045050
 - **project_cleanup_organizer.py**: Python module: project_cleanup_organizer
 - **project_health_monitor.py**: Python module: project_health_monitor
-- **project_optimization_log_20250525_111416.json**: Configuration: project_optimization_log_20250525_111416
-- **project_optimization_log_20250526_111714.json**: Configuration: project_optimization_log_20250526_111714
-- **project_optimization_log_20250526_111833.json**: Configuration: project_optimization_log_20250526_111833
-- **project_optimization_log_20250526_204029.json**: Configuration: project_optimization_log_20250526_204029
 - **quantum_productivity**: Component: quantum_productivity
 - **README.md**: Main project documentation
 - **README_MASTER_INDEX.md**: Documentation: README_MASTER_INDEX
@@ -76,8 +65,6 @@
 - **static**: Component: static
 - **templates**: Component: templates
 - **tests**: Component: tests
-- **test_chaosgenius_dashboard.py**: Python module: test_chaosgenius_dashboard
-- **test_report_20250525_051249.json**: Configuration: test_report_20250525_051249
 - **The Zone**: Core Hyperfocus Zone implementation
 - **Tools & Utilities**: Component: Tools & Utilities
 - **Ui Upgrade**: Component: Ui Upgrade
@@ -86,6 +73,7 @@
 - **venvve**: Component: venvve
 - **voice_commands**: Component: voice_commands
 - **Welcome & Onboarding**: Component: Welcome & Onboarding
+- **__pycache__**: Component: __pycache__
 
 ## 🛠️ Documentation Tools
 
