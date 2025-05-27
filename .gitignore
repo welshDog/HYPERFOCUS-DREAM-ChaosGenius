@@ -1,21 +1,35 @@
+# 🧠 HYPERFOCUS DREAM - ChaosGenius .gitignore
+# ===============================================
+# Protecting your neurodivergent empire's secrets!
+
+# 🔐 CRITICAL: Never commit these sensitive files
 .env
+*.env
 .env.local
 .env.production
 .env.staging
-*.key
-*.pem
-secrets.json
-config/secrets.yml
+
+# 🔑 API Keys and Tokens (NEVER COMMIT THESE!)
+**/api_keys.txt
+**/tokens.txt
+**/secrets.json
+config/credentials.json
+config/api_keys.py
 discord_token.txt
-bot_secrets.py
+etsy_credentials.json
+
+# 💾 Database files (contain user data)
 *.db
 *.sqlite
 *.sqlite3
-chaosgenius.db*
+chaosgenius.db
+chaosgenius.db-journal
+
+# 🏗️ Python artifacts
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 .Python
 build/
 develop-eggs/
@@ -29,139 +43,71 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-venv/
-venvve/
-project_env/
-env/
-ENV/
-.vscode/settings.json
-.vscode/launch.json
-.idea/
+MANIFEST
+
+# 🧪 Testing and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# 📊 Generated reports and logs
+logs/
+*.log
+archived_logs/
+archived_reports/
+health_report*.json
+project_optimization_log*.json
+hyperfocus_project_analysis*.json
+
+# 🗂️ Temporary and backup files
+temp/
+tmp/
+*.tmp
+*.bak
 *.swp
 *.swo
 *~
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-logs/
-*.log
+
+# 🌐 Node.js (if any frontend dependencies)
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-htmlcov/
-.coverage
-.coverage.*
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-*.bak
-*.backup
-backups/
-*.sql.gz
-tmp/
-temp/
-.tmp/
-node_modules/
-*.model
-*.pkl
-*.joblib
-models/
-checkpoints/
-.env.development.local
-.env.test.local
-.env.production.local
-hyperfocus_project_analysis_*.json
-project_analysis_report_*.json
-health_report_*.json
-test_report_*.json
-archived_reports/
-archived_logs/
-cleanup_backups/
-logs/*.log
-*.py[cod]
-*$py.class
-*.so
-file_organization_log_*.json
-cleanup_log_*.json
-optimization_log_*.json
-optimization_backups/
-*.db-journal
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.wav
-*.flac
-*.tmp
-*.temp
-.dockerignore
-*.env.production
-*.env.local
-secrets/
-credentials.json
-# === HYPERFOCUS DREAM PROJECT .GITIGNORE ===
 
-# Virtual Environments
+# 🐳 Docker
+.dockerignore
+
+# 🎯 IDE and editor files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 📦 Virtual environments
 venv/
 venvve/
 env/
-.env
+ENV/
+project_env/
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Analysis Reports & Logs
-hyperfocus_project_analysis_*.json
-project_analysis_report_*.json
-file_organization_log_*.json
-health_report_*.json
-test_report_*.json
-cleanup_log_*.json
-optimization_log_*.json
-*.log
-logs/
-
-# Backup Directories
-cleanup_backups/
-optimization_backups/
-archived_reports/
-archived_logs/
-
-# IDE & Editor Files
-.vscode/settings.json
-.idea/
-*.swp
-*.swo
-*~
-
-# OS Files
+# 🔄 OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -170,41 +116,43 @@ archived_logs/
 ehthumbs.db
 Thumbs.db
 
-# Database Files
-*.db
-*.sqlite3
-*.db-journal
+# 🚀 Deployment artifacts
+deploy/secrets/
+deploy/production/
+.vercel
+.netlify
 
-# Large Media Files (>50MB)
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.wav
-*.flac
+# 📱 Mobile development
+*.ipa
+*.apk
 
-# Temporary Files
-*.tmp
-*.temp
-*.bak
-*.backup
+# 🧠 Personal notes and private docs
+private_notes/
+personal/
+brain_dumps/
+private_*.md
 
-# Node modules (if any JS)
-node_modules/
-npm-debug.log*
+# 💼 Business sensitive data
+Business Data/revenue_actual.json
+Business Data/customer_data.json
+Business Data/financial_records/
 
-# Docker
-.dockerignore
+# 🎮 Game saves and user data
+saves/
+user_profiles/
+achievements/
 
-# Coverage Reports
-htmlcov/
-.coverage
-.coverage.*
-coverage.xml
-*.cover
+# 📸 Screenshots with sensitive info
+screenshots/
+screen_recordings/
 
-# Production secrets
-*.env.production
-*.env.local
-secrets/
-credentials.json
+# 🔧 Local configuration overrides
+config/local.py
+config/development.py
+local_settings.py
+
+# Keep these important files
+!README.md
+!requirements.txt
+!.gitignore
+!LICENSE

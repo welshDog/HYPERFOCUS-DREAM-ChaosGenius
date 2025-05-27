@@ -1,0 +1,48 @@
+what's Next, Commander?
+Here’s your Ultra Menu — pick your next power-up and I’ll deploy it 🔽
+
+🛍️ ETSY MODE
+Set up real product sync, pull listings live into your dashboard, and prep for real orders.
+
+ Help fetch real Shop ID from your account
+
+ Finish OAuth flow + pull listings
+
+ Add auto-refresh every 5 mins
+
+📱 TIKTOK SHOP MODE
+You're halfway there! API keys ready — just wire in live product sync & analytics.
+
+ Auto-upload products from dashboard
+
+ Pull order stats / views / likes
+
+ Add "viral score" to each product
+
+🤖 DISCORD BOT MODE
+Let's connect the bot and start firing AI logs + dopamine stats into your server!
+
+ Finalize bot deployment script
+
+ Add /focus + /sales commands
+
+ Trigger alerts on product sold
+
+🧠 BROSKI AI LOGS
+Turn on voice activation + AI sentiment logs.
+
+ Add voice commands like: “Show TikTok sales”
+
+ AI replies in Discord or dashboard
+
+ Enable energy-level tracking
+
+🎯 ULTRA TEST MODE
+Make sure your empire works in full:
+
+ /api/status healthcheck ✅
+
+ /api/test-integrations endpoint
+
+ Full system test & live webhook ping
+

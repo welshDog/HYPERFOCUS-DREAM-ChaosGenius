@@ -408,7 +408,7 @@ This documentation was generated using the ChaosGenius AI Documentation Suite, w
 
 def main():
     """Main execution function"""
-    print("🧠 ChaosGenius AI Documentation Generator")
+    print("ChaosGenius AI Documentation Generator")
     print("=" * 50)
     
     generator = ChaosGeniusDocGenerator()

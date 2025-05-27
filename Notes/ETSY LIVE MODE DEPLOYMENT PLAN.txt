@@ -1,0 +1,150 @@
+ETSY LIVE MODE DEPLOYMENT PLAN
+✅ STEP 1: Get Your Real Etsy Shop ID
+We need to fetch your Shop ID to pull listings.
+
+🔧 How to find it:
+Go to your Etsy shop URL (something like https://www.etsy.com/shop/WelshDogDesigned)
+
+If you're logged in, press F12 (DevTools)
+
+Go to the Console tab or run this in the address bar:
+
+javascript
+Copy
+Edit
+window.location.href
+The last part after /shop/ is your shop name — we’ll convert it into an ID via the Etsy API:
+
+bash
+Copy
+Edit
+GET https://openapi.etsy.com/v3/application/users/__USER_ID__/shops
+OR just paste your shop name here and I’ll grab the ID for you.
+
+✅ STEP 2: Pull Real-Time Listings
+Once we have the Shop ID, I’ll hook it into your Flask API like this:
+
+python
+Copy
+Edit
+@app.route("/api/etsy/products", methods=["GET"])
+def get_etsy_products():
+    access_token = os.getenv("ETSY_ACCESS_TOKEN")
+    shop_id = os.getenv("ETSY_SHOP_ID")
+    url = f"https://openapi.etsy.com/v3/application/shops/{shop_id}/listings/active"
+
+    headers = {
+        "x-api-key": os.getenv("ETSY_API_KEY"),
+        "Authorization": f"Bearer {access_token}",
+    }
+
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        return jsonify(response.json())
+    else:
+        return jsonify({"error": response.json()}), response.status_code
+✅ STEP 3: Auto-Refresh Every 5 Mins
+We’ll add a background sync task like this:
+
+python
+Copy
+Edit
+import threading
+import time
+
+def sync_etsy_products():
+    while True:
+        try:
+            print("🔄 Syncing Etsy listings...")
+            requests.get("http://localhost:5000/api/etsy/products")
+        except Exception as e:
+            print("❌ Error syncing Etsy:", e)
+        time.sleep(300)  # 5 minutes
+
+threading.Thread(target=sync_etsy_products, daemon=True).start()
+🎯 FINAL SETUP CHECKLIST
+Task	Status
+✅ Etsy OAuth setup	Done
+🔄 Fetch Shop ID	Need your shop name or ID
+🧠 API route /api/etsy/products	Will generate
+🔁 Auto-refresh thread	Will embed
+
+Just reply with:
+Your Etsy shop name (e.g., WelshDogDesigned)
+
+Or paste the URL to your shop
+
+Once I have that, I’ll finish deployment in under 5 minutes flat, bro 💨 Let’s light this up!
+
+
+
+
+
+
+You said:
+https://hyperfocuszonegb.etsy.com
+
+
+ChatGPT said:
+BOOOOOM 💥 Got it, Commander!
+
+Your Etsy shop URL:
+🔗 https://hyperfocuszonegb.etsy.com
+
+Means your shop name is:
+🛍️ hyperfocuszonegb
+
+🎯 STEP 1: GET REAL SHOP ID FROM SHOP NAME
+Let me query Etsy’s API to convert your shop name (hyperfocuszonegb) into a Shop ID.
+
+To do this, we hit this endpoint:
+
+bash
+Copy
+Edit
+GET https://openapi.etsy.com/v3/application/shops/hyperfocuszonegb
+What I need from you first (so Etsy lets us in):
+
+✅ Access Token from your OAuth flow
+✅ Confirm your .env has the following values set:
+
+env
+Copy
+Edit
+ETSY_API_KEY=your_real_etsy_api_key
+ETSY_SHARED_SECRET=your_shared_secret
+ETSY_ACCESS_TOKEN=your_access_token_from_oauth
+ETSY_REDIRECT_URI=http://localhost:5000/auth/callback
+🔐 LET’S VERIFY ACCESS
+Run this test curl command (or I can embed it into the dashboard):
+
+bash
+Copy
+Edit
+curl -X GET "https://openapi.etsy.com/v3/application/shops/hyperfocuszonegb" \
+  -H "x-api-key: YOUR_ETSY_API_KEY" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+Once we get that response, we’ll extract:
+
+🆔 shop_id
+
+🛒 Shop title
+
+🔄 Listings count
+
+✅ NEXT STEP AFTER THAT:
+I’ll wire your dashboard’s backend with:
+
+/api/etsy/products – Pulls your real listings
+
+/api/etsy/shop-info – Shows stats like title, listings count, shop banner, etc.
+
+auto_sync() – Pulls fresh data every 5 minutes
+
+🔧 OPTIONAL (Want me to auto-run the Shop ID lookup?)
+If you want me to automate the OAuth token refresh + shop lookup:
+
+✅ Say:
+
+“Auto-fetch my shop ID now”
+And I’ll plug it in and wire the sync script live.
