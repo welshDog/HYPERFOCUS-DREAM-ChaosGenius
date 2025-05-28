@@ -11,6 +11,45 @@
 
 ---
 
+# 💡 Hyperfocus Dream - Demo Version
+
+Welcome to the **public showcase** of the Hyperfocus Dream system — built by and for creative, neurodivergent minds ready to build the future.
+
+This repo contains a **limited demo version** of the project. It shows you the working core, but the real magic is in the advanced AI, automation, and secret modules (kept private for now 👀).
+
+---
+
+## 🔧 What's Included:
+- Sample API endpoints
+- UI/Dashboard preview
+- Product builder logic
+- Public docs
+
+## 🚫 What’s Hidden (For Now):
+- AI Squad automation logic
+- BROski assistant core
+- ChaosGenius Ultra controls
+- Advanced TikTok/Etsy sync + dashboards
+
+---
+
+### 🚀 Want Full Access or to Contribute?
+If you're:
+- 🔥 A dev who loves AI, neurodiversity, or creative tools
+- 💬 Curious to collaborate
+- 🧠 Wanting to learn more before joining the crew...
+
+📩 Message me or [join the discussion](https://github.com/YOUR_USERNAME/YOUR_REPO/discussions) to get in on the real action.
+
+---
+
+### 📢 Stay Kind. Stay Focused. Stay Ultra.
+
+Built with coffee, chaos, and love. ☕🤖💜
+– Lyndz @ Hyperfocus Zone
+
+---
+
 ## 🚀 **What is HYPERFOCUS DREAM?**
 
 HYPERFOCUS DREAM is the world's first **neurodivergent-optimized business automation ecosystem**. Built specifically for ADHD minds and neurodivergent entrepreneurs, it transforms scattered thinking into structured business success.
