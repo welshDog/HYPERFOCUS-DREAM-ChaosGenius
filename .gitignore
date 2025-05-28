@@ -156,3 +156,33 @@ local_settings.py
 !requirements.txt
 !.gitignore
 !LICENSE
+
+# 🔐 API Keys & Secrets
+.env
+*.env
+.env.local
+.env.production
+config/api_keys.py
+config/secret_modules/
+discord_token.txt
+etsy_credentials.json
+
+# 🧠 Private Code
+ultra_ai/
+chaos_modules/
+broski_core/
+ai_modules/broski/
+
+# 💾 DB & Local Logs
+*.db
+*.sqlite
+*.sqlite3
+logs/
+__pycache__/
+*.log
+
+# 🚀 OS / IDE Noise
+.DS_Store
+.vscode/
+*.pyc
+node_modules/
