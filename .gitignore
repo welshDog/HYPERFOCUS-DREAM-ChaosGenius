@@ -186,3 +186,95 @@ __pycache__/
 .vscode/
 *.pyc
 node_modules/
+# === HYPERFOCUS PROJECT CLEANUP ADDITIONS ===
+# Analysis reports
+hyperfocus_project_analysis_*.json
+project_analysis_report_*.json
+health_report_*.json
+test_report_*.json
+
+# Archived files
+archived_reports/
+archived_logs/
+cleanup_backups/
+
+# Large virtual environment
+venv/
+venvve/
+
+# IDE and system files
+.vscode/settings.json
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/*.log
+
+# Database files
+*.db
+*.sqlite3
+# === HYPERFOCUS PROJECT CLEANUP ADDITIONS ===
+# Analysis reports
+hyperfocus_project_analysis_*.json
+project_analysis_report_*.json
+health_report_*.json
+test_report_*.json
+
+# Archived files
+archived_reports/
+archived_logs/
+cleanup_backups/
+
+# Large virtual environment
+venv/
+venvve/
+
+# IDE and system files
+.vscode/settings.json
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/*.log
+
+# Database files
+*.db
+*.sqlite3
+# === WORKSPACE OPTIMIZATION ADDITIONS ===
+# Archived files
+archived_large_files/
+optimization_backups/
+
+# Logs and temporary files
+*.log
+logs/*.log
+*.tmp
+*.bak
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment files
+.env
+venv/
+env/
+
+# IDE files
+.vscode/settings.json
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large analysis files
+*_analysis_*.json
+*_report_*.json

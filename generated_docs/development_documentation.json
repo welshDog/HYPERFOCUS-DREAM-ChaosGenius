@@ -14,46 +14,16 @@
     ]
   },
   "code_analysis": {
-    "python_files": 9015,
-    "markdown_files": 37,
-    "json_files": 109,
-    "directories": 49
+    "python_files": 55,
+    "markdown_files": 416,
+    "json_files": 400,
+    "directories": 45
   },
   "project_structure": [
     {
-      "name": "3d_workspace",
+      "name": "Welcome & Onboarding",
       "type": "directory",
-      "purpose": "Component: 3d_workspace"
-    },
-    {
-      "name": "advanced_project_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: advanced_project_optimizer"
-    },
-    {
-      "name": "ai_modules",
-      "type": "directory",
-      "purpose": "Component: ai_modules"
-    },
-    {
-      "name": "api",
-      "type": "directory",
-      "purpose": "Component: api"
-    },
-    {
-      "name": "archived_logs",
-      "type": "directory",
-      "purpose": "Component: archived_logs"
-    },
-    {
-      "name": "archived_reports",
-      "type": "directory",
-      "purpose": "Component: archived_reports"
-    },
-    {
-      "name": "archives",
-      "type": "directory",
-      "purpose": "Component: archives"
+      "purpose": "Component: Welcome & Onboarding"
     },
     {
       "name": "assets",
@@ -61,289 +31,29 @@
       "purpose": "Component: assets"
     },
     {
-      "name": "auto_doc_generator.py",
-      "type": "file",
-      "purpose": "Python module: auto_doc_generator"
-    },
-    {
-      "name": "biometric_integration",
-      "type": "directory",
-      "purpose": "Component: biometric_integration"
-    },
-    {
-      "name": "build",
-      "type": "directory",
-      "purpose": "Component: build"
-    },
-    {
-      "name": "Business Data",
-      "type": "directory",
-      "purpose": "Component: Business Data"
-    },
-    {
-      "name": "business_blueprint_20250525_112142.json",
-      "type": "file",
-      "purpose": "Configuration: business_blueprint_20250525_112142"
-    },
-    {
-      "name": "ChaosGenius Dashboard - Hyperfocus Zone now.pdf",
-      "type": "file",
-      "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
-    },
-    {
-      "name": "ChaosGenius.code-workspace",
-      "type": "file",
-      "purpose": "File: ChaosGenius.code-workspace"
-    },
-    {
-      "name": "chaosgenius.db",
-      "type": "file",
-      "purpose": "File: chaosgenius.db"
-    },
-    {
-      "name": "chaosgenius_discord_bot.py",
-      "type": "file",
-      "purpose": "Python module: chaosgenius_discord_bot"
-    },
-    {
-      "name": "chaosgenius_system_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: chaosgenius_system_optimizer"
-    },
-    {
-      "name": "cleanup_backups",
-      "type": "directory",
-      "purpose": "Component: cleanup_backups"
-    },
-    {
-      "name": "COMPLETE_USER_GUIDE.md",
-      "type": "file",
-      "purpose": "Documentation: COMPLETE_USER_GUIDE"
-    },
-    {
-      "name": "config",
-      "type": "directory",
-      "purpose": "Component: config"
-    },
-    {
-      "name": "dashboard",
-      "type": "directory",
-      "purpose": "Component: dashboard"
-    },
-    {
-      "name": "dashboard.html",
-      "type": "file",
-      "purpose": "File: dashboard.html"
-    },
-    {
-      "name": "dashboard_api.py",
-      "type": "file",
-      "purpose": "Python module: dashboard_api"
-    },
-    {
-      "name": "data",
-      "type": "directory",
-      "purpose": "Component: data"
-    },
-    {
-      "name": "deploy",
-      "type": "directory",
-      "purpose": "Component: deploy"
-    },
-    {
-      "name": "docker-compose.yml",
-      "type": "file",
-      "purpose": "File: docker-compose.yml"
-    },
-    {
-      "name": "Dockerfile",
-      "type": "file",
-      "purpose": "File: Dockerfile"
-    },
-    {
-      "name": "docs",
-      "type": "directory",
-      "purpose": "Component: docs"
-    },
-    {
-      "name": "final_exports",
-      "type": "directory",
-      "purpose": "Component: final_exports"
-    },
-    {
-      "name": "folder_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: folder_optimizer"
-    },
-    {
-      "name": "folder_structure.txt",
-      "type": "file",
-      "purpose": "File: folder_structure.txt"
-    },
-    {
-      "name": "frontend",
-      "type": "directory",
-      "purpose": "Component: frontend"
-    },
-    {
-      "name": "gamification",
-      "type": "directory",
-      "purpose": "Component: gamification"
-    },
-    {
-      "name": "generated_docs",
-      "type": "directory",
-      "purpose": "Component: generated_docs"
-    },
-    {
-      "name": "gesture_controls",
-      "type": "directory",
-      "purpose": "Component: gesture_controls"
-    },
-    {
       "name": "graceful_shutdown_example.py",
       "type": "file",
       "purpose": "Python module: graceful_shutdown_example"
     },
     {
-      "name": "health_check.py",
+      "name": "test_broski_integration.py",
       "type": "file",
-      "purpose": "Python module: health_check"
+      "purpose": "Python module: test_broski_integration"
     },
     {
-      "name": "health_report_20250527_002532.json",
+      "name": "test_discord_token_integration.py",
       "type": "file",
-      "purpose": "Configuration: health_report_20250527_002532"
+      "purpose": "Python module: test_discord_token_integration"
     },
     {
-      "name": "health_report_20250527_102617.json",
+      "name": "cleanup_log_20250529_215256.json",
       "type": "file",
-      "purpose": "Configuration: health_report_20250527_102617"
+      "purpose": "Configuration: cleanup_log_20250529_215256"
     },
     {
-      "name": "health_report_20250527_105613.json",
+      "name": "etsy-dashboard.html",
       "type": "file",
-      "purpose": "Configuration: health_report_20250527_105613"
-    },
-    {
-      "name": "health_report_20250527_105805.json",
-      "type": "file",
-      "purpose": "Configuration: health_report_20250527_105805"
-    },
-    {
-      "name": "htmlcov",
-      "type": "directory",
-      "purpose": "Component: htmlcov"
-    },
-    {
-      "name": "logs",
-      "type": "directory",
-      "purpose": "Component: logs"
-    },
-    {
-      "name": "Marketing Content",
-      "type": "directory",
-      "purpose": "Component: Marketing Content"
-    },
-    {
-      "name": "MasterControlBrain.css",
-      "type": "file",
-      "purpose": "File: MasterControlBrain.css"
-    },
-    {
-      "name": "Master_AI_Control_Brain.html",
-      "type": "file",
-      "purpose": "File: Master_AI_Control_Brain.html"
-    },
-    {
-      "name": "neurodivergent",
-      "type": "directory",
-      "purpose": "Component: neurodivergent"
-    },
-    {
-      "name": "Notes",
-      "type": "directory",
-      "purpose": "Component: Notes"
-    },
-    {
-      "name": "optimization_backups",
-      "type": "directory",
-      "purpose": "Component: optimization_backups"
-    },
-    {
-      "name": "production_assets",
-      "type": "directory",
-      "purpose": "Component: production_assets"
-    },
-    {
-      "name": "production_manager.py",
-      "type": "file",
-      "purpose": "Python module: production_manager"
-    },
-    {
-      "name": "project_cleanup_organizer.py",
-      "type": "file",
-      "purpose": "Python module: project_cleanup_organizer"
-    },
-    {
-      "name": "project_health_monitor.py",
-      "type": "file",
-      "purpose": "Python module: project_health_monitor"
-    },
-    {
-      "name": "pyproject.toml",
-      "type": "file",
-      "purpose": "File: pyproject.toml"
-    },
-    {
-      "name": "quantum_productivity",
-      "type": "directory",
-      "purpose": "Component: quantum_productivity"
-    },
-    {
-      "name": "README.md",
-      "type": "file",
-      "purpose": "Main project documentation"
-    },
-    {
-      "name": "README_MASTER_INDEX.md",
-      "type": "file",
-      "purpose": "Documentation: README_MASTER_INDEX"
-    },
-    {
-      "name": "requirements.txt",
-      "type": "file",
-      "purpose": "File: requirements.txt"
-    },
-    {
-      "name": "scripts",
-      "type": "directory",
-      "purpose": "Component: scripts"
-    },
-    {
-      "name": "Scripts & Prompts",
-      "type": "directory",
-      "purpose": "Component: Scripts & Prompts"
-    },
-    {
-      "name": "Setup & Deploy",
-      "type": "directory",
-      "purpose": "Component: Setup & Deploy"
-    },
-    {
-      "name": "social_media_feeds.py",
-      "type": "file",
-      "purpose": "Python module: social_media_feeds"
-    },
-    {
-      "name": "src",
-      "type": "directory",
-      "purpose": "Component: src"
-    },
-    {
-      "name": "start.bat",
-      "type": "file",
-      "purpose": "File: start.bat"
+      "purpose": "File: etsy-dashboard.html"
     },
     {
       "name": "start.py",
@@ -351,19 +61,19 @@
       "purpose": "Python module: start"
     },
     {
-      "name": "startup_manager.py",
-      "type": "file",
-      "purpose": "Python module: startup_manager"
+      "name": "Marketing Content",
+      "type": "directory",
+      "purpose": "Component: Marketing Content"
     },
     {
-      "name": "static",
+      "name": "gesture_controls",
       "type": "directory",
-      "purpose": "Component: static"
+      "purpose": "Component: gesture_controls"
     },
     {
-      "name": "templates",
+      "name": "cleanup_backups",
       "type": "directory",
-      "purpose": "Component: templates"
+      "purpose": "Component: cleanup_backups"
     },
     {
       "name": "tests",
@@ -371,19 +81,74 @@
       "purpose": "Component: tests"
     },
     {
-      "name": "The Zone",
-      "type": "directory",
-      "purpose": "Core Hyperfocus Zone implementation"
+      "name": "social_media_feeds.py",
+      "type": "file",
+      "purpose": "Python module: social_media_feeds"
     },
     {
-      "name": "Tools & Utilities",
-      "type": "directory",
-      "purpose": "Component: Tools & Utilities"
+      "name": "docker-compose.yml",
+      "type": "file",
+      "purpose": "File: docker-compose.yml"
     },
     {
-      "name": "Ui Upgrade",
+      "name": "frontend",
       "type": "directory",
-      "purpose": "Component: Ui Upgrade"
+      "purpose": "Component: frontend"
+    },
+    {
+      "name": "MasterControlBrain.css",
+      "type": "file",
+      "purpose": "File: MasterControlBrain.css"
+    },
+    {
+      "name": "deploy_phase3.py",
+      "type": "file",
+      "purpose": "Python module: deploy_phase3"
+    },
+    {
+      "name": "generated_docs",
+      "type": "directory",
+      "purpose": "Component: generated_docs"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "purpose": "Component: __pycache__"
+    },
+    {
+      "name": "production_assets",
+      "type": "directory",
+      "purpose": "Component: production_assets"
+    },
+    {
+      "name": "chaosgenius.db",
+      "type": "file",
+      "purpose": "File: chaosgenius.db"
+    },
+    {
+      "name": "dashboard.html",
+      "type": "file",
+      "purpose": "File: dashboard.html"
+    },
+    {
+      "name": "setup_demo_version.py",
+      "type": "file",
+      "purpose": "Python module: setup_demo_version"
+    },
+    {
+      "name": "startup_manager.py",
+      "type": "file",
+      "purpose": "Python module: startup_manager"
+    },
+    {
+      "name": "PHASE3_COMPLETION_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE3_COMPLETION_REPORT"
+    },
+    {
+      "name": "project_optimization_log_20250527_120250.json",
+      "type": "file",
+      "purpose": "Configuration: project_optimization_log_20250527_120250"
     },
     {
       "name": "Ultra IPFS",
@@ -391,14 +156,134 @@
       "purpose": "Advanced IPFS integration for Web3 features"
     },
     {
-      "name": "venv",
-      "type": "directory",
-      "purpose": "Component: venv"
+      "name": "ChaosGenius.code-workspace",
+      "type": "file",
+      "purpose": "File: ChaosGenius.code-workspace"
     },
     {
-      "name": "venvve",
+      "name": "health_check.py",
+      "type": "file",
+      "purpose": "Python module: health_check"
+    },
+    {
+      "name": "cleanup_log_20250529_215331.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250529_215331"
+    },
+    {
+      "name": "Master_AI_Control_Brain.html",
+      "type": "file",
+      "purpose": "File: Master_AI_Control_Brain.html"
+    },
+    {
+      "name": "initialize_token_system.py",
+      "type": "file",
+      "purpose": "Python module: initialize_token_system"
+    },
+    {
+      "name": "auto_doc_generator.py",
+      "type": "file",
+      "purpose": "Python module: auto_doc_generator"
+    },
+    {
+      "name": "folder_structure.txt",
+      "type": "file",
+      "purpose": "File: folder_structure.txt"
+    },
+    {
+      "name": "Tools & Utilities",
       "type": "directory",
-      "purpose": "Component: venvve"
+      "purpose": "Component: Tools & Utilities"
+    },
+    {
+      "name": "config",
+      "type": "directory",
+      "purpose": "Component: config"
+    },
+    {
+      "name": "archives",
+      "type": "directory",
+      "purpose": "Component: archives"
+    },
+    {
+      "name": "start.bat",
+      "type": "file",
+      "purpose": "File: start.bat"
+    },
+    {
+      "name": "archived_reports",
+      "type": "directory",
+      "purpose": "Component: archived_reports"
+    },
+    {
+      "name": "phase5_intelligence_manager.py",
+      "type": "file",
+      "purpose": "Python module: phase5_intelligence_manager"
+    },
+    {
+      "name": "Setup & Deploy",
+      "type": "directory",
+      "purpose": "Component: Setup & Deploy"
+    },
+    {
+      "name": "The Zone",
+      "type": "directory",
+      "purpose": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "ai_modules",
+      "type": "directory",
+      "purpose": "Component: ai_modules"
+    },
+    {
+      "name": "Notes",
+      "type": "directory",
+      "purpose": "Component: Notes"
+    },
+    {
+      "name": "PHASE3_SUCCESS_SUMMARY.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE3_SUCCESS_SUMMARY"
+    },
+    {
+      "name": "test_token_system.py",
+      "type": "file",
+      "purpose": "Python module: test_token_system"
+    },
+    {
+      "name": "DISCUSSION.md",
+      "type": "file",
+      "purpose": "Documentation: DISCUSSION"
+    },
+    {
+      "name": "token_test_results.txt",
+      "type": "file",
+      "purpose": "File: token_test_results.txt"
+    },
+    {
+      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
+    },
+    {
+      "name": "static",
+      "type": "directory",
+      "purpose": "Component: static"
+    },
+    {
+      "name": "BROski-CLANVERSE-Ultra",
+      "type": "directory",
+      "purpose": "Component: BROski-CLANVERSE-Ultra"
+    },
+    {
+      "name": "api",
+      "type": "directory",
+      "purpose": "Component: api"
+    },
+    {
+      "name": "workspace_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: workspace_optimizer"
     },
     {
       "name": "voice_commands",
@@ -406,14 +291,289 @@
       "purpose": "Component: voice_commands"
     },
     {
-      "name": "Welcome & Onboarding",
+      "name": "data",
       "type": "directory",
-      "purpose": "Component: Welcome & Onboarding"
+      "purpose": "Component: data"
     },
     {
-      "name": "__pycache__",
+      "name": "ultra_analytics_panel.html",
+      "type": "file",
+      "purpose": "File: ultra_analytics_panel.html"
+    },
+    {
+      "name": "htmlcov",
       "type": "directory",
-      "purpose": "Component: __pycache__"
+      "purpose": "Component: htmlcov"
+    },
+    {
+      "name": "tiktok_shop_dashboard.html",
+      "type": "file",
+      "purpose": "File: tiktok_shop_dashboard.html"
+    },
+    {
+      "name": "folder_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: folder_optimizer"
+    },
+    {
+      "name": "broski_encryption.key",
+      "type": "file",
+      "purpose": "File: broski_encryption.key"
+    },
+    {
+      "name": "broski_hyperportal",
+      "type": "directory",
+      "purpose": "Component: broski_hyperportal"
+    },
+    {
+      "name": "src",
+      "type": "directory",
+      "purpose": "Component: src"
+    },
+    {
+      "name": "templates",
+      "type": "directory",
+      "purpose": "Component: templates"
+    },
+    {
+      "name": "COMPLETE_USER_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
+      "name": "business_blueprint_20250525_112142.json",
+      "type": "file",
+      "purpose": "Configuration: business_blueprint_20250525_112142"
+    },
+    {
+      "name": "etsy_key_validator.py",
+      "type": "file",
+      "purpose": "Python module: etsy_key_validator"
+    },
+    {
+      "name": "scripts",
+      "type": "directory",
+      "purpose": "Component: scripts"
+    },
+    {
+      "name": "archived_logs",
+      "type": "directory",
+      "purpose": "Component: archived_logs"
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
+    },
+    {
+      "name": "advanced_project_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: advanced_project_optimizer"
+    },
+    {
+      "name": "BROski$ INTER",
+      "type": "directory",
+      "purpose": "Component: BROski$ INTER"
+    },
+    {
+      "name": "security_validator.py",
+      "type": "file",
+      "purpose": "Python module: security_validator"
+    },
+    {
+      "name": "chaosgenius_system_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_system_optimizer"
+    },
+    {
+      "name": "README_MASTER_INDEX.md",
+      "type": "file",
+      "purpose": "Documentation: README_MASTER_INDEX"
+    },
+    {
+      "name": "logs",
+      "type": "directory",
+      "purpose": "Component: logs"
+    },
+    {
+      "name": "quick_organizer.py",
+      "type": "file",
+      "purpose": "Python module: quick_organizer"
+    },
+    {
+      "name": "project_cleanup_organizer.py",
+      "type": "file",
+      "purpose": "Python module: project_cleanup_organizer"
+    },
+    {
+      "name": "optimization_backups",
+      "type": "directory",
+      "purpose": "Component: optimization_backups"
+    },
+    {
+      "name": "ChaosGenius Dashboard - Hyperfocus Zone now.pdf",
+      "type": "file",
+      "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
+    },
+    {
+      "name": "DEMO_MANIFEST.json",
+      "type": "file",
+      "purpose": "Configuration: DEMO_MANIFEST"
+    },
+    {
+      "name": "project_health_monitor.py",
+      "type": "file",
+      "purpose": "Python module: project_health_monitor"
+    },
+    {
+      "name": "chaos_test_suite.py",
+      "type": "file",
+      "purpose": "Python module: chaos_test_suite"
+    },
+    {
+      "name": "dashboard_api.py",
+      "type": "file",
+      "purpose": "Python module: dashboard_api"
+    },
+    {
+      "name": "pyproject.toml",
+      "type": "file",
+      "purpose": "File: pyproject.toml"
+    },
+    {
+      "name": "health_report.json",
+      "type": "file",
+      "purpose": "Configuration: health_report"
+    },
+    {
+      "name": "deploy",
+      "type": "directory",
+      "purpose": "Component: deploy"
+    },
+    {
+      "name": "Scripts & Prompts",
+      "type": "directory",
+      "purpose": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "app.py",
+      "type": "file",
+      "purpose": "Python module: app"
+    },
+    {
+      "name": "Ui Upgrade",
+      "type": "directory",
+      "purpose": "Component: Ui Upgrade"
+    },
+    {
+      "name": "PHASE4_PRODUCTION_COMPLETE.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE4_PRODUCTION_COMPLETE"
+    },
+    {
+      "name": "workspace_optimization_20250529_215500.json",
+      "type": "file",
+      "purpose": "Configuration: workspace_optimization_20250529_215500"
+    },
+    {
+      "name": "docs",
+      "type": "directory",
+      "purpose": "Component: docs"
+    },
+    {
+      "name": "backups",
+      "type": "directory",
+      "purpose": "Component: backups"
+    },
+    {
+      "name": "test_endpoints.py",
+      "type": "file",
+      "purpose": "Python module: test_endpoints"
+    },
+    {
+      "name": "README.md",
+      "type": "file",
+      "purpose": "Main project documentation"
+    },
+    {
+      "name": "phase4_production_manager.py",
+      "type": "file",
+      "purpose": "Python module: phase4_production_manager"
+    },
+    {
+      "name": "neurod_analytics_dashboard.html",
+      "type": "file",
+      "purpose": "File: neurod_analytics_dashboard.html"
+    },
+    {
+      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "type": "directory",
+      "purpose": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+    },
+    {
+      "name": "production_config",
+      "type": "directory",
+      "purpose": "Component: production_config"
+    },
+    {
+      "name": "Business Data",
+      "type": "directory",
+      "purpose": "Component: Business Data"
+    },
+    {
+      "name": "requirements.txt",
+      "type": "file",
+      "purpose": "File: requirements.txt"
+    },
+    {
+      "name": "production_autoscaler.py",
+      "type": "file",
+      "purpose": "Python module: production_autoscaler"
+    },
+    {
+      "name": "system_monitor.py",
+      "type": "file",
+      "purpose": "Python module: system_monitor"
+    },
+    {
+      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
+      "type": "file",
+      "purpose": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
+    },
+    {
+      "name": "chaos_genius_organizer.py",
+      "type": "file",
+      "purpose": "Python module: chaos_genius_organizer"
+    },
+    {
+      "name": "Dockerfile",
+      "type": "file",
+      "purpose": "File: Dockerfile"
+    },
+    {
+      "name": "chaosgenius_discord_bot.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_discord_bot"
+    },
+    {
+      "name": "production_manager.py",
+      "type": "file",
+      "purpose": "Python module: production_manager"
+    },
+    {
+      "name": "phase3_manager.py",
+      "type": "file",
+      "purpose": "Python module: phase3_manager"
+    },
+    {
+      "name": "PROJECT_IMPACT_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: PROJECT_IMPACT_REPORT"
+    },
+    {
+      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
+      "type": "file",
+      "purpose": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
     }
   ],
   "tasks_available": [

@@ -1,0 +1,43 @@
+# The Fix: Rebuild the Python Environment
+🔁 Step 1: Delete Old, Broken Venv (if it exists)
+Open terminal in Codespaces and run:
+
+bash
+
+rm -rf venv
+🧱 Step 2: Create a Fresh Virtual Environment
+bash
+
+python3 -m venv venv
+Then activate it:
+
+bash
+
+source venv/bin/activate
+📦 Step 3: Reinstall Your Project’s Requirements
+Inside your venv:
+
+bash
+
+pip install --upgrade pip
+pip install -r requirements.txt
+(Optional for dev tools):
+
+bash
+
+pip install black flake8 pytest
+🧠 Step 4: Tell VS Code to Use This Python Path
+Press Ctrl+Shift+P
+
+Type: Python: Select Interpreter
+
+Choose the one that ends with:
+
+bash
+
+./venv/bin/python
+🧠 Step 5: Reload the Window
+bash
+
+Ctrl+Shift+P → "Reload Window"
+💥 Done! IntelliCode + Python + Testing Should Now Be Working
