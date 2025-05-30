@@ -2,53 +2,20 @@
 
 *Auto-generated comprehensive documentation for the Hyperfocus Zone project*
 
-# 📚 ChaosGenius Documentation Index
+## 📋 Available Documentation
 
-*Auto-generated comprehensive documentation for the Hyperfocus Zone project*
-*Last Updated: May 30, 2025*
-
-## 🎯 NEW DOCUMENTATION - MAY 2025 UPDATE
-
-### 🧠 BROski HyperPortal
-- [**🧠 BROski HyperPortal - Complete Documentation**](BROSKI_HYPERPORTAL_DOCUMENTATION.md) - *NEW!*
-- [**📊 Project Update - May 2025**](PROJECT_UPDATE_MAY_2025.md) - *NEW!*
-
-### 🔧 Technical Documentation
-- [**🔍 Comprehensive Technical Review**](../COMPREHENSIVE_TECHNICAL_REVIEW.md) - *Enhanced!*
+### 🎯 Project Overview
 - [Project Overview (Markdown)](project_overview.md)
 - [Project Overview (JSON)](project_overview.json)
 
-### 📋 API & Development
+### 📋 API Documentation
 - [API Documentation](api_documentation.json)
-- [Swagger API Documentation](swagger_api_documentation.json) - *NEW!*
-- [Development Documentation](development_documentation.json)
 
-### 💼 Business & Strategy
+### 💼 Business Documentation
 - [Business Documentation](business_documentation.json)
-- [Executive Summary & Investor Pitch](Executive_Summary_Investor_Pitch.md) - *NEW!*
-- [Complete Documentation Export Package](Complete_Documentation_Export_Package.md) - *NEW!*
 
-### 📖 User Guides
-- [**🚀 Quick Start Guide**](QUICK_START_GUIDE.md) - *NEW! Start here!*
-- [Dashboard User Guide - Complete](Dashboard_User_Guide_Complete.md) - *NEW!*
-- [Visual Documentation Guide](Visual_Documentation_Guide.md) - *NEW!*
-
-## 🎯 QUICK ACCESS
-
-### 🚀 New Users
-1. **[Quick Start Guide](QUICK_START_GUIDE.md)** - Get running in 5 minutes
-2. **[BROski HyperPortal](BROSKI_HYPERPORTAL_DOCUMENTATION.md)** - Portal features and usage
-3. **[Dashboard Guide](Dashboard_User_Guide_Complete.md)** - System monitoring
-
-### 👨‍💻 Developers
-1. **[Technical Review](../COMPREHENSIVE_TECHNICAL_REVIEW.md)** - Architecture deep dive
-2. **[API Documentation](api_documentation.json)** - Endpoint specifications
-3. **[Development Docs](development_documentation.json)** - Implementation details
-
-### 📈 Business Users
-1. **[Executive Summary](Executive_Summary_Investor_Pitch.md)** - Strategic overview
-2. **[Project Update May 2025](PROJECT_UPDATE_MAY_2025.md)** - Latest developments
-3. **[Business Documentation](business_documentation.json)** - Metrics and strategy
+### 🔧 Development Documentation
+- [Development Documentation](development_documentation.json)
 
 ## 🛠️ Documentation Tools Used
 

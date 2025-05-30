@@ -1176,6 +1176,144 @@ def production_security():
             "message": f"❌ Error getting security status: {str(e)}"
         }), 500
 
+# BROski AI Integration Routes
+@app.route('/api/broski/status', methods=['GET'])
+def broski_status():
+    """Get BROski AI system status"""
+    try:
+        # Import here to avoid circular imports
+        from ai_modules.broski.broski_core import BROskiCore
+
+        broski = BROskiCore()
+        status = broski.get_system_status()
+
+        return jsonify({
+            'success': True,
+            'status': 'operational',
+            'broski_data': status,
+            'timestamp': datetime.now().isoformat()
+        })
+    except Exception as e:
+        logger.error(f"BROski status error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/broski/chat', methods=['POST'])
+def broski_chat():
+    """Chat with BROski AI"""
+    try:
+        from ai_modules.broski.broski_core import BROskiCore
+        import asyncio
+
+        data = request.get_json()
+        user_id = data.get('user_id', 'anonymous')
+        message = data.get('message', '')
+        context = data.get('context', {})
+
+        if not message:
+            return jsonify({'success': False, 'error': 'Message required'}), 400
+
+        broski = BROskiCore()
+
+        # Run async function in sync context
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            response = loop.run_until_complete(
+                broski.process_user_interaction(user_id, message, context)
+            )
+        finally:
+            loop.close()
+
+        return jsonify({
+            'success': True,
+            'message': response.message,
+            'style': response.style,
+            'mood_detected': response.mood_detected,
+            'energy_level': response.energy_level,
+            'motivation_boost': response.motivation_boost,
+            'recommendations': response.recommendations,
+            'confidence': response.confidence,
+            'timestamp': response.timestamp
+        })
+
+    except Exception as e:
+        logger.error(f"BROski chat error: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e),
+            'fallback_message': "🌟 BROski here! I'm having a quick brain moment, but I'm still here for you!"
+        }), 500
+
+@app.route('/api/broski/hyperfocus', methods=['POST'])
+def broski_hyperfocus_support():
+    """Get hyperfocus session support from BROski"""
+    try:
+        from ai_modules.broski.broski_core import BROskiCore
+        import asyncio
+
+        data = request.get_json()
+        user_id = data.get('user_id', 'anonymous')
+        session_data = data.get('session_data', {})
+
+        broski = BROskiCore()
+
+        # Run async function
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            support_data = loop.run_until_complete(
+                broski.get_hyperfocus_session_support(user_id, session_data)
+            )
+        finally:
+            loop.close()
+
+        return jsonify({
+            'success': True,
+            'support_data': support_data,
+            'timestamp': datetime.now().isoformat()
+        })
+
+    except Exception as e:
+        logger.error(f"BROski hyperfocus error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/broski/feedback', methods=['POST'])
+def broski_feedback():
+    """Submit feedback to BROski for learning"""
+    try:
+        from ai_modules.broski.broski_core import BROskiCore
+        import asyncio
+
+        data = request.get_json()
+        user_id = data.get('user_id', 'anonymous')
+        interaction_id = data.get('interaction_id', '')
+        feedback = data.get('feedback', '')
+
+        if not feedback:
+            return jsonify({'success': False, 'error': 'Feedback required'}), 400
+
+        broski = BROskiCore()
+
+        # Run async function
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            result = loop.run_until_complete(
+                broski.train_on_feedback(user_id, interaction_id, feedback)
+            )
+        finally:
+            loop.close()
+
+        return jsonify({
+            'success': True,
+            'training_result': result,
+            'timestamp': datetime.now().isoformat()
+        })
+
+    except Exception as e:
+        logger.error(f"BROski feedback error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 if __name__ == '__main__':
     logger.info("🚀 Starting ChaosGenius Dashboard API...")
     logger.info("🧠 AI Squad standing by for activation")
@@ -1188,27 +1326,3 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(f"❌ Error starting dashboard: {e}")
         sys.exit(1)
-
-# Additional Integration Routes
-@app.route('/api/discord/status')
-def discord_status():
-    """Discord bot status and metrics"""
-    return jsonify({
-        "status": "demo_mode",
-        "uptime": "24h",
-        "commands_processed": 127,
-        "channels_active": 5,
-        "last_activity": datetime.now().isoformat(),
-        "demo_note": "Discord integration running in demo mode"
-    })
-
-@app.route('/api/workflows/status')
-def workflow_status():
-    """Workflow automation status"""
-    return jsonify({
-        "active_workflows": 8,
-        "completed_today": 23,
-        "time_saved_hours": 3.2,
-        "efficiency_score": 0.87,
-        "next_scheduled": datetime.now().isoformat()
-    })
