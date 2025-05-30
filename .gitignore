@@ -18,6 +18,34 @@ config/api_keys.py
 discord_token.txt
 etsy_credentials.json
 
+# 🔐 Additional Security - NEVER COMMIT
+*_key.txt
+*_token.txt
+*_secret.txt
+*_password.txt
+api_config.py
+credentials.py
+secrets.py
+private_keys/
+*.pem
+*.key
+*.crt
+broski_encryption.key
+
+# 🤖 AI Service Keys
+openai_key*
+anthropic_key*
+claude_key*
+gpt_key*
+
+# 🌐 Social Media & Commerce API Keys
+discord_*
+etsy_*
+tiktok_*
+twitter_*
+facebook_*
+instagram_*
+
 # 💾 Database files (contain user data)
 *.db
 *.sqlite
