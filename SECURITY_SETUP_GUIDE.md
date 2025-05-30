@@ -5,6 +5,7 @@
 This repository is designed to be publicly shareable while keeping your sensitive API keys and credentials secure. Follow this guide to set up your environment safely.
 
 ## 🚨 NEVER COMMIT THESE FILES:
+
 - `.env` (your actual environment variables)
 - Any files containing API keys, tokens, or passwords
 - Database files with user data
@@ -13,6 +14,7 @@ This repository is designed to be publicly shareable while keeping your sensitiv
 ## ✅ SAFE SETUP PROCESS:
 
 ### 1️⃣ Environment Variables
+
 ```bash
 # Copy the template and add your actual keys
 cp .env.template .env
@@ -24,18 +26,22 @@ nano .env
 ### 2️⃣ Required API Keys
 
 #### 🤖 AI Services (Optional but Recommended)
+
 - **OpenAI API Key**: For AI-powered features
 - **Anthropic API Key**: For Claude AI integration
 
 #### 🎮 Discord Integration
+
 - **Discord Bot Token**: Create a bot at https://discord.com/developers/applications
 - **Discord Guild ID**: Your Discord server ID
 
 #### 🛒 E-commerce APIs (Optional)
+
 - **Etsy API Key**: For Etsy shop integration
 - **TikTok Shop API Key**: For TikTok commerce features
 
 ### 3️⃣ Quick Start Without API Keys
+
 You can run the basic portal without any API keys:
 
 ```bash
@@ -51,6 +57,7 @@ npm run dev
 ```
 
 ### 4️⃣ Full System with APIs
+
 ```bash
 # Set up environment variables first
 cp .env.template .env
@@ -70,12 +77,14 @@ npm run dev
 ## 🛡️ SECURITY BEST PRACTICES:
 
 ### ✅ DO:
+
 - Use `.env` files for sensitive data
 - Keep API keys in environment variables
 - Use the provided templates
 - Check `.gitignore` before committing
 
 ### ❌ DON'T:
+
 - Commit `.env` files
 - Put API keys directly in code
 - Share credentials in public repositories
@@ -93,6 +102,7 @@ The system includes demo modes and fallbacks:
 ## 🆘 TROUBLESHOOTING:
 
 ### Environment Variables Not Loading?
+
 ```bash
 # Check if .env exists
 ls -la .env
@@ -102,12 +112,14 @@ cat .env
 ```
 
 ### API Keys Not Working?
+
 - Verify keys are active and not expired
 - Check API rate limits
 - Ensure proper permissions for Discord bots
 - Test keys with simple API calls first
 
 ### Still Having Issues?
+
 - Check the logs in `/logs/` directory
 - Run health check: `python health_check.py`
 - Verify all dependencies are installed
@@ -115,6 +127,7 @@ cat .env
 ## 🎯 PRODUCTION DEPLOYMENT:
 
 For production deployment:
+
 1. Use production-grade secret management
 2. Enable HTTPS/SSL
 3. Use environment-specific `.env` files
@@ -123,6 +136,21 @@ For production deployment:
 
 ---
 
+## 💜 **NEED HELP? JOIN OUR COMMUNITY!**
+
+Having trouble with setup? Join our Discord community where neurodivergent developers help each other:
+
+[![Join Discord Community](https://img.shields.io/badge/JOIN%20DISCORD-COMMUNITY%20SUPPORT-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/ME2qkNy79k)
+
+**In Discord you'll find:**
+
+- 🔧 **#setup-help** - Get assistance with API keys and configuration
+- 🤖 **#bot-testing** - Test your Discord bot integrations
+- 💜 **#neurodivergent-devs** - ADHD-friendly coding support
+- 🎛️ **#showcase-demos** - See the system in action
+
+---
+
 **Remember: Security first! Never commit your actual API keys or sensitive data.** 🔐
 
-*This guide ensures you can share your awesome project publicly while keeping your credentials private.*
+_This guide ensures you can share your awesome project publicly while keeping your credentials private._
