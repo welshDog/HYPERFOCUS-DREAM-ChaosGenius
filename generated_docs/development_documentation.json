@@ -14,9 +14,9 @@
     ]
   },
   "code_analysis": {
-    "python_files": 55,
-    "markdown_files": 416,
-    "json_files": 400,
+    "python_files": 58,
+    "markdown_files": 423,
+    "json_files": 405,
     "directories": 45
   },
   "project_structure": [
@@ -74,6 +74,11 @@
       "name": "cleanup_backups",
       "type": "directory",
       "purpose": "Component: cleanup_backups"
+    },
+    {
+      "name": "SECURITY_SETUP_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: SECURITY_SETUP_GUIDE"
     },
     {
       "name": "tests",
@@ -241,6 +246,11 @@
       "purpose": "Component: Notes"
     },
     {
+      "name": "SYSTEM_COMPLETION_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: SYSTEM_COMPLETION_REPORT"
+    },
+    {
       "name": "PHASE3_SUCCESS_SUMMARY.md",
       "type": "file",
       "purpose": "Documentation: PHASE3_SUCCESS_SUMMARY"
@@ -284,6 +294,11 @@
       "name": "workspace_optimizer.py",
       "type": "file",
       "purpose": "Python module: workspace_optimizer"
+    },
+    {
+      "name": "test_portal_integration.py",
+      "type": "file",
+      "purpose": "Python module: test_portal_integration"
     },
     {
       "name": "voice_commands",
@@ -414,6 +429,16 @@
       "name": "ChaosGenius Dashboard - Hyperfocus Zone now.pdf",
       "type": "file",
       "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
+    },
+    {
+      "name": "PROJECT_COMPLETION_STATUS.md",
+      "type": "file",
+      "purpose": "Documentation: PROJECT_COMPLETION_STATUS"
+    },
+    {
+      "name": "CHANGELOG.md",
+      "type": "file",
+      "purpose": "Documentation: CHANGELOG"
     },
     {
       "name": "DEMO_MANIFEST.json",

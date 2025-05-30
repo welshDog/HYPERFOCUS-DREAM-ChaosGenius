@@ -20,8 +20,10 @@
       "@app.route('/api/ai-squad/status')",
       "@app.route('/api/production/metrics')",
       "@app.route('/api/production/security')",
-      "@app.route('/api/discord/status')",
-      "@app.route('/api/workflows/status')"
+      "@app.route('/api/broski/status', methods=['GET'])",
+      "@app.route('/api/broski/chat', methods=['POST'])",
+      "@app.route('/api/broski/hyperfocus', methods=['POST'])",
+      "@app.route('/api/broski/feedback', methods=['POST'])"
     ],
     "functions": [
       "def signal_handler(sig, frame):",
@@ -44,8 +46,10 @@
       "def ai_squad_status():",
       "def production_metrics():",
       "def production_security():",
-      "def discord_status():",
-      "def workflow_status():"
+      "def broski_status():",
+      "def broski_chat():",
+      "def broski_hyperfocus_support():",
+      "def broski_feedback():"
     ],
     "description": ""
   }

@@ -1,7 +1,7 @@
 {
   "project_name": "ChaosGenius Engine",
   "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
-  "generated_at": "2025-05-30T05:14:47.259754",
+  "generated_at": "2025-05-30T06:21:51.021968",
   "components": [
     {
       "name": "Welcome & Onboarding",
@@ -57,6 +57,11 @@
       "name": "cleanup_backups",
       "type": "directory",
       "description": "Component: cleanup_backups"
+    },
+    {
+      "name": "SECURITY_SETUP_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: SECURITY_SETUP_GUIDE"
     },
     {
       "name": "tests",
@@ -194,6 +199,11 @@
       "description": "Component: Notes"
     },
     {
+      "name": "SYSTEM_COMPLETION_REPORT.md",
+      "type": "file",
+      "description": "Documentation: SYSTEM_COMPLETION_REPORT"
+    },
+    {
       "name": "PHASE3_SUCCESS_SUMMARY.md",
       "type": "file",
       "description": "Documentation: PHASE3_SUCCESS_SUMMARY"
@@ -232,6 +242,11 @@
       "name": "workspace_optimizer.py",
       "type": "file",
       "description": "Python module: workspace_optimizer"
+    },
+    {
+      "name": "test_portal_integration.py",
+      "type": "file",
+      "description": "Python module: test_portal_integration"
     },
     {
       "name": "voice_commands",
@@ -352,6 +367,16 @@
       "name": "optimization_backups",
       "type": "directory",
       "description": "Component: optimization_backups"
+    },
+    {
+      "name": "PROJECT_COMPLETION_STATUS.md",
+      "type": "file",
+      "description": "Documentation: PROJECT_COMPLETION_STATUS"
+    },
+    {
+      "name": "CHANGELOG.md",
+      "type": "file",
+      "description": "Documentation: CHANGELOG"
     },
     {
       "name": "DEMO_MANIFEST.json",

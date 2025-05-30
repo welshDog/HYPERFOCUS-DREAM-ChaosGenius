@@ -1,53 +1,156 @@
-
 // BROSKI HYPERSAW PORTAL - One Page React App
 // All users see the front page, but you get secret access to ChaosGenius Hub
 // Password-protected admin zone + hidden subpages (easter egg style)
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function BROskiPortal() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [broskiResponse, setBroskiResponse] = useState(null);
+  const [chatMessage, setChatMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [broskiStatus, setBroskiStatus] = useState(null);
 
   const handleLogin = () => {
     if (password === "chaosgeniusultra") {
       setIsAdmin(true);
+      fetchBroskiStatus();
     } else {
       setError("Invalid password, bro!");
     }
   };
 
+  const fetchBroskiStatus = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/broski/status");
+      const data = await response.json();
+      setBroskiStatus(data);
+    } catch (error) {
+      console.error("Error fetching BROski status:", error);
+    }
+  };
+
+  const chatWithBroski = async () => {
+    if (!chatMessage.trim()) return;
+
+    setIsLoading(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/broski/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: "portal_user",
+          message: chatMessage,
+          context: { platform: "hyperportal" },
+        }),
+      });
+
+      const data = await response.json();
+      setBroskiResponse(data);
+      setChatMessage("");
+    } catch (error) {
+      console.error("Error chatting with BROski:", error);
+      setBroskiResponse({
+        success: false,
+        fallback_message:
+          "🌟 BROski's having a brain moment! Try the dashboard for full power!",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getDailyBoost = async () => {
+    await chatWithBroski();
+  };
+
   return (
     <div className="min-h-screen bg-black text-white p-4 space-y-10">
-      <motion.h1 initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl text-center font-bold">
+      <motion.h1
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl text-center font-bold"
+      >
         🧠 BROSKI POWER-UP PORTAL
       </motion.h1>
 
       <section className="grid md:grid-cols-2 gap-6">
         <div className="bg-gray-800 p-6 rounded-xl border border-purple-500">
           <h2 className="text-xl font-bold mb-2">📝 PromptMaker Pro</h2>
-          <p className="text-gray-300 mb-4">Pre-made & remixable AI prompts for hustle, chill, creativity, and madness.</p>
-          <button className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition-all">Generate a Prompt</button>
+          <p className="text-gray-300 mb-4">
+            Pre-made & remixable AI prompts for hustle, chill, creativity, and
+            madness.
+          </p>
+          <button className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg transition-all">
+            Generate a Prompt
+          </button>
         </div>
 
         <div className="bg-gray-800 p-6 rounded-xl border border-blue-500">
           <h2 className="text-xl font-bold mb-2">🎮 BossGear Loadout</h2>
-          <p className="text-gray-300 mb-4">Links to top tools, ADHD modes, soundboards, and creative boosters.</p>
-          <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-all">Open Loadout</button>
+          <p className="text-gray-300 mb-4">
+            Links to top tools, ADHD modes, soundboards, and creative boosters.
+          </p>
+          <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-all">
+            Open Loadout
+          </button>
         </div>
 
         <div className="bg-gray-800 p-6 rounded-xl border border-pink-500">
           <h2 className="text-xl font-bold mb-2">🪩 Style Station</h2>
-          <p className="text-gray-300 mb-4">Pick your BROski avatar, get an AI PFP, and activate your Flex Badge.</p>
-          <button className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded-lg transition-all">Style Me!</button>
+          <p className="text-gray-300 mb-4">
+            Pick your BROski avatar, get an AI PFP, and activate your Flex
+            Badge.
+          </p>
+          <button className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded-lg transition-all">
+            Style Me!
+          </button>
         </div>
 
         <div className="bg-gray-800 p-6 rounded-xl border border-green-500">
           <h2 className="text-xl font-bold mb-2">☕ Daily Energy Boost</h2>
-          <p className="text-gray-300 mb-4">Get your hype quote, BROski tip, and random boost on every refresh.</p>
-          <button className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-all">Get Boosted</button>
+          <p className="text-gray-300 mb-4">
+            Get your hype quote, BROski tip, and random boost on every refresh.
+          </p>
+
+          <div className="space-y-3">
+            <input
+              type="text"
+              value={chatMessage}
+              onChange={(e) => setChatMessage(e.target.value)}
+              placeholder="Ask BROski for motivation..."
+              className="w-full p-2 bg-gray-700 rounded border border-gray-600 text-white"
+              onKeyPress={(e) => e.key === "Enter" && chatWithBroski()}
+            />
+
+            <button
+              onClick={chatWithBroski}
+              disabled={isLoading}
+              className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-all disabled:opacity-50"
+            >
+              {isLoading ? "🧠 BROski Thinking..." : "Chat with BROski AI"}
+            </button>
+          </div>
+
+          {broskiResponse && (
+            <div className="mt-4 p-3 bg-gray-700 rounded border-l-4 border-green-400">
+              <div className="text-sm text-green-400 mb-1">
+                BROski ({broskiResponse.mood_detected || "AI"} mode):
+              </div>
+              <div className="text-white">
+                {broskiResponse.message || broskiResponse.fallback_message}
+              </div>
+              {broskiResponse.energy_level && (
+                <div className="text-xs text-gray-400 mt-2">
+                  Energy Level: {broskiResponse.energy_level}/100 | Confidence:{" "}
+                  {(broskiResponse.confidence * 100).toFixed(0)}%
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
@@ -92,7 +195,9 @@ export default function BROskiPortal() {
                 whileTap={{ scale: 0.95 }}
               >
                 <h3 className="font-bold text-lg">🚀 Ultra Drops</h3>
-                <p className="text-sm text-purple-200">Deploy instant rewards</p>
+                <p className="text-sm text-purple-200">
+                  Deploy instant rewards
+                </p>
               </motion.div>
 
               <motion.div
