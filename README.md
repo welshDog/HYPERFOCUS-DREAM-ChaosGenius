@@ -241,6 +241,7 @@ _May your hyperfocus sessions be productive and your dopamine levels stay balanc
 ### 🌐 User Interfaces
 
 - **BROski HyperPortal**: http://localhost:5173 (ADHD-optimized React interface)
+  📖 _See [BROski HyperPortal User Guide](BROSKI_HYPERPORTAL_USER_GUIDE.md) for complete walkthrough_
 - **ChaosGenius Dashboard**: http://localhost:5000 (Comprehensive analytics)
 - **Secret Admin Zone**: Password-protected system control
 - **Mobile Responsive**: Beautiful design on all devices
@@ -733,6 +734,9 @@ This project is built **by neurodivergent minds, for neurodivergent minds**. Con
 ## 📚 **Documentation**
 
 - **[Complete User Guide](COMPLETE_USER_GUIDE.md)** - Comprehensive system manual
+- **[BROski HyperPortal Guide](BROSKI_HYPERPORTAL_USER_GUIDE.md)** - Interactive portal walkthrough
+- **[Discord Community Showcase](DISCORD_SHOWCASE.md)** - Community experience guide
+- **[Security Setup Guide](SECURITY_SETUP_GUIDE.md)** - Safe API configuration
 - **[API Documentation](http://localhost:5000/apidocs/)** - Swagger interface
 - **[Generated Docs](generated_docs/)** - Auto-generated documentation suite
 
