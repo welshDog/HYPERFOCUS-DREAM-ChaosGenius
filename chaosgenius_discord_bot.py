@@ -13,6 +13,22 @@ import random
 import re
 from dotenv import load_dotenv
 from pathlib import Path
+from logging.handlers import RotatingFileHandler
+
+# Add BROski AI integration
+import sys
+sys.path.append('/workspaces/HYPERFOCUS-DREAM-ChaosGenius')
+from ai_modules.broski.broski_core import BROskiCore, BROskiResponse
+
+# 🪙 Add BROski$ Token Economy integration
+try:
+    from ai_modules.broski.token_engine import BROskiTokenEngine
+    from ai_modules.broski.token_commands import BROskiTokenCommands
+    TOKENS_AVAILABLE = True
+    logger.info("🪙 BROski$ Token Economy loaded successfully!")
+except ImportError as e:
+    logger.warning(f"⚠️ BROski$ Token system not available: {e}")
+    TOKENS_AVAILABLE = False
 
 # 🔐 Load environment variables securely
 load_dotenv()
@@ -20,28 +36,23 @@ load_dotenv()
 # 🚨 SECURE Bot Configuration
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 if not TOKEN:
-    print("🚨 CRITICAL: DISCORD_BOT_TOKEN not found in environment variables!")
-    print("📋 Setup Instructions:")
-    print("1. Go to https://discord.com/developers/applications")
-    print("2. Create/select your bot application")
-    print("3. Go to 'Bot' section and reset token")
-    print("4. Copy the new token")
-    print("5. Set environment variable: set DISCORD_BOT_TOKEN=your_new_token")
-    print("6. Or add to .env file: DISCORD_BOT_TOKEN=your_new_token")
-    exit(1)
+    print("\ud83d\udea8 WARNING: DISCORD_BOT_TOKEN not found in environment variables!")
+    print("\ud83d\udd0e Running in DEV MODE: Discord bot will not connect, but commands can be simulated.")
+    TOKEN = None  # Dev mode: do not exit, allow script to run for local testing
 
 # 📝 Enhanced logging for production - FIXED ENCODING ISSUE
 # Ensure logs directory exists
 logs_dir = Path("logs")
 logs_dir.mkdir(parents=True, exist_ok=True)
 
-# Configure logging with proper encoding handling for Windows
+# Configure logging with rotation
+log_file = logs_dir / 'discord_bot.log'
+rotating_handler = RotatingFileHandler(log_file, maxBytes=2*1024*1024, backupCount=3, encoding='utf-8', errors='replace')
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(logs_dir / 'discord_bot.log',
-                            encoding='utf-8', errors='replace'),
+        rotating_handler,
         logging.StreamHandler()
     ]
 )
@@ -492,10 +503,34 @@ async def on_reaction_add(reaction, user):
 
         quest_info = user_profile["active_quest"]
 
-        # Award rewards
+        # Award rewards - Legacy HyperGems + New BROski$ Tokens!
         user_profile["hypergems"] += quest_info["reward"]
         user_profile["quests_completed"] += 1
         user_profile["dopamine"] = min(100, user_profile["dopamine"] + 10)
+
+        # 🪙 Award BROski$ tokens for quest completion!
+        if TOKENS_AVAILABLE and token_engine:
+            try:
+                # Award BROski$ based on quest type
+                token_reward_map = {
+                    'social': 8,
+                    'creative': 10,
+                    'focus': 15,
+                    'chaos': 5
+                }
+                token_reward = token_reward_map.get(quest_info.get('type', 'social'), 8)
+
+                token_result = token_engine.award_tokens(
+                    str(user.id),
+                    token_reward,
+                    f"Quest completion: {quest_info['quest'][:50]}..."
+                )
+
+                if token_result['status'] == 'success':
+                    quest_info['broski_tokens_earned'] = token_reward
+                    logger.info(f"Awarded {token_reward} BROski$ to {user.name} for quest completion")
+            except Exception as e:
+                logger.error(f"Failed to award BROski$ tokens: {e}")
 
         # Remove active quest
         del user_profile["active_quest"]
@@ -903,3 +938,249 @@ async def log_discord_activity(action: str, user: str, details: str = ""):
 
     except Exception as e:
         logger.error(f"Failed to log Discord activity: {e}")
+
+# 🧠 Initialize BROski AI Core
+broski_ai = BROskiCore()
+logger.info("🚀 BROski ClanVerse Ultra AI System ACTIVATED!")
+
+# 🪙 Initialize BROski$ Token Engine
+if TOKENS_AVAILABLE:
+    token_engine = BROskiTokenEngine()
+    logger.info("🪙 BROski$ Token Economy Engine ACTIVATED!")
+else:
+    token_engine = None
+    logger.warning("⚠️ Token Economy running in simulation mode")
+
+# Add after the bot initialization
+@bot.event
+async def on_ready():
+    print(f'\n🚀 {bot.user} has landed in the ClanVerse!')
+    print(f'🔗 Connected to {len(bot.guilds)} server(s)')
+    print(f'🧠 BROski AI Intelligence: {broski_ai.system_intelligence}%')
+    print(f'🎯 ClanVerse Ultra Mode: ACTIVATED')
+
+    # 🪙 Load BROski$ Token Commands
+    if TOKENS_AVAILABLE and token_engine:
+        try:
+            await bot.add_cog(BROskiTokenCommands(bot, token_engine))
+            print(f'🪙 BROski$ Token Economy Commands: LOADED')
+        except Exception as e:
+            logger.error(f"Failed to load token commands: {e}")
+            print(f'⚠️ Token commands failed to load, running without tokens')
+
+    # Set BROski status
+    activity = discord.Activity(
+        type=discord.ActivityType.watching,
+        name="the ClanVerse 🧠💰 | !broski for AI help | !wallet for tokens"
+    )
+    await bot.change_presence(activity=activity)
+
+# 🧠 BROski AI Chat Command
+@bot.command(name='broski', aliases=['ai', 'help', 'chat'])
+async def broski_chat(ctx, *, message: str = None):
+    """🧠 Chat with BROski AI - Your neurodivergent productivity companion"""
+
+    if not message:
+        embed = discord.Embed(
+            title="🧠 BROski ClanVerse Ultra AI",
+            description="Your neurodivergent productivity companion is here!",
+            color=0x00ff88
+        )
+        embed.add_field(
+            name="💬 How to Chat",
+            value="`!broski [your message]`\nExample: `!broski I'm feeling overwhelmed with my tasks`",
+            inline=False
+        )
+        embed.add_field(
+            name="🎯 What I Can Help With",
+            value="• ADHD-friendly productivity tips\n• Mood analysis & support\n• Hyperfocus session guidance\n• Personalized motivation\n• Task organization strategies",
+            inline=False
+        )
+        embed.add_field(
+            name="🚀 System Status",
+            value=f"Intelligence: {broski_ai.system_intelligence}%\nStatus: FULLY OPERATIONAL",
+            inline=False
+        )
+        await ctx.send(embed=embed)
+        return
+
+    try:
+        # Show typing indicator
+        async with ctx.typing():
+            # Build context for BROski
+            context = {
+                'platform': 'discord',
+                'server_name': ctx.guild.name if ctx.guild else 'DM',
+                'channel_name': ctx.channel.name if hasattr(ctx.channel, 'name') else 'direct',
+                'interaction_type': 'discord_command'
+            }
+
+            # Process with BROski AI
+            response = await broski_ai.process_user_interaction(
+                str(ctx.author.id),
+                message,
+                context
+            )
+
+            # Create rich embed response
+            embed = discord.Embed(
+                title=f"🧠 BROski {response.style.replace('_', ' ').title()}",
+                description=response.message,
+                color=0x00ff88,
+                timestamp=datetime.now()
+            )
+
+            # Add mood and energy info
+            embed.add_field(
+                name="🎭 Detected Mood",
+                value=f"{response.mood_detected.title()} (Confidence: {response.confidence:.1%})",
+                inline=True
+            )
+            embed.add_field(
+                name="⚡ Energy Level",
+                value=f"{response.energy_level}/100",
+                inline=True
+            )
+
+            # Add motivation boost if available
+            if response.motivation_boost:
+                embed.add_field(
+                    name="💪 Motivation Boost",
+                    value=response.motivation_boost,
+                    inline=False
+                )
+
+            # Add top recommendation
+            if response.recommendations:
+                embed.add_field(
+                    name="💡 BROski's Recommendation",
+                    value=response.recommendations[0],
+                    inline=False
+                )
+
+            embed.set_footer(text=f"BROski ClanVerse Ultra • Learning from every interaction")
+
+            await ctx.send(embed=embed)
+
+    except Exception as e:
+        logger.error(f"Error in BROski chat command: {e}")
+        embed = discord.Embed(
+            title="🔧 BROski Brain Glitch",
+            description="I'm having a quick moment, but I'm still here for you! Try again in a sec.",
+            color=0xff9900
+        )
+        await ctx.send(embed=embed)
+
+# 🔥 Hyperfocus Session Support
+@bot.command(name='hyperfocus', aliases=['focus', 'zone'])
+async def hyperfocus_session(ctx, duration: int = 25, *, task_description: str = "focus session"):
+    """🔥 Start a hyperfocus session with BROski support"""
+
+    try:
+        user_id = str(ctx.author.id)
+
+        # Get session support from BROski
+        session_data = {
+            'duration_minutes': duration,
+            'task_type': task_description,
+            'user_id': user_id
+        }
+
+        support = await broski_ai.get_hyperfocus_session_support(user_id, session_data)
+
+        embed = discord.Embed(
+            title="🔥 HYPERFOCUS SESSION ACTIVATED",
+            description=support['motivation_message'],
+            color=0xff6600,
+            timestamp=datetime.now()
+        )
+
+        embed.add_field(
+            name="⏰ Duration",
+            value=f"{duration} minutes",
+            inline=True
+        )
+        embed.add_field(
+            name="🎯 Task",
+            value=task_description,
+            inline=True
+        )
+        embed.add_field(
+            name="🧠 Session Type",
+            value=support['session_type'].replace('_', ' ').title(),
+            inline=True
+        )
+
+        if support['recommendations']:
+            embed.add_field(
+                name="💡 BROski's Session Tips",
+                value="\n".join(f"• {tip}" for tip in support['recommendations'][:3]),
+                inline=False
+            )
+
+        if support.get('hyperfocus_phrase'):
+            embed.add_field(
+                name="🚀 Hyperfocus Activation",
+                value=support['hyperfocus_phrase'],
+                inline=False
+            )
+
+        embed.set_footer(text="React with ✅ when you complete your session!")
+
+        message = await ctx.send(embed=embed)
+        await message.add_reaction('✅')
+        await message.add_reaction('⏸️')
+        await message.add_reaction('🔥')
+
+    except Exception as e:
+        logger.error(f"Error in hyperfocus command: {e}")
+        await ctx.send("🔧 BROski's hyperfocus system is recalibrating! Try again in a moment.")
+
+# 📊 BROski System Status
+@bot.command(name='broski_status', aliases=['ai_status', 'system'])
+async def broski_system_status(ctx):
+    """📊 Check BROski AI system status and intelligence"""
+
+    try:
+        status = broski_ai.get_system_status()
+
+        embed = discord.Embed(
+            title="🧠 BROski ClanVerse Ultra - System Status",
+            description=f"**{status['status']}** • Intelligence: {status['system_intelligence']}%",
+            color=0x00ff88,
+            timestamp=datetime.now()
+        )
+
+        embed.add_field(
+            name="🤖 AI Modules",
+            value=f"✅ Motivation Engine\n✅ Mood Detector\n✅ Learning System\n✅ Communication Style",
+            inline=True
+        )
+
+        embed.add_field(
+            name="📊 Activity Stats",
+            value=f"Active Users: {status['active_users']}\nConversations: {status['total_conversations']}",
+            inline=True
+        )
+
+        if 'learning_stats' in status:
+            learning = status['learning_stats']
+            embed.add_field(
+                name="🎓 Learning Progress",
+                value=f"System Maturity: {learning.get('system_maturity', 'Learning')}\nInteractions Learned: {learning.get('total_interactions_learned', 0)}",
+                inline=True
+            )
+
+        embed.add_field(
+            name="🎯 Mission",
+            value=status['personality_core']['mission'],
+            inline=False
+        )
+
+        embed.set_footer(text=f"BROski {status['version']} • Neurodivergent Excellence Engine")
+
+        await ctx.send(embed=embed)
+
+    except Exception as e:
+        logger.error(f"Error getting BROski status: {e}")
+        await ctx.send("🔧 BROski status check is experiencing a glitch! System still operational though!")
