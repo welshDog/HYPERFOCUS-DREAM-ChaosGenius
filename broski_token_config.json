@@ -1,0 +1,19 @@
+{
+  "mode": "off_chain",
+  "database_encryption": true,
+  "initial_token_supply": 1000000,
+  "max_daily_earning": 100,
+  "max_transaction_size": 1000,
+  "require_verification": false,
+  "auto_wallet_creation": true,
+  "discord_token": "your_discord_bot_token_here",
+  "revenue_streams": {
+    "ad_space": true,
+    "premium_content": true,
+    "services": true,
+    "tip_jar": true,
+    "products": true,
+    "referrals": true,
+    "nft_access": true
+  }
+}
