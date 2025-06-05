@@ -9,11 +9,14 @@
       "@app.route(\"/api/hyperfocus-analytics\")",
       "@app.route(\"/api/ai-squad/start\", methods=[\"POST\"])",
       "@app.route(\"/api/ai-squad/activate\", methods=[\"POST\"])",
-      "@app.route(\"/api/ai-squad/status\")"
+      "@app.route(\"/api/ai-squad/status\")",
+      "@app.route(\"/dev\")",
+      "@app.route(\"/api/cyber-cave/status\")"
     ],
     "functions": [
       "def signal_handler(sig, frame):",
       "def init_database():",
+      "def get_timestamp():",
       "def dashboard():",
       "def api_status():",
       "def api_health():",
@@ -21,7 +24,9 @@
       "def hyperfocus_analytics():",
       "def ai_squad_start():",
       "def activate_ai_squad():",
-      "def get_ai_squad_status():"
+      "def get_ai_squad_status():",
+      "def cyber_cave_portal():",
+      "def cyber_cave_status():"
     ],
     "description": ""
   },

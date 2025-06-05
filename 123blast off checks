@@ -65,6 +65,21 @@ def test_token_system():
     print("🧪 Testing BROski$ token system...")
 
     try:
+        # First, ensure the database schema is correct
+        conn = sqlite3.connect("broski_tokens.db")
+        cursor = conn.cursor()
+
+        # Check if user_id column exists, if not add it
+        cursor.execute("PRAGMA table_info(transactions)")
+        columns = [column[1] for column in cursor.fetchall()]
+
+        if "user_id" not in columns:
+            print("🔧 Adding missing user_id column to transactions table...")
+            cursor.execute("ALTER TABLE transactions ADD COLUMN user_id TEXT")
+            conn.commit()
+
+        conn.close()
+
         engine = BROskiTokenEngine()
 
         # Test wallet creation
@@ -159,19 +174,19 @@ def test_api_endpoints():
     print("🧪 Testing API endpoints...")
 
     try:
-        # Test if dashboard API is running on port 5001
-        response = requests.get("http://localhost:5001/api/status", timeout=3)
+        # Test if dashboard API is running on port 5000
+        response = requests.get("http://localhost:5000/api/status", timeout=3)
         if response.status_code != 200:
-            print("⚠️ Dashboard API not responding on port 5001")
+            print("⚠️ Dashboard API not responding on port 5000")
             return False
 
-        # Test health endpoint on port 5001
-        response = requests.get("http://localhost:5001/api/health", timeout=3)
+        # Test health endpoint on port 5000
+        response = requests.get("http://localhost:5000/api/health", timeout=3)
         if response.status_code != 200:
-            print("⚠️ Health endpoint not responding on port 5001")
+            print("⚠️ Health endpoint not responding on port 5000")
             return False
 
-        print("✅ All API endpoints responding on port 5001!")
+        print("✅ All API endpoints responding on port 5000!")
         return True
 
     except requests.exceptions.RequestException:
@@ -196,10 +211,11 @@ def test_discord_bot():
             print("❌ Discord bot file missing")
             return False
 
-        # Basic syntax check
+        # Basic syntax check - look for modern slash commands
         with open(bot_file, "r", encoding="utf-8") as f:
             content = f.read()
-            if "@bot.command" not in content:
+            # Check for modern slash commands instead of old @bot.command
+            if "@bot.tree.command" not in content and "@app_commands" not in content:
                 print("❌ Discord bot commands not found")
                 return False
 

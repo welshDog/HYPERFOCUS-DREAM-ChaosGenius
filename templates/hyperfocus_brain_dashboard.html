@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠💥 HyperFocus Zone Brain Command Center 💥🧠</title>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a0845 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .neural-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.2) 0%, transparent 50%);
+            animation: neuralPulse 4s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes neuralPulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        .brain-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .brain-header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            animation: headerGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes headerGlow {
+            0% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 50px rgba(255, 0, 255, 0.7); }
+        }
+
+        .brain-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: radial-gradient(circle, #00ffff 0%, #ff00ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            animation: logoSpin 3s linear infinite;
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .brain-title {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .brain-subtitle {
+            font-size: 1.2em;
+            color: #00ffaa;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.6);
+        }
+
+        .left-panel, .right-panel {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #00ffff;
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .main-brain-display {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid #ff00ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brain-visual {
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(255, 0, 255, 0.3) 50%, transparent 100%);
+            border-radius: 50%;
+            position: relative;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: brainPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes brainPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .neural-wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid;
+            border-radius: 50%;
+            animation: waveExpand 3s linear infinite;
+        }
+
+        .neural-wave:nth-child(1) { border-color: #00ffff; animation-delay: 0s; }
+        .neural-wave:nth-child(2) { border-color: #ff00ff; animation-delay: 1s; }
+        .neural-wave:nth-child(3) { border-color: #ffff00; animation-delay: 2s; }
+
+        @keyframes waveExpand {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        .brain-core {
+            font-size: 48px;
+            color: #ffffff;
+            text-shadow: 0 0 20px #00ffff;
+            z-index: 10;
+            position: relative;
+        }
+
+        .metric-card {
+            background: rgba(0, 30, 60, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #00ffff;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .metric-title {
+            font-size: 0.9em;
+            color: #00ffaa;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .metric-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .metric-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .chaos-predictor {
+            background: rgba(60, 0, 30, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #ff6600;
+            margin: 20px 0;
+        }
+
+        .chaos-title {
+            color: #ff6600;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .hyperfocus-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .brain-button {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .brain-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        .brain-button:active {
+            transform: scale(0.95);
+        }
+
+        .status-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: statusBlink 1s ease-in-out infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .neural-frequency {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.2em;
+            color: #00ffff;
+        }
+
+        .recommendations {
+            background: rgba(0, 40, 0, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #00ff00;
+        }
+
+        .recommendation-item {
+            color: #00ff88;
+            margin: 8px 0;
+            padding: 5px;
+            border-left: 3px solid #00ff88;
+            padding-left: 10px;
+        }
+
+        .chaos-meter {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #00ff00 0%, #ffff00 50%, #ff0000 100%);
+            border-radius: 10px;
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .chaos-indicator {
+            position: absolute;
+            top: -5px;
+            width: 4px;
+            height: 30px;
+            background: #fff;
+            border-radius: 2px;
+            transition: left 0.5s ease;
+        }
+
+        .footer-stats {
+            grid-column: 1 / -1;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #00ffff;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="neural-bg"></div>
+
+    <div class="brain-container">
+        <!-- Header -->
+        <div class="brain-header">
+            <div class="brain-logo">HFZ</div>
+            <h1 class="brain-title">🧠💥 HYPERFOCUS ZONE 💥🧠</h1>
+            <p class="brain-subtitle">Neural Command Center v2.0 | Real-Time Brain Optimization</p>
+        </div>
+
+        <!-- Left Panel - Metrics -->
+        <div class="left-panel">
+            <h3 style="color: #00ffff; margin-bottom: 20px;">🧠 NEURAL METRICS</h3>
+
+            <div class="metric-card">
+                <div class="metric-title">Focus Level</div>
+                <div class="metric-value" id="focusLevel">85%</div>
+                <div class="metric-bar">
+                    <div class="metric-progress" id="focusBar" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Chaos Energy</div>
+                <div class="metric-value" id="chaosEnergy">92%</div>
+                <div class="metric-bar">
+                    <div class="metric-progress" id="chaosBar" style="width: 92%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Creativity Burst</div>
+                <div class="metric-value" id="creativityBurst">78%</div>
+                <div class="metric-bar">
+                    <div class="metric-progress" id="creativityBar" style="width: 78%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Flow State</div>
+                <div class="metric-value" id="flowState">ULTRA_ACTIVE</div>
+            </div>
+
+            <div class="hyperfocus-controls">
+                <button class="brain-button" onclick="boostFocus()">⚡ BOOST FOCUS</button>
+                <button class="brain-button" onclick="activateHyperfocus()">🎯 HYPERFOCUS</button>
+                <button class="brain-button" onclick="chaosMode()">💥 CHAOS MODE</button>
+                <button class="brain-button" onclick="deepFocus()">🧠 DEEP FOCUS</button>
+            </div>
+        </div>
+
+        <!-- Main Brain Display -->
+        <div class="main-brain-display">
+            <div class="status-indicator"></div>
+            <div class="neural-frequency" id="neuralFreq">⚡ 40.0 Hz</div>
+
+            <div class="brain-visual">
+                <div class="neural-wave"></div>
+                <div class="neural-wave"></div>
+                <div class="neural-wave"></div>
+                <div class="brain-core">HFZ</div>
+            </div>
+
+            <div class="chaos-predictor">
+                <div class="chaos-title">🔮 CHAOS PREDICTION ENGINE</div>
+                <div class="chaos-meter">
+                    <div class="chaos-indicator" id="chaosIndicator" style="left: 85%"></div>
+                </div>
+                <div style="text-align: center; margin-top: 10px;">
+                    <span id="chaosPrediction">RISING CHAOS DETECTED | OPTIMAL FOR CREATIVE CODING</span>
+                </div>
+            </div>
+
+            <canvas id="brainWaveChart" width="400" height="200" style="width: 100%; height: 200px; margin: 20px 0;"></canvas>
+        </div>
+
+        <!-- Right Panel - Recommendations -->
+        <div class="right-panel">
+            <h3 style="color: #ff00ff; margin-bottom: 20px;">🎯 AI RECOMMENDATIONS</h3>
+
+            <div class="recommendations">
+                <h4 style="color: #00ff88; margin-bottom: 10px;">Optimal Tasks:</h4>
+                <div id="optimalTasks">
+                    <div class="recommendation-item">⚡ Channel chaos into creative coding</div>
+                    <div class="recommendation-item">🚀 Start that ambitious feature</div>
+                    <div class="recommendation-item">💥 Tackle the hardest problem first</div>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h4 style="color: #00ff88; margin-bottom: 10px;">Focus Recommendations:</h4>
+                <div id="focusRecommendations">
+                    <div class="recommendation-item">🎯 Perfect time for deep work</div>
+                    <div class="recommendation-item">🔧 Optimize existing systems</div>
+                    <div class="recommendation-item">📚 Learn something new</div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Current Mode</div>
+                <div class="metric-value" id="broskiMode">MAXIMUM_OVERDRIVE</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Session Active</div>
+                <div class="metric-value" id="sessionTime">00:42:15</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-title">Productivity Score</div>
+                <div class="metric-value" id="productivityScore">9.7/10</div>
+            </div>
+        </div>
+
+        <!-- Footer Stats -->
+        <div class="footer-stats">
+            <div class="metric-card">
+                <div class="metric-title">System CPU</div>
+                <div class="metric-value" id="cpuUsage">12%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Memory Usage</div>
+                <div class="metric-value" id="memoryUsage">34%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Neural Connections</div>
+                <div class="metric-value" id="neuralConnections">1,847</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Socks Status</div>
+                <div class="metric-value" id="socksStatus">🧦🚀 ORBITAL</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // WebSocket connection
+        const socket = io();
+
+        // Brain wave chart
+        const ctx = document.getElementById('brainWaveChart').getContext('2d');
+        const brainWaveChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Neural Activity',
+                    data: [],
+                    borderColor: '#00ffff',
+                    backgroundColor: 'rgba(0, 255, 255, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#00ffff'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#00ffff' },
+                        grid: { color: 'rgba(0, 255, 255, 0.2)' }
+                    },
+                    y: {
+                        ticks: { color: '#00ffff' },
+                        grid: { color: 'rgba(0, 255, 255, 0.2)' }
+                    }
+                }
+            }
+        });
+
+        // Socket event listeners
+        socket.on('brain_sync', (data) => {
+            console.log('🧠 Neural link established:', data);
+        });
+
+        socket.on('brain_update', (data) => {
+            updateBrainState(data.brain_state);
+            updateMetrics(data.metrics);
+        });
+
+        // Update functions
+        function updateBrainState(state) {
+            document.getElementById('focusLevel').textContent = state.focus_level + '%';
+            document.getElementById('focusBar').style.width = state.focus_level + '%';
+
+            document.getElementById('chaosEnergy').textContent = state.chaos_energy + '%';
+            document.getElementById('chaosBar').style.width = state.chaos_energy + '%';
+
+            document.getElementById('creativityBurst').textContent = state.creativity_burst + '%';
+            document.getElementById('creativityBar').style.width = state.creativity_burst + '%';
+
+            document.getElementById('flowState').textContent = state.flow_state;
+            document.getElementById('broskiMode').textContent = state.broski_mode;
+            document.getElementById('neuralFreq').textContent = `⚡ ${state.neural_frequency} Hz`;
+
+            // Update chaos indicator
+            document.getElementById('chaosIndicator').style.left = state.chaos_energy + '%';
+        }
+
+        function updateMetrics(metrics) {
+            if (metrics && metrics.length > 0) {
+                const latest = metrics[metrics.length - 1];
+                document.getElementById('cpuUsage').textContent = latest.cpu_usage + '%';
+                document.getElementById('memoryUsage').textContent = latest.memory_usage + '%';
+
+                // Update brain wave chart
+                const time = new Date(latest.timestamp).toLocaleTimeString();
+                brainWaveChart.data.labels.push(time);
+                brainWaveChart.data.datasets[0].data.push(latest.focus_level);
+
+                if (brainWaveChart.data.labels.length > 20) {
+                    brainWaveChart.data.labels.shift();
+                    brainWaveChart.data.datasets[0].data.shift();
+                }
+
+                brainWaveChart.update('none');
+            }
+        }
+
+        // Control functions
+        function boostFocus() {
+            socket.emit('boost_focus');
+            showNotification('⚡ FOCUS BOOST ACTIVATED!');
+        }
+
+        function activateHyperfocus() {
+            fetch('/api/activate-hyperfocus', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ target: 'Code Optimization' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                showNotification('🎯 ' + data.message);
+            });
+        }
+
+        function chaosMode() {
+            showNotification('💥 CHAOS MODE ENGAGED! SOCKS PREPARING FOR LAUNCH! 🧦🚀');
+        }
+
+        function deepFocus() {
+            showNotification('🧠 DEEP FOCUS MODE ACTIVATED! ENTERING THE ZONE...');
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #00ffff, #ff00ff);
+                color: #000;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 1000;
+                animation: slideIn 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Session timer
+        let sessionStart = Date.now();
+        setInterval(() => {
+            const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+            const hours = Math.floor(elapsed / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((elapsed % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (elapsed % 60).toString().padStart(2, '0');
+            document.getElementById('sessionTime').textContent = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+
+        // Initialize
+        console.log('🧠💥 HyperFocus Zone Brain Command Center ONLINE! 💥🧠');
+    </script>
+</body>
+</html>
