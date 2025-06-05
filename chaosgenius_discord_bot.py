@@ -1,18 +1,17 @@
-import asyncio
-import json
+"""🧠 ChaosGenius Discord Bot - Neurodivergent Excellence Engine"""
+
+# Remove unused imports
 import logging
 import os
 import random
-import re
 import sqlite3
-import subprocess
 
-# Add BROski AI integration
+# BROski AI integration
 import sys
 from datetime import datetime, timedelta
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Optional
 
 import discord
 import requests
@@ -20,7 +19,7 @@ from discord.ext import commands, tasks
 from dotenv import load_dotenv
 
 sys.path.append("/workspaces/HYPERFOCUS-DREAM-ChaosGenius")
-from ai_modules.broski.broski_core import BROskiCore, BROskiResponse
+from ai_modules.broski.broski_core import BROskiCore
 
 # 🪙 Add BROski$ Token Economy integration
 try:
@@ -32,7 +31,7 @@ try:
     logger.info("🪙 BROski$ Token Economy loaded successfully!")
 except ImportError as e:
     logger = logging.getLogger("ChaosGeniusBot")
-    logger.warning(f"⚠️ BROski$ Token system not available: {e}")
+    logger.warning("⚠️ BROski$ Token system not available: %s", e)
     TOKENS_AVAILABLE = False
 
 # 🔐 Load environment variables securely
@@ -1096,39 +1095,261 @@ CELEBRATION_TRIGGERS = [
     },
 ]
 
-# 📝 Activity Logging Function (MISSING - CRITICAL FIX)
 
-
-async def log_discord_activity(action: str, user: str, details: str = ""):
-    """Log Discord bot activity to database and files"""
+# 🎉 ULTRA WELCOME SYSTEM FOR HYPERFOCUS ZONE
+@bot.event
+async def on_member_join(member):
+    """🎊 Epic welcome automation for new Zone members"""
     try:
-        # Log to database
-        conn = sqlite3.connect("chaosgenius.db")
-        cursor = conn.cursor()
-        cursor.execute(
-            """
-            INSERT INTO activity_log (action, type, details)
-            VALUES (?, ?, ?)
-        """,
-            (f"Discord: {action}", "discord_bot", f"User: {user} | {details}"),
+        guild = member.guild
+
+        # 🎭 Auto-assign "New to Zone" role
+        new_role = discord.utils.get(guild.roles, name="👋 New to Zone")
+        if new_role:
+            await member.add_roles(new_role, reason="Welcome automation")
+
+        # 🏆 Launch Week Founder Badge (First 100 members)
+        if guild.member_count <= 100:
+            founder_role = discord.utils.get(guild.roles, name="🏆 Founder")
+            if founder_role:
+                await member.add_roles(founder_role, reason="Launch Week Founder")
+
+        # 🎉 Welcome channel message
+        welcome_channel = discord.utils.get(
+            guild.text_channels, name="welcome-to-the-zone"
         )
-        conn.commit()
-        conn.close()
+        if welcome_channel:
+            welcome_embed = discord.Embed(
+                title=f"🎉 Welcome {member.display_name} to the Hyperfocus Zone! 🎉",
+                description=f"""
+**🚀 Zone Entry Detected!** Another legend has joined the empire!
 
-        # Also log to file for backup
-        log_dir = Path("logs/discord_bot")
-        log_dir.mkdir(parents=True, exist_ok=True)
+{member.mention} - Your brain isn't broken, this place was built FOR it! 🧠✨
 
-        log_file = log_dir / f"discord_activity_{datetime.now().strftime('%Y%m%d')}.log"
+🔥 **Quick Start Guide:**
+• Check out <#zone-rules> (spoiler: just be awesome!)
+• Introduce yourself in <#introduce-yourself>
+• Try `!broski hello` to meet your AI productivity companion
+• Join <#hyperfocus-lounge> for body doubling sessions
+• Start earning HyperGems and BROski$ tokens!
 
-        with open(log_file, "a", encoding="utf-8") as f:
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            f.write(f"[{timestamp}] {action} | User: {user} | {details}\n")
+**🎊 Launch Week Special:** You're founder #{guild.member_count}!
+Get double rewards for your first week! 🏆
+                """,
+                color=0x9C27B0,
+                timestamp=datetime.now(),
+            )
 
-        logger.info(f"Discord activity logged: {action} by {user}")
+            welcome_embed.set_thumbnail(
+                url=member.avatar.url if member.avatar else member.default_avatar.url
+            )
+            welcome_embed.set_footer(
+                text="HyperfocusZone.com • Where neurodivergent minds thrive"
+            )
+
+            await welcome_channel.send(embed=welcome_embed)
+
+        # 🤖 Personal DM welcome from BROski
+        try:
+            dm_embed = discord.Embed(
+                title="🤖 Hey there, legend! BROski here! 🤖",
+                description=f"""
+**Welcome to the Hyperfocus Zone, {member.display_name}!**
+
+I'm BROski, your personal AI productivity companion. I'm here to help your beautiful neurodivergent brain thrive! 🧠💜
+
+🎯 **What I can do for you:**
+• Help you start hyperfocus sessions
+• Give you dopamine quests when you're bored
+• Track your energy and focus levels
+• Celebrate your wins (big and small!)
+• Provide ADHD-friendly productivity tips
+
+🚀 **Try these commands to get started:**
+• `!broski hello` - Let's chat!
+• `!hud` - Check your current energy levels
+• `!quest creative` - Get a quick dopamine boost
+• `!hyperfocus 25 building my empire` - Start a focus session
+
+**Remember: You're not broken. You're not too much. You're exactly where you need to be.**
+
+Ready to build something amazing together? 🔥
+
+*- BROski* 🤖💜
+                """,
+                color=0x00FF88,
+                timestamp=datetime.now(),
+            )
+
+            dm_embed.set_footer(
+                text="BROski AI • Your neurodivergent productivity companion"
+            )
+            await member.send(embed=dm_embed)
+
+        except discord.Forbidden:
+            # User has DMs disabled - that's okay!
+            logger.info(f"Could not DM welcome message to {member.name} (DMs disabled)")
+
+        # 🪙 Award welcome bonus tokens
+        if TOKENS_AVAILABLE:
+            try:
+                token_engine = BROskiTokenEngine()
+                # Launch Week bonus: 200 tokens instead of 100
+                welcome_bonus = 200 if guild.member_count <= 100 else 100
+                token_engine.award_tokens(
+                    member.id, welcome_bonus, "Welcome to Hyperfocus Zone!"
+                )
+                logger.info(f"Awarded {welcome_bonus} welcome tokens to {member.name}")
+            except Exception as e:
+                logger.error(f"Failed to award welcome tokens: {e}")
+
+        # 🎮 Initialize user profile with Launch Week bonuses
+        profile = init_user_profile(member.id)
+        profile["hypergems"] += 10  # Welcome gems
+        if guild.member_count <= 100:
+            profile["hypergems"] += 20  # Founder bonus
+
+        logger.info(
+            f"🎉 Welcome automation complete for {member.name} (Member #{guild.member_count})"
+        )
 
     except Exception as e:
-        logger.error(f"Failed to log Discord activity: {e}")
+        logger.error(f"Welcome automation failed for {member.name}: {e}")
+
+
+# 🚀 LAUNCH WEEK COMMAND
+@bot.command()
+async def launch(ctx):
+    """🚀 Show Launch Week celebration and special offers"""
+    embed = discord.Embed(
+        title="🚀 LAUNCH WEEK IS HERE! 🚀",
+        description="""
+**🎉 HYPERFOCUS ZONE IS OFFICIALLY LIVE!**
+
+**🔥 LAUNCH WEEK SPECIALS (June 5-12, 2025):**
+
+🎮 **DOUBLE XP FOR EVERYTHING!**
+• Quest completions: 2x HyperGems
+• Focus sessions: 2x rewards
+• Community engagement: 2x tokens
+
+🏆 **FOUNDER STATUS UNLOCKED!**
+• First 100 members get lifetime Founder badge
+• Exclusive access to founder-only events
+• Special role with unique permissions
+
+🪙 **BONUS BROSKI$ TOKENS!**
+• Daily login bonus: 50 tokens (normally 25)
+• Welcome bonus: 200 tokens (normally 100)
+• Quest rewards increased by 50%
+
+🎁 **EXCLUSIVE LAUNCH GIFTS:**
+• Custom animated profile badges
+• Early access to new features
+• Lifetime premium perks for founders
+
+**🌟 THIS IS HISTORY IN THE MAKING!**
+You're not just in a Discord - you're part of the neurodivergent productivity revolution!
+
+*Ready to build your empire? Let's go!* 👑
+        """,
+        color=0xFF6B35,
+        timestamp=datetime.now(),
+    )
+
+    embed.add_field(
+        name="🎯 How to Claim Rewards",
+        value="Just participate! Rewards are automatic for active members.",
+        inline=False,
+    )
+
+    embed.add_field(
+        name=f"👥 Founder Status",
+        value=f"Member #{ctx.guild.member_count} • {'🏆 FOUNDER!' if ctx.guild.member_count <= 100 else '⭐ Community Builder!'}",
+        inline=True,
+    )
+
+    embed.set_footer(text="Launch Week: June 5-12, 2025 • HyperfocusZone.com")
+    await ctx.send(embed=embed)
+
+
+# 🎭 ROLE ASSIGNMENT COMMANDS
+@bot.command()
+async def roles(ctx):
+    """🎭 Show available roles and how to get them"""
+    embed = discord.Embed(
+        title="🎭 Hyperfocus Zone Roles",
+        description="Choose your identity and interests! React to get roles:",
+        color=0x9C27B0,
+    )
+
+    # Achievement roles
+    embed.add_field(
+        name="🏆 Achievement Roles",
+        value="🚀 Launch Week Legend\n🏆 Founder\n👑 Zone Champion\n💎 HyperGem Master",
+        inline=True,
+    )
+
+    # Identity roles (optional)
+    embed.add_field(
+        name="🧠 Neurodivergent Identity",
+        value="🧠 ADHD Brain\n🌟 Autistic Excellence\n⚡ Anxiety Warrior\n🎨 Creative Chaos",
+        inline=True,
+    )
+
+    # Interest roles
+    embed.add_field(
+        name="🎯 Interest Groups",
+        value="🤖 AI Enthusiast\n🖨️ 3D Print Master\n📱 TikTok Creator\n👨‍💼 Business Builder\n💻 Code Wizard",
+        inline=True,
+    )
+
+    embed.add_field(
+        name="🎮 How to Get Roles",
+        value="• Some are earned automatically\n• Others you can request with `!role [name]`\n• Achievement roles earned through activity",
+        inline=False,
+    )
+
+    await ctx.send(embed=embed)
+
+
+@bot.command()
+async def role(ctx, *, role_name):
+    """🎭 Self-assign available roles"""
+    # Define self-assignable roles
+    self_assign_roles = [
+        "🧠 ADHD Brain",
+        "🌟 Autistic Excellence",
+        "⚡ Anxiety Warrior",
+        "🎨 Creative Chaos",
+        "🤖 AI Enthusiast",
+        "🖨️ 3D Print Master",
+        "📱 TikTok Creator",
+        "👨‍💼 Business Builder",
+        "💻 Code Wizard",
+    ]
+
+    # Find the role
+    role = discord.utils.get(ctx.guild.roles, name=role_name)
+
+    if not role:
+        await ctx.send(
+            f"❌ Role `{role_name}` not found! Use `!roles` to see available roles."
+        )
+        return
+
+    if role.name not in self_assign_roles:
+        await ctx.send(
+            f"❌ `{role_name}` is not self-assignable! Achievement roles are earned automatically."
+        )
+        return
+
+    if role in ctx.author.roles:
+        await ctx.author.remove_roles(role)
+        await ctx.send(f"✅ Removed role: **{role.name}**")
+    else:
+        await ctx.author.add_roles(role)
+        await ctx.send(f"✅ Added role: **{role.name}**! Welcome to the community! 🎉")
 
 
 # 🧠 Initialize BROski AI Core

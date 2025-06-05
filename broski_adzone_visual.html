@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 BROski Ultra Ad Zone - Hyperfocus Empire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 🔥 ULTRA MODE ANIMATIONS */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 110, 247, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 110, 247, 0.8); }
+        }
+
+        @keyframes slot-rotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        @keyframes broski-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .adslot-card {
+            animation: pulse-glow 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .adslot-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            animation: none;
+            box-shadow: 0 20px 40px rgba(255, 110, 247, 0.6);
+        }
+
+        .broski-coin {
+            animation: broski-bounce 2s ease-in-out infinite;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .neural-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .empty-slot {
+            border: 2px dashed #ff6ef7;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .empty-slot:hover {
+            opacity: 1;
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+    </style>
+</head>
+<body class="neural-bg min-h-screen text-white">
+    <!-- 🧠 Header with BROski$ Counter -->
+    <header class="glass-effect p-6 mb-8">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="text-4xl broski-coin">🪙</div>
+                <div>
+                    <h1 class="text-3xl font-bold">BROski Ultra Ad Zone</h1>
+                    <p class="text-purple-200">Neurodivergent Empire Advertising Hub</p>
+                </div>
+            </div>
+            <div class="glass-effect px-6 py-3 rounded-xl">
+                <div class="text-sm text-purple-200">Your Balance</div>
+                <div class="text-2xl font-bold text-yellow-300" id="user-balance">Loading...</div>
+                <div class="text-xs text-purple-300">BROski$</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🎯 Ad Slots Grid -->
+    <main class="container mx-auto px-6">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold mb-4">🚀 Active Ad Slots</h2>
+            <p class="text-purple-200">Premium advertising spaces in the Hyperfocus Empire</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8" id="ad-slots-grid">
+            <!-- Slots will be populated by JavaScript -->
+        </div>
+
+        <!-- 📊 Statistics Panel -->
+        <div class="glass-effect rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-bold mb-4 text-center">📊 Empire Statistics</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="glass-effect rounded-lg p-4">
+                    <div class="text-2xl font-bold text-green-400" id="active-ads">0</div>
+                    <div class="text-sm text-purple-200">Active Ads</div>
+                </div>
+                <div class="glass-effect rounded-lg p-4">
+                    <div class="text-2xl font-bold text-blue-400" id="available-slots">5</div>
+                    <div class="text-sm text-purple-200">Available</div>
+                </div>
+                <div class="glass-effect rounded-lg p-4">
+                    <div class="text-2xl font-bold text-yellow-400" id="total-revenue">0</div>
+                    <div class="text-sm text-purple-200">Total Revenue</div>
+                </div>
+                <div class="glass-effect rounded-lg p-4">
+                    <div class="text-2xl font-bold text-purple-400" id="hyperfocus-level">Ultra</div>
+                    <div class="text-sm text-purple-200">Focus Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🤖 Discord Integration Panel -->
+        <div class="glass-effect rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-center">🤖 Discord Commands</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-effect rounded-lg p-4">
+                    <h4 class="font-bold text-green-400 mb-2">🎯 Claim Slot</h4>
+                    <code class="text-sm text-purple-200">!adslot claim 1 "Title" "URL" "Image"</code>
+                    <p class="text-xs text-gray-300 mt-2">Cost: 100 BROski$ | Duration: 3 days</p>
+                </div>
+                <div class="glass-effect rounded-lg p-4">
+                    <h4 class="font-bold text-blue-400 mb-2">📊 View Status</h4>
+                    <code class="text-sm text-purple-200">!adslot status</code>
+                    <p class="text-xs text-gray-300 mt-2">See all active slots and availability</p>
+                </div>
+                <div class="glass-effect rounded-lg p-4">
+                    <h4 class="font-bold text-red-400 mb-2">🗑️ Admin Cancel</h4>
+                    <code class="text-sm text-purple-200">!adslot cancel 1</code>
+                    <p class="text-xs text-gray-300 mt-2">Admin only - Clear any slot</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 🌟 Footer -->
+    <footer class="text-center py-8 mt-12">
+        <p class="text-purple-200">🧠💜 Powered by BROski Ultra System - Hyperfocus Empire 💜🧠</p>
+    </footer>
+
+    <script>
+        // 🚀 BROSKI ULTRA AD ZONE JAVASCRIPT
+        let currentAds = [];
+        const MAX_SLOTS = 5;
+        const SLOT_COST = 100;
+
+        // 🔄 Fetch and display ad slots
+        async function loadAdSlots() {
+            try {
+                const response = await fetch('/api/adslots');
+                const ads = await response.json();
+                currentAds = ads;
+                displayAdSlots(ads);
+                updateStatistics(ads);
+            } catch (error) {
+                console.error('Error loading ad slots:', error);
+                displayEmptySlots();
+            }
+        }
+
+        // 🎨 Display ad slots with ultra styling
+        function displayAdSlots(ads) {
+            const grid = document.getElementById('ad-slots-grid');
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= MAX_SLOTS; i++) {
+                const ad = ads.find(a => a.slot === i);
+                const slotDiv = document.createElement('div');
+
+                if (ad) {
+                    // Active ad slot
+                    const expires = new Date(ad.expires * 1000);
+                    const timeLeft = Math.max(0, Math.floor((expires - new Date()) / (1000 * 60 * 60)));
+
+                    slotDiv.className = 'adslot-card glass-effect rounded-xl p-4 cursor-pointer';
+                    slotDiv.innerHTML = `
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-purple-300 mb-2">Slot #${i}</div>
+                            <img src="${ad.image}" alt="${ad.title}"
+                                 class="w-full h-32 object-cover rounded-lg mb-3"
+                                 onerror="this.src='data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"200\\" height=\\"120\\"><rect width=\\"200\\" height=\\"120\\" fill=\\"%23ff6ef7\\"/><text x=\\"100\\" y=\\"60\\" text-anchor=\\"middle\\" fill=\\"white\\" font-size=\\"14\\">🎯 Ad Image</text></svg>'">
+                            <h4 class="font-bold text-white mb-2">${ad.title}</h4>
+                            <p class="text-sm text-purple-200 mb-2">by ${ad.user_name}</p>
+                            <div class="text-xs text-yellow-300">⏰ ${timeLeft}h remaining</div>
+                            <button onclick="visitAd('${ad.url}')"
+                                    class="mt-3 w-full bg-purple-600 hover:bg-purple-700 px-3 py-2 rounded-lg text-sm transition-colors">
+                                🔗 Visit Ad
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    // Empty slot
+                    slotDiv.className = 'empty-slot glass-effect rounded-xl p-4 text-center';
+                    slotDiv.innerHTML = `
+                        <div class="h-full flex flex-col justify-center items-center py-8">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <div class="text-lg font-bold text-purple-300 mb-2">Slot #${i}</div>
+                            <div class="text-sm text-purple-200 mb-4">Available</div>
+                            <div class="text-xs text-yellow-300 mb-3">💰 ${SLOT_COST} BROski$</div>
+                            <div class="text-xs text-gray-300">Use Discord:<br>!adslot claim ${i}</div>
+                        </div>
+                    `;
+                }
+
+                grid.appendChild(slotDiv);
+            }
+        }
+
+        // 📊 Update statistics
+        function updateStatistics(ads) {
+            document.getElementById('active-ads').textContent = ads.length;
+            document.getElementById('available-slots').textContent = MAX_SLOTS - ads.length;
+            document.getElementById('total-revenue').textContent = ads.length * SLOT_COST;
+        }
+
+        // 🌟 Visit ad with tracking
+        function visitAd(url) {
+            if (url && url.startsWith('http')) {
+                // Add some visual feedback
+                const button = event.target;
+                button.textContent = '🚀 Launching...';
+                button.disabled = true;
+
+                setTimeout(() => {
+                    window.open(url, '_blank');
+                    button.textContent = '🔗 Visit Ad';
+                    button.disabled = false;
+                }, 500);
+            }
+        }
+
+        // 🔄 Auto-refresh every 30 seconds
+        function startAutoRefresh() {
+            setInterval(loadAdSlots, 30000);
+        }
+
+        // 🎯 Initialize the ad zone
+        function initializeAdZone() {
+            console.log('🔥 BROski Ultra Ad Zone initialized!');
+            loadAdSlots();
+            startAutoRefresh();
+
+            // Add some interactive effects
+            document.addEventListener('mousemove', (e) => {
+                const cursor = { x: e.clientX, y: e.clientY };
+                // Could add particle effects here
+            });
+        }
+
+        // 🚀 Launch when page loads
+        document.addEventListener('DOMContentLoaded', initializeAdZone);
+
+        // 💎 Show empty slots if API fails
+        function displayEmptySlots() {
+            updateStatistics([]);
+            const grid = document.getElementById('ad-slots-grid');
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= MAX_SLOTS; i++) {
+                const slotDiv = document.createElement('div');
+                slotDiv.className = 'empty-slot glass-effect rounded-xl p-4 text-center';
+                slotDiv.innerHTML = `
+                    <div class="h-full flex flex-col justify-center items-center py-8">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <div class="text-lg font-bold text-purple-300 mb-2">Slot #${i}</div>
+                        <div class="text-sm text-purple-200 mb-4">Available</div>
+                        <div class="text-xs text-yellow-300 mb-3">💰 ${SLOT_COST} BROski$</div>
+                        <div class="text-xs text-gray-300">Use Discord:<br>!adslot claim ${i}</div>
+                    </div>
+                `;
+                grid.appendChild(slotDiv);
+            }
+        }
+    </script>
+</body>
+</html>

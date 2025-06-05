@@ -14,209 +14,56 @@
     ]
   },
   "code_analysis": {
-<<<<<<< Updated upstream
-    "python_files": 58,
-    "markdown_files": 423,
-    "json_files": 405,
-=======
-    "python_files": 11510,
-    "markdown_files": 59,
-    "json_files": 2021,
->>>>>>> Stashed changes
-    "directories": 45
+    "python_files": 11543,
+    "markdown_files": 74,
+    "json_files": 2064,
+    "directories": 49
   },
   "project_structure": [
     {
-<<<<<<< Updated upstream
-      "name": "Welcome & Onboarding",
-      "type": "directory",
-      "purpose": "Component: Welcome & Onboarding"
-=======
       "name": "tests",
       "type": "directory",
       "purpose": "Component: tests"
->>>>>>> Stashed changes
     },
     {
-      "name": "assets",
-      "type": "directory",
-      "purpose": "Component: assets"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "graceful_shutdown_example.py",
-=======
       "name": "generated_docs",
       "type": "directory",
       "purpose": "Component: generated_docs"
     },
     {
+      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
+      "type": "file",
+      "purpose": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
+    },
+    {
+      "name": "BROski-CLANVERSE-Ultra",
+      "type": "directory",
+      "purpose": "Component: BROski-CLANVERSE-Ultra"
+    },
+    {
+      "name": "broski_encryption.key",
+      "type": "file",
+      "purpose": "File: broski_encryption.key"
+    },
+    {
+      "name": "quick_organizer.py",
+      "type": "file",
+      "purpose": "Python module: quick_organizer"
+    },
+    {
+      "name": "SHOWCASE_DEMO.html",
+      "type": "file",
+      "purpose": "File: SHOWCASE_DEMO.html"
+    },
+    {
       "name": "hboard_api.py",
->>>>>>> Stashed changes
       "type": "file",
       "purpose": "Python module: hboard_api"
     },
     {
-<<<<<<< Updated upstream
-      "name": "test_broski_integration.py",
-      "type": "file",
-      "purpose": "Python module: test_broski_integration"
-    },
-    {
-      "name": "test_discord_token_integration.py",
-      "type": "file",
-      "purpose": "Python module: test_discord_token_integration"
-    },
-    {
-      "name": "cleanup_log_20250529_215256.json",
-      "type": "file",
-      "purpose": "Configuration: cleanup_log_20250529_215256"
-    },
-    {
-      "name": "etsy-dashboard.html",
-      "type": "file",
-      "purpose": "File: etsy-dashboard.html"
-    },
-    {
-      "name": "start.py",
-      "type": "file",
-      "purpose": "Python module: start"
-    },
-    {
-      "name": "Marketing Content",
-      "type": "directory",
-      "purpose": "Component: Marketing Content"
-    },
-    {
-      "name": "gesture_controls",
-      "type": "directory",
-      "purpose": "Component: gesture_controls"
-    },
-    {
-      "name": "cleanup_backups",
-      "type": "directory",
-      "purpose": "Component: cleanup_backups"
-    },
-    {
-      "name": "SECURITY_SETUP_GUIDE.md",
-      "type": "file",
-      "purpose": "Documentation: SECURITY_SETUP_GUIDE"
-    },
-    {
-      "name": "tests",
-      "type": "directory",
-      "purpose": "Component: tests"
-    },
-    {
-      "name": "social_media_feeds.py",
-      "type": "file",
-      "purpose": "Python module: social_media_feeds"
-    },
-    {
-      "name": "docker-compose.yml",
-      "type": "file",
-      "purpose": "File: docker-compose.yml"
-    },
-    {
-      "name": "frontend",
-      "type": "directory",
-      "purpose": "Component: frontend"
-    },
-    {
-      "name": "MasterControlBrain.css",
-      "type": "file",
-      "purpose": "File: MasterControlBrain.css"
-    },
-    {
-      "name": "deploy_phase3.py",
-      "type": "file",
-      "purpose": "Python module: deploy_phase3"
-    },
-    {
-      "name": "generated_docs",
-      "type": "directory",
-      "purpose": "Component: generated_docs"
-    },
-    {
-      "name": "__pycache__",
-      "type": "directory",
-      "purpose": "Component: __pycache__"
-    },
-    {
-      "name": "production_assets",
-      "type": "directory",
-      "purpose": "Component: production_assets"
-    },
-    {
-      "name": "chaosgenius.db",
-      "type": "file",
-      "purpose": "File: chaosgenius.db"
-    },
-    {
-      "name": "dashboard.html",
-      "type": "file",
-      "purpose": "File: dashboard.html"
-    },
-    {
-      "name": "setup_demo_version.py",
-      "type": "file",
-      "purpose": "Python module: setup_demo_version"
-    },
-    {
-      "name": "startup_manager.py",
-      "type": "file",
-      "purpose": "Python module: startup_manager"
-    },
-    {
-      "name": "PHASE3_COMPLETION_REPORT.md",
-      "type": "file",
-      "purpose": "Documentation: PHASE3_COMPLETION_REPORT"
-    },
-    {
-      "name": "project_optimization_log_20250527_120250.json",
-      "type": "file",
-      "purpose": "Configuration: project_optimization_log_20250527_120250"
-    },
-    {
-      "name": "Ultra IPFS",
-      "type": "directory",
-      "purpose": "Advanced IPFS integration for Web3 features"
-=======
       "name": "DISCUSSION.md",
       "type": "file",
       "purpose": "Documentation: DISCUSSION"
-    },
-    {
-      "name": "requirements.txt",
-      "type": "file",
-      "purpose": "File: requirements.txt"
-    },
-    {
-      "name": "optimization_backups",
-      "type": "directory",
-      "purpose": "Component: optimization_backups"
->>>>>>> Stashed changes
-    },
-    {
-      "name": "ChaosGenius.code-workspace",
-      "type": "file",
-      "purpose": "File: ChaosGenius.code-workspace"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "health_check.py",
-      "type": "file",
-      "purpose": "Python module: health_check"
-    },
-    {
-      "name": "cleanup_log_20250529_215331.json",
-      "type": "file",
-      "purpose": "Configuration: cleanup_log_20250529_215331"
-    },
-    {
-      "name": "Master_AI_Control_Brain.html",
-      "type": "file",
-      "purpose": "File: Master_AI_Control_Brain.html"
     },
     {
       "name": "initialize_token_system.py",
@@ -224,48 +71,34 @@
       "purpose": "Python module: initialize_token_system"
     },
     {
-      "name": "auto_doc_generator.py",
+      "name": "requirements.txt",
       "type": "file",
-      "purpose": "Python module: auto_doc_generator"
+      "purpose": "File: requirements.txt"
     },
     {
-      "name": "folder_structure.txt",
+      "name": "test_broski_integration.py",
       "type": "file",
-      "purpose": "File: folder_structure.txt"
+      "purpose": "Python module: test_broski_integration"
     },
     {
-      "name": "Tools & Utilities",
+      "name": "optimization_backups",
       "type": "directory",
-      "purpose": "Component: Tools & Utilities"
+      "purpose": "Component: optimization_backups"
     },
     {
-      "name": "config",
+      "name": "venv",
       "type": "directory",
-      "purpose": "Component: config"
+      "purpose": "Component: venv"
     },
     {
-      "name": "archives",
-      "type": "directory",
-      "purpose": "Component: archives"
-    },
-    {
-      "name": "start.bat",
-      "type": "file",
-      "purpose": "File: start.bat"
-    },
-    {
-      "name": "archived_reports",
-      "type": "directory",
-      "purpose": "Component: archived_reports"
-    },
-    {
-      "name": "phase5_intelligence_manager.py",
-      "type": "file",
-      "purpose": "Python module: phase5_intelligence_manager"
-=======
       "name": "frontend",
       "type": "directory",
       "purpose": "Component: frontend"
+    },
+    {
+      "name": "cleanup_log_20250530_151544.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250530_151544"
     },
     {
       "name": "uploads",
@@ -273,9 +106,29 @@
       "purpose": "Component: uploads"
     },
     {
+      "name": "cleanup_log_20250529_215331.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250529_215331"
+    },
+    {
       "name": "Dockerfile",
       "type": "file",
       "purpose": "File: Dockerfile"
+    },
+    {
+      "name": "test_token_system.py",
+      "type": "file",
+      "purpose": "Python module: test_token_system"
+    },
+    {
+      "name": "test_endpoints.py",
+      "type": "file",
+      "purpose": "Python module: test_endpoints"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250605_145643.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250605_145643"
     },
     {
       "name": "hyperfocus_project_analysis_20250604_182655.json",
@@ -293,6 +146,16 @@
       "purpose": "File: chaosgenius-ultimate.code-workspace"
     },
     {
+      "name": "broski_manifesto.html",
+      "type": "file",
+      "purpose": "File: broski_manifesto.html"
+    },
+    {
+      "name": "SECURITY_SETUP_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: SECURITY_SETUP_GUIDE"
+    },
+    {
       "name": "Ultra IPFS",
       "type": "directory",
       "purpose": "Advanced IPFS integration for Web3 features"
@@ -308,6 +171,11 @@
       "purpose": "Configuration: ultimate_health_report"
     },
     {
+      "name": "test_portal_integration.py",
+      "type": "file",
+      "purpose": "Python module: test_portal_integration"
+    },
+    {
       "name": "logs",
       "type": "directory",
       "purpose": "Component: logs"
@@ -318,9 +186,24 @@
       "purpose": "File: before deploy\""
     },
     {
+      "name": "chaos_genius_organizer.py",
+      "type": "file",
+      "purpose": "Python module: chaos_genius_organizer"
+    },
+    {
+      "name": "BROSKI_HYPERPORTAL_USER_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: BROSKI_HYPERPORTAL_USER_GUIDE"
+    },
+    {
       "name": "docs",
       "type": "directory",
       "purpose": "Component: docs"
+    },
+    {
+      "name": "ai_squad_activation.py",
+      "type": "file",
+      "purpose": "Python module: ai_squad_activation"
     },
     {
       "name": "temp",
@@ -336,7 +219,11 @@
       "name": "SYSTEM_INTELLIGENCE_REPORT.md",
       "type": "file",
       "purpose": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
->>>>>>> Stashed changes
+    },
+    {
+      "name": "CHANGELOG.md",
+      "type": "file",
+      "purpose": "Documentation: CHANGELOG"
     },
     {
       "name": "Setup & Deploy",
@@ -344,11 +231,11 @@
       "purpose": "Component: Setup & Deploy"
     },
     {
-<<<<<<< Updated upstream
-      "name": "The Zone",
-      "type": "directory",
-      "purpose": "Core Hyperfocus Zone implementation"
-=======
+      "name": "ultra_analytics_panel.html",
+      "type": "file",
+      "purpose": "File: ultra_analytics_panel.html"
+    },
+    {
       "name": "gesture_controls",
       "type": "directory",
       "purpose": "Component: gesture_controls"
@@ -362,6 +249,21 @@
       "name": "COMPLETE_USER_GUIDE.md",
       "type": "file",
       "purpose": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
+      "name": "workspace_optimization_20250529_215500.json",
+      "type": "file",
+      "purpose": "Configuration: workspace_optimization_20250529_215500"
+    },
+    {
+      "name": "discord_token_validator.py",
+      "type": "file",
+      "purpose": "Python module: discord_token_validator"
+    },
+    {
+      "name": "backup_engine.py",
+      "type": "file",
+      "purpose": "Python module: backup_engine"
     },
     {
       "name": "project_env",
@@ -379,9 +281,24 @@
       "purpose": "Documentation: DEVELOPMENT_SETUP_GUIDE"
     },
     {
+      "name": "DISCORD_SHOWCASE.md",
+      "type": "file",
+      "purpose": "Documentation: DISCORD_SHOWCASE"
+    },
+    {
       "name": "archives",
       "type": "directory",
       "purpose": "Component: archives"
+    },
+    {
+      "name": "Broski  Ultra Adslot System",
+      "type": "file",
+      "purpose": "File: Broski  Ultra Adslot System"
+    },
+    {
+      "name": "production_autoscaler.py",
+      "type": "file",
+      "purpose": "Python module: production_autoscaler"
     },
     {
       "name": "ChaosGenius.code-workspace",
@@ -402,7 +319,6 @@
       "name": "chaosgenius_flask.service",
       "type": "file",
       "purpose": "File: chaosgenius_flask.service"
->>>>>>> Stashed changes
     },
     {
       "name": "ai_modules",
@@ -410,69 +326,29 @@
       "purpose": "Component: ai_modules"
     },
     {
-<<<<<<< Updated upstream
-      "name": "Notes",
-      "type": "directory",
-      "purpose": "Component: Notes"
+      "name": "chaosgenius.db",
+      "type": "file",
+      "purpose": "File: chaosgenius.db"
+    },
+    {
+      "name": "flask_cloudflare_ultra_starter_pack.zip",
+      "type": "file",
+      "purpose": "File: flask_cloudflare_ultra_starter_pack.zip"
+    },
+    {
+      "name": "broski_adzone_visual.html",
+      "type": "file",
+      "purpose": "File: broski_adzone_visual.html"
+    },
+    {
+      "name": "20250604_024538.png",
+      "type": "file",
+      "purpose": "File: 20250604_024538.png"
     },
     {
       "name": "SYSTEM_COMPLETION_REPORT.md",
       "type": "file",
       "purpose": "Documentation: SYSTEM_COMPLETION_REPORT"
-    },
-    {
-      "name": "PHASE3_SUCCESS_SUMMARY.md",
-      "type": "file",
-      "purpose": "Documentation: PHASE3_SUCCESS_SUMMARY"
-    },
-    {
-      "name": "test_token_system.py",
-      "type": "file",
-      "purpose": "Python module: test_token_system"
-    },
-    {
-      "name": "DISCUSSION.md",
-      "type": "file",
-      "purpose": "Documentation: DISCUSSION"
-    },
-    {
-      "name": "token_test_results.txt",
-      "type": "file",
-      "purpose": "File: token_test_results.txt"
-    },
-    {
-      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
-      "type": "file",
-      "purpose": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
-    },
-    {
-      "name": "static",
-      "type": "directory",
-      "purpose": "Component: static"
-    },
-    {
-      "name": "BROski-CLANVERSE-Ultra",
-      "type": "directory",
-      "purpose": "Component: BROski-CLANVERSE-Ultra"
-    },
-    {
-      "name": "api",
-      "type": "directory",
-      "purpose": "Component: api"
-    },
-    {
-      "name": "workspace_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: workspace_optimizer"
-    },
-    {
-      "name": "test_portal_integration.py",
-      "type": "file",
-      "purpose": "Python module: test_portal_integration"
-=======
-      "name": "chaosgenius.db",
-      "type": "file",
-      "purpose": "File: chaosgenius.db"
     },
     {
       "name": "user_portal.html",
@@ -495,14 +371,19 @@
       "purpose": "Component: Marketing Content"
     },
     {
-      "name": "src",
-      "type": "directory",
-      "purpose": "Component: src"
+      "name": "deploy_phase3.py",
+      "type": "file",
+      "purpose": "Python module: deploy_phase3"
     },
     {
       "name": "production_assets",
       "type": "directory",
       "purpose": "Component: production_assets"
+    },
+    {
+      "name": "PHASE3_SUCCESS_SUMMARY.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE3_SUCCESS_SUMMARY"
     },
     {
       "name": "tiktok_shop_dashboard.html",
@@ -520,9 +401,24 @@
       "purpose": "Component: Scripts & Prompts"
     },
     {
+      "name": "discord_server_setup.py",
+      "type": "file",
+      "purpose": "Python module: discord_server_setup"
+    },
+    {
       "name": "scripts",
       "type": "directory",
       "purpose": "Component: scripts"
+    },
+    {
+      "name": "production_deploy_config.py",
+      "type": "file",
+      "purpose": "Python module: production_deploy_config"
+    },
+    {
+      "name": "UltraPurgeWidget.zip",
+      "type": "file",
+      "purpose": "File: UltraPurgeWidget.zip"
     },
     {
       "name": "project_zipper.py",
@@ -538,7 +434,6 @@
       "name": "pyproject.toml",
       "type": "file",
       "purpose": "File: pyproject.toml"
->>>>>>> Stashed changes
     },
     {
       "name": "voice_commands",
@@ -546,9 +441,6 @@
       "purpose": "Component: voice_commands"
     },
     {
-<<<<<<< Updated upstream
-      "name": "data",
-=======
       "name": "README.md",
       "type": "file",
       "purpose": "Main project documentation"
@@ -569,6 +461,11 @@
       "purpose": "Python module: health_check"
     },
     {
+      "name": "push_ultra_features.sh",
+      "type": "file",
+      "purpose": "File: push_ultra_features.sh"
+    },
+    {
       "name": "archived_logs",
       "type": "directory",
       "purpose": "Component: archived_logs"
@@ -577,6 +474,11 @@
       "name": "testing_roadmap_complete.py",
       "type": "file",
       "purpose": "Python module: testing_roadmap_complete"
+    },
+    {
+      "name": "discord_auto_roles_payouts.py",
+      "type": "file",
+      "purpose": "Python module: discord_auto_roles_payouts"
     },
     {
       "name": "PRE_LAUNCH_CHECKLIST.md",
@@ -619,14 +521,29 @@
       "purpose": "Configuration: pre_launch_audit_report"
     },
     {
+      "name": "setup_ssl_hyperfocuszone.sh",
+      "type": "file",
+      "purpose": "File: setup_ssl_hyperfocuszone.sh"
+    },
+    {
       "name": "folder_structure.txt",
       "type": "file",
       "purpose": "File: folder_structure.txt"
     },
     {
+      "name": "123blast off checks",
+      "type": "file",
+      "purpose": "File: 123blast off checks"
+    },
+    {
       "name": "Business Data",
       "type": "directory",
       "purpose": "Component: Business Data"
+    },
+    {
+      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
+      "type": "file",
+      "purpose": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
     },
     {
       "name": "project_health_monitor.py",
@@ -639,14 +556,39 @@
       "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
     },
     {
+      "name": "templates",
+      "type": "directory",
+      "purpose": "Component: templates"
+    },
+    {
+      "name": "app.py",
+      "type": "file",
+      "purpose": "Python module: app"
+    },
+    {
       "name": "startup_manager.py",
       "type": "file",
       "purpose": "Python module: startup_manager"
     },
     {
+      "name": "chaosgenius-ultra-features.bundle",
+      "type": "file",
+      "purpose": "File: chaosgenius-ultra-features.bundle"
+    },
+    {
       "name": "dashboard.html",
       "type": "file",
       "purpose": "File: dashboard.html"
+    },
+    {
+      "name": "index.html",
+      "type": "file",
+      "purpose": "File: index.html"
+    },
+    {
+      "name": "dashboard_api_backup.py",
+      "type": "file",
+      "purpose": "Python module: dashboard_api_backup"
     },
     {
       "name": "start.py",
@@ -659,14 +601,59 @@
       "purpose": "Documentation: LAUNCH_ANNOUNCEMENTS"
     },
     {
-      "name": "deploy",
-      "type": "directory",
-      "purpose": "Component: deploy"
+      "name": "phase4_production_manager.py",
+      "type": "file",
+      "purpose": "Python module: phase4_production_manager"
+    },
+    {
+      "name": "ULTRA_MAGIC_PRODUCTION_BRIDGE.sh",
+      "type": "file",
+      "purpose": "File: ULTRA_MAGIC_PRODUCTION_BRIDGE.sh"
+    },
+    {
+      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
     },
     {
       "name": "business_blueprint_20250525_112142.json",
       "type": "file",
       "purpose": "Configuration: business_blueprint_20250525_112142"
+    },
+    {
+      "name": "deploy_to_hyperfocuszone.com.sh",
+      "type": "file",
+      "purpose": "File: deploy_to_hyperfocuszone.com.sh"
+    },
+    {
+      "name": "broski_learning.db",
+      "type": "file",
+      "purpose": "File: broski_learning.db"
+    },
+    {
+      "name": "PROJECT_IMPACT_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: PROJECT_IMPACT_REPORT"
+    },
+    {
+      "name": "ULTRA_BROSKI_PROJECT",
+      "type": "directory",
+      "purpose": "Component: ULTRA_BROSKI_PROJECT"
+    },
+    {
+      "name": "PHASE4_PRODUCTION_COMPLETE.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE4_PRODUCTION_COMPLETE"
+    },
+    {
+      "name": "neurod_analytics_dashboard.html",
+      "type": "file",
+      "purpose": "File: neurod_analytics_dashboard.html"
+    },
+    {
+      "name": "cleanup_log_20250529_215256.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250529_215256"
     },
     {
       "name": "hyperfocus_project_analysis_20250604_183739.json",
@@ -675,61 +662,10 @@
     },
     {
       "name": "Welcome & Onboarding",
->>>>>>> Stashed changes
       "type": "directory",
-      "purpose": "Component: data"
+      "purpose": "Component: Welcome & Onboarding"
     },
     {
-<<<<<<< Updated upstream
-      "name": "ultra_analytics_panel.html",
-      "type": "file",
-      "purpose": "File: ultra_analytics_panel.html"
-    },
-    {
-      "name": "htmlcov",
-      "type": "directory",
-      "purpose": "Component: htmlcov"
-    },
-    {
-      "name": "tiktok_shop_dashboard.html",
-      "type": "file",
-      "purpose": "File: tiktok_shop_dashboard.html"
-    },
-    {
-      "name": "folder_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: folder_optimizer"
-    },
-    {
-      "name": "broski_encryption.key",
-      "type": "file",
-      "purpose": "File: broski_encryption.key"
-    },
-    {
-      "name": "broski_hyperportal",
-      "type": "directory",
-      "purpose": "Component: broski_hyperportal"
-    },
-    {
-      "name": "src",
-      "type": "directory",
-      "purpose": "Component: src"
-    },
-    {
-      "name": "templates",
-      "type": "directory",
-      "purpose": "Component: templates"
-    },
-    {
-      "name": "COMPLETE_USER_GUIDE.md",
-      "type": "file",
-      "purpose": "Documentation: COMPLETE_USER_GUIDE"
-    },
-    {
-      "name": "business_blueprint_20250525_112142.json",
-      "type": "file",
-      "purpose": "Configuration: business_blueprint_20250525_112142"
-=======
       "name": "advanced_project_optimizer.py",
       "type": "file",
       "purpose": "Python module: advanced_project_optimizer"
@@ -740,14 +676,24 @@
       "purpose": "Python module: chaosgenius_discord_bot"
     },
     {
+      "name": "BROSKI_X_FOREVER_MANIFESTO.md",
+      "type": "file",
+      "purpose": "Documentation: BROSKI_X_FOREVER_MANIFESTO"
+    },
+    {
+      "name": "broski_tokens.db",
+      "type": "file",
+      "purpose": "File: broski_tokens.db"
+    },
+    {
       "name": "README_MASTER_INDEX.md",
       "type": "file",
       "purpose": "Documentation: README_MASTER_INDEX"
     },
     {
-      "name": "data",
+      "name": "production_config",
       "type": "directory",
-      "purpose": "Component: data"
+      "purpose": "Component: production_config"
     },
     {
       "name": "__pycache__",
@@ -755,9 +701,24 @@
       "purpose": "Component: __pycache__"
     },
     {
+      "name": "BROski$ INTER",
+      "type": "directory",
+      "purpose": "Component: BROski$ INTER"
+    },
+    {
       "name": "Notes",
       "type": "directory",
       "purpose": "Component: Notes"
+    },
+    {
+      "name": "phase3_manager.py",
+      "type": "file",
+      "purpose": "Python module: phase3_manager"
+    },
+    {
+      "name": "workspace_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: workspace_optimizer"
     },
     {
       "name": "hyperfocus_project_analysis_20250604_183910.json",
@@ -765,9 +726,24 @@
       "purpose": "Configuration: hyperfocus_project_analysis_20250604_183910"
     },
     {
+      "name": "system_monitor.py",
+      "type": "file",
+      "purpose": "Python module: system_monitor"
+    },
+    {
       "name": "chaosgenius_discord_bot.service",
       "type": "file",
       "purpose": "File: chaosgenius_discord_bot.service"
+    },
+    {
+      "name": "RELEASE_NOTES_v2.0.0.md",
+      "type": "file",
+      "purpose": "Documentation: RELEASE_NOTES_v2.0.0"
+    },
+    {
+      "name": "FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com",
+      "type": "file",
+      "purpose": "File: FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com"
     },
     {
       "name": "ecosystem.config.js",
@@ -780,6 +756,11 @@
       "purpose": "Component: htmlcov"
     },
     {
+      "name": "PHASE3_COMPLETION_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: PHASE3_COMPLETION_REPORT"
+    },
+    {
       "name": "graceful_shutdown_example.py",
       "type": "file",
       "purpose": "Python module: graceful_shutdown_example"
@@ -788,78 +769,11 @@
       "name": "zips",
       "type": "directory",
       "purpose": "Component: zips"
->>>>>>> Stashed changes
     },
     {
-      "name": "etsy_key_validator.py",
+      "name": "broski_token_config.json",
       "type": "file",
-      "purpose": "Python module: etsy_key_validator"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "scripts",
-      "type": "directory",
-      "purpose": "Component: scripts"
-    },
-    {
-      "name": "archived_logs",
-      "type": "directory",
-      "purpose": "Component: archived_logs"
-    },
-    {
-      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
-      "type": "file",
-      "purpose": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
-    },
-    {
-      "name": "advanced_project_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: advanced_project_optimizer"
-    },
-    {
-      "name": "BROski$ INTER",
-      "type": "directory",
-      "purpose": "Component: BROski$ INTER"
-    },
-    {
-      "name": "security_validator.py",
-      "type": "file",
-      "purpose": "Python module: security_validator"
-    },
-    {
-      "name": "chaosgenius_system_optimizer.py",
-      "type": "file",
-      "purpose": "Python module: chaosgenius_system_optimizer"
-    },
-    {
-      "name": "README_MASTER_INDEX.md",
-      "type": "file",
-      "purpose": "Documentation: README_MASTER_INDEX"
-    },
-    {
-      "name": "logs",
-      "type": "directory",
-      "purpose": "Component: logs"
-    },
-    {
-      "name": "quick_organizer.py",
-      "type": "file",
-      "purpose": "Python module: quick_organizer"
-    },
-    {
-      "name": "project_cleanup_organizer.py",
-      "type": "file",
-      "purpose": "Python module: project_cleanup_organizer"
-    },
-    {
-      "name": "optimization_backups",
-      "type": "directory",
-      "purpose": "Component: optimization_backups"
-    },
-    {
-      "name": "ChaosGenius Dashboard - Hyperfocus Zone now.pdf",
-      "type": "file",
-      "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
+      "purpose": "Configuration: broski_token_config"
     },
     {
       "name": "PROJECT_COMPLETION_STATUS.md",
@@ -867,14 +781,14 @@
       "purpose": "Documentation: PROJECT_COMPLETION_STATUS"
     },
     {
-      "name": "CHANGELOG.md",
+      "name": "etsy_key_validator.py",
       "type": "file",
-      "purpose": "Documentation: CHANGELOG"
-=======
+      "purpose": "Python module: etsy_key_validator"
+    },
+    {
       "name": "auto_doc_generator.py",
       "type": "file",
       "purpose": "Python module: auto_doc_generator"
->>>>>>> Stashed changes
     },
     {
       "name": "DEMO_MANIFEST.json",
@@ -882,69 +796,44 @@
       "purpose": "Configuration: DEMO_MANIFEST"
     },
     {
-<<<<<<< Updated upstream
-      "name": "project_health_monitor.py",
-      "type": "file",
-      "purpose": "Python module: project_health_monitor"
-    },
-    {
-      "name": "chaos_test_suite.py",
-      "type": "file",
-      "purpose": "Python module: chaos_test_suite"
-    },
-    {
-      "name": "dashboard_api.py",
-      "type": "file",
-      "purpose": "Python module: dashboard_api"
-    },
-    {
-      "name": "pyproject.toml",
-      "type": "file",
-      "purpose": "File: pyproject.toml"
-    },
-    {
-      "name": "health_report.json",
-      "type": "file",
-      "purpose": "Configuration: health_report"
-    },
-    {
-      "name": "deploy",
+      "name": "broski_auth_system",
       "type": "directory",
-      "purpose": "Component: deploy"
+      "purpose": "Component: broski_auth_system"
     },
     {
-      "name": "Scripts & Prompts",
-      "type": "directory",
-      "purpose": "Component: Scripts & Prompts"
-    },
-    {
-      "name": "app.py",
+      "name": "phase5_intelligence_manager.py",
       "type": "file",
-      "purpose": "Python module: app"
+      "purpose": "Python module: phase5_intelligence_manager"
     },
     {
-      "name": "Ui Upgrade",
-      "type": "directory",
-      "purpose": "Component: Ui Upgrade"
-    },
-    {
-      "name": "PHASE4_PRODUCTION_COMPLETE.md",
+      "name": "send_me_nft_ultra_dreamy.zip",
       "type": "file",
-      "purpose": "Documentation: PHASE4_PRODUCTION_COMPLETE"
+      "purpose": "File: send_me_nft_ultra_dreamy.zip"
     },
     {
-      "name": "workspace_optimization_20250529_215500.json",
-      "type": "file",
-      "purpose": "Configuration: workspace_optimization_20250529_215500"
-    },
-    {
-      "name": "docs",
-      "type": "directory",
-      "purpose": "Component: docs"
-=======
       "name": "setup_demo_version.py",
       "type": "file",
       "purpose": "Python module: setup_demo_version"
+    },
+    {
+      "name": "test_discord_token_integration.py",
+      "type": "file",
+      "purpose": "Python module: test_discord_token_integration"
+    },
+    {
+      "name": "broski_wallets_SECURE.json",
+      "type": "file",
+      "purpose": "Configuration: broski_wallets_SECURE"
+    },
+    {
+      "name": "flask_cloudflare_ultra_starter_pack",
+      "type": "directory",
+      "purpose": "Component: flask_cloudflare_ultra_starter_pack"
+    },
+    {
+      "name": "ChaosGenius_DNS_Setup.zip",
+      "type": "file",
+      "purpose": "File: ChaosGenius_DNS_Setup.zip"
     },
     {
       "name": "config",
@@ -952,10 +841,14 @@
       "purpose": "Component: config"
     },
     {
+      "name": "FINAL_DEPLOYMENT_COMMANDS.md",
+      "type": "file",
+      "purpose": "Documentation: FINAL_DEPLOYMENT_COMMANDS"
+    },
+    {
       "name": "tash",
       "type": "file",
       "purpose": "File: tash"
->>>>>>> Stashed changes
     },
     {
       "name": "backups",
@@ -963,105 +856,24 @@
       "purpose": "Component: backups"
     },
     {
-<<<<<<< Updated upstream
-      "name": "test_endpoints.py",
-      "type": "file",
-      "purpose": "Python module: test_endpoints"
-    },
-    {
-      "name": "README.md",
-      "type": "file",
-      "purpose": "Main project documentation"
-    },
-    {
-      "name": "phase4_production_manager.py",
-      "type": "file",
-      "purpose": "Python module: phase4_production_manager"
-    },
-    {
-      "name": "neurod_analytics_dashboard.html",
-      "type": "file",
-      "purpose": "File: neurod_analytics_dashboard.html"
-    },
-    {
-      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "name": "broski_hyperportal",
       "type": "directory",
-      "purpose": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+      "purpose": "Component: broski_hyperportal"
     },
     {
-      "name": "production_config",
-      "type": "directory",
-      "purpose": "Component: production_config"
-    },
-    {
-      "name": "Business Data",
-      "type": "directory",
-      "purpose": "Component: Business Data"
-    },
-    {
-      "name": "requirements.txt",
-      "type": "file",
-      "purpose": "File: requirements.txt"
-    },
-    {
-      "name": "production_autoscaler.py",
-      "type": "file",
-      "purpose": "Python module: production_autoscaler"
-    },
-    {
-      "name": "system_monitor.py",
-      "type": "file",
-      "purpose": "Python module: system_monitor"
-    },
-    {
-      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
-      "type": "file",
-      "purpose": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
-    },
-    {
-      "name": "chaos_genius_organizer.py",
-      "type": "file",
-      "purpose": "Python module: chaos_genius_organizer"
-    },
-    {
-      "name": "Dockerfile",
-      "type": "file",
-      "purpose": "File: Dockerfile"
-    },
-    {
-      "name": "chaosgenius_discord_bot.py",
-      "type": "file",
-      "purpose": "Python module: chaosgenius_discord_bot"
-    },
-    {
-      "name": "production_manager.py",
-      "type": "file",
-      "purpose": "Python module: production_manager"
-    },
-    {
-      "name": "phase3_manager.py",
-      "type": "file",
-      "purpose": "Python module: phase3_manager"
-    },
-    {
-      "name": "PROJECT_IMPACT_REPORT.md",
-      "type": "file",
-      "purpose": "Documentation: PROJECT_IMPACT_REPORT"
-    },
-    {
-      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
-      "type": "file",
-      "purpose": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
-=======
       "name": "api",
       "type": "directory",
       "purpose": "Component: api"
     },
     {
+      "name": "token_test_results.txt",
+      "type": "file",
+      "purpose": "File: token_test_results.txt"
+    },
+    {
       "name": "security_validator.py",
       "type": "file",
       "purpose": "Python module: security_validator"
->>>>>>> Stashed changes
     }
   ],
   "tasks_available": [

@@ -13,57 +13,57 @@
             0%, 100% { box-shadow: 0 0 20px rgba(139, 69, 255, 0.5); }
             50% { box-shadow: 0 0 40px rgba(139, 69, 255, 0.8); }
         }
-        
+
         @keyframes squad-rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         @keyframes neuron-fire {
             0% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.1); }
             100% { opacity: 0.3; transform: scale(1); }
         }
-        
+
         @keyframes hyperfocus-ripple {
             0% { transform: scale(0.8); opacity: 1; }
             100% { transform: scale(2.5); opacity: 0; }
         }
-        
+
         @keyframes cyber-scan {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(400%); }
         }
-        
+
         .broski-glow { animation: pulse-glow 2s ease-in-out infinite; }
         .squad-ring { animation: squad-rotate 20s linear infinite; }
         .neuron-active { animation: neuron-fire 1.5s ease-in-out infinite; }
         .hyperfocus-ripple { animation: hyperfocus-ripple 2s ease-out infinite; }
-        
+
         /* Glassmorphism effects */
-        .glass { 
+        .glass {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px); 
+            backdrop-filter: blur(15px);
         }
-        .glass-dark { 
+        .glass-dark {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(139, 69, 255, 0.3);
             -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px); 
+            backdrop-filter: blur(15px);
         }
-        
+
         /* Cyberpunk Grid Background */
         body {
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(139, 69, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
                 linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             background-attachment: fixed;
         }
-        
+
         /* Cyber Text Effects */
         .cyber-text {
             font-family: 'Orbitron', monospace;
@@ -74,12 +74,12 @@
             -webkit-text-fill-color: transparent;
             animation: gradient-shift 3s ease infinite;
         }
-        
+
         @keyframes gradient-shift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-        
+
         /* Cyber Button Effects */
         .cyber-btn {
             background: linear-gradient(145deg, rgba(139, 69, 255, 0.1), rgba(0, 191, 255, 0.1));
@@ -95,7 +95,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .cyber-btn::before {
             content: '';
             position: absolute;
@@ -106,29 +106,29 @@
             background: linear-gradient(90deg, transparent, rgba(139, 69, 255, 0.3), transparent);
             transition: left 0.3s;
         }
-        
+
         .cyber-btn:hover::before {
             left: 100%;
         }
-        
+
         .cyber-btn:hover {
             border-color: #8b45ff;
             box-shadow: 0 0 20px rgba(139, 69, 255, 0.5);
             transform: translateY(-2px);
             color: #ffffff;
         }
-        
+
         /* Focus Mode Styles */
-        .focus-mode .distraction { 
-            opacity: 0.3; 
-            pointer-events: none; 
+        .focus-mode .distraction {
+            opacity: 0.3;
+            pointer-events: none;
             filter: blur(2px);
         }
-        .hyperfocus-mode { 
-            border: 3px solid #8b45ff; 
+        .hyperfocus-mode {
+            border: 3px solid #8b45ff;
             box-shadow: 0 0 30px rgba(139, 69, 255, 0.6);
         }
-        
+
         /* Scan Line Effect */
         .scan-line {
             position: absolute;
@@ -139,7 +139,7 @@
             background: linear-gradient(90deg, transparent, #00bfff, transparent);
             animation: cyber-scan 3s linear infinite;
         }
-        
+
         /* Loading Animation */
         .loading-orb {
             width: 20px;
@@ -151,7 +151,22 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen" x-data="ultraDashboard()" x-init="init()">
-    
+
+    <!-- 🎊🔥🔥🔥 LIVE WORLD DOMINATION BANNER!!! 🔥🔥🔥🎊 -->
+    <div class="fixed top-0 left-0 right-0 z-60 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 text-white text-center py-3 shadow-lg"
+         style="background: linear-gradient(90deg, #059669, #2563eb, #7c3aed); box-shadow: 0 4px 20px rgba(139, 69, 255, 0.5);">
+        <div class="flex items-center justify-center space-x-3 animate-pulse">
+            <span class="text-xl">🚀</span>
+            <span class="font-bold text-lg">HYPERFOCUSZONE.COM IS NOW LIVE TO THE WORLD!</span>
+            <span class="text-xl">🌍</span>
+            <span class="font-bold text-lg">Neurodivergent Empire: ACTIVATED!</span>
+            <span class="text-xl">👑</span>
+        </div>
+        <div class="text-sm mt-1 opacity-90">
+            Built by Ultra Dev Pals • Powered by ADHD Superpowers • Ready for Global Hyperfocus! 💪
+        </div>
+    </div>
+
     <!-- 🧠 BROski HUD Overlay -->
     <div class="fixed top-4 right-4 z-50" x-show="broskiActive" x-transition>
         <div class="glass-dark rounded-2xl p-4 broski-glow">
@@ -164,7 +179,7 @@
                     <div class="text-xs text-gray-300 max-w-[200px]" x-text="broskiMessage"></div>
                 </div>
             </div>
-            
+
             <!-- BROski Quick Actions -->
             <div class="mt-3 space-y-2">
                 <button @click="askBroski()" class="w-full bg-purple-600/50 hover:bg-purple-600/70 px-3 py-1 rounded-lg text-xs transition-colors">
@@ -188,24 +203,24 @@
                  @click="showSquadStatus()">
                 <span class="text-2xl">🚀</span>
             </div>
-            
+
             <!-- Rotating Squad Ring -->
             <div class="absolute inset-0 squad-ring">
                 <!-- AI Squad Members -->
                 <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2">
-                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer" 
+                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer"
                          title="Content Creator AI" @click="launchAI('content')">📝</div>
                 </div>
                 <div class="absolute top-1/2 right-0 transform translate-x-2 -translate-y-1/2">
-                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer" 
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer"
                          title="Analytics AI" @click="launchAI('analytics')">📊</div>
                 </div>
                 <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2">
-                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer" 
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer"
                          title="Productivity AI" @click="launchAI('productivity')">⚡</div>
                 </div>
                 <div class="absolute top-1/2 left-0 transform -translate-x-2 -translate-y-1/2">
-                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer" 
+                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-sm neuron-active cursor-pointer"
                          title="Discord Bot" @click="launchAI('discord')">🤖</div>
                 </div>
             </div>
@@ -221,7 +236,7 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-20 glass-dark">
+    <nav class="fixed top-0 left-0 right-0 z-20 glass-dark" style="top: 80px;">
         <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
@@ -243,7 +258,7 @@
 
     <!-- Main Dashboard Container -->
     <div class="container mx-auto px-4 py-8 mt-16" :class="{'focus-mode': focusMode}">
-        
+
         <!-- Ultra Mode Header -->
         <header class="mb-8">
             <div class="glass rounded-2xl p-6 relative overflow-hidden">
@@ -256,7 +271,7 @@
                         <p class="text-purple-300">ADHD-Optimized Productivity Command Center</p>
                         <p class="text-sm text-gray-400 mt-1" x-text="`Neural Activity: ${energyLevel}% | Squad: ${squadRingActive ? 'ACTIVE' : 'STANDBY'}`"></p>
                     </div>
-                    
+
                     <!-- Quick Stats Ring -->
                     <div class="flex space-x-4">
                         <div class="text-center">
@@ -273,7 +288,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Energy Level Indicator -->
                 <div class="mt-4 flex items-center space-x-3">
                     <span class="text-sm">Mental Energy:</span>
@@ -288,7 +303,7 @@
 
         <!-- Quick Actions Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            
+
             <!-- Create Product -->
             <div class="glass rounded-xl p-6 hover:bg-purple-500/10 transition-all cursor-pointer" @click="createProduct()">
                 <div class="text-center">
@@ -299,7 +314,7 @@
                     <p class="text-sm text-gray-400">Launch new ideas</p>
                 </div>
             </div>
-            
+
             <!-- Run Analytics -->
             <div class="glass rounded-xl p-6 hover:bg-blue-500/10 transition-all cursor-pointer" @click="runAnalytics()">
                 <div class="text-center">
@@ -310,7 +325,7 @@
                     <p class="text-sm text-gray-400">Deep insights</p>
                 </div>
             </div>
-            
+
             <!-- Generate Docs -->
             <div class="glass rounded-xl p-6 hover:bg-green-500/10 transition-all cursor-pointer" @click="generateDocs()">
                 <div class="text-center">
@@ -321,7 +336,7 @@
                     <p class="text-sm text-gray-400">Auto documentation</p>
                 </div>
             </div>
-            
+
             <!-- Master Control -->
             <div class="glass rounded-xl p-6 hover:bg-red-500/10 transition-all cursor-pointer" @click="window.open('/master-control', '_blank')">
                 <div class="text-center">
@@ -343,7 +358,7 @@
                     <span class="text-xs text-green-400">ALL SYSTEMS ONLINE</span>
                 </div>
             </h3>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- TikTok Shop Dashboard -->
                 <div class="bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg p-6 border border-pink-500/30 hover:border-pink-400 transition-all cursor-pointer group"
@@ -465,26 +480,26 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quick Launch Bar -->
             <div class="mt-6 flex flex-wrap justify-center gap-3">
-                <button @click="window.open('/tiktok-dashboard', '_blank')" 
+                <button @click="window.open('/tiktok-dashboard', '_blank')"
                         class="cyber-btn text-xs px-4 py-2">
                     🎯 TikTok HQ
                 </button>
-                <button @click="window.open('/master-control', '_blank')" 
+                <button @click="window.open('/master-control', '_blank')"
                         class="cyber-btn text-xs px-4 py-2">
                     🧠 Neural Control
                 </button>
-                <button @click="window.open('/ultra', '_self')" 
+                <button @click="window.open('/ultra', '_self')"
                         class="cyber-btn text-xs px-4 py-2">
                     ⚡ Ultra Mode
                 </button>
-                <button @click="showAPISetup()" 
+                <button @click="showAPISetup()"
                         class="cyber-btn text-xs px-4 py-2">
                     🔧 API Setup
                 </button>
-                <button @click="refreshAllSystems()" 
+                <button @click="refreshAllSystems()"
                         class="cyber-btn text-xs px-4 py-2">
                     🔄 Sync All
                 </button>
@@ -502,10 +517,10 @@
                     <div class="text-sm" x-text="aiInsight">Your productivity is 23% higher during afternoon sessions!</div>
                 </div>
                 <div class="flex space-x-3">
-                    <input type="text" placeholder="Ask BROski anything..." 
+                    <input type="text" placeholder="Ask BROski anything..."
                            class="flex-1 bg-gray-800/50 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
                            x-model="aiQuery" @keydown.enter="askBroskiQuery()">
-                    <button @click="askBroskiQuery()" 
+                    <button @click="askBroskiQuery()"
                             class="cyber-btn">
                         Send
                     </button>
@@ -522,7 +537,7 @@
                     <span class="text-xs" x-text="analytics.data_source === 'live_apis' ? 'LIVE DATA' : 'DEMO MODE'"></span>
                 </div>
             </h3>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Etsy Sales Card -->
                 <div class="bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-lg p-4 border border-orange-500/30 relative overflow-hidden">
@@ -540,7 +555,7 @@
                         <div class="text-2xl">🛒</div>
                     </div>
                 </div>
-                
+
                 <!-- TikTok Views Card -->
                 <div class="bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg p-4 border border-pink-500/30 relative overflow-hidden">
                     <div class="scan-line"></div>
@@ -557,7 +572,7 @@
                         <div class="text-2xl">📱</div>
                     </div>
                 </div>
-                
+
                 <!-- Active Products Card -->
                 <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-lg p-4 border border-green-500/30 relative overflow-hidden">
                     <div class="scan-line"></div>
@@ -572,7 +587,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Recent Activity Feed -->
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Recent Orders -->
@@ -590,7 +605,7 @@
                         </template>
                     </div>
                 </div>
-                
+
                 <!-- Trending Content -->
                 <div class="glass-dark rounded-lg p-4" x-show="analytics.trending_content && analytics.trending_content.length > 0">
                     <h4 class="font-bold text-pink-300 mb-3">🔥 Trending Content</h4>
@@ -607,7 +622,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-6 flex justify-center space-x-4">
                 <button @click="refreshAnalytics()" class="cyber-btn">
                     <span x-show="!loadingAnalytics">🔄 Refresh Data</span>
@@ -626,7 +641,7 @@
         <div x-show="showAPIModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" x-transition>
             <div class="glass-dark rounded-xl p-6 max-w-2xl w-full mx-4">
                 <h3 class="text-2xl font-bold mb-4">🔧 Social Media API Setup</h3>
-                
+
                 <div class="space-y-6">
                     <!-- Etsy Configuration -->
                     <div class="border border-orange-500/30 rounded-lg p-4">
@@ -635,10 +650,10 @@
                             <span class="ml-auto text-xs" :class="apiStatus.etsy === 'connected' ? 'text-green-400' : 'text-yellow-400'" x-text="apiStatus.etsy || 'Not Connected'"></span>
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Etsy API Key" 
+                            <input type="text" placeholder="Etsy API Key"
                                    class="bg-gray-800/50 border border-orange-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
                                    x-model="apiCredentials.etsy_api_key">
-                            <input type="text" placeholder="Shop ID" 
+                            <input type="text" placeholder="Shop ID"
                                    class="bg-gray-800/50 border border-orange-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
                                    x-model="apiCredentials.etsy_shop_id">
                         </div>
@@ -646,7 +661,7 @@
                             Get your credentials from <a href="https://www.etsy.com/developers/" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:underline">Etsy Developers</a>
                         </div>
                     </div>
-                    
+
                     <!-- TikTok Configuration -->
                     <div class="border border-pink-500/30 rounded-lg p-4">
                         <h4 class="font-bold text-pink-300 mb-3 flex items-center">
@@ -654,7 +669,7 @@
                             <span class="ml-auto text-xs" :class="apiStatus.tiktok === 'connected' ? 'text-green-400' : 'text-yellow-400'" x-text="apiStatus.tiktok || 'Not Connected'"></span>
                         </h4>
                         <div class="grid grid-cols-1 gap-4">
-                            <input type="text" placeholder="TikTok Access Token" 
+                            <input type="text" placeholder="TikTok Access Token"
                                    class="bg-gray-800/50 border border-pink-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
                                    x-model="apiCredentials.tiktok_access_token">
                         </div>
@@ -663,7 +678,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mt-6 flex justify-between">
                     <button @click="showAPIModal = false" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded text-white transition-colors">
                         Cancel
@@ -692,13 +707,13 @@
                 ultraModeActive: true,
                 showBroskiChat: false,
                 showAPIModal: false,
-                
+
                 // AI & Energy
                 broskiMessage: "Ready to optimize your workflow! 🚀",
                 aiQuery: "",
                 aiInsight: "Your productivity is 23% higher during afternoon sessions!",
                 energyLevel: 85,
-                
+
                 // Analytics & Stats
                 stats: {
                     revenue: "£1,240",
@@ -717,7 +732,7 @@
                     recent_orders: [],
                     trending_content: []
                 },
-                
+
                 apiCredentials: {
                     etsy_api_key: '',
                     etsy_shop_id: '',
@@ -727,20 +742,20 @@
                     etsy: 'Not Connected',
                     tiktok: 'Not Connected'
                 },
-                
+
                 init() {
                     console.log("🚀 HYPERFOCUS DREAM Ultra Mode Initialized!");
                     this.loadStats();
                     this.startHyperfocusDetection();
                     this.rotateMotivationalMessages();
-                    
+
                     // Entrance animation
-                    gsap.fromTo(document.body, 
-                        { opacity: 0, scale: 0.95 }, 
+                    gsap.fromTo(document.body,
+                        { opacity: 0, scale: 0.95 },
                         { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" }
                     );
                 },
-                
+
                 // BROski AI Functions
                 askBroski() {
                     this.broskiMessage = "Analyzing your workflow patterns...";
@@ -754,17 +769,17 @@
                         this.broskiMessage = responses[Math.floor(Math.random() * responses.length)];
                     }, 2000);
                 },
-                
+
                 askBroskiQuery() {
                     if (this.aiQuery.trim()) {
                         this.broskiMessage = `Processing: "${this.aiQuery}"...`;
-                        
+
                         fetch('/api/broski/chat', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ 
-                                query: this.aiQuery, 
-                                energy_level: this.energyLevel 
+                            body: JSON.stringify({
+                                query: this.aiQuery,
+                                energy_level: this.energyLevel
                             })
                         })
                         .then(response => response.json())
@@ -775,32 +790,32 @@
                         .catch(error => {
                             this.broskiMessage = "BROski is thinking... Try again in a moment! 🤖";
                         });
-                        
+
                         this.aiQuery = "";
                     }
                 },
-                
+
                 // Hyperfocus Functions
                 toggleHyperfocus() {
                     this.focusMode = !this.focusMode;
-                    this.broskiMessage = this.focusMode ? 
+                    this.broskiMessage = this.focusMode ?
                         "🎯 Hyperfocus mode activated! Distractions minimized." :
                         "Focus mode deactivated. Welcome back to full interface!";
-                    
+
                     fetch('/api/hyperfocus/toggle', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ enabled: this.focusMode })
                     });
                 },
-                
+
                 toggleUltraMode() {
                     this.ultraModeActive = !this.ultraModeActive;
                     this.broskiMessage = this.ultraModeActive ?
                         "🔥 Ultra Mode: Maximum power unlocked!" :
                         "⭐ Standard Mode: Reduced functionality";
                 },
-                
+
                 startHyperfocusDetection() {
                     setInterval(() => {
                         this.hyperfocusDetected = Math.random() > 0.7;
@@ -809,12 +824,12 @@
                         }
                     }, 10000);
                 },
-                
+
                 // Squad Ring Functions
                 showSquadStatus() {
                     alert(`🎮 AI Squad Status:\n\n📝 Content Creator: Ready\n📊 Analytics AI: Active\n⚡ Productivity AI: Optimizing\n🤖 Discord Bot: Online\n\n🚀 All systems operational!`);
                 },
-                
+
                 launchAI(type) {
                     const aiTypes = {
                         content: "Content Creator AI activated! 📝",
@@ -822,15 +837,15 @@
                         productivity: "Productivity AI optimizing workflow... ⚡",
                         discord: "Discord Bot connecting to community... 🤖"
                     };
-                    
+
                     this.broskiMessage = aiTypes[type] || "AI system activated!";
                 },
-                
+
                 // Dashboard Actions
                 createProduct() {
                     this.showBroskiChat = true;
                     this.broskiMessage = "🛠️ Product creation wizard activated!";
-                    
+
                     fetch('/api/create-product', { method: 'POST' })
                         .then(response => response.json())
                         .then(data => {
@@ -841,10 +856,10 @@
                             this.broskiMessage = "Product created in local quantum storage! 🚀";
                         });
                 },
-                
+
                 runAnalytics() {
                     this.broskiMessage = "📊 Running deep analytics scan...";
-                    
+
                     fetch('/api/analytics')
                         .then(response => response.json())
                         .then(data => {
@@ -855,10 +870,10 @@
                             this.broskiMessage = "Analytics scan complete! 📊";
                         });
                 },
-                
+
                 generateDocs() {
                     this.broskiMessage = "📚 Documentation wizard is working...";
-                    
+
                     fetch('/api/generate-docs', { method: 'POST' })
                         .then(response => response.json())
                         .then(data => {
@@ -868,11 +883,11 @@
                             this.broskiMessage = "Documentation generated! 📚";
                         });
                 },
-                
+
                 refreshAnalytics() {
                     this.runAnalytics();
                 },
-                
+
                 loadStats() {
                     fetch('/api/dashboard-stats')
                         .then(response => response.json())
@@ -884,7 +899,7 @@
                             console.log("Using mock stats");
                         });
                 },
-                
+
                 // Motivation & Messages
                 showMotivation() {
                     const motivations = [
@@ -895,7 +910,7 @@
                     ];
                     this.broskiMessage = motivations[Math.floor(Math.random() * motivations.length)];
                 },
-                
+
                 rotateMotivationalMessages() {
                     setInterval(() => {
                         if (!this.focusMode) {
@@ -909,38 +924,38 @@
                         }
                     }, 30000);
                 },
-                
+
                 // API Setup Functions
                 showAPISetup() {
                     this.showAPIModal = true;
                 },
-                
+
                 testAPIConnections() {
                     this.broskiMessage = "🔌 Testing API connections...";
-                    
+
                     // Simulate API testing
                     setTimeout(() => {
                         this.apiStatus.etsy = Math.random() > 0.5 ? 'connected' : 'not_connected';
                         this.apiStatus.tiktok = Math.random() > 0.5 ? 'connected' : 'not_connected';
-                        
+
                         this.broskiMessage = "API connections tested!";
                     }, 2000);
                 },
-                
+
                 saveAPICredentials() {
                     this.broskiMessage = "💾 Saving API credentials...";
-                    
+
                     // Simulate saving credentials
                     setTimeout(() => {
                         this.broskiMessage = "API credentials saved!";
                         this.showAPIModal = false;
                     }, 2000);
                 },
-                
+
                 // Platform Navigation Functions
                 launchDiscordBot() {
                     this.broskiMessage = "🤖 Launching Discord Bot...";
-                    
+
                     fetch('/api/discord/start', { method: 'POST' })
                         .then(response => response.json())
                         .then(data => {
@@ -950,10 +965,10 @@
                             this.broskiMessage = "Discord Bot system initiated! 🤖";
                         });
                 },
-                
+
                 showAPIStatus() {
                     this.broskiMessage = "🔌 Checking API status...";
-                    
+
                     fetch('/api/tiktok-shop/status')
                         .then(response => response.json())
                         .then(data => {
@@ -967,10 +982,10 @@
                             this.broskiMessage = "API status check complete! 🔌";
                         });
                 },
-                
+
                 refreshAllSystems() {
                     this.broskiMessage = "🔄 Synchronizing all systems...";
-                    
+
                     fetch('/api/sync-systems', { method: 'POST' })
                         .then(response => response.json())
                         .then(data => {
@@ -982,7 +997,7 @@
                             this.refreshAnalytics();
                         });
                 },
-                
+
                 // Utility Functions
                 formatNumber(num) {
                     if (typeof num === 'string') return num;

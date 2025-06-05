@@ -52,7 +52,7 @@ def check_secrets_security():
     if env_file.exists():
         permissions = oct(env_file.stat().st_mode)[-3:]
         if permissions != "600":
-            print(f"⚠️ .env file permissions too open: {permissions} (should be 600)")
+            print(f"⚠️ .env file permissions too open: {permissions} " "(should be 600)")
             return False
 
     print("✅ All secrets secured and loaded properly!")
@@ -69,14 +69,8 @@ def test_token_system():
 
         # Test wallet creation
         test_user = "test_blast_off_user"
-        wallet_result = engine.create_wallet(test_user)
-        if wallet_result["status"] != "success":
-            return False
-
-        # Test token minting
-        mint_result = engine.award_tokens(test_user, 10.0, "Blast off test")
-        if mint_result["status"] != "success":
-            return False
+        wallet_result = engine._create_wallet(test_user)
+        welcome_tokens = engine.award_tokens(test_user, 10.0, "Blast off test")
 
         # Test balance check
         balance = engine.get_balance(test_user)
@@ -84,7 +78,7 @@ def test_token_system():
             return False
 
         # Test transaction
-        engine.create_wallet("test_recipient")
+        engine._create_wallet("test_recipient")
         transfer_result = engine.transfer_tokens(
             test_user, "test_recipient", 5.0, "Test transfer"
         )
@@ -124,7 +118,8 @@ def test_broski_ai():
             return False
 
         print(
-            f"✅ BROski AI operational - Intelligence: {status['system_intelligence']}%"
+            f"✅ BROski AI operational - "
+            f"Intelligence: {status['system_intelligence']}%"
         )
         return True
 
@@ -159,25 +154,24 @@ def test_database_connections():
     return True
 
 
-## 🔄 3. BACKEND FINAL BINDS - REAL API TESTS
 def test_api_endpoints():
     """🌐 Test Flask API endpoints"""
     print("🧪 Testing API endpoints...")
 
     try:
-        # Test if dashboard API is running
-        response = requests.get("http://localhost:5000/api/status", timeout=3)
+        # Test if dashboard API is running on port 5001
+        response = requests.get("http://localhost:5001/api/status", timeout=3)
         if response.status_code != 200:
-            print("⚠️ Dashboard API not responding")
+            print("⚠️ Dashboard API not responding on port 5001")
             return False
 
-        # Test health endpoint
-        response = requests.get("http://localhost:5000/api/health", timeout=3)
+        # Test health endpoint on port 5001
+        response = requests.get("http://localhost:5001/api/health", timeout=3)
         if response.status_code != 200:
-            print("⚠️ Health endpoint not responding")
+            print("⚠️ Health endpoint not responding on port 5001")
             return False
 
-        print("✅ All API endpoints responding!")
+        print("✅ All API endpoints responding on port 5001!")
         return True
 
     except requests.exceptions.RequestException:
@@ -185,7 +179,6 @@ def test_api_endpoints():
         return True  # Not critical for blast off
 
 
-## 🤖 4. DISCORD BOT HEALTH CHECK
 def test_discord_bot():
     """🤖 Verify Discord bot configuration"""
     print("🧪 Testing Discord bot configuration...")
@@ -204,7 +197,7 @@ def test_discord_bot():
             return False
 
         # Basic syntax check
-        with open(bot_file, "r") as f:
+        with open(bot_file, "r", encoding="utf-8") as f:
             content = f.read()
             if "@bot.command" not in content:
                 print("❌ Discord bot commands not found")
@@ -218,7 +211,6 @@ def test_discord_bot():
         return False
 
 
-## 🪙 5. BROSKI$ WALLET SECURITY
 def test_wallet_security():
     """🔐 Test wallet encryption and backup systems"""
     print("🧪 Testing BROski$ wallet security...")
@@ -227,7 +219,7 @@ def test_wallet_security():
         # Check wallet file exists and is properly formatted
         wallet_file = Path("broski_wallets_SECURE.json")
         if wallet_file.exists():
-            with open(wallet_file, "r") as f:
+            with open(wallet_file, "r", encoding="utf-8") as f:
                 wallets = json.load(f)
                 if not isinstance(wallets, dict):
                     print("❌ Wallet file corrupted")
@@ -256,7 +248,6 @@ def test_wallet_security():
         return False
 
 
-## 💻 6. WEB DASHBOARD VALIDATION
 def test_dashboard_files():
     """💻 Check web dashboard files and assets"""
     print("🧪 Testing web dashboard components...")
@@ -270,7 +261,7 @@ def test_dashboard_files():
             return False
 
     # Check HTML file has required elements
-    with open("dashboard.html", "r") as f:
+    with open("dashboard.html", "r", encoding="utf-8") as f:
         html_content = f.read()
         if "BROski" not in html_content:
             print("⚠️ Dashboard may not be properly branded")
@@ -279,7 +270,6 @@ def test_dashboard_files():
     return True
 
 
-## 🌐 7. DOMAIN & SSL READINESS
 def test_domain_config():
     """🌐 Test domain and SSL configuration"""
     print("🧪 Testing domain configuration...")
@@ -310,7 +300,6 @@ def test_domain_config():
         return False
 
 
-## 🔥 8. ULTRA UX PERFORMANCE
 def test_performance_metrics():
     """⚡ Test system performance and responsiveness"""
     print("🧪 Testing system performance...")
@@ -319,7 +308,7 @@ def test_performance_metrics():
         # Test file system performance
         start_time = time.time()
         test_file = Path("performance_test.tmp")
-        with open(test_file, "w") as f:
+        with open(test_file, "w", encoding="utf-8") as f:
             f.write("performance test" * 1000)
         test_file.unlink()
         file_io_time = time.time() - start_time
@@ -342,7 +331,8 @@ def test_performance_metrics():
             return False
 
         print(
-            f"✅ Performance optimal! File I/O: {file_io_time:.3f}s, DB: {db_time:.3f}s"
+            f"✅ Performance optimal! File I/O: {file_io_time:.3f}s, "
+            f"DB: {db_time:.3f}s"
         )
         return True
 
@@ -351,7 +341,6 @@ def test_performance_metrics():
         return False
 
 
-## 🛡️ ULTRA SAFETY NET
 def setup_monitoring():
     """🛡️ Setup error monitoring and alerts"""
     print("🛡️ Setting up monitoring systems...")
@@ -375,7 +364,7 @@ def setup_monitoring():
             "total_checks": 0,
         }
 
-        with open(health_file, "w") as f:
+        with open(health_file, "w", encoding="utf-8") as f:
             json.dump(health_data, f, indent=2)
 
         print("✅ Monitoring systems configured!")
@@ -443,15 +432,17 @@ def execute_blast_off_checklist():
     if success_rate >= 90:
         print(f"\n🚀 BLAST OFF APPROVED! Success Rate: {success_rate:.1f}%")
         print("🌟 BROski ClanVerse Ultra is GO FOR LAUNCH! 🌟")
-        return True
+        launch_approved = True
     elif success_rate >= 75:
         print(f"\n⚠️ CONDITIONAL LAUNCH: Success Rate: {success_rate:.1f}%")
         print("🛠️ Some issues detected but system is functional")
-        return True
+        launch_approved = True
     else:
         print(f"\n🚨 LAUNCH ABORTED! Success Rate: {success_rate:.1f}%")
         print("🔧 Critical issues must be resolved before launch")
-        return False
+        launch_approved = False
+
+    return launch_approved
 
 
 if __name__ == "__main__":

@@ -1,0 +1,382 @@
+#!/usr/bin/env python3
+"""
+💥 BROSKI ULTRA AD SLOT SYSTEM - FULL STACK BUILD MODE 💥
+📁 File: broski_adslot_system.py (Flask + JSON storage)
+"""
+
+import json
+import os
+import time
+from datetime import datetime
+from typing import Any, Dict, List, Optional
+
+import discord
+import requests
+from discord.ext import commands
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+ADS_FILE = "adslots.json"
+TOKENS_FILE = "broski_tokens.db"
+MAX_SLOTS = 5
+EXPIRATION_SECONDS = 3 * 24 * 3600  # 3 days
+SLOT_COST = 100  # BROski$ cost per slot
+REQUEST_TIMEOUT = 10  # Request timeout in seconds
+
+
+# 🔧 Ensure adslots file exists
+def load_ads() -> List[Dict[str, Any]]:
+    """Load advertisements from JSON file"""
+    if not os.path.exists(ADS_FILE):
+        with open(ADS_FILE, "w", encoding="utf-8") as f:
+            json.dump([], f)
+    with open(ADS_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_ads(data: List[Dict[str, Any]]) -> None:
+    """Save advertisements to JSON file"""
+    with open(ADS_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+
+# 🪙 Token balance checker
+def check_user_balance(user_id: str) -> int:
+    """Check user's BROski$ balance"""
+    try:
+        with open(TOKENS_FILE, "r", encoding="utf-8") as f:
+            tokens = json.load(f)
+        return tokens.get(str(user_id), {}).get("balance", 0)
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        return 0
+
+
+def deduct_tokens(user_id: str, amount: int) -> bool:
+    """Deduct tokens from user balance"""
+    try:
+        with open(TOKENS_FILE, "r", encoding="utf-8") as f:
+            tokens = json.load(f)
+
+        if str(user_id) not in tokens:
+            tokens[str(user_id)] = {"balance": 0}
+
+        if tokens[str(user_id)]["balance"] >= amount:
+            tokens[str(user_id)]["balance"] -= amount
+            with open(TOKENS_FILE, "w", encoding="utf-8") as f:
+                json.dump(tokens, f, indent=2)
+            return True
+        return False
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        return False
+
+
+# 🧠 GET current ad slots
+@app.route("/api/adslots", methods=["GET"])
+def get_ads() -> Any:
+    """Get all active advertisement slots"""
+    ads = load_ads()
+    current_time = int(time.time())
+    active_ads = [
+        ad for ad in ads if current_time - ad["timestamp"] <= EXPIRATION_SECONDS
+    ]
+    return jsonify(active_ads)
+
+
+# 🤖 POST new ad slot
+@app.route("/api/adslots/claim", methods=["POST"])
+def claim_ad() -> Any:
+    """Claim an advertisement slot"""
+    data = request.json
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    required_fields = ["slot", "title", "url", "image", "user"]
+    if not all(field in data for field in required_fields):
+        return jsonify({"error": "Missing required field"}), 400
+
+    ads = load_ads()
+    slot = int(data["slot"])
+    if slot < 1 or slot > MAX_SLOTS:
+        return jsonify({"error": "Invalid slot number"}), 400
+
+    # Check if user has enough tokens
+    user_id = data["user"]
+    if not deduct_tokens(user_id, SLOT_COST):
+        return jsonify({"error": "Insufficient BROski$ balance"}), 400
+
+    # Remove any existing ad in that slot
+    ads = [ad for ad in ads if ad["slot"] != slot]
+
+    # Add new ad
+    ad_entry = {
+        "slot": slot,
+        "title": data["title"],
+        "url": data["url"],
+        "image": data["image"],
+        "user": data["user"],
+        "user_name": data.get("user_name", "Anonymous"),
+        "timestamp": int(time.time()),
+        "expires": int(time.time()) + EXPIRATION_SECONDS,
+    }
+    ads.append(ad_entry)
+    save_ads(ads)
+
+    return jsonify({"status": "Ad slot claimed!", "ad": ad_entry, "cost": SLOT_COST})
+
+
+# 💣 DELETE ad slot (admin-only use)
+@app.route("/api/adslots/<int:slot>", methods=["DELETE"])
+def delete_ad(slot: int) -> Any:
+    """Delete an advertisement slot"""
+    ads = load_ads()
+    # Find the ad to potentially refund
+    deleted_ad = None
+    for ad in ads:
+        if ad["slot"] == slot:
+            deleted_ad = ad
+            break
+
+    ads = [ad for ad in ads if ad["slot"] != slot]
+    save_ads(ads)
+
+    return jsonify({"status": f"Slot {slot} cleared", "deleted_ad": deleted_ad})
+
+
+# 🎨 DISCORD BOT INTEGRATION
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+
+@bot.event
+async def on_ready() -> None:
+    """Bot ready event handler"""
+    print(f"🤖 BROski Adslot Bot is ONLINE! Logged in as {bot.user}")
+
+
+@bot.command(name="adslot")
+async def adslot_command(
+    ctx: commands.Context,
+    action: Optional[str] = None,
+    slot: Optional[str] = None,
+    *args: str,
+) -> None:
+    """
+    🎯 Main adslot command
+    !adslot claim 1 "My Title" "https://link" "https://image"
+    !adslot status
+    !adslot cancel 1 (admin only)
+    """
+
+    if action == "claim":
+        await handle_claim(ctx, slot, args)
+    elif action == "status":
+        await handle_status(ctx)
+    elif action == "cancel":
+        await handle_cancel(ctx, slot)
+    else:
+        embed = discord.Embed(
+            title="🎯 BROski Adslot System",
+            description="**Available Commands:**\n"
+            '`!adslot claim <slot> "title" "url" "image"`\n'
+            "`!adslot status` - View all active slots\n"
+            "`!adslot cancel <slot>` - Admin only",
+            color=0xFF6EF7,
+        )
+        embed.add_field(name="💰 Cost", value=f"{SLOT_COST} BROski$", inline=True)
+        embed.add_field(name="⏰ Duration", value="3 days", inline=True)
+        await ctx.send(embed=embed)
+
+
+async def handle_claim(ctx: commands.Context, slot: Optional[str], args: tuple) -> None:
+    """Handle ad slot claiming"""
+    try:
+        if not slot or not slot.isdigit():
+            await ctx.send("❌ Please specify a slot number (1-5)")
+            return
+
+        slot_num = int(slot)
+        if slot_num < 1 or slot_num > MAX_SLOTS:
+            await ctx.send(f"❌ Slot must be between 1 and {MAX_SLOTS}")
+            return
+
+        if len(args) < 3:
+            await ctx.send('❌ Usage: `!adslot claim <slot> "title" "url" "image"`')
+            return
+
+        title = args[0].strip('"')
+        url = args[1].strip('"')
+        image = args[2].strip('"')
+
+        # Check user balance
+        balance = check_user_balance(str(ctx.author.id))
+        if balance < SLOT_COST:
+            embed = discord.Embed(
+                title="💸 Insufficient BROski$",
+                description=(f"You need {SLOT_COST} BROski$ but only have {balance}"),
+                color=0xFF4444,
+            )
+            await ctx.send(embed=embed)
+            return
+
+        # Make API call
+        payload = {
+            "slot": slot_num,
+            "title": title,
+            "url": url,
+            "image": image,
+            "user": str(ctx.author.id),
+            "user_name": ctx.author.display_name,
+        }
+
+        response = requests.post(
+            "http://localhost:5001/api/adslots/claim",
+            json=payload,
+            timeout=REQUEST_TIMEOUT,
+        )
+
+        if response.status_code == 200:
+            data = response.json()
+            expires_dt = datetime.fromtimestamp(data["ad"]["expires"])
+
+            embed = discord.Embed(
+                title="🎯 Ad Slot Claimed Successfully!",
+                description=f"**Slot #{slot_num}** is now yours!",
+                color=0x00FF88,
+            )
+            embed.add_field(name="📝 Title", value=title, inline=False)
+            embed.add_field(name="🔗 URL", value=url, inline=False)
+            embed.add_field(name="💰 Cost", value=f"{SLOT_COST} BROski$", inline=True)
+            embed.add_field(
+                name="⏰ Expires",
+                value=expires_dt.strftime("%Y-%m-%d %H:%M"),
+                inline=True,
+            )
+            embed.set_thumbnail(url=image)
+            embed.set_footer(text=f"Claimed by {ctx.author.display_name}")
+
+            await ctx.send(embed=embed)
+        else:
+            error_data = response.json()
+            await ctx.send(f"❌ Error: {error_data.get('error', 'Unknown error')}")
+
+    except requests.RequestException as e:
+        await ctx.send(f"❌ Network error: {str(e)}")
+    except (ValueError, KeyError) as e:
+        await ctx.send(f"❌ Error processing claim: {str(e)}")
+
+
+async def handle_status(ctx: commands.Context) -> None:
+    """Show all active ad slots"""
+    try:
+        response = requests.get(
+            "http://localhost:5001/api/adslots", timeout=REQUEST_TIMEOUT
+        )
+        ads = response.json()
+
+        embed = discord.Embed(
+            title="🎯 Active Ad Slots",
+            description="Current advertising lineup",
+            color=0x00BFFF,
+        )
+
+        if not ads:
+            embed.add_field(
+                name="💭 No Active Ads", value="All slots are available!", inline=False
+            )
+        else:
+            for ad in sorted(ads, key=lambda x: x["slot"]):
+                expires_dt = datetime.fromtimestamp(ad["expires"])
+                time_left = expires_dt - datetime.now()
+
+                embed.add_field(
+                    name=f"🎯 Slot #{ad['slot']} - {ad['title']}",
+                    value=f"👤 {ad['user_name']}\n"
+                    f"⏰ {time_left.days}d {time_left.seconds//3600}h left\n"
+                    f"🔗 [Visit]({ad['url']})",
+                    inline=True,
+                )
+
+        embed.set_footer(
+            text=f"💰 Claim a slot for {SLOT_COST} BROski$ | " "!adslot claim <slot>"
+        )
+        await ctx.send(embed=embed)
+
+    except requests.RequestException as e:
+        await ctx.send(f"❌ Network error: {str(e)}")
+    except (ValueError, KeyError) as e:
+        await ctx.send(f"❌ Error fetching slots: {str(e)}")
+
+
+async def handle_cancel(ctx: commands.Context, slot: Optional[str]) -> None:
+    """Admin-only slot cancellation"""
+    # Check if user is admin (customize this check)
+    if not ctx.author.guild_permissions.administrator:
+        await ctx.send("❌ Admin only command!")
+        return
+
+    try:
+        if not slot or not slot.isdigit():
+            await ctx.send("❌ Please specify a slot number")
+            return
+
+        response = requests.delete(
+            f"http://localhost:5001/api/adslots/{slot}", timeout=REQUEST_TIMEOUT
+        )
+        data = response.json()
+
+        embed = discord.Embed(
+            title="🗑️ Slot Cleared",
+            description=f"Slot #{slot} has been cleared by admin",
+            color=0xFF8800,
+        )
+
+        if data.get("deleted_ad"):
+            embed.add_field(
+                name="🔄 Refund Processing", value="User will be notified", inline=False
+            )
+
+        await ctx.send(embed=embed)
+
+    except requests.RequestException as e:
+        await ctx.send(f"❌ Network error: {str(e)}")
+    except (ValueError, KeyError) as e:
+        await ctx.send(f"❌ Error clearing slot: {str(e)}")
+
+
+# 🧪 Run Flask API
+def run_flask() -> None:
+    """Run Flask API server"""
+    app.run(debug=True, port=5001, host="0.0.0.0")
+
+
+# 🤖 Run Discord Bot
+def run_bot() -> None:
+    """Run Discord bot"""
+    # Load bot token from config
+    try:
+        with open("broski_token_config.json", "r", encoding="utf-8") as f:
+            config = json.load(f)
+        bot.run(config["discord_token"])
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        print("❌ Discord token not found in broski_token_config.json")
+
+
+# 🚀 MAIN LAUNCHER - PRODUCTION READY
+if __name__ == "__main__":
+    import threading
+
+    print("🔥💜 STARTING BROSKI ULTRA ADSLOT SYSTEM!!! 💜🔥")
+
+    # Run Flask API in production mode (no debug for threading)
+    flask_thread = threading.Thread(
+        target=lambda: app.run(port=5001, host="0.0.0.0", debug=False), daemon=True
+    )
+    flask_thread.start()
+
+    print("✅ Flask API started on port 5001")
+
+    # Run Discord bot
+    print("🤖 Starting Discord bot...")
+    run_bot()

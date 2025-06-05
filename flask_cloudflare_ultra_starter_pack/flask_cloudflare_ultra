@@ -1,3 +1,5 @@
+"""🌐 HyperFocusZone Flask App with Cloudflare Ultra Boost"""
+
 import logging
 import os
 from functools import wraps
@@ -22,8 +24,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-# Cache-control decorator
-def cache_control(minutes=5):
+def cache_control(minutes: int = 5):
+    """Cache-control decorator with type hints"""
+
     def decorator(f):
         @wraps(f)
         def wrapped(*args, **kwargs):
@@ -35,7 +38,7 @@ def cache_control(minutes=5):
                 response.headers["X-XSS-Protection"] = "1; mode=block"
                 return response
             except Exception as e:
-                logger.error(f"Error in cache_control: {e}")
+                logger.error("Error in cache_control: %s", e)
                 return jsonify({"error": "Internal server error"}), 500
 
         return wrapped
@@ -45,6 +48,7 @@ def cache_control(minutes=5):
 
 @app.after_request
 def add_default_cache_headers(response):
+    """Add default cache and security headers"""
     if "Cache-Control" not in response.headers:
         response.headers["Cache-Control"] = "public, max-age=3600"
 
@@ -55,17 +59,17 @@ def add_default_cache_headers(response):
     response.headers["Strict-Transport-Security"] = (
         "max-age=31536000; includeSubDomains"
     )
-
     return response
 
 
 @app.route("/")
 @cache.cached(timeout=60)
 def index():
+    """Main index route with caching"""
     try:
         return jsonify(
             {
-                "message": "🌐 HyperFocusZone Flask App with Cloudflare Ultra Boost!",
+                "message": "🌐 HyperFocusZone Flask App with Cloudflare Ultra!",
                 "status": "active",
                 "version": "1.0.0",
                 "features": [
@@ -78,13 +82,14 @@ def index():
             }
         )
     except Exception as e:
-        logger.error(f"Error in index route: {e}")
+        logger.error("Error in index route: %s", e)
         return jsonify({"error": "Failed to load home page"}), 500
 
 
 @app.route("/api/data")
 @cache_control(minutes=10)
 def data():
+    """API data endpoint with Cloudflare integration"""
     try:
         visitor_ip = request.headers.get("CF-Connecting-IP", request.remote_addr)
         country = request.headers.get("CF-IPCountry", "Unknown")
@@ -99,13 +104,11 @@ def data():
                     "cloudflare_ray_id": ray_id,
                 },
                 "cache_status": "MISS",
-                "timestamp": (
-                    str(request.timestamp) if hasattr(request, "timestamp") else "N/A"
-                ),
+                "timestamp": "N/A",
             }
         )
     except Exception as e:
-        logger.error(f"Error in data route: {e}")
+        logger.error("Error in data route: %s", e)
         return jsonify({"error": "Failed to fetch data"}), 500
 
 
@@ -124,7 +127,7 @@ def health_check():
             }
         )
     except Exception as e:
-        logger.error(f"Error in health check: {e}")
+        logger.error("Error in health check: %s", e)
         return jsonify({"error": "Health check failed"}), 500
 
 
@@ -144,17 +147,19 @@ def hyperfocus_data():
             }
         )
     except Exception as e:
-        logger.error(f"Error in hyperfocus route: {e}")
+        logger.error("Error in hyperfocus route: %s", e)
         return jsonify({"error": "Hyperfocus data unavailable"}), 500
 
 
 @app.errorhandler(404)
 def not_found(error):
+    """Handle 404 errors"""
     return jsonify({"error": "Endpoint not found"}), 404
 
 
 @app.errorhandler(500)
 def internal_error(error):
+    """Handle 500 errors"""
     return jsonify({"error": "Internal server error"}), 500
 
 
@@ -162,5 +167,5 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     debug_mode = os.environ.get("FLASK_ENV") == "development"
 
-    logger.info(f"🚀 Starting HyperFocusZone Flask Ultra on port {port}")
+    logger.info("🚀 Starting HyperFocusZone Flask Ultra on port %s", port)
     app.run(host="0.0.0.0", port=port, debug=debug_mode)

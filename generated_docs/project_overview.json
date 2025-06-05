@@ -1,100 +1,57 @@
 {
   "project_name": "ChaosGenius Engine",
   "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
-<<<<<<< Updated upstream
-  "generated_at": "2025-05-30T06:21:51.021968",
-  "components": [
-    {
-      "name": "Welcome & Onboarding",
-      "type": "directory",
-      "description": "Component: Welcome & Onboarding"
-=======
-  "generated_at": "2025-06-04T23:51:53.950895",
+  "generated_at": "2025-06-05T15:00:16.923302",
   "components": [
     {
       "name": "tests",
       "type": "directory",
       "description": "Component: tests"
->>>>>>> Stashed changes
     },
     {
-      "name": "assets",
-      "type": "directory",
-      "description": "Component: assets"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "graceful_shutdown_example.py",
-=======
       "name": "generated_docs",
       "type": "directory",
       "description": "Component: generated_docs"
     },
     {
+      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
+      "type": "file",
+      "description": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
+    },
+    {
+      "name": "BROski-CLANVERSE-Ultra",
+      "type": "directory",
+      "description": "Component: BROski-CLANVERSE-Ultra"
+    },
+    {
+      "name": "quick_organizer.py",
+      "type": "file",
+      "description": "Python module: quick_organizer"
+    },
+    {
+      "name": "SHOWCASE_DEMO.html",
+      "type": "file",
+      "description": "File: SHOWCASE_DEMO.html"
+    },
+    {
       "name": "hboard_api.py",
->>>>>>> Stashed changes
       "type": "file",
       "description": "Python module: hboard_api"
     },
     {
-<<<<<<< Updated upstream
-      "name": "test_broski_integration.py",
-      "type": "file",
-      "description": "Python module: test_broski_integration"
-    },
-    {
-      "name": "test_discord_token_integration.py",
-      "type": "file",
-      "description": "Python module: test_discord_token_integration"
-    },
-    {
-      "name": "cleanup_log_20250529_215256.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250529_215256"
-    },
-    {
-      "name": "etsy-dashboard.html",
-      "type": "file",
-      "description": "File: etsy-dashboard.html"
-    },
-    {
-      "name": "start.py",
-      "type": "file",
-      "description": "Python module: start"
-    },
-    {
-      "name": "Marketing Content",
-      "type": "directory",
-      "description": "Component: Marketing Content"
-    },
-    {
-      "name": "gesture_controls",
-      "type": "directory",
-      "description": "Component: gesture_controls"
-    },
-    {
-      "name": "cleanup_backups",
-      "type": "directory",
-      "description": "Component: cleanup_backups"
-    },
-    {
-      "name": "SECURITY_SETUP_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: SECURITY_SETUP_GUIDE"
-    },
-    {
-      "name": "tests",
-      "type": "directory",
-      "description": "Component: tests"
-    },
-    {
-      "name": "social_media_feeds.py",
-      "type": "file",
-      "description": "Python module: social_media_feeds"
-=======
       "name": "DISCUSSION.md",
       "type": "file",
       "description": "Documentation: DISCUSSION"
+    },
+    {
+      "name": "initialize_token_system.py",
+      "type": "file",
+      "description": "Python module: initialize_token_system"
+    },
+    {
+      "name": "test_broski_integration.py",
+      "type": "file",
+      "description": "Python module: test_broski_integration"
     },
     {
       "name": "optimization_backups",
@@ -105,7 +62,6 @@
       "name": "venv",
       "type": "directory",
       "description": "Component: venv"
->>>>>>> Stashed changes
     },
     {
       "name": "frontend",
@@ -113,71 +69,14 @@
       "description": "Component: frontend"
     },
     {
-<<<<<<< Updated upstream
-      "name": "deploy_phase3.py",
+      "name": "cleanup_log_20250530_151544.json",
       "type": "file",
-      "description": "Python module: deploy_phase3"
+      "description": "Configuration: cleanup_log_20250530_151544"
     },
     {
-      "name": "generated_docs",
-      "type": "directory",
-      "description": "Component: generated_docs"
-    },
-    {
-      "name": "__pycache__",
-      "type": "directory",
-      "description": "Component: __pycache__"
-    },
-    {
-      "name": "production_assets",
-      "type": "directory",
-      "description": "Component: production_assets"
-    },
-    {
-      "name": "dashboard.html",
-      "type": "file",
-      "description": "File: dashboard.html"
-    },
-    {
-      "name": "setup_demo_version.py",
-      "type": "file",
-      "description": "Python module: setup_demo_version"
-    },
-    {
-      "name": "startup_manager.py",
-      "type": "file",
-      "description": "Python module: startup_manager"
-    },
-    {
-      "name": "PHASE3_COMPLETION_REPORT.md",
-      "type": "file",
-      "description": "Documentation: PHASE3_COMPLETION_REPORT"
-    },
-    {
-      "name": "project_optimization_log_20250527_120250.json",
-      "type": "file",
-      "description": "Configuration: project_optimization_log_20250527_120250"
-=======
       "name": "uploads",
       "type": "directory",
       "description": "Component: uploads"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250604_182655.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250604_182655"
->>>>>>> Stashed changes
-    },
-    {
-      "name": "Ultra IPFS",
-      "type": "directory",
-      "description": "Advanced IPFS integration for Web3 features"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "health_check.py",
-      "type": "file",
-      "description": "Python module: health_check"
     },
     {
       "name": "cleanup_log_20250529_215331.json",
@@ -185,48 +84,49 @@
       "description": "Configuration: cleanup_log_20250529_215331"
     },
     {
-      "name": "Master_AI_Control_Brain.html",
+      "name": "test_token_system.py",
       "type": "file",
-      "description": "File: Master_AI_Control_Brain.html"
+      "description": "Python module: test_token_system"
     },
     {
-      "name": "initialize_token_system.py",
+      "name": "test_endpoints.py",
       "type": "file",
-      "description": "Python module: initialize_token_system"
+      "description": "Python module: test_endpoints"
     },
     {
-      "name": "auto_doc_generator.py",
+      "name": "hyperfocus_project_analysis_20250605_145643.json",
       "type": "file",
-      "description": "Python module: auto_doc_generator"
+      "description": "Configuration: hyperfocus_project_analysis_20250605_145643"
     },
     {
-      "name": "Tools & Utilities",
-      "type": "directory",
-      "description": "Component: Tools & Utilities"
-    },
-    {
-      "name": "config",
-      "type": "directory",
-      "description": "Component: config"
-    },
-    {
-      "name": "archives",
-      "type": "directory",
-      "description": "Component: archives"
-    },
-    {
-      "name": "archived_reports",
-      "type": "directory",
-      "description": "Component: archived_reports"
-    },
-    {
-      "name": "phase5_intelligence_manager.py",
+      "name": "hyperfocus_project_analysis_20250604_182655.json",
       "type": "file",
-      "description": "Python module: phase5_intelligence_manager"
-=======
+      "description": "Configuration: hyperfocus_project_analysis_20250604_182655"
+    },
+    {
+      "name": "broski_manifesto.html",
+      "type": "file",
+      "description": "File: broski_manifesto.html"
+    },
+    {
+      "name": "SECURITY_SETUP_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: SECURITY_SETUP_GUIDE"
+    },
+    {
+      "name": "Ultra IPFS",
+      "type": "directory",
+      "description": "Advanced IPFS integration for Web3 features"
+    },
+    {
       "name": "ultimate_health_report.json",
       "type": "file",
       "description": "Configuration: ultimate_health_report"
+    },
+    {
+      "name": "test_portal_integration.py",
+      "type": "file",
+      "description": "Python module: test_portal_integration"
     },
     {
       "name": "logs",
@@ -234,9 +134,24 @@
       "description": "Component: logs"
     },
     {
+      "name": "chaos_genius_organizer.py",
+      "type": "file",
+      "description": "Python module: chaos_genius_organizer"
+    },
+    {
+      "name": "BROSKI_HYPERPORTAL_USER_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: BROSKI_HYPERPORTAL_USER_GUIDE"
+    },
+    {
       "name": "docs",
       "type": "directory",
       "description": "Component: docs"
+    },
+    {
+      "name": "ai_squad_activation.py",
+      "type": "file",
+      "description": "Python module: ai_squad_activation"
     },
     {
       "name": "temp",
@@ -252,7 +167,11 @@
       "name": "SYSTEM_INTELLIGENCE_REPORT.md",
       "type": "file",
       "description": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
->>>>>>> Stashed changes
+    },
+    {
+      "name": "CHANGELOG.md",
+      "type": "file",
+      "description": "Documentation: CHANGELOG"
     },
     {
       "name": "Setup & Deploy",
@@ -260,11 +179,11 @@
       "description": "Component: Setup & Deploy"
     },
     {
-<<<<<<< Updated upstream
-      "name": "The Zone",
-      "type": "directory",
-      "description": "Core Hyperfocus Zone implementation"
-=======
+      "name": "ultra_analytics_panel.html",
+      "type": "file",
+      "description": "File: ultra_analytics_panel.html"
+    },
+    {
       "name": "gesture_controls",
       "type": "directory",
       "description": "Component: gesture_controls"
@@ -278,6 +197,21 @@
       "name": "COMPLETE_USER_GUIDE.md",
       "type": "file",
       "description": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
+      "name": "workspace_optimization_20250529_215500.json",
+      "type": "file",
+      "description": "Configuration: workspace_optimization_20250529_215500"
+    },
+    {
+      "name": "discord_token_validator.py",
+      "type": "file",
+      "description": "Python module: discord_token_validator"
+    },
+    {
+      "name": "backup_engine.py",
+      "type": "file",
+      "description": "Python module: backup_engine"
     },
     {
       "name": "project_env",
@@ -295,9 +229,19 @@
       "description": "Documentation: DEVELOPMENT_SETUP_GUIDE"
     },
     {
+      "name": "DISCORD_SHOWCASE.md",
+      "type": "file",
+      "description": "Documentation: DISCORD_SHOWCASE"
+    },
+    {
       "name": "archives",
       "type": "directory",
       "description": "Component: archives"
+    },
+    {
+      "name": "production_autoscaler.py",
+      "type": "file",
+      "description": "Python module: production_autoscaler"
     },
     {
       "name": "chaos_test_suite.py",
@@ -308,7 +252,6 @@
       "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
       "type": "directory",
       "description": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
->>>>>>> Stashed changes
     },
     {
       "name": "ai_modules",
@@ -316,10 +259,9 @@
       "description": "Component: ai_modules"
     },
     {
-<<<<<<< Updated upstream
-      "name": "Notes",
-      "type": "directory",
-      "description": "Component: Notes"
+      "name": "broski_adzone_visual.html",
+      "type": "file",
+      "description": "File: broski_adzone_visual.html"
     },
     {
       "name": "SYSTEM_COMPLETION_REPORT.md",
@@ -327,50 +269,6 @@
       "description": "Documentation: SYSTEM_COMPLETION_REPORT"
     },
     {
-      "name": "PHASE3_SUCCESS_SUMMARY.md",
-      "type": "file",
-      "description": "Documentation: PHASE3_SUCCESS_SUMMARY"
-    },
-    {
-      "name": "test_token_system.py",
-      "type": "file",
-      "description": "Python module: test_token_system"
-    },
-    {
-      "name": "DISCUSSION.md",
-      "type": "file",
-      "description": "Documentation: DISCUSSION"
-    },
-    {
-      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
-      "type": "file",
-      "description": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
-    },
-    {
-      "name": "static",
-      "type": "directory",
-      "description": "Component: static"
-    },
-    {
-      "name": "BROski-CLANVERSE-Ultra",
-      "type": "directory",
-      "description": "Component: BROski-CLANVERSE-Ultra"
-    },
-    {
-      "name": "api",
-      "type": "directory",
-      "description": "Component: api"
-    },
-    {
-      "name": "workspace_optimizer.py",
-      "type": "file",
-      "description": "Python module: workspace_optimizer"
-    },
-    {
-      "name": "test_portal_integration.py",
-      "type": "file",
-      "description": "Python module: test_portal_integration"
-=======
       "name": "user_portal.html",
       "type": "file",
       "description": "File: user_portal.html"
@@ -391,14 +289,19 @@
       "description": "Component: Marketing Content"
     },
     {
-      "name": "src",
-      "type": "directory",
-      "description": "Component: src"
+      "name": "deploy_phase3.py",
+      "type": "file",
+      "description": "Python module: deploy_phase3"
     },
     {
       "name": "production_assets",
       "type": "directory",
       "description": "Component: production_assets"
+    },
+    {
+      "name": "PHASE3_SUCCESS_SUMMARY.md",
+      "type": "file",
+      "description": "Documentation: PHASE3_SUCCESS_SUMMARY"
     },
     {
       "name": "tiktok_shop_dashboard.html",
@@ -416,9 +319,19 @@
       "description": "Component: Scripts & Prompts"
     },
     {
+      "name": "discord_server_setup.py",
+      "type": "file",
+      "description": "Python module: discord_server_setup"
+    },
+    {
       "name": "scripts",
       "type": "directory",
       "description": "Component: scripts"
+    },
+    {
+      "name": "production_deploy_config.py",
+      "type": "file",
+      "description": "Python module: production_deploy_config"
     },
     {
       "name": "project_zipper.py",
@@ -429,7 +342,6 @@
       "name": "health_report.json",
       "type": "file",
       "description": "Configuration: health_report"
->>>>>>> Stashed changes
     },
     {
       "name": "voice_commands",
@@ -437,9 +349,6 @@
       "description": "Component: voice_commands"
     },
     {
-<<<<<<< Updated upstream
-      "name": "data",
-=======
       "name": "README.md",
       "type": "file",
       "description": "Main project documentation"
@@ -468,6 +377,11 @@
       "name": "testing_roadmap_complete.py",
       "type": "file",
       "description": "Python module: testing_roadmap_complete"
+    },
+    {
+      "name": "discord_auto_roles_payouts.py",
+      "type": "file",
+      "description": "Python module: discord_auto_roles_payouts"
     },
     {
       "name": "PRE_LAUNCH_CHECKLIST.md",
@@ -510,9 +424,24 @@
       "description": "Component: Business Data"
     },
     {
+      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
+      "type": "file",
+      "description": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
+    },
+    {
       "name": "project_health_monitor.py",
       "type": "file",
       "description": "Python module: project_health_monitor"
+    },
+    {
+      "name": "templates",
+      "type": "directory",
+      "description": "Component: templates"
+    },
+    {
+      "name": "app.py",
+      "type": "file",
+      "description": "Python module: app"
     },
     {
       "name": "startup_manager.py",
@@ -525,6 +454,16 @@
       "description": "File: dashboard.html"
     },
     {
+      "name": "index.html",
+      "type": "file",
+      "description": "File: index.html"
+    },
+    {
+      "name": "dashboard_api_backup.py",
+      "type": "file",
+      "description": "Python module: dashboard_api_backup"
+    },
+    {
       "name": "start.py",
       "type": "file",
       "description": "Python module: start"
@@ -535,14 +474,44 @@
       "description": "Documentation: LAUNCH_ANNOUNCEMENTS"
     },
     {
-      "name": "deploy",
-      "type": "directory",
-      "description": "Component: deploy"
+      "name": "phase4_production_manager.py",
+      "type": "file",
+      "description": "Python module: phase4_production_manager"
+    },
+    {
+      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
+      "type": "file",
+      "description": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
     },
     {
       "name": "business_blueprint_20250525_112142.json",
       "type": "file",
       "description": "Configuration: business_blueprint_20250525_112142"
+    },
+    {
+      "name": "PROJECT_IMPACT_REPORT.md",
+      "type": "file",
+      "description": "Documentation: PROJECT_IMPACT_REPORT"
+    },
+    {
+      "name": "ULTRA_BROSKI_PROJECT",
+      "type": "directory",
+      "description": "Component: ULTRA_BROSKI_PROJECT"
+    },
+    {
+      "name": "PHASE4_PRODUCTION_COMPLETE.md",
+      "type": "file",
+      "description": "Documentation: PHASE4_PRODUCTION_COMPLETE"
+    },
+    {
+      "name": "neurod_analytics_dashboard.html",
+      "type": "file",
+      "description": "File: neurod_analytics_dashboard.html"
+    },
+    {
+      "name": "cleanup_log_20250529_215256.json",
+      "type": "file",
+      "description": "Configuration: cleanup_log_20250529_215256"
     },
     {
       "name": "hyperfocus_project_analysis_20250604_183739.json",
@@ -551,56 +520,10 @@
     },
     {
       "name": "Welcome & Onboarding",
->>>>>>> Stashed changes
       "type": "directory",
-      "description": "Component: data"
+      "description": "Component: Welcome & Onboarding"
     },
     {
-<<<<<<< Updated upstream
-      "name": "ultra_analytics_panel.html",
-      "type": "file",
-      "description": "File: ultra_analytics_panel.html"
-    },
-    {
-      "name": "htmlcov",
-      "type": "directory",
-      "description": "Component: htmlcov"
-    },
-    {
-      "name": "tiktok_shop_dashboard.html",
-      "type": "file",
-      "description": "File: tiktok_shop_dashboard.html"
-    },
-    {
-      "name": "folder_optimizer.py",
-      "type": "file",
-      "description": "Python module: folder_optimizer"
-    },
-    {
-      "name": "broski_hyperportal",
-      "type": "directory",
-      "description": "Component: broski_hyperportal"
-    },
-    {
-      "name": "src",
-      "type": "directory",
-      "description": "Component: src"
-    },
-    {
-      "name": "templates",
-      "type": "directory",
-      "description": "Component: templates"
-    },
-    {
-      "name": "COMPLETE_USER_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: COMPLETE_USER_GUIDE"
-    },
-    {
-      "name": "business_blueprint_20250525_112142.json",
-      "type": "file",
-      "description": "Configuration: business_blueprint_20250525_112142"
-=======
       "name": "advanced_project_optimizer.py",
       "type": "file",
       "description": "Python module: advanced_project_optimizer"
@@ -611,14 +534,19 @@
       "description": "Python module: chaosgenius_discord_bot"
     },
     {
+      "name": "BROSKI_X_FOREVER_MANIFESTO.md",
+      "type": "file",
+      "description": "Documentation: BROSKI_X_FOREVER_MANIFESTO"
+    },
+    {
       "name": "README_MASTER_INDEX.md",
       "type": "file",
       "description": "Documentation: README_MASTER_INDEX"
     },
     {
-      "name": "data",
+      "name": "production_config",
       "type": "directory",
-      "description": "Component: data"
+      "description": "Component: production_config"
     },
     {
       "name": "__pycache__",
@@ -626,9 +554,24 @@
       "description": "Component: __pycache__"
     },
     {
+      "name": "BROski$ INTER",
+      "type": "directory",
+      "description": "Component: BROski$ INTER"
+    },
+    {
       "name": "Notes",
       "type": "directory",
       "description": "Component: Notes"
+    },
+    {
+      "name": "phase3_manager.py",
+      "type": "file",
+      "description": "Python module: phase3_manager"
+    },
+    {
+      "name": "workspace_optimizer.py",
+      "type": "file",
+      "description": "Python module: workspace_optimizer"
     },
     {
       "name": "hyperfocus_project_analysis_20250604_183910.json",
@@ -641,9 +584,24 @@
       "description": "Configuration: .vscode-upload"
     },
     {
+      "name": "system_monitor.py",
+      "type": "file",
+      "description": "Python module: system_monitor"
+    },
+    {
+      "name": "RELEASE_NOTES_v2.0.0.md",
+      "type": "file",
+      "description": "Documentation: RELEASE_NOTES_v2.0.0"
+    },
+    {
       "name": "htmlcov",
       "type": "directory",
       "description": "Component: htmlcov"
+    },
+    {
+      "name": "PHASE3_COMPLETION_REPORT.md",
+      "type": "file",
+      "description": "Documentation: PHASE3_COMPLETION_REPORT"
     },
     {
       "name": "graceful_shutdown_example.py",
@@ -654,73 +612,11 @@
       "name": "zips",
       "type": "directory",
       "description": "Component: zips"
->>>>>>> Stashed changes
     },
     {
-      "name": "etsy_key_validator.py",
+      "name": "broski_token_config.json",
       "type": "file",
-      "description": "Python module: etsy_key_validator"
-    },
-    {
-<<<<<<< Updated upstream
-      "name": "scripts",
-      "type": "directory",
-      "description": "Component: scripts"
-    },
-    {
-      "name": "archived_logs",
-      "type": "directory",
-      "description": "Component: archived_logs"
-    },
-    {
-      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
-      "type": "file",
-      "description": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
-    },
-    {
-      "name": "advanced_project_optimizer.py",
-      "type": "file",
-      "description": "Python module: advanced_project_optimizer"
-    },
-    {
-      "name": "BROski$ INTER",
-      "type": "directory",
-      "description": "Component: BROski$ INTER"
-    },
-    {
-      "name": "security_validator.py",
-      "type": "file",
-      "description": "Python module: security_validator"
-    },
-    {
-      "name": "chaosgenius_system_optimizer.py",
-      "type": "file",
-      "description": "Python module: chaosgenius_system_optimizer"
-    },
-    {
-      "name": "README_MASTER_INDEX.md",
-      "type": "file",
-      "description": "Documentation: README_MASTER_INDEX"
-    },
-    {
-      "name": "logs",
-      "type": "directory",
-      "description": "Component: logs"
-    },
-    {
-      "name": "quick_organizer.py",
-      "type": "file",
-      "description": "Python module: quick_organizer"
-    },
-    {
-      "name": "project_cleanup_organizer.py",
-      "type": "file",
-      "description": "Python module: project_cleanup_organizer"
-    },
-    {
-      "name": "optimization_backups",
-      "type": "directory",
-      "description": "Component: optimization_backups"
+      "description": "Configuration: broski_token_config"
     },
     {
       "name": "PROJECT_COMPLETION_STATUS.md",
@@ -728,14 +624,14 @@
       "description": "Documentation: PROJECT_COMPLETION_STATUS"
     },
     {
-      "name": "CHANGELOG.md",
+      "name": "etsy_key_validator.py",
       "type": "file",
-      "description": "Documentation: CHANGELOG"
-=======
+      "description": "Python module: etsy_key_validator"
+    },
+    {
       "name": "auto_doc_generator.py",
       "type": "file",
       "description": "Python module: auto_doc_generator"
->>>>>>> Stashed changes
     },
     {
       "name": "DEMO_MANIFEST.json",
@@ -743,70 +639,44 @@
       "description": "Configuration: DEMO_MANIFEST"
     },
     {
-<<<<<<< Updated upstream
-      "name": "project_health_monitor.py",
-      "type": "file",
-      "description": "Python module: project_health_monitor"
-    },
-    {
-      "name": "chaos_test_suite.py",
-      "type": "file",
-      "description": "Python module: chaos_test_suite"
-    },
-    {
-      "name": "dashboard_api.py",
-      "type": "file",
-      "description": "Python module: dashboard_api"
-    },
-    {
-      "name": "health_report.json",
-      "type": "file",
-      "description": "Configuration: health_report"
-    },
-    {
-      "name": "deploy",
+      "name": "broski_auth_system",
       "type": "directory",
-      "description": "Component: deploy"
+      "description": "Component: broski_auth_system"
     },
     {
-      "name": "Scripts & Prompts",
-      "type": "directory",
-      "description": "Component: Scripts & Prompts"
-    },
-    {
-      "name": "app.py",
+      "name": "phase5_intelligence_manager.py",
       "type": "file",
-      "description": "Python module: app"
+      "description": "Python module: phase5_intelligence_manager"
     },
     {
-      "name": "Ui Upgrade",
-      "type": "directory",
-      "description": "Component: Ui Upgrade"
-    },
-    {
-      "name": "PHASE4_PRODUCTION_COMPLETE.md",
-      "type": "file",
-      "description": "Documentation: PHASE4_PRODUCTION_COMPLETE"
-    },
-    {
-      "name": "workspace_optimization_20250529_215500.json",
-      "type": "file",
-      "description": "Configuration: workspace_optimization_20250529_215500"
-    },
-    {
-      "name": "docs",
-      "type": "directory",
-      "description": "Component: docs"
-=======
       "name": "setup_demo_version.py",
       "type": "file",
       "description": "Python module: setup_demo_version"
     },
     {
+      "name": "test_discord_token_integration.py",
+      "type": "file",
+      "description": "Python module: test_discord_token_integration"
+    },
+    {
+      "name": "broski_wallets_SECURE.json",
+      "type": "file",
+      "description": "Configuration: broski_wallets_SECURE"
+    },
+    {
+      "name": "flask_cloudflare_ultra_starter_pack",
+      "type": "directory",
+      "description": "Component: flask_cloudflare_ultra_starter_pack"
+    },
+    {
       "name": "config",
       "type": "directory",
       "description": "Component: config"
->>>>>>> Stashed changes
+    },
+    {
+      "name": "FINAL_DEPLOYMENT_COMMANDS.md",
+      "type": "file",
+      "description": "Documentation: FINAL_DEPLOYMENT_COMMANDS"
     },
     {
       "name": "backups",
@@ -814,86 +684,11 @@
       "description": "Component: backups"
     },
     {
-<<<<<<< Updated upstream
-      "name": "test_endpoints.py",
-      "type": "file",
-      "description": "Python module: test_endpoints"
-    },
-    {
-      "name": "README.md",
-      "type": "file",
-      "description": "Main project documentation"
-    },
-    {
-      "name": "phase4_production_manager.py",
-      "type": "file",
-      "description": "Python module: phase4_production_manager"
-    },
-    {
-      "name": "neurod_analytics_dashboard.html",
-      "type": "file",
-      "description": "File: neurod_analytics_dashboard.html"
-    },
-    {
-      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "name": "broski_hyperportal",
       "type": "directory",
-      "description": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+      "description": "Component: broski_hyperportal"
     },
     {
-      "name": "production_config",
-      "type": "directory",
-      "description": "Component: production_config"
-    },
-    {
-      "name": "Business Data",
-      "type": "directory",
-      "description": "Component: Business Data"
-    },
-    {
-      "name": "production_autoscaler.py",
-      "type": "file",
-      "description": "Python module: production_autoscaler"
-    },
-    {
-      "name": "system_monitor.py",
-      "type": "file",
-      "description": "Python module: system_monitor"
-    },
-    {
-      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
-      "type": "file",
-      "description": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
-    },
-    {
-      "name": "chaos_genius_organizer.py",
-      "type": "file",
-      "description": "Python module: chaos_genius_organizer"
-    },
-    {
-      "name": "chaosgenius_discord_bot.py",
-      "type": "file",
-      "description": "Python module: chaosgenius_discord_bot"
-    },
-    {
-      "name": "production_manager.py",
-      "type": "file",
-      "description": "Python module: production_manager"
-    },
-    {
-      "name": "phase3_manager.py",
-      "type": "file",
-      "description": "Python module: phase3_manager"
-    },
-    {
-      "name": "PROJECT_IMPACT_REPORT.md",
-      "type": "file",
-      "description": "Documentation: PROJECT_IMPACT_REPORT"
-    },
-    {
-      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
-      "type": "file",
-      "description": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
-=======
       "name": "api",
       "type": "directory",
       "description": "Component: api"
@@ -902,7 +697,6 @@
       "name": "security_validator.py",
       "type": "file",
       "description": "Python module: security_validator"
->>>>>>> Stashed changes
     }
   ],
   "documentation_tools": [
@@ -961,15 +755,9 @@
   ],
   "tech_stack": {
     "languages": [
-<<<<<<< Updated upstream
       "HTML",
-      "JavaScript",
-      "Python"
-=======
-      "JavaScript",
       "Python",
-      "HTML"
->>>>>>> Stashed changes
+      "JavaScript"
     ],
     "frameworks": [],
     "tools": [
