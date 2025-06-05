@@ -14,10 +14,10 @@
     ]
   },
   "code_analysis": {
-    "python_files": 11543,
-    "markdown_files": 74,
-    "json_files": 2064,
-    "directories": 49
+    "python_files": 11638,
+    "markdown_files": 84,
+    "json_files": 2079,
+    "directories": 61
   },
   "project_structure": [
     {
@@ -116,6 +116,11 @@
       "purpose": "File: Dockerfile"
     },
     {
+      "name": "broski_immortal.service",
+      "type": "file",
+      "purpose": "File: broski_immortal.service"
+    },
+    {
       "name": "test_token_system.py",
       "type": "file",
       "purpose": "Python module: test_token_system"
@@ -134,6 +139,11 @@
       "name": "hyperfocus_project_analysis_20250604_182655.json",
       "type": "file",
       "purpose": "Configuration: hyperfocus_project_analysis_20250604_182655"
+    },
+    {
+      "name": "seo_optimizations",
+      "type": "directory",
+      "purpose": "Component: seo_optimizations"
     },
     {
       "name": "docker-compose.yml",
@@ -159,6 +169,11 @@
       "name": "Ultra IPFS",
       "type": "directory",
       "purpose": "Advanced IPFS integration for Web3 features"
+    },
+    {
+      "name": "chaosgenius_evolution.db",
+      "type": "file",
+      "purpose": "File: chaosgenius_evolution.db"
     },
     {
       "name": "live_domain_tester.sh",
@@ -211,6 +226,11 @@
       "purpose": "Component: temp"
     },
     {
+      "name": "social_media_campaigns",
+      "type": "directory",
+      "purpose": "Component: social_media_campaigns"
+    },
+    {
       "name": "Tools & Utilities",
       "type": "directory",
       "purpose": "Component: Tools & Utilities"
@@ -224,6 +244,11 @@
       "name": "CHANGELOG.md",
       "type": "file",
       "purpose": "Documentation: CHANGELOG"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250605_175152.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250605_175152"
     },
     {
       "name": "Setup & Deploy",
@@ -251,6 +276,11 @@
       "purpose": "Documentation: COMPLETE_USER_GUIDE"
     },
     {
+      "name": "evolution_report_20250605_161826.json",
+      "type": "file",
+      "purpose": "Configuration: evolution_report_20250605_161826"
+    },
+    {
       "name": "workspace_optimization_20250529_215500.json",
       "type": "file",
       "purpose": "Configuration: workspace_optimization_20250529_215500"
@@ -259,6 +289,11 @@
       "name": "discord_token_validator.py",
       "type": "file",
       "purpose": "Python module: discord_token_validator"
+    },
+    {
+      "name": "auto_plans",
+      "type": "directory",
+      "purpose": "Component: auto_plans"
     },
     {
       "name": "backup_engine.py",
@@ -274,6 +309,11 @@
       "name": "social_media_feeds.py",
       "type": "file",
       "purpose": "Python module: social_media_feeds"
+    },
+    {
+      "name": "trend_reports",
+      "type": "directory",
+      "purpose": "Component: trend_reports"
     },
     {
       "name": "DEVELOPMENT_SETUP_GUIDE.md",
@@ -321,6 +361,11 @@
       "purpose": "File: chaosgenius_flask.service"
     },
     {
+      "name": "broski_defender_simulator.py",
+      "type": "file",
+      "purpose": "Python module: broski_defender_simulator"
+    },
+    {
       "name": "ai_modules",
       "type": "directory",
       "purpose": "Component: ai_modules"
@@ -356,9 +401,24 @@
       "purpose": "File: user_portal.html"
     },
     {
+      "name": "chaos_genius_ultra_monitor.py",
+      "type": "file",
+      "purpose": "Python module: chaos_genius_ultra_monitor"
+    },
+    {
       "name": "The Zone",
       "type": "directory",
       "purpose": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "hyperfocus_instant_transform.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_instant_transform"
+    },
+    {
+      "name": "HYPERFOCUSZONE_DISCORD_ULTRA_RESTRUCTURE_PLAN.md",
+      "type": "file",
+      "purpose": "Documentation: HYPERFOCUSZONE_DISCORD_ULTRA_RESTRUCTURE_PLAN"
     },
     {
       "name": "Ui Upgrade",
@@ -386,6 +446,16 @@
       "purpose": "Documentation: PHASE3_SUCCESS_SUMMARY"
     },
     {
+      "name": "PORTAL_PREVIEW.md",
+      "type": "file",
+      "purpose": "Documentation: PORTAL_PREVIEW"
+    },
+    {
+      "name": "competitor_analyses",
+      "type": "directory",
+      "purpose": "Component: competitor_analyses"
+    },
+    {
       "name": "tiktok_shop_dashboard.html",
       "type": "file",
       "purpose": "File: tiktok_shop_dashboard.html"
@@ -399,6 +469,11 @@
       "name": "Scripts & Prompts",
       "type": "directory",
       "purpose": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "hyperfocus_brain_command_center.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_brain_command_center"
     },
     {
       "name": "discord_server_setup.py",
@@ -426,6 +501,11 @@
       "purpose": "Python module: project_zipper"
     },
     {
+      "name": "chaosgenius_ultimate_showcase.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_ultimate_showcase"
+    },
+    {
       "name": "health_report.json",
       "type": "file",
       "purpose": "Configuration: health_report"
@@ -446,9 +526,19 @@
       "purpose": "Main project documentation"
     },
     {
+      "name": "blog_drafts",
+      "type": "directory",
+      "purpose": "Component: blog_drafts"
+    },
+    {
       "name": "dashboard_api.py",
       "type": "file",
       "purpose": "Python module: dashboard_api"
+    },
+    {
+      "name": "hyperfocus_discord_restructure_bot.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_discord_restructure_bot"
     },
     {
       "name": "production_manager.py",
@@ -474,6 +564,11 @@
       "name": "testing_roadmap_complete.py",
       "type": "file",
       "purpose": "Python module: testing_roadmap_complete"
+    },
+    {
+      "name": "bts_security_report_generator.py",
+      "type": "file",
+      "purpose": "Python module: bts_security_report_generator"
     },
     {
       "name": "discord_auto_roles_payouts.py",
@@ -504,6 +599,11 @@
       "name": "static",
       "type": "directory",
       "purpose": "Component: static"
+    },
+    {
+      "name": "email_campaigns",
+      "type": "directory",
+      "purpose": "Component: email_campaigns"
     },
     {
       "name": "project_cleanup_organizer.py",
@@ -576,6 +676,11 @@
       "purpose": "File: chaosgenius-ultra-features.bundle"
     },
     {
+      "name": "chaosgenius_showcase_report_20250605_224343.txt",
+      "type": "file",
+      "purpose": "File: chaosgenius_showcase_report_20250605_224343.txt"
+    },
+    {
       "name": "dashboard.html",
       "type": "file",
       "purpose": "File: dashboard.html"
@@ -611,6 +716,11 @@
       "purpose": "File: ULTRA_MAGIC_PRODUCTION_BRIDGE.sh"
     },
     {
+      "name": "revenue_reports",
+      "type": "directory",
+      "purpose": "Component: revenue_reports"
+    },
+    {
       "name": "DEPLOYMENT_COMPLETE_REPORT.md",
       "type": "file",
       "purpose": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
@@ -626,6 +736,11 @@
       "purpose": "File: deploy_to_hyperfocuszone.com.sh"
     },
     {
+      "name": "comment_replies",
+      "type": "directory",
+      "purpose": "Component: comment_replies"
+    },
+    {
       "name": "broski_learning.db",
       "type": "file",
       "purpose": "File: broski_learning.db"
@@ -634,6 +749,16 @@
       "name": "PROJECT_IMPACT_REPORT.md",
       "type": "file",
       "purpose": "Documentation: PROJECT_IMPACT_REPORT"
+    },
+    {
+      "name": "market_research",
+      "type": "directory",
+      "purpose": "Component: market_research"
+    },
+    {
+      "name": "chaosgenius_evolution_pipeline.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_evolution_pipeline"
     },
     {
       "name": "ULTRA_BROSKI_PROJECT",
@@ -664,6 +789,11 @@
       "name": "Welcome & Onboarding",
       "type": "directory",
       "purpose": "Component: Welcome & Onboarding"
+    },
+    {
+      "name": "content_optimizations",
+      "type": "directory",
+      "purpose": "Component: content_optimizations"
     },
     {
       "name": "advanced_project_optimizer.py",
@@ -711,6 +841,11 @@
       "purpose": "Component: Notes"
     },
     {
+      "name": "hyperfocus_project_analysis_20250605_154903.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250605_154903"
+    },
+    {
       "name": "phase3_manager.py",
       "type": "file",
       "purpose": "Python module: phase3_manager"
@@ -744,6 +879,11 @@
       "name": "FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com",
       "type": "file",
       "purpose": "File: FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com"
+    },
+    {
+      "name": "chaosgenius_voice_commands.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_voice_commands"
     },
     {
       "name": "ecosystem.config.js",
@@ -829,6 +969,11 @@
       "name": "flask_cloudflare_ultra_starter_pack",
       "type": "directory",
       "purpose": "Component: flask_cloudflare_ultra_starter_pack"
+    },
+    {
+      "name": "broski_legal_pack",
+      "type": "directory",
+      "purpose": "Component: broski_legal_pack"
     },
     {
       "name": "ChaosGenius_DNS_Setup.zip",

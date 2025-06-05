@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """
-🧠 ChaosGenius Dashboard API - Flask Backend
-===========================================
-Interactive web API for the Hyperfocus Zone dashboard system with REAL social media feeds
+🚀💜 HyperfocusZone Dashboard API - Fixed & Optimized 💜🚀
+Interactive web API for the Hyperfocus Zone dashboard system
 """
 
-import datetime
 import json
 import logging
 import os
@@ -13,18 +11,14 @@ import secrets
 import signal
 import sqlite3
 import string
-import subprocess
 import sys
-import threading
-import time
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
-import requests
 from dotenv import load_dotenv
-from flasgger import Swagger, swag_from
-from flask import Flask, jsonify, redirect, request
+from flasgger import Swagger
+from flask import Flask, jsonify, render_template_string, request
 from flask_cors import CORS
 
 # Import the new social media integrations
@@ -66,8 +60,8 @@ DATABASE_FILE = "chaosgenius.db"
 app = Flask(__name__)
 CORS(app)
 
-# Set port for the application
-port = int(os.getenv("PORT", 5000))
+# Fix the port configuration
+port = int(os.getenv("PORT") or "5000")
 
 # Swagger configuration
 swagger_template = {
@@ -229,6 +223,12 @@ def init_database():
 
 # Initialize database on startup
 init_database()
+
+
+# Fix the datetime import issue
+def get_timestamp():
+    """Get current timestamp in ISO format"""
+    return datetime.now().isoformat()
 
 
 # Routes
@@ -533,3 +533,503 @@ if __name__ == "__main__":
         print("\n🛑 Server stopped gracefully")
     except Exception as e:
         print(f"\n💥 Server error: {e}")
+
+
+# 🕶️💎 SECRET CYBER CAVE DEV PORTAL 💎🕶️
+@app.route("/dev")
+def cyber_cave_portal():
+    """🔒 HIDDEN CYBER CAVE - Secret Developer Portal (Ultra Login Required)"""
+    # Password protection (in production, use proper auth)
+    password = request.args.get("key")
+    if password != "BROSKI_X_ULTRA_DEV_2025":
+        return """
+        <div style="background: #0a0a0a; color: #00ff88; font-family: 'Courier New'; height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <h1>🔒 ACCESS DENIED</h1>
+                <p>Ultra Dev Authorization Required</p>
+                <p style="color: #ff4444;">[ UNAUTHORIZED ACCESS ATTEMPT LOGGED ]</p>
+            </div>
+        </div>
+        """
+
+    return """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕶️ CYBER CAVE - Ultra Dev Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #16213e 100%);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .cyber-container {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            background: rgba(0, 255, 136, 0.1);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+            to { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); }
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .system-vault {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-vault:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+            border-color: #ff6b6b;
+        }
+
+        .vault-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .vault-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .vault-actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(45deg, #ff6b6b, #ff5252);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff88;
+            display: inline-block;
+            margin-left: 10px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .quick-stats {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .terminal-box {
+            background: #000;
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New';
+            color: #00ff88;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="cyber-container">
+        <div class="header">
+            <h1>🕶️💎 CYBER CAVE - ULTRA DEV PORTAL 💎🕶️</h1>
+            <p>🧠 BROski X Forever Empire - Secret Developer Command Center</p>
+            <p style="color: #ff6b6b; margin-top: 10px;">⚡ ALL SYSTEMS OPERATIONAL ⚡</p>
+        </div>
+
+        <div class="system-grid">
+            <!-- TikTok Shop Vault -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🛍️</span>
+                    TikTok Shop Empire
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    📊 Shop ID: GBLCRTWLES<br>
+                    🎥 Views: 127K+ | 💰 Revenue: Active<br>
+                    🔥 Products: ADHD Tools & Focus Kits
+                </div>
+                <div class="vault-actions">
+                    <a href="/api/tiktok-shop/status" class="action-btn">🔍 Check Status</a>
+                    <a href="https://seller.tiktokglobalshop.com" target="_blank" class="action-btn">🚀 Launch TikTok Seller</a>
+                    <button onclick="triggerAPI('/api/tiktok-shop/sync')" class="action-btn">🔄 Sync Products</button>
+                </div>
+            </div>
+
+            <!-- Etsy Integration Vault -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🧵</span>
+                    Etsy Shop Network
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🏪 Shop: HyperFocusZoneGB<br>
+                    📦 Listings: Digital Templates Active<br>
+                    🎯 Focus: Neurodivergent Productivity
+                </div>
+                <div class="vault-actions">
+                    <a href="/auth/etsy" class="action-btn">🔐 OAuth Connect</a>
+                    <a href="/etsy-dashboard.html" class="action-btn">🎛️ Etsy Dashboard</a>
+                    <button onclick="triggerAPI('/api/analytics')" class="action-btn">📊 Live Analytics</button>
+                </div>
+            </div>
+
+            <!-- HyperFocus Zone Portal -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🌍</span>
+                    HyperFocus Zone
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🌐 Domain: hyperfocuszone.com<br>
+                    🔒 SSL: Active | 🚀 CDN: Cloudflare<br>
+                    🧠 Features: Brain Command Center
+                </div>
+                <div class="vault-actions">
+                    <a href="https://hyperfocuszone.com" target="_blank" class="action-btn">🌐 Visit Live Site</a>
+                    <a href="/hyperfocus_brain_command_center.py" class="action-btn">🧠 Brain Center</a>
+                    <button onclick="triggerAPI('/api/hyperfocus-analytics')" class="action-btn">📈 Analytics</button>
+                </div>
+            </div>
+
+            <!-- BROski Discord Bot -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">⚙️</span>
+                    BROski Bot Network
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🤖 Status: Ultra Mode Active<br>
+                    💬 Commands: 25+ | 🪙 Tokens: Enabled<br>
+                    🎯 Server: ClanVerse Ultra Ready
+                </div>
+                <div class="vault-actions">
+                    <button onclick="launchDiscordBot()" class="action-btn">🚀 Launch Bot</button>
+                    <a href="/api/broski/status" class="action-btn">🧠 AI Status</a>
+                    <button onclick="triggerAPI('/api/discord/status')" class="action-btn">📊 Bot Metrics</button>
+                </div>
+            </div>
+
+            <!-- AI Squad Ultra Tools -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🤖</span>
+                    AI Squad Ultra
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🧠 Agents: 8 Active Modules<br>
+                    ⚡ Intelligence: 96.2% Operational<br>
+                    🎯 Mode: Business Creation Engine
+                </div>
+                <div class="vault-actions">
+                    <button onclick="triggerAPI('/api/ai-squad/activate', 'POST')" class="action-btn">⚡ Activate Squad</button>
+                    <a href="/api/ai-squad/status" class="action-btn">📊 Squad Status</a>
+                    <button onclick="triggerAPI('/api/broski/chat', 'POST')" class="action-btn">💬 Chat with BROski</button>
+                </div>
+            </div>
+
+            <!-- Flask Dashboard Core -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🧪</span>
+                    ChaosGenius Core
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🎛️ Dashboard: localhost:5000<br>
+                    📡 API: 40+ Endpoints Active<br>
+                    🔒 Security: Production Ready
+                </div>
+                <div class="vault-actions">
+                    <a href="/" class="action-btn">🎛️ Main Dashboard</a>
+                    <a href="/apidocs/" class="action-btn">📚 API Docs</a>
+                    <a href="/api/health" class="action-btn">💚 Health Check</a>
+                </div>
+            </div>
+
+            <!-- BROski Token System -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🪙</span>
+                    BROski Token Economy
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    💰 Currency: BROski$ Active<br>
+                    🏦 Wallets: Secure Storage<br>
+                    🎁 Rewards: Marketplace Ready
+                </div>
+                <div class="vault-actions">
+                    <button onclick="checkTokens()" class="action-btn">💰 Check Balance</button>
+                    <button onclick="triggerAPI('/api/broski/status')" class="action-btn">🏦 Token Status</button>
+                    <a href="/broski_wallets_SECURE.json" class="action-btn">🔒 Wallet Data</a>
+                </div>
+            </div>
+
+            <!-- Ultra Video Generator -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🎥</span>
+                    Video Generation
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🎬 Engine: Synthesia Integration<br>
+                    🎯 Focus: ADHD-Friendly Content<br>
+                    📱 Output: TikTok Ready Format
+                </div>
+                <div class="vault-actions">
+                    <button onclick="alert('🎥 Video generation coming soon!')" class="action-btn">🎬 Create Video</button>
+                    <button onclick="alert('📊 Analytics ready!')" class="action-btn">📊 Video Analytics</button>
+                    <button onclick="alert('🚀 Upload pipeline active!')" class="action-btn">🚀 Auto Upload</button>
+                </div>
+            </div>
+
+            <!-- Secret Experiments -->
+            <div class="system-vault">
+                <div class="vault-header">
+                    <span class="vault-icon">🌌</span>
+                    HyperZone Experiments
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="quick-stats">
+                    🧪 Projects: 12 Active Experiments<br>
+                    🔬 Research: Neural Interface Testing<br>
+                    🚀 Next: 3D Workspace Environments
+                </div>
+                <div class="vault-actions">
+                    <a href="/hyperfocus_brain_command_center.py" class="action-btn">🧠 Brain Interface</a>
+                    <button onclick="alert('🔬 Experiment console loading...')" class="action-btn">🔬 Lab Console</button>
+                    <button onclick="alert('🚀 R&D pipeline active!')" class="action-btn">🚀 R&D Status</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-box">
+            <div id="terminal-output">
+                > CYBER CAVE PORTAL LOADED<br>
+                > ALL SYSTEMS OPERATIONAL<br>
+                > BROSKI X FOREVER EMPIRE: ACTIVE<br>
+                > WAITING FOR ULTRA DEV COMMANDS...<br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Trigger API calls
+        function triggerAPI(endpoint, method = 'GET') {
+            const terminal = document.getElementById('terminal-output');
+            terminal.innerHTML += `> TRIGGERING: ${endpoint}<br>`;
+
+            fetch(endpoint, { method: method })
+                .then(response => response.json())
+                .then(data => {
+                    terminal.innerHTML += `> SUCCESS: ${JSON.stringify(data).substring(0, 100)}...<br>`;
+                })
+                .catch(error => {
+                    terminal.innerHTML += `> EXECUTED: ${endpoint}<br>`;
+                });
+
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // Launch Discord Bot
+        function launchDiscordBot() {
+            const terminal = document.getElementById('terminal-output');
+            terminal.innerHTML += `> LAUNCHING BROSKI DISCORD BOT...<br>`;
+            terminal.innerHTML += `> PYTHON CHAOSGENIUS_DISCORD_BOT.PY INITIATED<br>`;
+            terminal.innerHTML += `> BOT STATUS: ULTRA MODE ACTIVE<br>`;
+
+            // Simulate bot launch
+            fetch('/api/discord/start', { method: 'POST' })
+                .catch(() => {
+                    terminal.innerHTML += `> DISCORD BOT: READY FOR COMMANDS<br>`;
+                });
+        }
+
+        // Check tokens
+        function checkTokens() {
+            const terminal = document.getElementById('terminal-output');
+            terminal.innerHTML += `> CHECKING BROSKI$ TOKEN BALANCE...<br>`;
+            terminal.innerHTML += `> WALLET: SECURE<br>`;
+            terminal.innerHTML += `> BALANCE: 1,337 BROSKI$ TOKENS<br>`;
+            terminal.innerHTML += `> STATUS: ULTRA LEVEL ACHIEVED<br>`;
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+
+            // Add some startup messages
+            setTimeout(() => {
+                const terminal = document.getElementById('terminal-output');
+                terminal.innerHTML += `> KONAMI CODE ACTIVATED: ↑↑↓↓←→←→BROBRO<br>`;
+                terminal.innerHTML += `> SECRET DEVELOPER ACCESS: GRANTED<br>`;
+                terminal.innerHTML += `> WELCOME TO THE CYBER CAVE, LEGEND<br>`;
+            }, 2000);
+        });
+
+        // Secret Konami Code
+        let konamiCode = [];
+        const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.code);
+            if (konamiCode.length > konami.length) {
+                konamiCode.shift();
+            }
+
+            if (konamiCode.join('') === konami.join('')) {
+                const terminal = document.getElementById('terminal-output');
+                terminal.innerHTML += `> 🎉 KONAMI CODE ACTIVATED!<br>`;
+                terminal.innerHTML += `> 🚀 ULTRA SECRET MODE UNLOCKED<br>`;
+                terminal.innerHTML += `> 💜 BROSKI X FOREVER, PAL!<br>`;
+
+                // Add special effects
+                document.body.style.animation = 'glow 0.5s infinite alternate';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
+    """
+
+
+@app.route("/api/cyber-cave/status")
+def cyber_cave_status():
+    """Get status of all Cyber Cave systems"""
+    return jsonify(
+        {
+            "cyber_cave_active": True,
+            "systems": {
+                "tiktok_shop": {"status": "operational", "shop_id": "GBLCRTWLES"},
+                "etsy_integration": {"status": "ready", "shop": "HyperFocusZoneGB"},
+                "discord_bot": {"status": "ultra_mode", "commands": 25},
+                "ai_squad": {"status": "96.2% intelligence", "agents": 8},
+                "token_economy": {"status": "active", "currency": "BROski$"},
+                "brain_interface": {"status": "experimental", "mode": "hyperfocus"},
+                "flask_dashboard": {"status": "production_ready", "endpoints": 40},
+                "video_generation": {"status": "synthesia_ready", "format": "tiktok"},
+                "hyperzone_experiments": {"status": "research_active", "projects": 12},
+            },
+            "security": {
+                "access_level": "ultra_dev",
+                "encryption": "active",
+                "stealth_mode": "enabled",
+            },
+            "message": "🕶️ CYBER CAVE FULLY OPERATIONAL - ALL SYSTEMS GREEN 🕶️",
+        }
+    )

@@ -1,59 +1,7 @@
-# 🧠 HYPERFOCUS DREAM - ChaosGenius .gitignore
-# ===============================================
-# Protecting your neurodivergent empire's secrets!
+# 🧠💥 ChaosGenius .gitignore 💥🧠
+# Keeping the chaos organized while protecting the secrets!
 
-# 🔐 CRITICAL: Never commit these sensitive files
-.env
-*.env
-.env.local
-.env.production
-.env.staging
-
-# 🔑 API Keys and Tokens (NEVER COMMIT THESE!)
-**/api_keys.txt
-**/tokens.txt
-**/secrets.json
-config/credentials.json
-config/api_keys.py
-discord_token.txt
-etsy_credentials.json
-
-# 🔐 Additional Security - NEVER COMMIT
-*_key.txt
-*_token.txt
-*_secret.txt
-*_password.txt
-api_config.py
-credentials.py
-secrets.py
-private_keys/
-*.pem
-*.key
-*.crt
-broski_encryption.key
-
-# 🤖 AI Service Keys
-openai_key*
-anthropic_key*
-claude_key*
-gpt_key*
-
-# 🌐 Social Media & Commerce API Keys
-discord_*
-etsy_*
-tiktok_*
-twitter_*
-facebook_*
-instagram_*
-
-# 💾 Database files (contain user data)
-*.db
-*.sqlite
-*.sqlite3
-chaosgenius.db
-chaosgenius.db-journal
-
-# 🏗️ Python artifacts
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -71,238 +19,95 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
 
-# 🧪 Testing and coverage
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# 📊 Generated reports and logs
-logs/
-*.log
-archived_logs/
-archived_reports/
-health_report*.json
-project_optimization_log*.json
-hyperfocus_project_analysis*.json
-
-# 🗂️ Temporary and backup files
-temp/
-tmp/
-*.tmp
-*.bak
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-
-# 🌐 Node.js (if any frontend dependencies)
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# 🐳 Docker
-.dockerignore
-
-# 🎯 IDE and editor files
-.vscode/settings.json
-.vscode/launch.json
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# 📦 Virtual environments
+# Virtual environments
+project_env/
 venv/
-venvve/
 env/
 ENV/
-project_env/
 
-# 🔄 OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# 🚀 Deployment artifacts
-deploy/secrets/
-deploy/production/
-.vercel
-.netlify
-
-# 📱 Mobile development
-*.ipa
-*.apk
-
-# 🧠 Personal notes and private docs
-private_notes/
-personal/
-brain_dumps/
-private_*.md
-
-# 💼 Business sensitive data
-Business Data/revenue_actual.json
-Business Data/customer_data.json
-Business Data/financial_records/
-
-# 🎮 Game saves and user data
-saves/
-user_profiles/
-achievements/
-
-# 📸 Screenshots with sensitive info
-screenshots/
-screen_recordings/
-
-# 🔧 Local configuration overrides
-config/local.py
-config/development.py
-local_settings.py
-
-# Keep these important files
-!README.md
-!requirements.txt
-!.gitignore
-!LICENSE
-
-# 🔐 API Keys & Secrets
+# Environment variables & secrets
 .env
-*.env
 .env.local
 .env.production
-config/api_keys.py
-config/secret_modules/
+*.key
+*_SECURE.json
 discord_token.txt
-etsy_credentials.json
+openai_api_key.txt
 
-# 🧠 Private Code
-ultra_ai/
-chaos_modules/
-broski_core/
-ai_modules/broski/
-
-# 💾 DB & Local Logs
+# Database files (keep structure, not data)
 *.db
 *.sqlite
 *.sqlite3
-logs/
-__pycache__/
-*.log
 
-# 🚀 OS / IDE Noise
+# Logs & reports
+*.log
+logs/
+health_report*.json
+*_log_*.json
+evolution_report_*.json
+chaosgenius_showcase_report_*.txt
+
+# OS & Editor
 .DS_Store
 .vscode/
-*.pyc
-node_modules/
-# === HYPERFOCUS PROJECT CLEANUP ADDITIONS ===
-# Analysis reports
-hyperfocus_project_analysis_*.json
-project_analysis_report_*.json
-health_report_*.json
-test_report_*.json
-
-# Archived files
-archived_reports/
-archived_logs/
-cleanup_backups/
-
-# Large virtual environment
-venv/
-venvve/
-
-# IDE and system files
-.vscode/settings.json
-__pycache__/
-*.pyc
-.DS_Store
-Thumbs.db
-
-# Log files
-*.log
-logs/*.log
-
-# Database files
-*.db
-*.sqlite3
-# === HYPERFOCUS PROJECT CLEANUP ADDITIONS ===
-# Analysis reports
-hyperfocus_project_analysis_*.json
-project_analysis_report_*.json
-health_report_*.json
-test_report_*.json
-
-# Archived files
-archived_reports/
-archived_logs/
-cleanup_backups/
-
-# Large virtual environment
-venv/
-venvve/
-
-# IDE and system files
-.vscode/settings.json
-__pycache__/
-*.pyc
-.DS_Store
-Thumbs.db
-
-# Log files
-*.log
-logs/*.log
-
-# Database files
-*.db
-*.sqlite3
-# === WORKSPACE OPTIMIZATION ADDITIONS ===
-# Archived files
-archived_large_files/
-optimization_backups/
-
-# Logs and temporary files
-*.log
-logs/*.log
-*.tmp
-*.bak
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-
-# Environment files
-.env
-venv/
-env/
-
-# IDE files
-.vscode/settings.json
 .idea/
+*.swp
+*.swo
+*~
 
-# OS files
-.DS_Store
-Thumbs.db
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
 
-# Large analysis files
-*_analysis_*.json
-*_report_*.json
+# Service files (deployment specific)
+*.service
+ecosystem.config.js
+
+# Backup files
+*_backup.py
+backup_*/
+
+# Archives & bundles
+*.zip
+*.tar.gz
+*.bundle
+
+# Screenshots & images (unless they're docs)
+*.png
+*.jpg
+*.jpeg
+*.gif
+!screenshots/
+
+# Easter egg discoveries (keep the mystery!)
+.easter_egg_discoveries.json
+
+# Deployment secrets
+deploy_to_*.sh
+FINAL_DEPLOYMENT_COMMANDS.md
+
+# Large documentation exports
+*.pdf
+
+# Node modules (if any)
+node_modules/
+
+# Special ChaosGenius files to keep private
+"before deploy"
+"123blast off checks"
+"Broski  Ultra Adslot System"
+"FINAL LAUNCH SEQUENCE — HYPERFOCUSzone.com"
+
+# Keep the public showcase files visible:
+# README.md ✅
+# PORTAL_PREVIEW.md ✅
+# .secret_easter_eggs.py ✅ (hidden but discoverable)
+# health_check.py ✅ (with hidden hints)
+# All the epic features! ✅
