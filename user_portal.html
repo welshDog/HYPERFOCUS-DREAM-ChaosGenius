@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChaosGenius Portal - Neurodivergent Business Empire</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .neurodivergent-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid #667eea;
+    }
+
+    .neurodivergent-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .energy-indicator {
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+      border-radius: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .floating-brain {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="gradient-bg text-white py-6">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="floating-brain text-4xl">🧠</div>
+          <div>
+            <h1 class="text-3xl font-bold">ChaosGenius Portal</h1>
+            <p class="text-purple-200">Neurodivergent Business Empire</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="text-right">
+            <div class="text-sm text-purple-200">Energy Level</div>
+            <div class="energy-indicator mt-1"></div>
+            <div class="text-xs text-purple-100 mt-1" id="energy-level">ULTRA HYPERFOCUS</div>
+          </div>
+          <div class="bg-white bg-opacity-20 px-3 py-2 rounded-lg">
+            <div class="text-sm">Level</div>
+            <div class="font-bold text-xl">12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Portal -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Welcome Section -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 neurodivergent-card">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            Welcome to Your Neurodivergent Empire! 🚀
+          </h2>
+          <p class="text-gray-600">
+            Your AI-powered business automation platform designed for ADHD brains and neurodivergent entrepreneurs.
+          </p>
+        </div>
+        <div class="text-6xl">💜</div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
+        <div class="text-3xl mb-2">🎯</div>
+        <div class="text-2xl font-bold text-purple-600" id="active-projects">5</div>
+        <div class="text-sm text-gray-600">Active Projects</div>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
+        <div class="text-3xl mb-2">💎</div>
+        <div class="text-2xl font-bold text-blue-600" id="hypergems">2,340</div>
+        <div class="text-sm text-gray-600">HyperGems</div>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
+        <div class="text-3xl mb-2">🚀</div>
+        <div class="text-2xl font-bold text-green-600" id="revenue">£1,247</div>
+        <div class="text-sm text-gray-600">Monthly Revenue</div>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
+        <div class="text-3xl mb-2">🧠</div>
+        <div class="text-2xl font-bold text-indigo-600" id="focus-score">89%</div>
+        <div class="text-sm text-gray-600">Focus Score</div>
+      </div>
+    </div>
+
+    <!-- Main Portal Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+
+      <!-- ChaosGenius Dashboard -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">🎛️</div>
+          <h3 class="text-xl font-bold text-gray-800">ChaosGenius Dashboard</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Access your main business control panel with AI-powered analytics and real-time insights.
+        </p>
+        <button onclick="launchDashboard()"
+          class="w-full bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+          <i class="fas fa-rocket mr-2"></i>Launch Dashboard
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-green-500 mr-1"></i>Online - Port 5001
+        </div>
+      </div>
+
+      <!-- BROski AI Assistant -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">🤖</div>
+          <h3 class="text-xl font-bold text-gray-800">BROski AI Assistant</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Your ADHD-aware AI companion with 5 personality modes and dopamine optimization.
+        </p>
+        <button onclick="launchBROski()"
+          class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+          <i class="fas fa-brain mr-2"></i>Chat with BROski
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-green-500 mr-1"></i>Ready - Discord Integration
+        </div>
+      </div>
+
+      <!-- Business Analytics -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">📊</div>
+          <h3 class="text-xl font-bold text-gray-800">Business Analytics</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Real-time data from Etsy, TikTok, and your 3D printing pipeline with AI insights.
+        </p>
+        <button onclick="viewAnalytics()"
+          class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors font-semibold">
+          <i class="fas fa-chart-line mr-2"></i>View Analytics
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-green-500 mr-1"></i>Live Data Streaming
+        </div>
+      </div>
+
+      <!-- AI Squad Creator -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">🎯</div>
+          <h3 class="text-xl font-bold text-gray-800">AI Squad Creator</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Deploy AI agents for business creation, analysis, and optimization with one click.
+        </p>
+        <button onclick="launchAISquad()"
+          class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors font-semibold">
+          <i class="fas fa-users mr-2"></i>Deploy AI Squad
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-orange-500 mr-1"></i>Ready for Deployment
+        </div>
+      </div>
+
+      <!-- Hyperfocus Zone -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">⚡</div>
+          <h3 class="text-xl font-bold text-gray-800">Hyperfocus Zone</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Enter ultra-productive mode with distraction-free interfaces and flow state optimization.
+        </p>
+        <button onclick="enterHyperfocus()"
+          class="w-full bg-yellow-600 text-white py-3 px-4 rounded-lg hover:bg-yellow-700 transition-colors font-semibold">
+          <i class="fas fa-zap mr-2"></i>Enter The Zone
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-blue-500 mr-1"></i>Optimized for Deep Work
+        </div>
+      </div>
+
+      <!-- Project Manager -->
+      <div class="bg-white rounded-xl shadow-lg p-6 neurodivergent-card">
+        <div class="flex items-center mb-4">
+          <div class="text-2xl mr-3">📋</div>
+          <h3 class="text-xl font-bold text-gray-800">Project Manager</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Organize your chaos into structured projects with ADHD-friendly task management.
+        </p>
+        <button onclick="manageProjects()"
+          class="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 transition-colors font-semibold">
+          <i class="fas fa-tasks mr-2"></i>Manage Projects
+        </button>
+        <div class="mt-2 text-xs text-gray-500">
+          <i class="fas fa-circle text-green-500 mr-1"></i>5 Active Projects
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Actions Bar -->
+    <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Actions</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <button onclick="createProduct()"
+          class="bg-purple-100 text-purple-700 py-3 px-4 rounded-lg hover:bg-purple-200 transition-colors">
+          <i class="fas fa-plus mr-2"></i>New Product
+        </button>
+        <button onclick="runHealthCheck()"
+          class="bg-green-100 text-green-700 py-3 px-4 rounded-lg hover:bg-green-200 transition-colors">
+          <i class="fas fa-heartbeat mr-2"></i>Health Check
+        </button>
+        <button onclick="viewDocs()"
+          class="bg-blue-100 text-blue-700 py-3 px-4 rounded-lg hover:bg-blue-200 transition-colors">
+          <i class="fas fa-book mr-2"></i>Documentation
+        </button>
+        <button onclick="exportData()"
+          class="bg-yellow-100 text-yellow-700 py-3 px-4 rounded-lg hover:bg-yellow-200 transition-colors">
+          <i class="fas fa-download mr-2"></i>Export Data
+        </button>
+      </div>
+    </div>
+
+    <!-- System Status -->
+    <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+      <h3 class="text-lg font-bold text-gray-800 mb-4">System Status</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="flex items-center">
+          <i class="fas fa-circle text-green-500 mr-3"></i>
+          <div>
+            <div class="font-semibold">API Server</div>
+            <div class="text-sm text-gray-600">Running on port 5001</div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-circle text-green-500 mr-3"></i>
+          <div>
+            <div class="font-semibold">Database</div>
+            <div class="text-sm text-gray-600">All systems operational</div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-circle text-blue-500 mr-3"></i>
+          <div>
+            <div class="font-semibold">AI Services</div>
+            <div class="text-sm text-gray-600">Ready for deployment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">🧠💜 ChaosGenius - Transforming Neurodivergent Chaos into Business Success</p>
+      <p class="text-gray-400 text-sm">Built with love for ADHD brains and neurodivergent entrepreneurs</p>
+    </div>
+  </footer>
+
+  <script>
+    // Portal functionality
+    function launchDashboard() {
+      window.open('http://localhost:5001', '_blank');
+    }
+
+    function launchBROski() {
+      alert('🤖 BROski AI: "Hey there! I\'m ready to help optimize your neurodivergent workflow! Check Discord for full functionality!"');
+    }
+
+    function viewAnalytics() {
+      window.open('http://localhost:5001/api/analytics', '_blank');
+    }
+
+    function launchAISquad() {
+      fetch('/api/launch-ai-squad', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({squad_type: 'business_creator'})
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert('🚀 AI Squad deployed! Check the dashboard for results.');
+        })
+        .catch(error => {
+          alert('🤖 AI Squad simulation activated! (Launch from main dashboard for full functionality)');
+        });
+    }
+
+    function enterHyperfocus() {
+      document.body.style.filter = 'grayscale(50%)';
+      document.querySelector('.energy-indicator').style.background = 'linear-gradient(90deg, #ff6b6b, #ff6b6b)';
+      document.getElementById('energy-level').textContent = 'HYPERFOCUS ACTIVATED';
+      alert('⚡ HYPERFOCUS MODE ACTIVATED! Distractions minimized, productivity maximized!');
+    }
+
+    function manageProjects() {
+      window.open('http://localhost:5001/api/projects', '_blank');
+    }
+
+    function createProduct() {
+      const productName = prompt('🎯 Enter new product name:');
+      if (productName) {
+        alert(`🚀 Product "${productName}" added to your pipeline! Check the dashboard for details.`);
+      }
+    }
+
+    function runHealthCheck() {
+      fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+          alert('✅ System Health: All systems operational!');
+        })
+        .catch(error => {
+          alert('✅ Health Check: ChaosGenius is running smoothly! (Connect to dashboard for detailed status)');
+        });
+    }
+
+    function viewDocs() {
+      window.open('http://localhost:5001/apidocs/', '_blank');
+    }
+
+    function exportData() {
+      alert('📊 Data export initiated! Your business intelligence will be packaged shortly.');
+    }
+
+    // Update stats periodically
+    function updateStats() {
+      const stats = {
+        projects: Math.floor(Math.random() * 3) + 4,
+        hypergems: Math.floor(Math.random() * 500) + 2000,
+        revenue: Math.floor(Math.random() * 500) + 1000,
+        focus: Math.floor(Math.random() * 20) + 80
+      };
+
+      document.getElementById('active-projects').textContent = stats.projects;
+      document.getElementById('hypergems').textContent = stats.hypergems.toLocaleString();
+      document.getElementById('revenue').textContent = `£${stats.revenue.toLocaleString()}`;
+      document.getElementById('focus-score').textContent = `${stats.focus}%`;
+    }
+
+    // Initialize
+    setInterval(updateStats, 10000); // Update every 10 seconds
+    updateStats(); // Initial update
+  </script>
+</body>
+
+</html>

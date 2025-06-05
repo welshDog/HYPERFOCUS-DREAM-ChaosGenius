@@ -1,12 +1,21 @@
 {
   "project_name": "ChaosGenius Engine",
   "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
+<<<<<<< Updated upstream
   "generated_at": "2025-05-30T06:21:51.021968",
   "components": [
     {
       "name": "Welcome & Onboarding",
       "type": "directory",
       "description": "Component: Welcome & Onboarding"
+=======
+  "generated_at": "2025-06-04T23:51:53.950895",
+  "components": [
+    {
+      "name": "tests",
+      "type": "directory",
+      "description": "Component: tests"
+>>>>>>> Stashed changes
     },
     {
       "name": "assets",
@@ -14,11 +23,21 @@
       "description": "Component: assets"
     },
     {
+<<<<<<< Updated upstream
       "name": "graceful_shutdown_example.py",
-      "type": "file",
-      "description": "Python module: graceful_shutdown_example"
+=======
+      "name": "generated_docs",
+      "type": "directory",
+      "description": "Component: generated_docs"
     },
     {
+      "name": "hboard_api.py",
+>>>>>>> Stashed changes
+      "type": "file",
+      "description": "Python module: hboard_api"
+    },
+    {
+<<<<<<< Updated upstream
       "name": "test_broski_integration.py",
       "type": "file",
       "description": "Python module: test_broski_integration"
@@ -72,6 +91,21 @@
       "name": "social_media_feeds.py",
       "type": "file",
       "description": "Python module: social_media_feeds"
+=======
+      "name": "DISCUSSION.md",
+      "type": "file",
+      "description": "Documentation: DISCUSSION"
+    },
+    {
+      "name": "optimization_backups",
+      "type": "directory",
+      "description": "Component: optimization_backups"
+    },
+    {
+      "name": "venv",
+      "type": "directory",
+      "description": "Component: venv"
+>>>>>>> Stashed changes
     },
     {
       "name": "frontend",
@@ -79,6 +113,7 @@
       "description": "Component: frontend"
     },
     {
+<<<<<<< Updated upstream
       "name": "deploy_phase3.py",
       "type": "file",
       "description": "Python module: deploy_phase3"
@@ -122,6 +157,16 @@
       "name": "project_optimization_log_20250527_120250.json",
       "type": "file",
       "description": "Configuration: project_optimization_log_20250527_120250"
+=======
+      "name": "uploads",
+      "type": "directory",
+      "description": "Component: uploads"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_182655.json",
+      "type": "file",
+      "description": "Configuration: hyperfocus_project_analysis_20250604_182655"
+>>>>>>> Stashed changes
     },
     {
       "name": "Ultra IPFS",
@@ -129,6 +174,7 @@
       "description": "Advanced IPFS integration for Web3 features"
     },
     {
+<<<<<<< Updated upstream
       "name": "health_check.py",
       "type": "file",
       "description": "Python module: health_check"
@@ -177,6 +223,36 @@
       "name": "phase5_intelligence_manager.py",
       "type": "file",
       "description": "Python module: phase5_intelligence_manager"
+=======
+      "name": "ultimate_health_report.json",
+      "type": "file",
+      "description": "Configuration: ultimate_health_report"
+    },
+    {
+      "name": "logs",
+      "type": "directory",
+      "description": "Component: logs"
+    },
+    {
+      "name": "docs",
+      "type": "directory",
+      "description": "Component: docs"
+    },
+    {
+      "name": "temp",
+      "type": "directory",
+      "description": "Component: temp"
+    },
+    {
+      "name": "Tools & Utilities",
+      "type": "directory",
+      "description": "Component: Tools & Utilities"
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
+      "type": "file",
+      "description": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
+>>>>>>> Stashed changes
     },
     {
       "name": "Setup & Deploy",
@@ -184,9 +260,55 @@
       "description": "Component: Setup & Deploy"
     },
     {
+<<<<<<< Updated upstream
       "name": "The Zone",
       "type": "directory",
       "description": "Core Hyperfocus Zone implementation"
+=======
+      "name": "gesture_controls",
+      "type": "directory",
+      "description": "Component: gesture_controls"
+    },
+    {
+      "name": "etsy-dashboard.html",
+      "type": "file",
+      "description": "File: etsy-dashboard.html"
+    },
+    {
+      "name": "COMPLETE_USER_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
+      "name": "project_env",
+      "type": "directory",
+      "description": "Component: project_env"
+    },
+    {
+      "name": "social_media_feeds.py",
+      "type": "file",
+      "description": "Python module: social_media_feeds"
+    },
+    {
+      "name": "DEVELOPMENT_SETUP_GUIDE.md",
+      "type": "file",
+      "description": "Documentation: DEVELOPMENT_SETUP_GUIDE"
+    },
+    {
+      "name": "archives",
+      "type": "directory",
+      "description": "Component: archives"
+    },
+    {
+      "name": "chaos_test_suite.py",
+      "type": "file",
+      "description": "Python module: chaos_test_suite"
+    },
+    {
+      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "type": "directory",
+      "description": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+>>>>>>> Stashed changes
     },
     {
       "name": "ai_modules",
@@ -194,6 +316,7 @@
       "description": "Component: ai_modules"
     },
     {
+<<<<<<< Updated upstream
       "name": "Notes",
       "type": "directory",
       "description": "Component: Notes"
@@ -247,6 +370,66 @@
       "name": "test_portal_integration.py",
       "type": "file",
       "description": "Python module: test_portal_integration"
+=======
+      "name": "user_portal.html",
+      "type": "file",
+      "description": "File: user_portal.html"
+    },
+    {
+      "name": "The Zone",
+      "type": "directory",
+      "description": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "Ui Upgrade",
+      "type": "directory",
+      "description": "Component: Ui Upgrade"
+    },
+    {
+      "name": "Marketing Content",
+      "type": "directory",
+      "description": "Component: Marketing Content"
+    },
+    {
+      "name": "src",
+      "type": "directory",
+      "description": "Component: src"
+    },
+    {
+      "name": "production_assets",
+      "type": "directory",
+      "description": "Component: production_assets"
+    },
+    {
+      "name": "tiktok_shop_dashboard.html",
+      "type": "file",
+      "description": "File: tiktok_shop_dashboard.html"
+    },
+    {
+      "name": "cleanup_backups",
+      "type": "directory",
+      "description": "Component: cleanup_backups"
+    },
+    {
+      "name": "Scripts & Prompts",
+      "type": "directory",
+      "description": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "scripts",
+      "type": "directory",
+      "description": "Component: scripts"
+    },
+    {
+      "name": "project_zipper.py",
+      "type": "file",
+      "description": "Python module: project_zipper"
+    },
+    {
+      "name": "health_report.json",
+      "type": "file",
+      "description": "Configuration: health_report"
+>>>>>>> Stashed changes
     },
     {
       "name": "voice_commands",
@@ -254,11 +437,126 @@
       "description": "Component: voice_commands"
     },
     {
+<<<<<<< Updated upstream
       "name": "data",
+=======
+      "name": "README.md",
+      "type": "file",
+      "description": "Main project documentation"
+    },
+    {
+      "name": "dashboard_api.py",
+      "type": "file",
+      "description": "Python module: dashboard_api"
+    },
+    {
+      "name": "production_manager.py",
+      "type": "file",
+      "description": "Python module: production_manager"
+    },
+    {
+      "name": "health_check.py",
+      "type": "file",
+      "description": "Python module: health_check"
+    },
+    {
+      "name": "archived_logs",
+      "type": "directory",
+      "description": "Component: archived_logs"
+    },
+    {
+      "name": "testing_roadmap_complete.py",
+      "type": "file",
+      "description": "Python module: testing_roadmap_complete"
+    },
+    {
+      "name": "PRE_LAUNCH_CHECKLIST.md",
+      "type": "file",
+      "description": "Documentation: PRE_LAUNCH_CHECKLIST"
+    },
+    {
+      "name": "hyperfocus_live_monitor.py",
+      "type": "file",
+      "description": "Python module: hyperfocus_live_monitor"
+    },
+    {
+      "name": "folder_optimizer.py",
+      "type": "file",
+      "description": "Python module: folder_optimizer"
+    },
+    {
+      "name": "static",
+      "type": "directory",
+      "description": "Component: static"
+    },
+    {
+      "name": "project_cleanup_organizer.py",
+      "type": "file",
+      "description": "Python module: project_cleanup_organizer"
+    },
+    {
+      "name": "chaosgenius_system_optimizer.py",
+      "type": "file",
+      "description": "Python module: chaosgenius_system_optimizer"
+    },
+    {
+      "name": "pre_launch_audit_report.json",
+      "type": "file",
+      "description": "Configuration: pre_launch_audit_report"
+    },
+    {
+      "name": "Business Data",
+      "type": "directory",
+      "description": "Component: Business Data"
+    },
+    {
+      "name": "project_health_monitor.py",
+      "type": "file",
+      "description": "Python module: project_health_monitor"
+    },
+    {
+      "name": "startup_manager.py",
+      "type": "file",
+      "description": "Python module: startup_manager"
+    },
+    {
+      "name": "dashboard.html",
+      "type": "file",
+      "description": "File: dashboard.html"
+    },
+    {
+      "name": "start.py",
+      "type": "file",
+      "description": "Python module: start"
+    },
+    {
+      "name": "LAUNCH_ANNOUNCEMENTS.md",
+      "type": "file",
+      "description": "Documentation: LAUNCH_ANNOUNCEMENTS"
+    },
+    {
+      "name": "deploy",
+      "type": "directory",
+      "description": "Component: deploy"
+    },
+    {
+      "name": "business_blueprint_20250525_112142.json",
+      "type": "file",
+      "description": "Configuration: business_blueprint_20250525_112142"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_183739.json",
+      "type": "file",
+      "description": "Configuration: hyperfocus_project_analysis_20250604_183739"
+    },
+    {
+      "name": "Welcome & Onboarding",
+>>>>>>> Stashed changes
       "type": "directory",
       "description": "Component: data"
     },
     {
+<<<<<<< Updated upstream
       "name": "ultra_analytics_panel.html",
       "type": "file",
       "description": "File: ultra_analytics_panel.html"
@@ -302,6 +600,61 @@
       "name": "business_blueprint_20250525_112142.json",
       "type": "file",
       "description": "Configuration: business_blueprint_20250525_112142"
+=======
+      "name": "advanced_project_optimizer.py",
+      "type": "file",
+      "description": "Python module: advanced_project_optimizer"
+    },
+    {
+      "name": "chaosgenius_discord_bot.py",
+      "type": "file",
+      "description": "Python module: chaosgenius_discord_bot"
+    },
+    {
+      "name": "README_MASTER_INDEX.md",
+      "type": "file",
+      "description": "Documentation: README_MASTER_INDEX"
+    },
+    {
+      "name": "data",
+      "type": "directory",
+      "description": "Component: data"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "description": "Component: __pycache__"
+    },
+    {
+      "name": "Notes",
+      "type": "directory",
+      "description": "Component: Notes"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_183910.json",
+      "type": "file",
+      "description": "Configuration: hyperfocus_project_analysis_20250604_183910"
+    },
+    {
+      "name": ".vscode-upload.json",
+      "type": "file",
+      "description": "Configuration: .vscode-upload"
+    },
+    {
+      "name": "htmlcov",
+      "type": "directory",
+      "description": "Component: htmlcov"
+    },
+    {
+      "name": "graceful_shutdown_example.py",
+      "type": "file",
+      "description": "Python module: graceful_shutdown_example"
+    },
+    {
+      "name": "zips",
+      "type": "directory",
+      "description": "Component: zips"
+>>>>>>> Stashed changes
     },
     {
       "name": "etsy_key_validator.py",
@@ -309,6 +662,7 @@
       "description": "Python module: etsy_key_validator"
     },
     {
+<<<<<<< Updated upstream
       "name": "scripts",
       "type": "directory",
       "description": "Component: scripts"
@@ -377,6 +731,11 @@
       "name": "CHANGELOG.md",
       "type": "file",
       "description": "Documentation: CHANGELOG"
+=======
+      "name": "auto_doc_generator.py",
+      "type": "file",
+      "description": "Python module: auto_doc_generator"
+>>>>>>> Stashed changes
     },
     {
       "name": "DEMO_MANIFEST.json",
@@ -384,6 +743,7 @@
       "description": "Configuration: DEMO_MANIFEST"
     },
     {
+<<<<<<< Updated upstream
       "name": "project_health_monitor.py",
       "type": "file",
       "description": "Python module: project_health_monitor"
@@ -437,6 +797,16 @@
       "name": "docs",
       "type": "directory",
       "description": "Component: docs"
+=======
+      "name": "setup_demo_version.py",
+      "type": "file",
+      "description": "Python module: setup_demo_version"
+    },
+    {
+      "name": "config",
+      "type": "directory",
+      "description": "Component: config"
+>>>>>>> Stashed changes
     },
     {
       "name": "backups",
@@ -444,6 +814,7 @@
       "description": "Component: backups"
     },
     {
+<<<<<<< Updated upstream
       "name": "test_endpoints.py",
       "type": "file",
       "description": "Python module: test_endpoints"
@@ -522,6 +893,16 @@
       "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
       "type": "file",
       "description": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
+=======
+      "name": "api",
+      "type": "directory",
+      "description": "Component: api"
+    },
+    {
+      "name": "security_validator.py",
+      "type": "file",
+      "description": "Python module: security_validator"
+>>>>>>> Stashed changes
     }
   ],
   "documentation_tools": [
@@ -580,9 +961,15 @@
   ],
   "tech_stack": {
     "languages": [
+<<<<<<< Updated upstream
       "HTML",
       "JavaScript",
       "Python"
+=======
+      "JavaScript",
+      "Python",
+      "HTML"
+>>>>>>> Stashed changes
     ],
     "frameworks": [],
     "tools": [

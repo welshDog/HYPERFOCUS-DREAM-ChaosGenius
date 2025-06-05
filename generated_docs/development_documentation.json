@@ -14,16 +14,28 @@
     ]
   },
   "code_analysis": {
+<<<<<<< Updated upstream
     "python_files": 58,
     "markdown_files": 423,
     "json_files": 405,
+=======
+    "python_files": 11510,
+    "markdown_files": 59,
+    "json_files": 2021,
+>>>>>>> Stashed changes
     "directories": 45
   },
   "project_structure": [
     {
+<<<<<<< Updated upstream
       "name": "Welcome & Onboarding",
       "type": "directory",
       "purpose": "Component: Welcome & Onboarding"
+=======
+      "name": "tests",
+      "type": "directory",
+      "purpose": "Component: tests"
+>>>>>>> Stashed changes
     },
     {
       "name": "assets",
@@ -31,11 +43,21 @@
       "purpose": "Component: assets"
     },
     {
+<<<<<<< Updated upstream
       "name": "graceful_shutdown_example.py",
-      "type": "file",
-      "purpose": "Python module: graceful_shutdown_example"
+=======
+      "name": "generated_docs",
+      "type": "directory",
+      "purpose": "Component: generated_docs"
     },
     {
+      "name": "hboard_api.py",
+>>>>>>> Stashed changes
+      "type": "file",
+      "purpose": "Python module: hboard_api"
+    },
+    {
+<<<<<<< Updated upstream
       "name": "test_broski_integration.py",
       "type": "file",
       "purpose": "Python module: test_broski_integration"
@@ -159,6 +181,21 @@
       "name": "Ultra IPFS",
       "type": "directory",
       "purpose": "Advanced IPFS integration for Web3 features"
+=======
+      "name": "DISCUSSION.md",
+      "type": "file",
+      "purpose": "Documentation: DISCUSSION"
+    },
+    {
+      "name": "requirements.txt",
+      "type": "file",
+      "purpose": "File: requirements.txt"
+    },
+    {
+      "name": "optimization_backups",
+      "type": "directory",
+      "purpose": "Component: optimization_backups"
+>>>>>>> Stashed changes
     },
     {
       "name": "ChaosGenius.code-workspace",
@@ -166,6 +203,7 @@
       "purpose": "File: ChaosGenius.code-workspace"
     },
     {
+<<<<<<< Updated upstream
       "name": "health_check.py",
       "type": "file",
       "purpose": "Python module: health_check"
@@ -224,6 +262,81 @@
       "name": "phase5_intelligence_manager.py",
       "type": "file",
       "purpose": "Python module: phase5_intelligence_manager"
+=======
+      "name": "frontend",
+      "type": "directory",
+      "purpose": "Component: frontend"
+    },
+    {
+      "name": "uploads",
+      "type": "directory",
+      "purpose": "Component: uploads"
+    },
+    {
+      "name": "Dockerfile",
+      "type": "file",
+      "purpose": "File: Dockerfile"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_182655.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250604_182655"
+    },
+    {
+      "name": "docker-compose.yml",
+      "type": "file",
+      "purpose": "File: docker-compose.yml"
+    },
+    {
+      "name": "chaosgenius-ultimate.code-workspace",
+      "type": "file",
+      "purpose": "File: chaosgenius-ultimate.code-workspace"
+    },
+    {
+      "name": "Ultra IPFS",
+      "type": "directory",
+      "purpose": "Advanced IPFS integration for Web3 features"
+    },
+    {
+      "name": "live_domain_tester.sh",
+      "type": "file",
+      "purpose": "File: live_domain_tester.sh"
+    },
+    {
+      "name": "ultimate_health_report.json",
+      "type": "file",
+      "purpose": "Configuration: ultimate_health_report"
+    },
+    {
+      "name": "logs",
+      "type": "directory",
+      "purpose": "Component: logs"
+    },
+    {
+      "name": "before deploy\"",
+      "type": "file",
+      "purpose": "File: before deploy\""
+    },
+    {
+      "name": "docs",
+      "type": "directory",
+      "purpose": "Component: docs"
+    },
+    {
+      "name": "temp",
+      "type": "directory",
+      "purpose": "Component: temp"
+    },
+    {
+      "name": "Tools & Utilities",
+      "type": "directory",
+      "purpose": "Component: Tools & Utilities"
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
+      "type": "file",
+      "purpose": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
+>>>>>>> Stashed changes
     },
     {
       "name": "Setup & Deploy",
@@ -231,9 +344,65 @@
       "purpose": "Component: Setup & Deploy"
     },
     {
+<<<<<<< Updated upstream
       "name": "The Zone",
       "type": "directory",
       "purpose": "Core Hyperfocus Zone implementation"
+=======
+      "name": "gesture_controls",
+      "type": "directory",
+      "purpose": "Component: gesture_controls"
+    },
+    {
+      "name": "etsy-dashboard.html",
+      "type": "file",
+      "purpose": "File: etsy-dashboard.html"
+    },
+    {
+      "name": "COMPLETE_USER_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: COMPLETE_USER_GUIDE"
+    },
+    {
+      "name": "project_env",
+      "type": "directory",
+      "purpose": "Component: project_env"
+    },
+    {
+      "name": "social_media_feeds.py",
+      "type": "file",
+      "purpose": "Python module: social_media_feeds"
+    },
+    {
+      "name": "DEVELOPMENT_SETUP_GUIDE.md",
+      "type": "file",
+      "purpose": "Documentation: DEVELOPMENT_SETUP_GUIDE"
+    },
+    {
+      "name": "archives",
+      "type": "directory",
+      "purpose": "Component: archives"
+    },
+    {
+      "name": "ChaosGenius.code-workspace",
+      "type": "file",
+      "purpose": "File: ChaosGenius.code-workspace"
+    },
+    {
+      "name": "chaos_test_suite.py",
+      "type": "file",
+      "purpose": "Python module: chaos_test_suite"
+    },
+    {
+      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "type": "directory",
+      "purpose": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+    },
+    {
+      "name": "chaosgenius_flask.service",
+      "type": "file",
+      "purpose": "File: chaosgenius_flask.service"
+>>>>>>> Stashed changes
     },
     {
       "name": "ai_modules",
@@ -241,6 +410,7 @@
       "purpose": "Component: ai_modules"
     },
     {
+<<<<<<< Updated upstream
       "name": "Notes",
       "type": "directory",
       "purpose": "Component: Notes"
@@ -299,6 +469,76 @@
       "name": "test_portal_integration.py",
       "type": "file",
       "purpose": "Python module: test_portal_integration"
+=======
+      "name": "chaosgenius.db",
+      "type": "file",
+      "purpose": "File: chaosgenius.db"
+    },
+    {
+      "name": "user_portal.html",
+      "type": "file",
+      "purpose": "File: user_portal.html"
+    },
+    {
+      "name": "The Zone",
+      "type": "directory",
+      "purpose": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "Ui Upgrade",
+      "type": "directory",
+      "purpose": "Component: Ui Upgrade"
+    },
+    {
+      "name": "Marketing Content",
+      "type": "directory",
+      "purpose": "Component: Marketing Content"
+    },
+    {
+      "name": "src",
+      "type": "directory",
+      "purpose": "Component: src"
+    },
+    {
+      "name": "production_assets",
+      "type": "directory",
+      "purpose": "Component: production_assets"
+    },
+    {
+      "name": "tiktok_shop_dashboard.html",
+      "type": "file",
+      "purpose": "File: tiktok_shop_dashboard.html"
+    },
+    {
+      "name": "cleanup_backups",
+      "type": "directory",
+      "purpose": "Component: cleanup_backups"
+    },
+    {
+      "name": "Scripts & Prompts",
+      "type": "directory",
+      "purpose": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "scripts",
+      "type": "directory",
+      "purpose": "Component: scripts"
+    },
+    {
+      "name": "project_zipper.py",
+      "type": "file",
+      "purpose": "Python module: project_zipper"
+    },
+    {
+      "name": "health_report.json",
+      "type": "file",
+      "purpose": "Configuration: health_report"
+    },
+    {
+      "name": "pyproject.toml",
+      "type": "file",
+      "purpose": "File: pyproject.toml"
+>>>>>>> Stashed changes
     },
     {
       "name": "voice_commands",
@@ -306,11 +546,141 @@
       "purpose": "Component: voice_commands"
     },
     {
+<<<<<<< Updated upstream
       "name": "data",
+=======
+      "name": "README.md",
+      "type": "file",
+      "purpose": "Main project documentation"
+    },
+    {
+      "name": "dashboard_api.py",
+      "type": "file",
+      "purpose": "Python module: dashboard_api"
+    },
+    {
+      "name": "production_manager.py",
+      "type": "file",
+      "purpose": "Python module: production_manager"
+    },
+    {
+      "name": "health_check.py",
+      "type": "file",
+      "purpose": "Python module: health_check"
+    },
+    {
+      "name": "archived_logs",
+      "type": "directory",
+      "purpose": "Component: archived_logs"
+    },
+    {
+      "name": "testing_roadmap_complete.py",
+      "type": "file",
+      "purpose": "Python module: testing_roadmap_complete"
+    },
+    {
+      "name": "PRE_LAUNCH_CHECKLIST.md",
+      "type": "file",
+      "purpose": "Documentation: PRE_LAUNCH_CHECKLIST"
+    },
+    {
+      "name": "hyperfocus_live_monitor.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_live_monitor"
+    },
+    {
+      "name": "folder_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: folder_optimizer"
+    },
+    {
+      "name": "start.bat",
+      "type": "file",
+      "purpose": "File: start.bat"
+    },
+    {
+      "name": "static",
+      "type": "directory",
+      "purpose": "Component: static"
+    },
+    {
+      "name": "project_cleanup_organizer.py",
+      "type": "file",
+      "purpose": "Python module: project_cleanup_organizer"
+    },
+    {
+      "name": "chaosgenius_system_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_system_optimizer"
+    },
+    {
+      "name": "pre_launch_audit_report.json",
+      "type": "file",
+      "purpose": "Configuration: pre_launch_audit_report"
+    },
+    {
+      "name": "folder_structure.txt",
+      "type": "file",
+      "purpose": "File: folder_structure.txt"
+    },
+    {
+      "name": "Business Data",
+      "type": "directory",
+      "purpose": "Component: Business Data"
+    },
+    {
+      "name": "project_health_monitor.py",
+      "type": "file",
+      "purpose": "Python module: project_health_monitor"
+    },
+    {
+      "name": "ChaosGenius Dashboard - Hyperfocus Zone now.pdf",
+      "type": "file",
+      "purpose": "File: ChaosGenius Dashboard - Hyperfocus Zone now.pdf"
+    },
+    {
+      "name": "startup_manager.py",
+      "type": "file",
+      "purpose": "Python module: startup_manager"
+    },
+    {
+      "name": "dashboard.html",
+      "type": "file",
+      "purpose": "File: dashboard.html"
+    },
+    {
+      "name": "start.py",
+      "type": "file",
+      "purpose": "Python module: start"
+    },
+    {
+      "name": "LAUNCH_ANNOUNCEMENTS.md",
+      "type": "file",
+      "purpose": "Documentation: LAUNCH_ANNOUNCEMENTS"
+    },
+    {
+      "name": "deploy",
+      "type": "directory",
+      "purpose": "Component: deploy"
+    },
+    {
+      "name": "business_blueprint_20250525_112142.json",
+      "type": "file",
+      "purpose": "Configuration: business_blueprint_20250525_112142"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_183739.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250604_183739"
+    },
+    {
+      "name": "Welcome & Onboarding",
+>>>>>>> Stashed changes
       "type": "directory",
       "purpose": "Component: data"
     },
     {
+<<<<<<< Updated upstream
       "name": "ultra_analytics_panel.html",
       "type": "file",
       "purpose": "File: ultra_analytics_panel.html"
@@ -359,6 +729,66 @@
       "name": "business_blueprint_20250525_112142.json",
       "type": "file",
       "purpose": "Configuration: business_blueprint_20250525_112142"
+=======
+      "name": "advanced_project_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: advanced_project_optimizer"
+    },
+    {
+      "name": "chaosgenius_discord_bot.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_discord_bot"
+    },
+    {
+      "name": "README_MASTER_INDEX.md",
+      "type": "file",
+      "purpose": "Documentation: README_MASTER_INDEX"
+    },
+    {
+      "name": "data",
+      "type": "directory",
+      "purpose": "Component: data"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "purpose": "Component: __pycache__"
+    },
+    {
+      "name": "Notes",
+      "type": "directory",
+      "purpose": "Component: Notes"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250604_183910.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250604_183910"
+    },
+    {
+      "name": "chaosgenius_discord_bot.service",
+      "type": "file",
+      "purpose": "File: chaosgenius_discord_bot.service"
+    },
+    {
+      "name": "ecosystem.config.js",
+      "type": "file",
+      "purpose": "File: ecosystem.config.js"
+    },
+    {
+      "name": "htmlcov",
+      "type": "directory",
+      "purpose": "Component: htmlcov"
+    },
+    {
+      "name": "graceful_shutdown_example.py",
+      "type": "file",
+      "purpose": "Python module: graceful_shutdown_example"
+    },
+    {
+      "name": "zips",
+      "type": "directory",
+      "purpose": "Component: zips"
+>>>>>>> Stashed changes
     },
     {
       "name": "etsy_key_validator.py",
@@ -366,6 +796,7 @@
       "purpose": "Python module: etsy_key_validator"
     },
     {
+<<<<<<< Updated upstream
       "name": "scripts",
       "type": "directory",
       "purpose": "Component: scripts"
@@ -439,6 +870,11 @@
       "name": "CHANGELOG.md",
       "type": "file",
       "purpose": "Documentation: CHANGELOG"
+=======
+      "name": "auto_doc_generator.py",
+      "type": "file",
+      "purpose": "Python module: auto_doc_generator"
+>>>>>>> Stashed changes
     },
     {
       "name": "DEMO_MANIFEST.json",
@@ -446,6 +882,7 @@
       "purpose": "Configuration: DEMO_MANIFEST"
     },
     {
+<<<<<<< Updated upstream
       "name": "project_health_monitor.py",
       "type": "file",
       "purpose": "Python module: project_health_monitor"
@@ -504,6 +941,21 @@
       "name": "docs",
       "type": "directory",
       "purpose": "Component: docs"
+=======
+      "name": "setup_demo_version.py",
+      "type": "file",
+      "purpose": "Python module: setup_demo_version"
+    },
+    {
+      "name": "config",
+      "type": "directory",
+      "purpose": "Component: config"
+    },
+    {
+      "name": "tash",
+      "type": "file",
+      "purpose": "File: tash"
+>>>>>>> Stashed changes
     },
     {
       "name": "backups",
@@ -511,6 +963,7 @@
       "purpose": "Component: backups"
     },
     {
+<<<<<<< Updated upstream
       "name": "test_endpoints.py",
       "type": "file",
       "purpose": "Python module: test_endpoints"
@@ -599,6 +1052,16 @@
       "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
       "type": "file",
       "purpose": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
+=======
+      "name": "api",
+      "type": "directory",
+      "purpose": "Component: api"
+    },
+    {
+      "name": "security_validator.py",
+      "type": "file",
+      "purpose": "Python module: security_validator"
+>>>>>>> Stashed changes
     }
   ],
   "tasks_available": [

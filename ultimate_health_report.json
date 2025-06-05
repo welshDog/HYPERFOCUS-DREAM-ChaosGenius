@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-06-02T09:35:32.214324",
+  "overall_status": "LEGENDARY",
+  "metrics": {
+    "database_size_mb": 0.02
+  },
+  "features": {
+    "core_files": {
+      "dashboard_api.py": true,
+      "chaosgenius_discord_bot.py": true,
+      "health_check.py": true,
+      "requirements.txt": true,
+      "dashboard.html": true,
+      "chaosgenius.db": true
+    },
+    "core_folders": {
+      "ai_modules": true,
+      "tests": true,
+      "Business Data": true,
+      "production_assets": true,
+      "Setup & Deploy": true,
+      "project_env": true
+    }
+  },
+  "file_counts": {
+    "python_files": 11169,
+    "html_files": 87,
+    "json_files": 441,
+    "markdown_files": 57,
+    "total_files": 11754
+  },
+  "recommendations": []
+}

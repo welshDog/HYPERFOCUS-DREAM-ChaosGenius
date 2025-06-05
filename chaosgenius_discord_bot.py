@@ -1,32 +1,37 @@
-import discord
-from discord.ext import commands, tasks
-import sqlite3
-import requests
-import json
-import os
-import subprocess
-from datetime import datetime, timedelta
 import asyncio
+import json
 import logging
-from typing import Optional, Dict, Any, List
+import os
 import random
 import re
-from dotenv import load_dotenv
-from pathlib import Path
-from logging.handlers import RotatingFileHandler
+import sqlite3
+import subprocess
 
 # Add BROski AI integration
 import sys
-sys.path.append('/workspaces/HYPERFOCUS-DREAM-ChaosGenius')
+from datetime import datetime, timedelta
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import discord
+import requests
+from discord.ext import commands, tasks
+from dotenv import load_dotenv
+
+sys.path.append("/workspaces/HYPERFOCUS-DREAM-ChaosGenius")
 from ai_modules.broski.broski_core import BROskiCore, BROskiResponse
 
 # 🪙 Add BROski$ Token Economy integration
 try:
-    from ai_modules.broski.token_engine import BROskiTokenEngine
     from ai_modules.broski.token_commands import BROskiTokenCommands
+    from ai_modules.broski.token_engine import BROskiTokenEngine
+
     TOKENS_AVAILABLE = True
+    logger = logging.getLogger("ChaosGeniusBot")
     logger.info("🪙 BROski$ Token Economy loaded successfully!")
 except ImportError as e:
+    logger = logging.getLogger("ChaosGeniusBot")
     logger.warning(f"⚠️ BROski$ Token system not available: {e}")
     TOKENS_AVAILABLE = False
 
@@ -34,10 +39,12 @@ except ImportError as e:
 load_dotenv()
 
 # 🚨 SECURE Bot Configuration
-TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 if not TOKEN:
-    print("\ud83d\udea8 WARNING: DISCORD_BOT_TOKEN not found in environment variables!")
-    print("\ud83d\udd0e Running in DEV MODE: Discord bot will not connect, but commands can be simulated.")
+    print("🚨 WARNING: DISCORD_BOT_TOKEN not found in environment variables!")
+    print(
+        "🔎 Running in DEV MODE: Discord bot will not connect, but commands can be simulated."
+    )
     TOKEN = None  # Dev mode: do not exit, allow script to run for local testing
 
 # 📝 Enhanced logging for production - FIXED ENCODING ISSUE
@@ -46,17 +53,20 @@ logs_dir = Path("logs")
 logs_dir.mkdir(parents=True, exist_ok=True)
 
 # Configure logging with rotation
-log_file = logs_dir / 'discord_bot.log'
-rotating_handler = RotatingFileHandler(log_file, maxBytes=2*1024*1024, backupCount=3, encoding='utf-8', errors='replace')
+log_file = logs_dir / "discord_bot.log"
+rotating_handler = RotatingFileHandler(
+    log_file,
+    maxBytes=2 * 1024 * 1024,
+    backupCount=3,
+    encoding="utf-8",
+    errors="replace",
+)
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        rotating_handler,
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[rotating_handler, logging.StreamHandler()],
 )
-logger = logging.getLogger('ChaosGeniusBot')
+logger = logging.getLogger("ChaosGeniusBot")
 
 # Log security status
 logger.info("🔐 Security: Environment variables loaded successfully")
@@ -76,7 +86,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 def get_db_connection():
     try:
-        conn = sqlite3.connect('chaosgenius.db')
+        conn = sqlite3.connect("chaosgenius.db")
         conn.row_factory = sqlite3.Row
         return conn
     except Exception as e:
@@ -96,6 +106,7 @@ async def check_dashboard_health():
     except:
         return False
 
+
 # 🧠 ULTRA MODE BROSKI X SYSTEMS (Phase 5+)
 
 # 🎯 User Profile System for Dopamine Tracking
@@ -113,7 +124,7 @@ def init_user_profile(user_id):
             "last_active": datetime.now(),
             "quests_completed": 0,
             "mood_history": [],
-            "preferences": {}
+            "preferences": {},
         }
     return user_profiles[user_id]
 
@@ -124,35 +135,35 @@ MOOD_PATTERNS = {
     "excited": ["idea", "project", "help me build", "excited", "inspired", "motivated"],
     "bored": ["bored", "nothing to do", "stuck", "unmotivated"],
     "stressed": ["overwhelmed", "anxious", "too much", "stressed", "panic"],
-    "creative": ["creating", "building", "making", "designing", "coding"]
+    "creative": ["creating", "building", "making", "designing", "coding"],
 }
 
 MOOD_RESPONSES = {
     "tired": [
         "🛌 **Permission to Rest Granted!** Your brain needs recharge time. Here's a cozy meme: 😴",
         "⚡ Energy detected at low levels. Activating rest protocol... 🧘‍♀️",
-        "🧠 Your neurodivergent brain is telling you something important. Listen to it! 💜"
+        "🧠 Your neurodivergent brain is telling you something important. Listen to it! 💜",
     ],
     "excited": [
         "🚀 **IDEA ENERGY DETECTED!** Ready to `/hyperdump` that beautiful chaos?",
         "💡 Your excitement is contagious! Want to start a focus thread? 🧵",
-        "🔥 That's the hyperfocus energy we love! Channel it into something epic!"
+        "🔥 That's the hyperfocus energy we love! Channel it into something epic!",
     ],
     "bored": [
         "🎯 **Dopamine Quest Incoming!** Share one weird skill you have in 60 seconds!",
         "🍄 Quick creativity spark: Name something purple that makes you happy!",
-        "⚡ Boredom = Opportunity! Try the `/quest` command for instant dopamine!"
+        "⚡ Boredom = Opportunity! Try the `/quest` command for instant dopamine!",
     ],
     "stressed": [
         "🫂 Overwhelm detected. Take 3 deep breaths with me... 1... 2... 3... 💙",
         "🧠 Your ADHD brain is just processing a lot right now. That's normal! 🌟",
-        "⛑️ Stress protocol activated: What's ONE tiny thing you can do right now?"
+        "⛑️ Stress protocol activated: What's ONE tiny thing you can do right now?",
     ],
     "creative": [
         "🎨 **CREATIVE MODE ACTIVATED!** The zone is calling you! ✨",
         "🧬 Your neurodivergent creativity is showing! Keep flowing! 🌊",
-        "👑 That's the creative energy that builds empires! Keep going!"
-    ]
+        "👑 That's the creative energy that builds empires! Keep going!",
+    ],
 }
 
 
@@ -180,11 +191,13 @@ async def on_message(message):
         user_profile = init_user_profile(message.author.id)
 
         # Update mood history
-        user_profile["mood_history"].append({
-            "mood": detected_mood,
-            "timestamp": datetime.now().isoformat(),
-            "channel": message.channel.name
-        })
+        user_profile["mood_history"].append(
+            {
+                "mood": detected_mood,
+                "timestamp": datetime.now().isoformat(),
+                "channel": message.channel.name,
+            }
+        )
 
         # Keep only last 10 mood entries
         if len(user_profile["mood_history"]) > 10:
@@ -206,10 +219,10 @@ async def on_message(message):
             user_profile["hypergems"] += 1
 
             # Log mood detection
-            logger.info(
-                f"Mood detected: {detected_mood} for {message.author.name}")
+            logger.info(f"Mood detected: {detected_mood} for {message.author.name}")
 
     await bot.process_commands(message)
+
 
 # 🔔 2. Focus Bar HUD™ (Daily Status Overlay)
 
@@ -222,12 +235,12 @@ async def hud(ctx, user: discord.Member = None):
 
     # Calculate dynamic stats
     hours_since_active = (
-        datetime.now() - profile["last_active"]).total_seconds() / 3600
+        datetime.now() - profile["last_active"]
+    ).total_seconds() / 3600
     dopamine_level = max(20, profile["dopamine"] - int(hours_since_active * 2))
 
     # Determine focus level
-    focus_levels = ["Scattered", "Balanced",
-                    "Focused", "HyperSpicy", "ULTRA ZONE"]
+    focus_levels = ["Scattered", "Balanced", "Focused", "HyperSpicy", "ULTRA ZONE"]
     focus_index = min(4, max(0, int(dopamine_level / 20)))
     current_focus = focus_levels[focus_index]
 
@@ -235,33 +248,45 @@ async def hud(ctx, user: discord.Member = None):
     embed = discord.Embed(
         title=f"🧠 BROski X Focus HUD - {target_user.display_name}",
         description="*Real-time neurodivergent energy analysis*",
-        color=0xff6b35 if dopamine_level > 60 else 0xffaa00 if dopamine_level > 30 else 0x666666
+        color=(
+            0xFF6B35
+            if dopamine_level > 60
+            else 0xFFAA00 if dopamine_level > 30 else 0x666666
+        ),
     )
 
     # Energy bars
-    dopamine_bar = "█" * int(dopamine_level / 10) + \
-        "░" * (10 - int(dopamine_level / 10))
+    dopamine_bar = "█" * int(dopamine_level / 10) + "░" * (
+        10 - int(dopamine_level / 10)
+    )
     embed.add_field(
         name="⚡ Dopamine Level",
         value=f"`{dopamine_bar}` {dopamine_level}%",
-        inline=True
+        inline=True,
     )
 
     embed.add_field(name="🎯 Focus Level", value=current_focus, inline=True)
-    embed.add_field(name="💎 HyperGems", value=str(
-        profile["hypergems"]), inline=True)
+    embed.add_field(name="💎 HyperGems", value=str(profile["hypergems"]), inline=True)
 
     # Idea overload calculation
-    recent_moods = [m for m in profile["mood_history"] if
-                    datetime.fromisoformat(m["timestamp"]) > datetime.now() - timedelta(hours=6)]
-    idea_overload = "High" if len(recent_moods) > 5 else "Medium" if len(
-        recent_moods) > 2 else "Low"
+    recent_moods = [
+        m
+        for m in profile["mood_history"]
+        if datetime.fromisoformat(m["timestamp"]) > datetime.now() - timedelta(hours=6)
+    ]
+    idea_overload = (
+        "High"
+        if len(recent_moods) > 5
+        else "Medium" if len(recent_moods) > 2 else "Low"
+    )
 
     embed.add_field(name="🧩 Idea Overload", value=idea_overload, inline=True)
-    embed.add_field(name="🔥 Daily Streak",
-                    value=f"{profile['daily_streak']} days", inline=True)
-    embed.add_field(name="🏆 Quests Done", value=str(
-        profile["quests_completed"]), inline=True)
+    embed.add_field(
+        name="🔥 Daily Streak", value=f"{profile['daily_streak']} days", inline=True
+    )
+    embed.add_field(
+        name="🏆 Quests Done", value=str(profile["quests_completed"]), inline=True
+    )
 
     # Suggested actions
     if dopamine_level < 40:
@@ -276,13 +301,14 @@ async def hud(ctx, user: discord.Member = None):
     # Recent mood trend
     if recent_moods:
         mood_trend = " → ".join([m["mood"].title() for m in recent_moods[-3:]])
-        embed.add_field(name="📈 Recent Mood Flow",
-                        value=mood_trend, inline=False)
+        embed.add_field(name="📈 Recent Mood Flow", value=mood_trend, inline=False)
 
     embed.set_footer(
-        text=f"Last updated: {datetime.now().strftime('%H:%M')} | BROski X Ultra Systems")
+        text=f"Last updated: {datetime.now().strftime('%H:%M')} | BROski X Ultra Systems"
+    )
 
     await ctx.send(embed=embed)
+
 
 # 📅 3. Daily ChaosGenius Rituals
 
@@ -292,9 +318,13 @@ async def daily_rituals():
     """Send daily ritual messages"""
     for guild in bot.guilds:
         # Find general or announcements channel
-        channel = discord.utils.get(guild.channels, name="general") or \
-            discord.utils.get(guild.channels, name="announcements") or \
-            guild.text_channels[0] if guild.text_channels else None
+        channel = (
+            discord.utils.get(guild.channels, name="general")
+            or discord.utils.get(guild.channels, name="announcements")
+            or guild.text_channels[0]
+            if guild.text_channels
+            else None
+        )
 
         if not channel:
             continue
@@ -307,11 +337,13 @@ async def daily_rituals():
             3: "🎯 **Thursday Thoughts!** What's one tiny win you had today? I'll add it to the victory vault! 🏆",
             4: "🎉 **Friday Flex!** What was your biggest win this week? Time to celebrate! 🎊",
             5: "🌈 **Saturday Scatter!** Share something that made you smile today! Wholesome vibes only! 😊",
-            6: "🔮 **Sunday Prep!** What's one thing you're excited about for next week? Future-you will thank you! ✨"
+            6: "🔮 **Sunday Prep!** What's one thing you're excited about for next week? Future-you will thank you! ✨",
         }
 
         message = ritual_messages.get(
-            weekday, "🧠 **Daily ChaosGenius Check-in!** How's your beautiful brain doing today?")
+            weekday,
+            "🧠 **Daily ChaosGenius Check-in!** How's your beautiful brain doing today?",
+        )
 
         try:
             await channel.send(message)
@@ -324,6 +356,7 @@ async def daily_rituals():
 async def before_daily_rituals():
     await bot.wait_until_ready()
 
+
 # 📂 4. Hyperfocus Folder System™
 
 
@@ -334,10 +367,47 @@ async def hyperdump(ctx, *, brain_dump):
 
     # Simple AI categorization (can be enhanced with OpenAI API)
     categories = {
-        "creative": ["art", "design", "music", "creative", "draw", "paint", "video", "content"],
-        "strategy": ["business", "plan", "strategy", "goal", "launch", "market", "money", "growth"],
-        "tech": ["code", "app", "website", "tool", "ai", "bot", "script", "program", "tech"],
-        "life": ["health", "routine", "habit", "self", "mental", "wellness", "life", "personal"]
+        "creative": [
+            "art",
+            "design",
+            "music",
+            "creative",
+            "draw",
+            "paint",
+            "video",
+            "content",
+        ],
+        "strategy": [
+            "business",
+            "plan",
+            "strategy",
+            "goal",
+            "launch",
+            "market",
+            "money",
+            "growth",
+        ],
+        "tech": [
+            "code",
+            "app",
+            "website",
+            "tool",
+            "ai",
+            "bot",
+            "script",
+            "program",
+            "tech",
+        ],
+        "life": [
+            "health",
+            "routine",
+            "habit",
+            "self",
+            "mental",
+            "wellness",
+            "life",
+            "personal",
+        ],
     }
 
     dump_lower = brain_dump.lower()
@@ -350,11 +420,23 @@ async def hyperdump(ctx, *, brain_dump):
 
     # Create categorized response
     category_info = {
-        "creative": {"emoji": "🎨", "channel": "#art-and-expression", "color": 0xff69b4},
-        "strategy": {"emoji": "🧠", "channel": "#hyperfocus-hub-app-projekt", "color": 0x9c27b0},
-        "tech": {"emoji": "🧰", "channel": "#ai-zone", "color": 0x00ff41},
-        "life": {"emoji": "🌱", "channel": "#personal-growth-and-self-awareness", "color": 0x4caf50},
-        "general": {"emoji": "💭", "channel": "#general", "color": 0x607d8b}
+        "creative": {
+            "emoji": "🎨",
+            "channel": "#art-and-expression",
+            "color": 0xFF69B4,
+        },
+        "strategy": {
+            "emoji": "🧠",
+            "channel": "#hyperfocus-hub-app-projekt",
+            "color": 0x9C27B0,
+        },
+        "tech": {"emoji": "🧰", "channel": "#ai-zone", "color": 0x00FF41},
+        "life": {
+            "emoji": "🌱",
+            "channel": "#personal-growth-and-self-awareness",
+            "color": 0x4CAF50,
+        },
+        "general": {"emoji": "💭", "channel": "#general", "color": 0x607D8B},
     }
 
     cat_info = category_info[detected_category]
@@ -362,24 +444,16 @@ async def hyperdump(ctx, *, brain_dump):
     embed = discord.Embed(
         title=f"{cat_info['emoji']} Brain Dump Categorized!",
         description=f"**Your beautiful chaos has been sorted:**\n\n{brain_dump}",
-        color=cat_info['color']
+        color=cat_info["color"],
     )
 
     embed.add_field(
         name="🗂️ Category Detected",
         value=f"{detected_category.title()} {cat_info['emoji']}",
-        inline=True
+        inline=True,
     )
-    embed.add_field(
-        name="📍 Suggested Channel",
-        value=cat_info['channel'],
-        inline=True
-    )
-    embed.add_field(
-        name="💎 HyperGems Earned",
-        value="+3",
-        inline=True
-    )
+    embed.add_field(name="📍 Suggested Channel", value=cat_info["channel"], inline=True)
+    embed.add_field(name="💎 HyperGems Earned", value="+3", inline=True)
 
     # Award HyperGems and update profile
     user_profile["hypergems"] += 3
@@ -390,23 +464,28 @@ async def hyperdump(ctx, *, brain_dump):
         "creative": "Try: `/quest creative` for inspiration boost!",
         "strategy": "Try: `/focus-timer 25` for deep work session!",
         "tech": "Try: `/tools` for helpful resources!",
-        "life": "Try: `/motivate` for neurodivergent power boost!"
+        "life": "Try: `/motivate` for neurodivergent power boost!",
     }
 
     embed.add_field(
         name="⚡ Quick Action",
         value=quick_actions.get(
-            detected_category, "Try: `/status` to check your energy!"),
-        inline=False
+            detected_category, "Try: `/status` to check your energy!"
+        ),
+        inline=False,
     )
 
     embed.set_footer(
-        text=f"Dumped by {ctx.author.display_name} | BROski X Hyperfocus System")
+        text=f"Dumped by {ctx.author.display_name} | BROski X Hyperfocus System"
+    )
 
     await ctx.send(embed=embed)
 
     # Log the brain dump
-    await log_discord_activity("brain_dump", ctx.author.name, f"Category: {detected_category}")
+    await log_discord_activity(
+        "brain_dump", ctx.author.name, f"Category: {detected_category}"
+    )
+
 
 # 🧩 5. Dopamine Quests™ – Mini Games + XP
 QUEST_TYPES = {
@@ -414,26 +493,26 @@ QUEST_TYPES = {
         "Make someone smile in a random channel",
         "Share a wholesome meme or GIF",
         "Give someone a genuine compliment",
-        "Share what you're grateful for today"
+        "Share what you're grateful for today",
     ],
     "creative": [
         "Describe your dream creative space in 3 emojis",
         "Share a photo of something purple nearby",
         "Write a haiku about your current mood",
-        "Draw your energy level as a simple doodle"
+        "Draw your energy level as a simple doodle",
     ],
     "focus": [
         "Share one tool that helped you focus today",
         "Set a 10-minute timer and organize one small area",
         "Write down 3 things you want to accomplish tomorrow",
-        "Share your current hyperfocus subject"
+        "Share your current hyperfocus subject",
     ],
     "chaos": [
         "Share the weirdest skill you have",
         "Describe your personality as a mythical creature",
         "Share what your ADHD superpower is",
-        "Tell us about a random thing that fascinated you recently"
-    ]
+        "Tell us about a random thing that fascinated you recently",
+    ],
 }
 
 
@@ -444,7 +523,9 @@ async def quest(ctx, quest_type: Optional[str] = None):
 
     if not quest_type:
         available_types = ", ".join(QUEST_TYPES.keys())
-        await ctx.send(f"🎯 **Quest Types Available:** {available_types}\nOr just use `/quest` for a random one!")
+        await ctx.send(
+            f"🎯 **Quest Types Available:** {available_types}\nOr just use `/quest` for a random one!"
+        )
         return
 
     # Get random quest
@@ -459,22 +540,22 @@ async def quest(ctx, quest_type: Optional[str] = None):
     embed = discord.Embed(
         title="🎯 Dopamine Quest Activated!",
         description=f"**Your Mission:** {quest}",
-        color=0xff6b35
+        color=0xFF6B35,
     )
 
     embed.add_field(name="🎮 Quest Type", value=quest_type.title(), inline=True)
-    embed.add_field(name="💎 Reward",
-                    value=f"{gem_reward} HyperGems", inline=True)
+    embed.add_field(name="💎 Reward", value=f"{gem_reward} HyperGems", inline=True)
     embed.add_field(name="⏰ Time Limit", value="No pressure!", inline=True)
 
     embed.add_field(
         name="📝 How to Complete",
         value="Just do the quest and react with ✅ when done!\nBROski will detect your awesome energy!",
-        inline=False
+        inline=False,
     )
 
     embed.set_footer(
-        text=f"Quest for {ctx.author.display_name} | Complete for HyperGems!")
+        text=f"Quest for {ctx.author.display_name} | Complete for HyperGems!"
+    )
 
     message = await ctx.send(embed=embed)
     await message.add_reaction("✅")
@@ -484,7 +565,7 @@ async def quest(ctx, quest_type: Optional[str] = None):
         "message_id": message.id,
         "quest": quest,
         "reward": gem_reward,
-        "type": quest_type
+        "type": quest_type,
     }
 
 
@@ -497,9 +578,11 @@ async def on_reaction_add(reaction, user):
     user_profile = init_user_profile(user.id)
 
     # Check if this is a quest completion
-    if ("active_quest" in user_profile and
-        reaction.message.id == user_profile["active_quest"]["message_id"] and
-            str(reaction.emoji) == "✅"):
+    if (
+        "active_quest" in user_profile
+        and reaction.message.id == user_profile["active_quest"]["message_id"]
+        and str(reaction.emoji) == "✅"
+    ):
 
         quest_info = user_profile["active_quest"]
 
@@ -513,22 +596,24 @@ async def on_reaction_add(reaction, user):
             try:
                 # Award BROski$ based on quest type
                 token_reward_map = {
-                    'social': 8,
-                    'creative': 10,
-                    'focus': 15,
-                    'chaos': 5
+                    "social": 8,
+                    "creative": 10,
+                    "focus": 15,
+                    "chaos": 5,
                 }
-                token_reward = token_reward_map.get(quest_info.get('type', 'social'), 8)
+                token_reward = token_reward_map.get(quest_info.get("type", "social"), 8)
 
                 token_result = token_engine.award_tokens(
                     str(user.id),
                     token_reward,
-                    f"Quest completion: {quest_info['quest'][:50]}..."
+                    f"Quest completion: {quest_info['quest'][:50]}...",
                 )
 
-                if token_result['status'] == 'success':
-                    quest_info['broski_tokens_earned'] = token_reward
-                    logger.info(f"Awarded {token_reward} BROski$ to {user.name} for quest completion")
+                if token_result["status"] == "success":
+                    quest_info["broski_tokens_earned"] = token_reward
+                    logger.info(
+                        f"Awarded {token_reward} BROski$ to {user.name} for quest completion"
+                    )
             except Exception as e:
                 logger.error(f"Failed to award BROski$ tokens: {e}")
 
@@ -539,20 +624,24 @@ async def on_reaction_add(reaction, user):
         completion_embed = discord.Embed(
             title="🏆 Quest Complete!",
             description=f"**Awesome work, {user.display_name}!**\nYour neurodivergent brain just earned some sweet rewards!",
-            color=0x4caf50
+            color=0x4CAF50,
         )
 
-        completion_embed.add_field(name="💎 HyperGems Earned", value=str(
-            quest_info["reward"]), inline=True)
         completion_embed.add_field(
-            name="⚡ Dopamine Boost", value="+10", inline=True)
-        completion_embed.add_field(name="🎯 Total Quests", value=str(
-            user_profile["quests_completed"]), inline=True)
+            name="💎 HyperGems Earned", value=str(quest_info["reward"]), inline=True
+        )
+        completion_embed.add_field(name="⚡ Dopamine Boost", value="+10", inline=True)
+        completion_embed.add_field(
+            name="🎯 Total Quests",
+            value=str(user_profile["quests_completed"]),
+            inline=True,
+        )
 
         await reaction.message.channel.send(embed=completion_embed)
 
         # Log quest completion
         logger.info(f"Quest completed by {user.name}: {quest_info['quest']}")
+
 
 # 🔐 6. Admin Overdrive Panel™ (Only for Server Admins)
 
@@ -566,13 +655,14 @@ async def broski_intel(ctx):
     guild = ctx.guild
     total_members = len(guild.members)
     online_members = len(
-        [m for m in guild.members if m.status != discord.Status.offline])
+        [m for m in guild.members if m.status != discord.Status.offline]
+    )
 
     # Analyze user profiles
     top_contributors = sorted(
-        [(uid, profile["hypergems"])
-         for uid, profile in user_profiles.items()],
-        key=lambda x: x[1], reverse=True
+        [(uid, profile["hypergems"]) for uid, profile in user_profiles.items()],
+        key=lambda x: x[1],
+        reverse=True,
     )[:3]
 
     # Channel activity analysis
@@ -589,15 +679,20 @@ async def broski_intel(ctx):
 
     # Sort channels by activity
     most_active_channels = sorted(
-        channel_activity.items(), key=lambda x: x[1], reverse=True)[:3]
+        channel_activity.items(), key=lambda x: x[1], reverse=True
+    )[:3]
 
     # Mood analysis
     recent_moods = []
     for profile in user_profiles.values():
-        recent_moods.extend([
-            m for m in profile.get("mood_history", [])
-            if datetime.fromisoformat(m["timestamp"]) > datetime.now() - timedelta(hours=6)
-        ])
+        recent_moods.extend(
+            [
+                m
+                for m in profile.get("mood_history", [])
+                if datetime.fromisoformat(m["timestamp"])
+                > datetime.now() - timedelta(hours=6)
+            ]
+        )
 
     mood_counts = {}
     for mood_entry in recent_moods:
@@ -608,42 +703,45 @@ async def broski_intel(ctx):
     embed = discord.Embed(
         title="📊 HYPERFOCUS ZONE LIVE STATUS",
         description="*Admin Intelligence Dashboard - BROski X Ultra*",
-        color=0x9c27b0
+        color=0x9C27B0,
     )
 
     embed.add_field(
         name="👥 Community Health",
         value=f"**Total Members:** {total_members}\n**Online Now:** {online_members}\n**Activity Rate:** {int((online_members/total_members)*100)}%",
-        inline=True
+        inline=True,
     )
 
     if top_contributors:
-        contributor_text = "\n".join([
-            f"{i+1}. <@{uid}> ({gems} 💎)"
-            for i, (uid, gems) in enumerate(top_contributors)
-        ])
-        embed.add_field(name="💎 Top Contributors",
-                        value=contributor_text, inline=True)
+        contributor_text = "\n".join(
+            [
+                f"{i+1}. <@{uid}> ({gems} 💎)"
+                for i, (uid, gems) in enumerate(top_contributors)
+            ]
+        )
+        embed.add_field(name="💎 Top Contributors", value=contributor_text, inline=True)
 
     if most_active_channels:
-        channel_text = "\n".join([
-            f"#{name}: {count} msgs"
-            for name, count in most_active_channels
-        ])
-        embed.add_field(name="🔥 Most Active Channels",
-                        value=channel_text, inline=True)
+        channel_text = "\n".join(
+            [f"#{name}: {count} msgs" for name, count in most_active_channels]
+        )
+        embed.add_field(name="🔥 Most Active Channels", value=channel_text, inline=True)
 
     if mood_counts:
-        mood_text = "\n".join([
-            f"{mood.title()}: {count}"
-            for mood, count in sorted(mood_counts.items(), key=lambda x: x[1], reverse=True)
-        ])
-        embed.add_field(name="🧠 Community Mood (6h)",
-                        value=mood_text, inline=True)
+        mood_text = "\n".join(
+            [
+                f"{mood.title()}: {count}"
+                for mood, count in sorted(
+                    mood_counts.items(), key=lambda x: x[1], reverse=True
+                )
+            ]
+        )
+        embed.add_field(name="🧠 Community Mood (6h)", value=mood_text, inline=True)
 
     # Energy recommendations
-    total_dopamine = sum(profile.get("dopamine", 75)
-                         for profile in user_profiles.values())
+    total_dopamine = sum(
+        profile.get("dopamine", 75) for profile in user_profiles.values()
+    )
     avg_dopamine = total_dopamine / len(user_profiles) if user_profiles else 75
 
     if avg_dopamine < 50:
@@ -658,13 +756,15 @@ async def broski_intel(ctx):
     embed.add_field(
         name="⚡ Quick Commands",
         value="`/community-boost` | `/focus-event` | `/meme-blast` | `/energy-check`",
-        inline=False
+        inline=False,
     )
 
     embed.set_footer(
-        text=f"Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} | BROski X Admin Panel")
+        text=f"Generated at {datetime.now().strftime('%Y-%m-%d %H:%M')} | BROski X Admin Panel"
+    )
 
     await ctx.send(embed=embed)
+
 
 # 🏓 Enhanced ping with empire stats
 
@@ -673,22 +773,25 @@ async def broski_intel(ctx):
 async def ping(ctx):
     try:
         # Get empire status from dashboard
-        response = requests.get(
-            f"{DASHBOARD_URL}/api/empire-status", timeout=5)
+        response = requests.get(f"{DASHBOARD_URL}/api/empire-status", timeout=5)
         if response.status_code == 200:
             data = response.json()
             embed = discord.Embed(
                 title="🏓 ChaosGenius Engine Status",
                 description=f"🏰 Empire Health: {data.get('empire_health', 'Unknown')}",
-                color=0x00ff00
+                color=0x00FF00,
             )
-            embed.add_field(name="🤖 Bot Latency",
-                            value=f"{round(bot.latency * 1000)}ms", inline=True)
+            embed.add_field(
+                name="🤖 Bot Latency",
+                value=f"{round(bot.latency * 1000)}ms",
+                inline=True,
+            )
             await ctx.send(embed=embed)
         else:
             await ctx.send("🏓 Pong! (Dashboard offline)")
     except:
         await ctx.send("🏓 Pong! (Empire status unavailable)")
+
 
 # 🛡️ Rate limiting decorator
 user_cooldowns = {}
@@ -703,13 +806,18 @@ def rate_limit(seconds):
             if user_id in user_cooldowns:
                 time_diff = (now - user_cooldowns[user_id]).seconds
                 if time_diff < seconds:
-                    await ctx.send(f"⏱️ Please wait {seconds - time_diff} seconds before using this command again.")
+                    await ctx.send(
+                        f"⏱️ Please wait {seconds - time_diff} seconds before using this command again."
+                    )
                     return
 
             user_cooldowns[user_id] = now
             return await func(ctx, *args, **kwargs)
+
         return wrapper
+
     return decorator
+
 
 # 🔥 Ultra Mode - Launch AI Squad
 
@@ -725,14 +833,16 @@ async def ultra(ctx, squad_type: str = "business_creator"):
         script_map = {
             "business_creator": "Setup & Deploy/setup1",
             "advanced_analyzer": "Setup & Deploy/setup2",
-            "ultra_mode": "Setup & Deploy/Ultra Mode upgades"
+            "ultra_mode": "Setup & Deploy/Ultra Mode upgades",
         }
 
         script_path = script_map.get(squad_type, "Setup & Deploy/setup1")
 
         # Check if script exists before running
         if not os.path.exists(script_path):
-            await ctx.send(f"⚠️ Script not found: {script_path}\nRunning simulated AI Squad instead...")
+            await ctx.send(
+                f"⚠️ Script not found: {script_path}\nRunning simulated AI Squad instead..."
+            )
             # Simulate AI Squad execution
             await simulate_ai_squad(ctx, squad_type)
             return
@@ -741,25 +851,30 @@ async def ultra(ctx, squad_type: str = "business_creator"):
         payload = {
             "type": squad_type,
             "energy_level": "high",
-            "focus": "discord_triggered"
+            "focus": "discord_triggered",
         }
         response = requests.post(
-            f"{DASHBOARD_URL}/api/launch-ai-squad", json=payload, timeout=10)
+            f"{DASHBOARD_URL}/api/launch-ai-squad", json=payload, timeout=10
+        )
 
         if response.status_code == 200:
             data = response.json()
             embed = discord.Embed(
                 title="🤖 AI Squad Deployed!",
-                description=data.get('message', 'Squad launched successfully'),
-                color=0xff6b35
+                description=data.get("message", "Squad launched successfully"),
+                color=0xFF6B35,
             )
-            embed.add_field(name="🧠 Energy Boost", value=data.get(
-                'energy_boost', ''), inline=False)
-            embed.add_field(name="⏱️ ETA", value=data.get(
-                'estimated_completion', ''), inline=True)
+            embed.add_field(
+                name="🧠 Energy Boost", value=data.get("energy_boost", ""), inline=False
+            )
+            embed.add_field(
+                name="⏱️ ETA", value=data.get("estimated_completion", ""), inline=True
+            )
             await ctx.send(embed=embed)
             # Log successful deployment
-            await log_discord_activity(f"ultra_mode_{squad_type}", ctx.author.name, "AI Squad deployed")
+            await log_discord_activity(
+                f"ultra_mode_{squad_type}", ctx.author.name, "AI Squad deployed"
+            )
         else:
             await ctx.send("❌ AI Squad deployment failed. Check dashboard status.")
     except Exception as e:
@@ -783,8 +898,8 @@ async def simulate_ai_squad(ctx, squad_type):
                 ("🎭 Brand Agent", "Identity matrix: STRENGTHENED", True),
                 ("🧲 Audience Agent", "Community targeting: LOCKED", True),
                 ("💬 Pitch Agent", "Narrative power: AMPLIFIED", True),
-                ("💼 Structure Agent", "Growth framework: ESTABLISHED", True)
-            ]
+                ("💼 Structure Agent", "Growth framework: ESTABLISHED", True),
+            ],
         },
         "advanced_analyzer": {
             "title": "🔍 Advanced Analyzer Squad Active!",
@@ -793,8 +908,8 @@ async def simulate_ai_squad(ctx, squad_type):
                 ("🛠️ Code Analyzer", "Optimization opportunities: FOUND", True),
                 ("📊 Performance Scout", "Bottlenecks: IDENTIFIED", True),
                 ("🔒 Security Auditor", "Vulnerabilities: PATCHED", True),
-                ("📈 Growth Predictor", "Scaling paths: MAPPED", True)
-            ]
+                ("📈 Growth Predictor", "Scaling paths: MAPPED", True),
+            ],
         },
         "ultra_mode": {
             "title": "⚡ ULTRA MODE ENGAGED!",
@@ -803,32 +918,36 @@ async def simulate_ai_squad(ctx, squad_type):
                 ("🧠 Hyperfocus Engine", "Peak performance: ACHIEVED", True),
                 ("🚀 Quantum Accelerator", "Time dilation: ACTIVE", True),
                 ("💎 Chaos Converter", "Disorder → Order: COMPLETE", True),
-                ("🌟 Empire Builder", "Dominance mode: ENGAGED", True)
-            ]
-        }
+                ("🌟 Empire Builder", "Dominance mode: ENGAGED", True),
+            ],
+        },
     }
 
-    squad_config = squad_responses.get(
-        squad_type, squad_responses["business_creator"])
+    squad_config = squad_responses.get(squad_type, squad_responses["business_creator"])
 
     embed = discord.Embed(
         title=squad_config["title"],
         description=squad_config["description"],
-        color=0x9c27b0
+        color=0x9C27B0,
     )
 
     for field_name, field_value, inline in squad_config["fields"]:
         embed.add_field(name=field_name, value=field_value, inline=inline)
 
     embed.add_field(
-        name="🎯 Status", value="Neural simulation complete! Ready for real deployment.", inline=False)
-    embed.set_footer(
-        text="ChaosGenius AI Squad - Neurodivergent Excellence Engine")
+        name="🎯 Status",
+        value="Neural simulation complete! Ready for real deployment.",
+        inline=False,
+    )
+    embed.set_footer(text="ChaosGenius AI Squad - Neurodivergent Excellence Engine")
 
     await ctx.send(embed=embed)
 
     # Log simulated deployment
-    await log_discord_activity(f"simulated_{squad_type}", ctx.author.name, "AI Squad simulation completed")
+    await log_discord_activity(
+        f"simulated_{squad_type}", ctx.author.name, "AI Squad simulation completed"
+    )
+
 
 # 🛠️ Create Product - Direct integration with logging
 
@@ -842,26 +961,33 @@ async def create(ctx, *, product_idea):
             "name": product_idea[:50],  # Truncate for filename
             "description": product_idea,
             "energy_level": "high",
-            "source": f"Discord - {ctx.author.name}"
+            "source": f"Discord - {ctx.author.name}",
         }
         response = requests.post(
-            f"{DASHBOARD_URL}/api/create-product", json=payload, timeout=5)
+            f"{DASHBOARD_URL}/api/create-product", json=payload, timeout=5
+        )
 
         if response.status_code == 200:
             data = response.json()
             embed = discord.Embed(
                 title="🎉 Product Idea Captured!",
                 description=f"**Idea:** {product_idea}",
-                color=0x4caf50
+                color=0x4CAF50,
             )
-            embed.add_field(name="📁 Saved to", value=data.get(
-                'file', 'Production assets'), inline=False)
-            embed.add_field(name="⏰ Timestamp", value=data.get(
-                'timestamp', ''), inline=True)
+            embed.add_field(
+                name="📁 Saved to",
+                value=data.get("file", "Production assets"),
+                inline=False,
+            )
+            embed.add_field(
+                name="⏰ Timestamp", value=data.get("timestamp", ""), inline=True
+            )
             embed.set_footer(text=f"Created by {ctx.author.name}")
             await ctx.send(embed=embed)
             # Log product creation
-            await log_discord_activity("product_created", ctx.author.name, product_idea[:100])
+            await log_discord_activity(
+                "product_created", ctx.author.name, product_idea[:100]
+            )
         else:
             await ctx.send("❌ Failed to save product idea. Dashboard may be offline.")
     except Exception as e:
@@ -878,14 +1004,13 @@ async def create_product_locally(ctx, product_idea):
         products_dir.mkdir(parents=True, exist_ok=True)
 
         # Generate timestamp for unique filename
-        now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        now = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         product_file = products_dir / f"discord_product_{now}.txt"
 
         # Create product file with initial content
-        with open(product_file, 'w', encoding='utf-8') as f:
+        with open(product_file, "w", encoding="utf-8") as f:
             f.write(f"Product: {product_idea}\n")
-            f.write(
-                f"Created: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"Created: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Source: Discord - {ctx.author.name}\n")
             f.write(f"Channel: {ctx.channel.name}\n\n")
             f.write("--- DEVELOPMENT NOTES ---\n")
@@ -894,11 +1019,14 @@ async def create_product_locally(ctx, product_idea):
         embed = discord.Embed(
             title="💾 Product Saved Locally!",
             description=f"**Idea:** {product_idea}",
-            color=0x4caf50
+            color=0x4CAF50,
         )
         embed.add_field(name="📁 File", value=str(product_file), inline=False)
         embed.add_field(
-            name="🔄 Status", value="Saved locally - will sync when dashboard is available", inline=False)
+            name="🔄 Status",
+            value="Saved locally - will sync when dashboard is available",
+            inline=False,
+        )
         await ctx.send(embed=embed)
 
         logger.info(f"Product saved locally: {product_file}")
@@ -907,6 +1035,67 @@ async def create_product_locally(ctx, product_idea):
         logger.error(f"Local product creation failed: {e}")
         await ctx.send(f"❌ Could not save product: {str(e)}")
 
+
+# 🚀 LAUNCH DAY SPECIAL FEATURES FOR BROSKI
+LAUNCH_DAY_COMMANDS = {
+    "!launch": "🚀 HYPERFOCUS ZONE IS LIVE! Visit hyperfocuszone.com",
+    "!founder": "🏆 Claim your Launch Day Founder badge! First 100 get lifetime status!",
+    "!energy": "⚡ Current community energy level: MAXIMUM HYPE! 🔥",
+    "!empire": "🧠 Ready to build your neurodivergent business empire?",
+    "!chaos": "💜 Your chaos is your competitive advantage!",
+    "!hyperfocus": "🎯 Activate maximum productivity mode!",
+    "!woop": "🎉 WOOP WOOP! THE REVOLUTION IS HERE! 🎉",
+    "!live": "🌐 hyperfocuszone.com is LIVE and serving the world!",
+    "!xp": "🎮 Launch week = DOUBLE XP for everything! Level up faster!",
+    "!adhd": "🧠 Finally, tools built FOR ADHD brains BY ADHD brains!",
+}
+
+LAUNCH_DAY_ACHIEVEMENTS = [
+    "🚀 Launch Day Hero - Visited hyperfocuszone.com on day 1",
+    "🏆 Founder Status - One of the first 100 community members",
+    "🧠 Chaos Master - Completed first hyperfocus session",
+    "💜 Empire Builder - Connected first business integration",
+    "🎮 Dopamine Hunter - Earned 100 XP on launch day",
+    "🔥 Energy Optimizer - Used adaptive UI for first time",
+    "🌐 World Changer - Shared launch announcement",
+    "💎 Early Adopter - Signed up within first hour",
+    "🎯 Hyperfocus Pioneer - Activated ultra mode",
+    "👑 Community Champion - Helped onboard 5 new users",
+]
+
+LAUNCH_WEEK_REWARDS = {
+    "double_xp": True,
+    "exclusive_badge": "Launch Hero 2025",
+    "founder_status": "First 100 users get lifetime founder perks",
+    "premium_unlock": "All premium features free during launch week",
+    "special_role": "🚀 Launch Week Legend",
+    "bonus_features": ["Advanced analytics", "Priority support", "Beta access"],
+}
+
+# 🎉 Auto-celebration messages for launch day
+CELEBRATION_TRIGGERS = [
+    {
+        "trigger": "joined hyperfocus",
+        "response": "🎉 WELCOME TO THE EMPIRE! You're now part of history!",
+    },
+    {
+        "trigger": "first login",
+        "response": "🏆 FOUNDER STATUS UNLOCKED! You're building the future!",
+    },
+    {
+        "trigger": "connected etsy",
+        "response": "💜 BUSINESS INTEGRATION COMPLETE! Your empire grows!",
+    },
+    {
+        "trigger": "earned xp",
+        "response": "🎮 LEVEL UP! Double XP is active - keep going!",
+    },
+    {
+        "trigger": "shared launch",
+        "response": "🌍 WORLD CHANGER! Spreading the revolution!",
+    },
+]
+
 # 📝 Activity Logging Function (MISSING - CRITICAL FIX)
 
 
@@ -914,12 +1103,15 @@ async def log_discord_activity(action: str, user: str, details: str = ""):
     """Log Discord bot activity to database and files"""
     try:
         # Log to database
-        conn = sqlite3.connect('chaosgenius.db')
+        conn = sqlite3.connect("chaosgenius.db")
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute(
+            """
             INSERT INTO activity_log (action, type, details)
             VALUES (?, ?, ?)
-        ''', (f"Discord: {action}", "discord_bot", f"User: {user} | {details}"))
+        """,
+            (f"Discord: {action}", "discord_bot", f"User: {user} | {details}"),
+        )
         conn.commit()
         conn.close()
 
@@ -927,17 +1119,17 @@ async def log_discord_activity(action: str, user: str, details: str = ""):
         log_dir = Path("logs/discord_bot")
         log_dir.mkdir(parents=True, exist_ok=True)
 
-        log_file = log_dir / \
-            f"discord_activity_{datetime.now().strftime('%Y%m%d')}.log"
+        log_file = log_dir / f"discord_activity_{datetime.now().strftime('%Y%m%d')}.log"
 
         with open(log_file, "a", encoding="utf-8") as f:
-            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             f.write(f"[{timestamp}] {action} | User: {user} | {details}\n")
 
         logger.info(f"Discord activity logged: {action} by {user}")
 
     except Exception as e:
         logger.error(f"Failed to log Discord activity: {e}")
+
 
 # 🧠 Initialize BROski AI Core
 broski_ai = BROskiCore()
@@ -951,32 +1143,34 @@ else:
     token_engine = None
     logger.warning("⚠️ Token Economy running in simulation mode")
 
+
 # Add after the bot initialization
 @bot.event
 async def on_ready():
-    print(f'\n🚀 {bot.user} has landed in the ClanVerse!')
-    print(f'🔗 Connected to {len(bot.guilds)} server(s)')
-    print(f'🧠 BROski AI Intelligence: {broski_ai.system_intelligence}%')
-    print(f'🎯 ClanVerse Ultra Mode: ACTIVATED')
+    print(f"\n🚀 {bot.user} has landed in the ClanVerse!")
+    print(f"🔗 Connected to {len(bot.guilds)} server(s)")
+    print(f"🧠 BROski AI Intelligence: {broski_ai.system_intelligence}%")
+    print(f"🎯 ClanVerse Ultra Mode: ACTIVATED")
 
     # 🪙 Load BROski$ Token Commands
     if TOKENS_AVAILABLE and token_engine:
         try:
             await bot.add_cog(BROskiTokenCommands(bot, token_engine))
-            print(f'🪙 BROski$ Token Economy Commands: LOADED')
+            print(f"🪙 BROski$ Token Economy Commands: LOADED")
         except Exception as e:
             logger.error(f"Failed to load token commands: {e}")
-            print(f'⚠️ Token commands failed to load, running without tokens')
+            print(f"⚠️ Token commands failed to load, running without tokens")
 
     # Set BROski status
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="the ClanVerse 🧠💰 | !broski for AI help | !wallet for tokens"
+        name="the ClanVerse 🧠💰 | !broski for AI help | !wallet for tokens",
     )
     await bot.change_presence(activity=activity)
 
+
 # 🧠 BROski AI Chat Command
-@bot.command(name='broski', aliases=['ai', 'help', 'chat'])
+@bot.command(name="broski", aliases=["ai", "chat"])
 async def broski_chat(ctx, *, message: str = None):
     """🧠 Chat with BROski AI - Your neurodivergent productivity companion"""
 
@@ -984,22 +1178,22 @@ async def broski_chat(ctx, *, message: str = None):
         embed = discord.Embed(
             title="🧠 BROski ClanVerse Ultra AI",
             description="Your neurodivergent productivity companion is here!",
-            color=0x00ff88
+            color=0x00FF88,
         )
         embed.add_field(
             name="💬 How to Chat",
             value="`!broski [your message]`\nExample: `!broski I'm feeling overwhelmed with my tasks`",
-            inline=False
+            inline=False,
         )
         embed.add_field(
             name="🎯 What I Can Help With",
             value="• ADHD-friendly productivity tips\n• Mood analysis & support\n• Hyperfocus session guidance\n• Personalized motivation\n• Task organization strategies",
-            inline=False
+            inline=False,
         )
         embed.add_field(
             name="🚀 System Status",
             value=f"Intelligence: {broski_ai.system_intelligence}%\nStatus: FULLY OPERATIONAL",
-            inline=False
+            inline=False,
         )
         await ctx.send(embed=embed)
         return
@@ -1009,37 +1203,37 @@ async def broski_chat(ctx, *, message: str = None):
         async with ctx.typing():
             # Build context for BROski
             context = {
-                'platform': 'discord',
-                'server_name': ctx.guild.name if ctx.guild else 'DM',
-                'channel_name': ctx.channel.name if hasattr(ctx.channel, 'name') else 'direct',
-                'interaction_type': 'discord_command'
+                "platform": "discord",
+                "server_name": ctx.guild.name if ctx.guild else "DM",
+                "channel_name": (
+                    ctx.channel.name if hasattr(ctx.channel, "name") else "direct"
+                ),
+                "interaction_type": "discord_command",
             }
 
             # Process with BROski AI
             response = await broski_ai.process_user_interaction(
-                str(ctx.author.id),
-                message,
-                context
+                str(ctx.author.id), message, context
             )
 
             # Create rich embed response
             embed = discord.Embed(
                 title=f"🧠 BROski {response.style.replace('_', ' ').title()}",
                 description=response.message,
-                color=0x00ff88,
-                timestamp=datetime.now()
+                color=0x00FF88,
+                timestamp=datetime.now(),
             )
 
             # Add mood and energy info
             embed.add_field(
                 name="🎭 Detected Mood",
                 value=f"{response.mood_detected.title()} (Confidence: {response.confidence:.1%})",
-                inline=True
+                inline=True,
             )
             embed.add_field(
                 name="⚡ Energy Level",
                 value=f"{response.energy_level}/100",
-                inline=True
+                inline=True,
             )
 
             # Add motivation boost if available
@@ -1047,7 +1241,7 @@ async def broski_chat(ctx, *, message: str = None):
                 embed.add_field(
                     name="💪 Motivation Boost",
                     value=response.motivation_boost,
-                    inline=False
+                    inline=False,
                 )
 
             # Add top recommendation
@@ -1055,10 +1249,12 @@ async def broski_chat(ctx, *, message: str = None):
                 embed.add_field(
                     name="💡 BROski's Recommendation",
                     value=response.recommendations[0],
-                    inline=False
+                    inline=False,
                 )
 
-            embed.set_footer(text=f"BROski ClanVerse Ultra • Learning from every interaction")
+            embed.set_footer(
+                text=f"BROski ClanVerse Ultra • Learning from every interaction"
+            )
 
             await ctx.send(embed=embed)
 
@@ -1067,13 +1263,16 @@ async def broski_chat(ctx, *, message: str = None):
         embed = discord.Embed(
             title="🔧 BROski Brain Glitch",
             description="I'm having a quick moment, but I'm still here for you! Try again in a sec.",
-            color=0xff9900
+            color=0xFF9900,
         )
         await ctx.send(embed=embed)
 
+
 # 🔥 Hyperfocus Session Support
-@bot.command(name='hyperfocus', aliases=['focus', 'zone'])
-async def hyperfocus_session(ctx, duration: int = 25, *, task_description: str = "focus session"):
+@bot.command(name="hyperfocus", aliases=["focus", "zone"])
+async def hyperfocus_session(
+    ctx, duration: int = 25, *, task_description: str = "focus session"
+):
     """🔥 Start a hyperfocus session with BROski support"""
 
     try:
@@ -1081,63 +1280,58 @@ async def hyperfocus_session(ctx, duration: int = 25, *, task_description: str =
 
         # Get session support from BROski
         session_data = {
-            'duration_minutes': duration,
-            'task_type': task_description,
-            'user_id': user_id
+            "duration_minutes": duration,
+            "task_type": task_description,
+            "user_id": user_id,
         }
 
         support = await broski_ai.get_hyperfocus_session_support(user_id, session_data)
 
         embed = discord.Embed(
             title="🔥 HYPERFOCUS SESSION ACTIVATED",
-            description=support['motivation_message'],
-            color=0xff6600,
-            timestamp=datetime.now()
+            description=support["motivation_message"],
+            color=0xFF6600,
+            timestamp=datetime.now(),
         )
 
-        embed.add_field(
-            name="⏰ Duration",
-            value=f"{duration} minutes",
-            inline=True
-        )
-        embed.add_field(
-            name="🎯 Task",
-            value=task_description,
-            inline=True
-        )
+        embed.add_field(name="⏰ Duration", value=f"{duration} minutes", inline=True)
+        embed.add_field(name="🎯 Task", value=task_description, inline=True)
         embed.add_field(
             name="🧠 Session Type",
-            value=support['session_type'].replace('_', ' ').title(),
-            inline=True
+            value=support["session_type"].replace("_", " ").title(),
+            inline=True,
         )
 
-        if support['recommendations']:
+        if support["recommendations"]:
             embed.add_field(
                 name="💡 BROski's Session Tips",
-                value="\n".join(f"• {tip}" for tip in support['recommendations'][:3]),
-                inline=False
+                value="\n".join(f"• {tip}" for tip in support["recommendations"][:3]),
+                inline=False,
             )
 
-        if support.get('hyperfocus_phrase'):
+        if support.get("hyperfocus_phrase"):
             embed.add_field(
                 name="🚀 Hyperfocus Activation",
-                value=support['hyperfocus_phrase'],
-                inline=False
+                value=support["hyperfocus_phrase"],
+                inline=False,
             )
 
         embed.set_footer(text="React with ✅ when you complete your session!")
 
         message = await ctx.send(embed=embed)
-        await message.add_reaction('✅')
-        await message.add_reaction('⏸️')
-        await message.add_reaction('🔥')
+        await message.add_reaction("✅")
+        await message.add_reaction("⏸️")
+        await message.add_reaction("🔥")
 
     except Exception as e:
         logger.error(f"Error in hyperfocus command: {e}")
-        await ctx.send("🔧 BROski's hyperfocus system is recalibrating! Try again in a moment.")
+        await ctx.send(
+            "🔧 BROski's hyperfocus system is recalibrating! Try again in a moment."
+        )
+
 
 # 📊 BROski System Status
-@bot.command(name='broski_status', aliases=['ai_status', 'system'])
+@bot.command(name="broski_status", aliases=["ai_status", "system"])
 async def broski_system_status(ctx):
     """📊 Check BROski AI system status and intelligence"""
 
@@ -1147,40 +1341,42 @@ async def broski_system_status(ctx):
         embed = discord.Embed(
             title="🧠 BROski ClanVerse Ultra - System Status",
             description=f"**{status['status']}** • Intelligence: {status['system_intelligence']}%",
-            color=0x00ff88,
-            timestamp=datetime.now()
+            color=0x00FF88,
+            timestamp=datetime.now(),
         )
 
         embed.add_field(
             name="🤖 AI Modules",
             value=f"✅ Motivation Engine\n✅ Mood Detector\n✅ Learning System\n✅ Communication Style",
-            inline=True
+            inline=True,
         )
 
         embed.add_field(
             name="📊 Activity Stats",
             value=f"Active Users: {status['active_users']}\nConversations: {status['total_conversations']}",
-            inline=True
+            inline=True,
         )
 
-        if 'learning_stats' in status:
-            learning = status['learning_stats']
+        if "learning_stats" in status:
+            learning = status["learning_stats"]
             embed.add_field(
                 name="🎓 Learning Progress",
                 value=f"System Maturity: {learning.get('system_maturity', 'Learning')}\nInteractions Learned: {learning.get('total_interactions_learned', 0)}",
-                inline=True
+                inline=True,
             )
 
         embed.add_field(
-            name="🎯 Mission",
-            value=status['personality_core']['mission'],
-            inline=False
+            name="🎯 Mission", value=status["personality_core"]["mission"], inline=False
         )
 
-        embed.set_footer(text=f"BROski {status['version']} • Neurodivergent Excellence Engine")
+        embed.set_footer(
+            text=f"BROski {status['version']} • Neurodivergent Excellence Engine"
+        )
 
         await ctx.send(embed=embed)
 
     except Exception as e:
         logger.error(f"Error getting BROski status: {e}")
-        await ctx.send("🔧 BROski status check is experiencing a glitch! System still operational though!")
+        await ctx.send(
+            "🔧 BROski status check is experiencing a glitch! System still operational though!"
+        )

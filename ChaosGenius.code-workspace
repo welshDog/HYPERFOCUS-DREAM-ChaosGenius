@@ -23,9 +23,10 @@
         },
         "github.copilot.enable": {
             "*": true,
-            "yaml": true,
             "plaintext": true,
-            "markdown": true
+            "markdown": true,
+            "scminput": false,
+            "yaml": true
         },
         "workbench.colorTheme": "GitHub Dark",
         "workbench.iconTheme": "material-icon-theme",

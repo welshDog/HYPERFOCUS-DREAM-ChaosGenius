@@ -1,0 +1,2 @@
+Flask==2.3.2
+Flask-Caching==2.0.2
