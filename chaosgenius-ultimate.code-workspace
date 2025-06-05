@@ -1,0 +1,117 @@
+{
+    "folders": [
+        {
+            "name": "🧠 ChaosGenius Root",
+            "path": "."
+        },
+        {
+            "name": "🤖 AI Modules",
+            "path": "./ai_modules"
+        },
+        {
+            "name": "📊 Business Data",
+            "path": "./Business Data"
+        },
+        {
+            "name": "🚀 Production Assets",
+            "path": "./production_assets"
+        },
+        {
+            "name": "🛠️ Setup & Deploy",
+            "path": "./Setup & Deploy"
+        },
+        {
+            "name": "🧪 Tests",
+            "path": "./tests"
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "./project_env/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "workbench.colorTheme": "Dark+ (default dark)",
+        "editor.fontSize": 14,
+        "editor.lineHeight": 1.6,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "explorer.sortOrder": "type",
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.patterns": {
+            "*.py": "*.pyc,*_test.py,*_tests.py",
+            "*.html": "*.css,*.js",
+            "requirements.txt": "requirements*.txt,pyproject.toml",
+            "README.md": "README*.md,CHANGELOG.md,LICENSE"
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-python.python",
+            "ms-python.black-formatter",
+            "ms-python.pylint",
+            "ms-python.isort",
+            "ms-vscode.live-server",
+            "bradlc.vscode-tailwindcss",
+            "ms-vscode.vscode-typescript-next"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "🚀 Launch ChaosGenius Dashboard",
+                "type": "shell",
+                "command": "${workspaceFolder}/project_env/bin/python",
+                "args": ["dashboard_api.py"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "new"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "🤖 Launch BROski Discord Bot",
+                "type": "shell",
+                "command": "${workspaceFolder}/project_env/bin/python",
+                "args": ["chaosgenius_discord_bot.py"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "new"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "🧪 Run Test Suite",
+                "type": "shell",
+                "command": "${workspaceFolder}/project_env/bin/python",
+                "args": ["-m", "pytest", "tests/", "-v"],
+                "group": "test",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": true,
+                    "panel": "new"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "📊 Health Check",
+                "type": "shell",
+                "command": "${workspaceFolder}/project_env/bin/python",
+                "args": ["health_check.py"],
+                "group": "test",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": true,
+                    "panel": "new"
+                },
+                "problemMatcher": []
+            }
+        ]
+    }
+}

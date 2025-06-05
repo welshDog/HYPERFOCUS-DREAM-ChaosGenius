@@ -1,6 +1,7 @@
 # ChaosGenius Engine
 ## AI-Powered Neurodivergent Business Creation Ecosystem
 
+<<<<<<< Updated upstream
 *Generated on: 2025-05-30T06:21:51.021968*
 
 ## 🎯 Project Components
@@ -109,6 +110,95 @@
 - **phase3_manager.py**: Python module: phase3_manager
 - **PROJECT_IMPACT_REPORT.md**: Documentation: PROJECT_IMPACT_REPORT
 - **COMPREHENSIVE_TECHNICAL_REVIEW.md**: Documentation: COMPREHENSIVE_TECHNICAL_REVIEW
+=======
+*Generated on: 2025-06-04T23:51:53.950895*
+
+## 🎯 Project Components
+
+- **tests**: Component: tests
+- **assets**: Component: assets
+- **generated_docs**: Component: generated_docs
+- **hboard_api.py**: Python module: hboard_api
+- **DISCUSSION.md**: Documentation: DISCUSSION
+- **optimization_backups**: Component: optimization_backups
+- **venv**: Component: venv
+- **frontend**: Component: frontend
+- **uploads**: Component: uploads
+- **hyperfocus_project_analysis_20250604_182655.json**: Configuration: hyperfocus_project_analysis_20250604_182655
+- **Ultra IPFS**: Advanced IPFS integration for Web3 features
+- **ultimate_health_report.json**: Configuration: ultimate_health_report
+- **logs**: Component: logs
+- **docs**: Component: docs
+- **temp**: Component: temp
+- **Tools & Utilities**: Component: Tools & Utilities
+- **SYSTEM_INTELLIGENCE_REPORT.md**: Documentation: SYSTEM_INTELLIGENCE_REPORT
+- **Setup & Deploy**: Component: Setup & Deploy
+- **gesture_controls**: Component: gesture_controls
+- **etsy-dashboard.html**: File: etsy-dashboard.html
+- **COMPLETE_USER_GUIDE.md**: Documentation: COMPLETE_USER_GUIDE
+- **project_env**: Component: project_env
+- **social_media_feeds.py**: Python module: social_media_feeds
+- **DEVELOPMENT_SETUP_GUIDE.md**: Documentation: DEVELOPMENT_SETUP_GUIDE
+- **archives**: Component: archives
+- **chaos_test_suite.py**: Python module: chaos_test_suite
+- **HYPERFOCUS_ZONE_ULTRA_MODE**: Component: HYPERFOCUS_ZONE_ULTRA_MODE
+- **ai_modules**: Component: ai_modules
+- **user_portal.html**: File: user_portal.html
+- **The Zone**: Core Hyperfocus Zone implementation
+- **Ui Upgrade**: Component: Ui Upgrade
+- **Marketing Content**: Component: Marketing Content
+- **src**: Component: src
+- **production_assets**: Component: production_assets
+- **tiktok_shop_dashboard.html**: File: tiktok_shop_dashboard.html
+- **cleanup_backups**: Component: cleanup_backups
+- **Scripts & Prompts**: Component: Scripts & Prompts
+- **scripts**: Component: scripts
+- **project_zipper.py**: Python module: project_zipper
+- **health_report.json**: Configuration: health_report
+- **voice_commands**: Component: voice_commands
+- **README.md**: Main project documentation
+- **dashboard_api.py**: Python module: dashboard_api
+- **production_manager.py**: Python module: production_manager
+- **health_check.py**: Python module: health_check
+- **archived_logs**: Component: archived_logs
+- **testing_roadmap_complete.py**: Python module: testing_roadmap_complete
+- **PRE_LAUNCH_CHECKLIST.md**: Documentation: PRE_LAUNCH_CHECKLIST
+- **hyperfocus_live_monitor.py**: Python module: hyperfocus_live_monitor
+- **folder_optimizer.py**: Python module: folder_optimizer
+- **static**: Component: static
+- **project_cleanup_organizer.py**: Python module: project_cleanup_organizer
+- **chaosgenius_system_optimizer.py**: Python module: chaosgenius_system_optimizer
+- **pre_launch_audit_report.json**: Configuration: pre_launch_audit_report
+- **Business Data**: Component: Business Data
+- **project_health_monitor.py**: Python module: project_health_monitor
+- **startup_manager.py**: Python module: startup_manager
+- **dashboard.html**: File: dashboard.html
+- **start.py**: Python module: start
+- **LAUNCH_ANNOUNCEMENTS.md**: Documentation: LAUNCH_ANNOUNCEMENTS
+- **deploy**: Component: deploy
+- **business_blueprint_20250525_112142.json**: Configuration: business_blueprint_20250525_112142
+- **hyperfocus_project_analysis_20250604_183739.json**: Configuration: hyperfocus_project_analysis_20250604_183739
+- **Welcome & Onboarding**: Component: Welcome & Onboarding
+- **advanced_project_optimizer.py**: Python module: advanced_project_optimizer
+- **chaosgenius_discord_bot.py**: Python module: chaosgenius_discord_bot
+- **README_MASTER_INDEX.md**: Documentation: README_MASTER_INDEX
+- **data**: Component: data
+- **__pycache__**: Component: __pycache__
+- **Notes**: Component: Notes
+- **hyperfocus_project_analysis_20250604_183910.json**: Configuration: hyperfocus_project_analysis_20250604_183910
+- **.vscode-upload.json**: Configuration: .vscode-upload
+- **htmlcov**: Component: htmlcov
+- **graceful_shutdown_example.py**: Python module: graceful_shutdown_example
+- **zips**: Component: zips
+- **etsy_key_validator.py**: Python module: etsy_key_validator
+- **auto_doc_generator.py**: Python module: auto_doc_generator
+- **DEMO_MANIFEST.json**: Configuration: DEMO_MANIFEST
+- **setup_demo_version.py**: Python module: setup_demo_version
+- **config**: Component: config
+- **backups**: Component: backups
+- **api**: Component: api
+- **security_validator.py**: Python module: security_validator
+>>>>>>> Stashed changes
 
 ## 🛠️ Documentation Tools
 

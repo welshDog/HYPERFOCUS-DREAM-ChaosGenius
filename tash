@@ -1,0 +1,1005 @@
+[1mdiff --git a/dashboard_api.py b/dashboard_api.py[m
+[1mindex eda73f7..bc32bfc 100644[m
+[1m--- a/dashboard_api.py[m
+[1m+++ b/dashboard_api.py[m
+[36m@@ -129,7 +129,7 @@[m [mdef init_database():[m
+     """Initialize SQLite database for dashboard data"""[m
+     conn = sqlite3.connect('chaosgenius.db')[m
+     cursor = conn.cursor()[m
+[31m-    [m
+[32m+[m
+     # Projects table[m
+     cursor.execute('''[m
+         CREATE TABLE IF NOT EXISTS projects ([m
+[36m@@ -141,7 +141,7 @@[m [mdef init_database():[m
+             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP[m
+         )[m
+     ''')[m
+[31m-    [m
+[32m+[m
+     # AI Sessions table[m
+     cursor.execute('''[m
+         CREATE TABLE IF NOT EXISTS ai_sessions ([m
+[36m@@ -154,7 +154,7 @@[m [mdef init_database():[m
+             FOREIGN KEY (project_id) REFERENCES projects (id)[m
+         )[m
+     ''')[m
+[31m-    [m
+[32m+[m
+     # Activity log table[m
+     cursor.execute('''[m
+         CREATE TABLE IF NOT EXISTS activity_log ([m
+[36m@@ -165,7 +165,7 @@[m [mdef init_database():[m
+             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP[m
+         )[m
+     ''')[m
+[31m-    [m
+[32m+[m
+     # Insert default project if not exists[m
+     cursor.execute('SELECT COUNT(*) FROM projects')[m
+     if cursor.fetchone()[0] == 0:[m
+[36m@@ -173,20 +173,20 @@[m [mdef init_database():[m
+             INSERT INTO projects (name, status, energy_level)[m
+             VALUES (?, ?, ?)[m
+         ''', ('Hyperfocus Zone Ultra Studio', 'In Development - Phase 1', 'high'))[m
+[31m-        [m
+[32m+[m
+         # Add some initial activity[m
+         activities = [[m
+             ('ChaosGenius Engine initialized', 'system', 'Dashboard system started'),[m
+             ('Project structure created', 'project', 'Complete folder structure generated'),[m
+             ('AI Squad framework activated', 'ai', 'Setup1 and Setup2 modules ready')[m
+         ][m
+[31m-        [m
+[32m+[m
+         for action, type_, details in activities:[m
+             cursor.execute('''[m
+                 INSERT INTO activity_log (action, type, details)[m
+                 VALUES (?, ?, ?)[m
+             ''', (action, type_, details))[m
+[31m-    [m
+[32m+[m
+     conn.commit()[m
+     conn.close()[m
+ [m
+[36m@@ -210,7 +210,7 @@[m [mdef auth_etsy():[m
+             'status': 'error',[m
+             'message': '❌ Etsy API credentials not configured. Please check your .env file.'[m
+         }), 400[m
+[31m-    [m
+[32m+[m
+     scope = "transactions_r shops_r listings_r listings_w"[m
+     auth_url = ([m
+         f"https://www.etsy.com/oauth/connect?"[m
+[36m@@ -219,7 +219,7 @@[m [mdef auth_etsy():[m
+         f"&redirect_uri={ETSY_REDIRECT_URI}"[m
+         f"&scope={scope}"[m
+     )[m
+[31m-    [m
+[32m+[m
+     logger.info("🔐 Starting Etsy OAuth flow - redirecting to Etsy...")[m
+     return redirect(auth_url)[m
+ [m
+[36m@@ -270,16 +270,16 @@[m [mdef etsy_callback():[m
+     }[m
+ [m
+     headers = {"Content-Type": "application/x-www-form-urlencoded"}[m
+[31m-    [m
+[32m+[m
+     try:[m
+         logger.info("🔄 Exchanging authorization code for access token...")[m
+         response = requests.post(token_url, data=data, headers=headers, timeout=30)[m
+[31m-        [m
+[32m+[m
+         if response.status_code == 200:[m
+             token_data = response.json()[m
+             access_token = token_data.get("access_token")[m
+             refresh_token = token_data.get("refresh_token")[m
+[31m-            [m
+[32m+[m
+             if not access_token:[m
+                 logger.error("❌ No access token in response")[m
+                 return jsonify({[m
+[36m@@ -299,7 +299,7 @@[m [mdef etsy_callback():[m
+             updated_lines = [][m
+             token_added = False[m
+             refresh_added = False[m
+[31m-            [m
+[32m+[m
+             for line in lines:[m
+                 if line.startswith('ETSY_ACCESS_TOKEN='):[m
+                     updated_lines.append(f'ETSY_ACCESS_TOKEN={access_token}')[m
+[36m@@ -309,13 +309,13 @@[m [mdef etsy_callback():[m
+                     refresh_added = True[m
+                 else:[m
+                     updated_lines.append(line)[m
+[31m-            [m
+[32m+[m
+             # Add new tokens if they weren't found in existing file[m
+             if not token_added:[m
+                 updated_lines.append(f'ETSY_ACCESS_TOKEN={access_token}')[m
+             if not refresh_added and refresh_token:[m
+                 updated_lines.append(f'ETSY_REFRESH_TOKEN={refresh_token}')[m
+[31m-            [m
+[32m+[m
+             # Write updated content back to .env[m
+             with open(env_file, 'w', encoding='utf-8') as f:[m
+                 f.write('\n'.join(updated_lines))[m
+[36m@@ -331,7 +331,7 @@[m [mdef etsy_callback():[m
+             conn.close()[m
+ [m
+             logger.info("✅ Etsy OAuth successful - access token saved!")[m
+[31m-            [m
+[32m+[m
+             # Return success page with instructions[m
+             success_html = f"""[m
+             <!DOCTYPE html>[m
+[36m@@ -352,7 +352,7 @@[m [mdef etsy_callback():[m
+                     <p>Access token saved to .env file:</p>[m
+                     <div class="token">{access_token[:20]}...{access_token[-10:]}</div>[m
+                 </div>[m
+[31m-                [m
+[32m+[m
+                 <div class="next-steps">[m
+                     <h3>🚀 Next Steps:</h3>[m
+                     <ol>[m
+[36m@@ -362,14 +362,14 @@[m [mdef etsy_callback():[m
+                         <li>Check the analytics section for real sales metrics</li>[m
+                     </ol>[m
+                 </div>[m
+[31m-                [m
+[32m+[m
+                 <p><a href="http://localhost:5000" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🧠 Return to ChaosGenius Dashboard</a></p>[m
+             </body>[m
+             </html>[m
+             """[m
+[31m-            [m
+[32m+[m
+             return success_html[m
+[31m-            [m
+[32m+[m
+         else:[m
+             error_detail = response.text[:200] if response.text else 'Unknown error'[m
+             logger.error(f"❌ Token exchange failed: {response.status_code} - {error_detail}")[m
+[36m@@ -378,7 +378,7 @@[m [mdef etsy_callback():[m
+                 'message': f'❌ Failed to get token from Etsy: {error_detail}',[m
+                 'status_code': response.status_code[m
+             }), 400[m
+[31m-            [m
+[32m+[m
+     except requests.RequestException as e:[m
+         logger.error(f"❌ Request failed during token exchange: {e}")[m
+         return jsonify({[m
+[36m@@ -410,14 +410,14 @@[m [mdef etsy_oauth_status():[m
+         'etsy_refresh_token': bool(os.getenv('ETSY_REFRESH_TOKEN')),[m
+         'redirect_uri': ETSY_REDIRECT_URI[m
+     }[m
+[31m-    [m
+[32m+[m
+     if all([status['etsy_client_id'], status['etsy_client_secret']]):[m
+         auth_url = f"http://localhost:5000/auth/etsy"[m
+         message = "✅ Ready for OAuth! Click the link to connect your Etsy shop."[m
+     else:[m
+         auth_url = None[m
+         message = "❌ Missing Etsy API credentials. Please check your .env file."[m
+[31m-    [m
+[32m+[m
+     return jsonify({[m
+         'status': 'configured' if all([status['etsy_client_id'], status['etsy_client_secret']]) else 'missing_credentials',[m
+         'message': message,[m
+[36m@@ -528,16 +528,16 @@[m [mdef create_product():[m
+         # Create products directory if it doesn't exist[m
+         products_dir = Path("production_assets/product_ideas")[m
+         products_dir.mkdir(parents=True, exist_ok=True)[m
+[31m-        [m
+[32m+[m
+         # Generate timestamp for unique filename[m
+         now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')[m
+         product_file = products_dir / f"product_{now}.txt"[m
+[31m-        [m
+[32m+[m
+         # Get product data from request if provided[m
+         data = request.get_json() if request.is_json else {}[m
+         product_name = data.get('name', 'New Product Idea')[m
+         product_description = data.get('description', 'Placeholder for new product concept')[m
+[31m-        [m
+[32m+[m
+         # Create product file with initial content[m
+         with open(product_file, 'w', encoding='utf-8') as f:[m
+             f.write(f"Product: {product_name}\n")[m
+[36m@@ -545,10 +545,10 @@[m [mdef create_product():[m
+             f.write(f"Description: {product_description}\n\n")[m
+             f.write("--- DEVELOPMENT NOTES ---\n")[m
+             f.write("Add your ideas, features, and implementation notes here.\n")[m
+[31m-        [m
+[32m+[m
+         logger.info(f"🛠️ New product created: {product_file}")[m
+         return jsonify({[m
+[31m-            "status": "success", [m
+[32m+[m[32m            "status": "success",[m
+             "message": "🛠️ New product created!",[m
+             "file": str(product_file),[m
+             "timestamp": now[m
+[36m@@ -556,7 +556,7 @@[m [mdef create_product():[m
+     except Exception as e:[m
+         logger.error(f"Error creating product: {e}")[m
+         return jsonify({[m
+[31m-            "status": "error", [m
+[32m+[m[32m            "status": "error",[m
+             "message": f"❌ Error creating product: {str(e)}"[m
+         }), 500[m
+ [m
+[36m@@ -567,41 +567,41 @@[m [mdef generate_docs():[m
+         # Check if auto_doc_generator.py exists[m
+         if not os.path.exists("auto_doc_generator.py"):[m
+             return jsonify({[m
+[31m-                "status": "error", [m
+[32m+[m[32m                "status": "error",[m
+                 "message": "❌ auto_doc_generator.py not found"[m
+             }), 404[m
+[31m-        [m
+[32m+[m
+         # Run the documentation generator[m
+         result = subprocess.run([m
+[31m-            ["python", "auto_doc_generator.py"], [m
+[31m-            capture_output=True, [m
+[31m-            text=True, [m
+[32m+[m[32m            ["python", "auto_doc_generator.py"],[m
+[32m+[m[32m            capture_output=True,[m
+[32m+[m[32m            text=True,[m
+             timeout=60[m
+         )[m
+[31m-        [m
+[32m+[m
+         if result.returncode == 0:[m
+             logger.info("📄 Documentation generated successfully")[m
+             return jsonify({[m
+[31m-                "status": "success", [m
+[32m+[m[32m                "status": "success",[m
+                 "message": "📄 Documentation generated!",[m
+                 "output": result.stdout[:500] if result.stdout else "Documentation created successfully"[m
+             })[m
+         else:[m
+             logger.error(f"Documentation generation failed: {result.stderr}")[m
+             return jsonify({[m
+[31m-                "status": "error", [m
+[32m+[m[32m                "status": "error",[m
+                 "message": f"❌ Error: {result.stderr[:200] if result.stderr else 'Unknown error'}"[m
+             }), 500[m
+[31m-            [m
+[32m+[m
+     except subprocess.TimeoutExpired:[m
+         return jsonify({[m
+[31m-            "status": "error", [m
+[32m+[m[32m            "status": "error",[m
+             "message": "❌ Documentation generation timed out"[m
+         }), 500[m
+     except Exception as e:[m
+         logger.error(f"Error generating docs: {e}")[m
+         return jsonify({[m
+[31m-            "status": "error", [m
+[32m+[m[32m            "status": "error",[m
+             "message": f"❌ Error running doc generator: {str(e)}"[m
+         }), 500[m
+ [m
+[36m@@ -613,11 +613,11 @@[m [mdef analytics():[m
+             # Get real social media metrics[m
+             logger.info("📊 Fetching LIVE social media metrics...")[m
+             social_metrics = get_live_social_metrics()[m
+[31m-            [m
+[32m+[m
+             # Use real data from integrations[m
+             analytics_data = {[m
+                 "etsy_sales": social_metrics['etsy']['sales'],[m
+[31m-                "tiktok_views": social_metrics['tiktok']['views'], [m
+[32m+[m[32m                "tiktok_views": social_metrics['tiktok']['views'],[m
+                 "active_products": social_metrics['etsy']['listings'],[m
+                 "total_revenue": social_metrics['etsy']['revenue'],[m
+                 "engagement_rate": social_metrics['tiktok']['engagement_rate'],[m
+[36m@@ -630,15 +630,15 @@[m [mdef analytics():[m
+                     "tiktok": social_metrics['tiktok']['status'][m
+                 }[m
+             }[m
+[31m-            [m
+[32m+[m
+             # Add trending content[m
+             if social_metrics['tiktok']['trending_content']:[m
+                 analytics_data['trending_content'] = social_metrics['tiktok']['trending_content'][m
+[31m-                [m
+[32m+[m
+             # Add recent orders[m
+             if social_metrics['etsy']['recent_orders']:[m
+                 analytics_data['recent_orders'] = social_metrics['etsy']['recent_orders'][m
+[31m-                [m
+[32m+[m
+         else:[m
+             # Fallback to enhanced mock data[m
+             analytics_data = {[m
+[36m@@ -656,7 +656,7 @@[m [mdef analytics():[m
+                     "tiktok": "mock_data"[m
+                 }[m
+             }[m
+[31m-        [m
+[32m+[m
+         # Try to get real product count from local files[m
+         try:[m
+             products_dir = Path("production_assets/product_ideas")[m
+[36m@@ -665,7 +665,7 @@[m [mdef analytics():[m
+                 analytics_data["local_products"] = len(product_files)[m
+         except Exception:[m
+             pass[m
+[31m-        [m
+[32m+[m
+         # Try to get real project data from business blueprints[m
+         try:[m
+             business_dir = Path("Business Data")[m
+[36m@@ -679,12 +679,12 @@[m [mdef analytics():[m
+                             analytics_data.update(blueprint_data["metrics"])[m
+         except Exception:[m
+             pass[m
+[31m-        [m
+[32m+[m
+         # Try to get real data from database[m
+         try:[m
+             conn = sqlite3.connect('chaosgenius.db')[m
+             cursor = conn.cursor()[m
+[31m-            [m
+[32m+[m
+             # AI Sessions by day (last 7 days)[m
+             cursor.execute('''[m
+                 SELECT DATE(created_at) as date, COUNT(*) as sessions[m
+[36m@@ -693,9 +693,9 @@[m [mdef analytics():[m
+                 GROUP BY DATE(created_at)[m
+                 ORDER BY date[m
+             ''')[m
+[31m-            [m
+[32m+[m
+             sessions_by_day = [{'date': row[0], 'sessions': row[1]} for row in cursor.fetchall()][m
+[31m-            [m
+[32m+[m
+             # Activity by type[m
+             cursor.execute('''[m
+                 SELECT type, COUNT(*) as count[m
+[36m@@ -703,9 +703,9 @@[m [mdef analytics():[m
+                 WHERE created_at >= date('now', '-30 days')[m
+                 GROUP BY type[m
+             ''')[m
+[31m-            [m
+[32m+[m
+             activity_by_type = [{'type': row[0], 'count': row[1]} for row in cursor.fetchall()][m
+[31m-            [m
+[32m+[m
+             # Add database analytics to response[m
+             analytics_data.update({[m
+                 'sessions_by_day': sessions_by_day,[m
+[36m@@ -713,29 +713,29 @@[m [mdef analytics():[m
+                 'generated_at': datetime.now().isoformat(),[m
+                 'status': 'ok'  # Ensure status is always included[m
+             })[m
+[31m-            [m
+[32m+[m
+             conn.close()[m
+         except Exception as e:[m
+             logger.warning(f"Could not fetch database analytics: {e}")[m
+             # Ensure we always have a status field[m
+             analytics_data['status'] = 'ok'[m
+[31m-        [m
+[32m+[m
+         # Ensure status is always included in response[m
+         if 'status' not in analytics_data:[m
+             analytics_data['status'] = 'ok'[m
+[31m-        [m
+[32m+[m
+         # Also ensure we have the required structure for social media data[m
+         if SOCIAL_INTEGRATIONS_AVAILABLE:[m
+             # Ensure etsy metrics have status[m
+             if 'etsy' in analytics_data and 'status' not in analytics_data['etsy']:[m
+                 analytics_data['etsy']['status'] = 'connected'[m
+[31m-            # Ensure tiktok metrics have status  [m
+[32m+[m[32m            # Ensure tiktok metrics have status[m
+             if 'tiktok' in analytics_data and 'status' not in analytics_data['tiktok']:[m
+                 analytics_data['tiktok']['status'] = 'connected'[m
+[31m-        [m
+[32m+[m
+         logger.info(f"📊 Analytics data retrieved from {analytics_data.get('data_source', 'unknown')} source")[m
+         return jsonify(analytics_data)[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"Error getting analytics: {e}")[m
+         return jsonify({[m
+[36m@@ -755,7 +755,7 @@[m [mdef analytics():[m
+                 'type': 'object',[m
+                 'properties': {[m
+                     'etsy': {'type': 'object'},[m
+[31m-                    'tiktok': {'type': 'object'}, [m
+[32m+[m[32m                    'tiktok': {'type': 'object'},[m
+                     'summary': {'type': 'object'},[m
+                     'last_updated': {'type': 'string'},[m
+                     'apis_configured': {'type': 'object'}[m
+[36m@@ -770,7 +770,7 @@[m [mdef social_metrics():[m
+         if SOCIAL_INTEGRATIONS_AVAILABLE:[m
+             aggregator = SocialMediaAggregator()[m
+             metrics = aggregator.get_all_metrics(use_cache=True)[m
+[31m-            [m
+[32m+[m
+             logger.info("📱 Live social metrics retrieved successfully")[m
+             return jsonify(metrics)[m
+         else:[m
+[36m@@ -818,10 +818,10 @@[m [mdef social_metrics():[m
+                     'tiktok': False[m
+                 }[m
+             }[m
+[31m-            [m
+[32m+[m
+             logger.info("📱 Mock social metrics returned (APIs not configured)")[m
+             return jsonify(mock_metrics)[m
+[31m-            [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"Error getting social metrics: {e}")[m
+         return jsonify({[m
+[36m@@ -847,7 +847,7 @@[m [mdef refresh_social_data():[m
+             aggregator = SocialMediaAggregator()[m
+             # Force fresh data fetch (bypass cache)[m
+             metrics = aggregator.get_all_metrics(use_cache=False)[m
+[31m-            [m
+[32m+[m
+             # Log the refresh action[m
+             conn = sqlite3.connect('chaosgenius.db')[m
+             cursor = conn.cursor()[m
+[36m@@ -857,7 +857,7 @@[m [mdef refresh_social_data():[m
+             ''', ('Social data refreshed', 'analytics', f'Fresh data from {len(metrics)} platforms'))[m
+             conn.commit()[m
+             conn.close()[m
+[31m-            [m
+[32m+[m
+             return jsonify({[m
+                 'status': 'success',[m
+                 'message': '🔄 Social media data refreshed successfully!',[m
+[36m@@ -871,7 +871,7 @@[m [mdef refresh_social_data():[m
+                 'message': '⚠️ Social integrations not available - using mock data',[m
+                 'mock_data': True[m
+             })[m
+[31m-            [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"Error refreshing social data: {e}")[m
+         return jsonify({[m
+[36m@@ -910,34 +910,34 @@[m [mdef setup_social_apis():[m
+     """Setup social media API credentials"""[m
+     try:[m
+         data = request.get_json() or {}[m
+[31m-        [m
+[32m+[m
+         # This would typically save to environment or secure storage[m
+         # For now, we'll just validate and return success[m
+[31m-        [m
+[32m+[m
+         required_fields = ['etsy_api_key', 'etsy_shop_id'][m
+         missing_fields = [field for field in required_fields if not data.get(field)][m
+[31m-        [m
+[32m+[m
+         if missing_fields:[m
+             return jsonify({[m
+                 'status': 'error',[m
+                 'message': f'Missing required fields: {", ".join(missing_fields)}',[m
+                 'required_fields': required_fields[m
+             }), 400[m
+[31m-        [m
+[32m+[m
+         # In production, you'd save these securely[m
+         setup_message = """[m
+         🔧 API Setup Instructions:[m
+[31m-        [m
+[32m+[m
+         1. Create a .env file in your project root[m
+         2. Add your API credentials:[m
+            ETSY_API_KEY=your_actual_api_key[m
+            ETSY_SHOP_ID=your_shop_id[m
+            TIKTOK_ACCESS_TOKEN=your_token[m
+            TIKTOK_ADVERTISER_ID=your_id[m
+[31m-        [m
+[32m+[m
+         3. Restart the dashboard to load new credentials[m
+         """[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'status': 'success',[m
+             'message': '✅ API credentials validated!',[m
+[36m@@ -949,7 +949,7 @@[m [mdef setup_social_apis():[m
+                 'Enable auto-refresh'[m
+             ][m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         return jsonify({[m
+             'status': 'error',[m
+[36m@@ -982,7 +982,7 @@[m [mdef master_control_stats():[m
+     """Get comprehensive stats for Master Control Brain"""[m
+     return jsonify({[m
+         'etsy': get_etsy_stats(),[m
+[31m-        'tiktok': get_tiktok_stats(), [m
+[32m+[m[32m        'tiktok': get_tiktok_stats(),[m
+         'what23d': get_print_queue_stats(),[m
+         'broski': get_ai_stats(),[m
+         'analytics': get_analytics_stats()[m
+[36m@@ -1041,20 +1041,20 @@[m [mdef get_ai_stats():[m
+     try:[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+[31m-        [m
+[32m+[m
+         # Get AI session count from today[m
+         cursor.execute('''[m
+[31m-            SELECT COUNT(*) FROM ai_sessions [m
+[32m+[m[32m            SELECT COUNT(*) FROM ai_sessions[m
+             WHERE DATE(created_at) = DATE('now')[m
+         ''')[m
+         today_queries = cursor.fetchone()[0][m
+[31m-        [m
+[32m+[m
+         # Get total AI sessions[m
+         cursor.execute('SELECT COUNT(*) FROM ai_sessions')[m
+         total_queries = cursor.fetchone()[0][m
+[31m-        [m
+[32m+[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         return {[m
+             'status': 'active',[m
+             'queries': today_queries + 42,  # Add base queries[m
+[36m@@ -1079,7 +1079,7 @@[m [mdef get_analytics_stats():[m
+         # Check for recent reports[m
+         report_files = list(Path(".").glob("*report*.json"))[m
+         health_files = list(Path(".").glob("health_report*.json"))[m
+[31m-        [m
+[32m+[m
+         return {[m
+             'status': 'active',[m
+             'insights': len(report_files) + 15,[m
+[36m@@ -1121,10 +1121,10 @@[m [mdef launch_campaign():[m
+         ''', ('Campaign Blaster launched', 'campaign', 'Multi-platform campaign initiated'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         # In production, this would trigger actual campaign actions[m
+         campaign_id = f"CAMP_{datetime.now().strftime('%Y%m%d_%H%M%S')}"[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'status': 'success',[m
+             'message': '🚀 Campaign Blaster launched across all platforms!',[m
+[36m@@ -1151,7 +1151,7 @@[m [mdef sync_systems():[m
+         ''', ('System sync initiated', 'system', 'All platforms synchronized'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'status': 'success',[m
+             'message': '🔄 All systems synchronized successfully!',[m
+[36m@@ -1196,7 +1196,7 @@[m [mdef tiktok_shop_metrics():[m
+         # Check if TikTok API credentials are configured[m
+         if not TIKTOK_CLIENT_KEY or not TIKTOK_CLIENT_SECRET:[m
+             logger.warning("⚠️ TikTok API credentials not configured - using enhanced mock data")[m
+[31m-            [m
+[32m+[m
+             # Return enhanced mock data that looks realistic[m
+             mock_data = {[m
+                 'gmv': 1247.50,[m
+[36m@@ -1226,15 +1226,15 @@[m [mdef tiktok_shop_metrics():[m
+                     {'action': 'Video engagement peak', 'time': '6 hours ago', 'value': '8.4% rate'}[m
+                 ][m
+             }[m
+[31m-            [m
+[32m+[m
+             return jsonify(mock_data)[m
+[31m-        [m
+[32m+[m
+         # If credentials are available, attempt to fetch real data[m
+         try:[m
+             # This would be the actual TikTok Shop API call in production[m
+             # For now, we'll simulate a successful API response with your real shop's potential data[m
+             logger.info("🎯 Attempting to fetch live TikTok Shop data...")[m
+[31m-            [m
+[32m+[m
+             # Simulated API response structure based on TikTok Shop Business API[m
+             live_data = {[m
+                 'gmv': 1547.80,  # Slightly higher than mock to show it's "live"[m
+[36m@@ -1272,7 +1272,7 @@[m [mdef tiktok_shop_metrics():[m
+                     'conversion_improvement': '+0.9%'[m
+                 }[m
+             }[m
+[31m-            [m
+[32m+[m
+             # Log successful data fetch[m
+             conn = sqlite3.connect('chaosgenius.db')[m
+             cursor = conn.cursor()[m
+[36m@@ -1282,13 +1282,13 @@[m [mdef tiktok_shop_metrics():[m
+             ''', ('TikTok Shop data fetched', 'api', f'Live metrics retrieved at {datetime.now().strftime("%H:%M")}'))[m
+             conn.commit()[m
+             conn.close()[m
+[31m-            [m
+[32m+[m
+             logger.info("✅ Live TikTok Shop data retrieved successfully!")[m
+             return jsonify(live_data)[m
+[31m-            [m
+[32m+[m
+         except Exception as api_error:[m
+             logger.error(f"❌ TikTok API call failed: {api_error}")[m
+[31m-            [m
+[32m+[m
+             # Fallback to enhanced mock data if API fails[m
+             fallback_data = {[m
+                 'gmv': 1247.50,[m
+[36m@@ -1309,9 +1309,9 @@[m [mdef tiktok_shop_metrics():[m
+                 'shop_health': 'Good',[m
+                 'error_note': 'Using cached data due to API timeout'[m
+             }[m
+[31m-            [m
+[32m+[m
+             return jsonify(fallback_data)[m
+[31m-            [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"❌ Error in TikTok Shop metrics endpoint: {e}")[m
+         return jsonify({[m
+[36m@@ -1354,11 +1354,11 @@[m [mdef tiktok_auth_start():[m
+                 'Restart the dashboard'[m
+             ][m
+         }), 400[m
+[31m-    [m
+[32m+[m
+     # TikTok Business API OAuth URL structure[m
+     scope = "user.info.basic,video.list,business.get"[m
+     state = secrets.token_urlsafe(32)  # Generate secure state parameter[m
+[31m-    [m
+[32m+[m
+     auth_url = ([m
+         f"https://www.tiktok.com/auth/authorize/"[m
+         f"?client_key={TIKTOK_CLIENT_KEY}"[m
+[36m@@ -1367,7 +1367,7 @@[m [mdef tiktok_auth_start():[m
+         f"&redirect_uri={TIKTOK_REDIRECT_URI}"[m
+         f"&state={state}"[m
+     )[m
+[31m-    [m
+[32m+[m
+     logger.info("🎯 Starting TikTok Shop OAuth flow...")[m
+     return redirect(auth_url)[m
+ [m
+[36m@@ -1380,14 +1380,14 @@[m [mdef tiktok_shop_status():[m
+         'redirect_uri': TIKTOK_REDIRECT_URI,[m
+         'api_configured': bool(TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET)[m
+     }[m
+[31m-    [m
+[32m+[m
+     if status_info['api_configured']:[m
+         message = "✅ TikTok Shop API credentials configured and ready!"[m
+         oauth_url = f"http://localhost:5000/api/tiktok-shop/auth/start"[m
+     else:[m
+         message = "❌ TikTok Shop API credentials missing. Please configure your .env file."[m
+         oauth_url = None[m
+[31m-    [m
+[32m+[m
+     return jsonify({[m
+         'status': 'configured' if status_info['api_configured'] else 'missing_credentials',[m
+         'message': message,[m
+[36m@@ -1428,7 +1428,7 @@[m [mdef sync_all_systems():[m
+         ''', ('ULTRA MODE: All systems synchronized', 'master-control', 'Master AI Control Brain sync complete'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         # Simulate comprehensive sync across all platforms[m
+         sync_results = {[m
+             'etsy': {'status': 'synced', 'new_orders': 3, 'listings_updated': 7},[m
+[36m@@ -1437,7 +1437,7 @@[m [mdef sync_all_systems():[m
+             'broski': {'status': 'synced', 'queries_processed': 28, 'uptime_improved': '0.2%'},[m
+             'analytics': {'status': 'synced', 'new_insights': 5, 'alerts_cleared': 1}[m
+         }[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'status': 'success',[m
+             'message': '🔄 ULTRA MODE: All systems synchronized!',[m
+[36m@@ -1519,7 +1519,7 @@[m [mdef broski_chat():[m
+         data = request.get_json()[m
+         query = data.get('query', '')[m
+         energy_level = data.get('energy_level', 50)[m
+[31m-        [m
+[32m+[m
+         # Log the BROski interaction[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+[36m@@ -1529,7 +1529,7 @@[m [mdef broski_chat():[m
+         ''', ('BROski AI consultation', 'ai', f'Query: {query[:100]}...'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         # Generate contextual BROski responses based on energy level and query[m
+         if energy_level < 30:[m
+             responses = [[m
+[36m@@ -1549,7 +1549,7 @@[m [mdef broski_chat():[m
+                 "You're in the zone! Let's optimize your current workflow. 🧠",[m
+                 "Solid energy - time to build momentum with focused work sessions! ⚡"[m
+             ][m
+[31m-        [m
+[32m+[m
+         # Query-specific responses[m
+         if 'focus' in query.lower() or 'hyperfocus' in query.lower():[m
+             response = "I notice you're asking about focus! Your best focus times are typically 2-4 PM. Want me to block distractions? 🎯"[m
+[36m@@ -1559,7 +1559,7 @@[m [mdef broski_chat():[m
+             response = "Your ADHD brain craves dopamine! Let's break your big task into micro-wins. What's the smallest step you can take? 🏆"[m
+         else:[m
+             response = responses[hash(query) % len(responses)][m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'response': response,[m
+             'insights': [[m
+[36m@@ -1570,7 +1570,7 @@[m [mdef broski_chat():[m
+             'energy_boost': energy_level < 40,[m
+             'timestamp': datetime.now().isoformat()[m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"BROski chat error: {e}")[m
+         return jsonify({[m
+[36m@@ -1584,18 +1584,18 @@[m [mdef toggle_hyperfocus():[m
+     try:[m
+         data = request.get_json() or {}[m
+         focus_mode = data.get('enabled', True)[m
+[31m-        [m
+[32m+[m
+         # Log hyperfocus session[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+         cursor.execute('''[m
+             INSERT INTO activity_log (action, type, details)[m
+             VALUES (?, ?, ?)[m
+[31m-        ''', (f'Hyperfocus mode {"activated" if focus_mode else "deactivated"}', 'focus', [m
+[32m+[m[32m        ''', (f'Hyperfocus mode {"activated" if focus_mode else "deactivated"}', 'focus',[m
+               f'User initiated focus session at {datetime.now().strftime("%H:%M")}'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'status': 'success',[m
+             'focus_mode': focus_mode,[m
+[36m@@ -1608,7 +1608,7 @@[m [mdef toggle_hyperfocus():[m
+             ] if focus_mode else [],[m
+             'estimated_session_length': '90-120 minutes' if focus_mode else None[m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         return jsonify({[m
+             'status': 'error',[m
+[36m@@ -1650,7 +1650,7 @@[m [mdef squad_status():[m
+                 'efficiency': 99[m
+             }[m
+         ][m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'squad_members': squad_members,[m
+             'overall_efficiency': 93,[m
+[36m@@ -1658,7 +1658,7 @@[m [mdef squad_status():[m
+             'completed_today': 28,[m
+             'next_optimization': 'Product photo enhancement in 15 minutes'[m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         return jsonify({[m
+             'status': 'error',[m
+[36m@@ -1671,21 +1671,21 @@[m [mdef gamification_stats():[m
+     try:[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+[31m-        [m
+[32m+[m
+         # Calculate XP based on activities[m
+         cursor.execute('''[m
+[31m-            SELECT COUNT(*) FROM activity_log [m
+[32m+[m[32m            SELECT COUNT(*) FROM activity_log[m
+             WHERE DATE(created_at) = DATE('now')[m
+         ''')[m
+         daily_activities = cursor.fetchone()[0][m
+[31m-        [m
+[32m+[m
+         # Base XP calculation[m
+         base_xp = 2340[m
+         daily_xp = daily_activities * 25[m
+         current_xp = base_xp + daily_xp[m
+[31m-        [m
+[32m+[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         achievements = [[m
+             {'name': 'Streak Master', 'emoji': '🔥', 'description': '5 consecutive productive days', 'unlocked': True},[m
+             {'name': 'Revenue Milestone', 'emoji': '💰', 'description': 'Reached £1K revenue', 'unlocked': True},[m
+[36m@@ -1693,14 +1693,14 @@[m [mdef gamification_stats():[m
+             {'name': 'Focus Champion', 'emoji': '🎯', 'description': '10 hyperfocus sessions', 'unlocked': False},[m
+             {'name': 'AI Whisperer', 'emoji': '🤖', 'description': '100 BROski interactions', 'unlocked': False}[m
+         ][m
+[31m-        [m
+[32m+[m
+         challenges = [[m
+             {'name': 'Complete 3 products', 'progress': 3, 'target': 3, 'xp_reward': 150},[m
+             {'name': '2-hour focus session', 'progress': 1, 'target': 2, 'xp_reward': 200},[m
+             {'name': 'Generate 5 ideas', 'progress': 0, 'target': 5, 'xp_reward': 100},[m
+             {'name': 'Upload to TikTok', 'progress': 0, 'target': 1, 'xp_reward': 75}[m
+         ][m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             'player_level': 12,[m
+             'current_xp': current_xp,[m
+[36m@@ -1716,7 +1716,7 @@[m [mdef gamification_stats():[m
+                 'ADHD Superpower'[m
+             ][m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         return jsonify({[m
+             'status': 'error',[m
+[36m@@ -1744,16 +1744,16 @@[m [mdef ai_squad_start():[m
+     """Start AI Squad session"""[m
+     global ai_squad_sessions[m
+     data = request.get_json() or {}[m
+[31m-    [m
+[32m+[m
+     session_config = {[m
+         "project": data.get('project', 'Unnamed Project'),[m
+         "energy_level": data.get('energy_level', 'medium'),[m
+         "started_at": datetime.now().isoformat()[m
+     }[m
+[31m-    [m
+[32m+[m
+     ai_squad_sessions.append(session_config)[m
+     session_id = f"squad_{len(ai_squad_sessions)}"[m
+[31m-    [m
+[32m+[m
+     return jsonify({[m
+         "status": "success",[m
+         "session_id": session_id,[m
+[36m@@ -1776,7 +1776,7 @@[m [mdef update_project(project_id):[m
+     """Update project status and details"""[m
+     try:[m
+         data = request.get_json() or {}[m
+[31m-        [m
+[32m+[m
+         # Create or update project data[m
+         project_data = {[m
+             "id": project_id,[m
+[36m@@ -1785,7 +1785,7 @@[m [mdef update_project(project_id):[m
+             "energy_level": data.get('energy_level', 'medium'),[m
+             "updated_at": datetime.now().isoformat()[m
+         }[m
+[31m-        [m
+[32m+[m
+         # Log the project update[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+[36m@@ -1795,13 +1795,13 @@[m [mdef update_project(project_id):[m
+         ''', ('Project updated', 'project', f'Project {project_id} updated successfully'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             "status": "success",[m
+             "project": project_data,[m
+             "message": "Project updated successfully"[m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"Error updating project: {e}")[m
+         return jsonify({[m
+[36m@@ -1815,7 +1815,7 @@[m [mdef project_update():[m
+     try:[m
+         data = request.get_json() or {}[m
+         project_id = data.get('project_id', 1)[m
+[31m-        [m
+[32m+[m
+         # Create a basic project update response[m
+         project_data = {[m
+             "id": project_id,[m
+[36m@@ -1823,7 +1823,7 @@[m [mdef project_update():[m
+             "status": data.get('status', 'updated'),[m
+             "updated_at": datetime.now().isoformat()[m
+         }[m
+[31m-        [m
+[32m+[m
+         # Log the project update[m
+         conn = sqlite3.connect('chaosgenius.db')[m
+         cursor = conn.cursor()[m
+[36m@@ -1833,13 +1833,13 @@[m [mdef project_update():[m
+         ''', ('Project updated', 'project', f'Project {project_id} updated successfully'))[m
+         conn.commit()[m
+         conn.close()[m
+[31m-        [m
+[32m+[m
+         return jsonify({[m
+             "status": "success",[m
+             "project": project_data,[m
+             "message": "Project updated successfully"[m
+         })[m
+[31m-        [m
+[32m+[m
+     except Exception as e:[m
+         logger.error(f"Error updating project: {e}")[m
+         return jsonify({[m
+[36m@@ -1861,7 +1861,7 @@[m [mdef empire_status():[m
+         "empire_health": "excellent",[m
+         "status_checks": {[m
+             "database": "healthy",[m
+[31m-            "apis": "connected", [m
+[32m+[m[32m            "apis": "connected",[m
+             "ai_systems": "operational",[m
+             "performance": "optimal"[m
+         },[m
+[36m@@ -1917,7 +1917,7 @@[m [mdef launch_ai_squad():[m
+     """Launch AI Squad with specific parameters"""[m
+     global ai_squad_sessions[m
+     data = request.get_json() or {}[m
+[31m-    [m
+[32m+[m
+     squad_config = {[m
+         "type": data.get('type', 'general'),[m
+         "energy_level": data.get('energy_level', 'medium'),[m
+[36m@@ -1925,9 +1925,9 @@[m [mdef launch_ai_squad():[m
+         "launched_at": datetime.now().isoformat(),[m
+         "estimated_duration": "60 minutes"[m
+     }[m
+[31m-    [m
+[32m+[m
+     ai_squad_sessions.append(squad_config)[m
+[31m-    [m
+[32m+[m
+     return jsonify({[m
+         "status": "success",[m
+         "message": "AI Squad launched successfully! Squad is ready for action.",  # Add missing message for test[m
+[36m@@ -1944,14 +1944,14 @@[m [mdef run_task(task_name):[m
+         'generate_content': 'Content generation started',[m
+         'sync_data': 'Data synchronization completed'[m
+     }[m
+[31m-    [m
+[32m+[m
+     if task_name not in known_tasks:[m
+         return jsonify({[m
+             "error": f"Unknown task: {task_name}",[m
+             "available_tasks": list(known_tasks.keys()),[m
+             "status": "error"[m
+         }), 400[m
+[31m-    [m
+[32m+[m
+     return jsonify({[m
+         "status": "completed",[m
+         "task": task_name,[m
+[36m@@ -1977,11 +1977,11 @@[m [mif __name__ == '__main__':[m
+     print('   • / - Main Dashboard')[m
+     print('   • /api/status - Health Check')[m
+     print('   • /api/create-product - Create New Product')[m
+[31m-    print('   • /api/generate-docs - Generate Documentation')  [m
+[32m+[m[32m    print('   • /api/generate-docs - Generate Documentation')[m
+     print('   • /api/analytics - Business Analytics')[m
+     print('   • /api/dashboard-stats - Dashboard Statistics')[m
+     print('\n✨ Press Ctrl+C to stop the server\n')[m
+[31m-    [m
+[32m+[m
+     try:[m
+         app.run(debug=True, host='0.0.0.0', port=5000)[m
+     except KeyboardInterrupt:[m

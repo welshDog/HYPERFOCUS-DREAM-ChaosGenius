@@ -1,0 +1,17 @@
+[Unit]
+Description=ChaosGenius Discord Bot - BROski AI Assistant
+After=network.target
+
+[Service]
+Type=exec
+User=root
+WorkingDirectory=/root/chaosgenius
+Environment=PATH=/root/chaosgenius/project_env/bin
+ExecStart=/root/chaosgenius/project_env/bin/python chaosgenius_discord_bot.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

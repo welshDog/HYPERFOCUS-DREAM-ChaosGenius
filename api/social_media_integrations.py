@@ -35,22 +35,22 @@ class SocialMetrics:
 
 class EtsyAPIClient:
     """Etsy Shop API integration for real sales/listing data"""
-    
+
     def __init__(self):
         self.api_key = os.getenv('ETSY_API_KEY')
         self.shared_secret = os.getenv('ETSY_SHARED_SECRET')
-        self.shop_id = os.getenv('ETSY_SHOP_ID') 
+        self.shop_id = os.getenv('ETSY_SHOP_ID')
         self.redirect_uri = os.getenv('ETSY_REDIRECT_URI', 'http://localhost:5000/auth/callback')
         self.base_url = 'https://openapi.etsy.com/v3'
         self.headers = {
             'x-api-key': self.api_key,
             'Content-Type': 'application/json'
         }
-        
+
     def is_configured(self) -> bool:
         """Check if API credentials are configured"""
         return bool(self.api_key and self.shop_id)
-    
+
     def test_connection(self) -> Dict[str, Any]:
         """Test basic API connection (from HYPERFOCUSZONEGB notes)"""
         if not self.is_configured():
@@ -59,11 +59,11 @@ class EtsyAPIClient:
                 'message': 'API credentials not configured',
                 'configured': False
             }
-            
+
         try:
             url = f"{self.base_url}/application/shops/{self.shop_id}"
             response = requests.get(url, headers=self.headers, timeout=10)
-            
+
             if response.status_code == 200:
                 return {
                     'status': 'success',
@@ -79,7 +79,7 @@ class EtsyAPIClient:
                 }
             elif response.status_code == 404:
                 return {
-                    'status': 'error', 
+                    'status': 'error',
                     'message': '❌ Shop ID not found',
                     'configured': False
                 }
@@ -89,7 +89,7 @@ class EtsyAPIClient:
                     'message': f'❌ API error: {response.status_code}',
                     'configured': False
                 }
-                
+
         except requests.RequestException as e:
             logger.error(f"Etsy API connection test failed: {e}")
             return {
@@ -97,17 +97,17 @@ class EtsyAPIClient:
                 'message': f'❌ Connection failed: {str(e)}',
                 'configured': False
             }
-    
+
     def get_shop_info(self) -> Dict[str, Any]:
         """Get basic shop information"""
         if not self.is_configured() or self.api_key == '3h5koqhz7tb3a02vamid3yl1':
             # Use mock data if not fully configured
             return self._mock_shop_data()
-            
+
         try:
             url = f"{self.base_url}/application/shops/{self.shop_id}"
             response = requests.get(url, headers=self.headers, timeout=10)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 return {
@@ -122,7 +122,7 @@ class EtsyAPIClient:
                 if response.status_code != 401:
                     logger.warning(f"Etsy API error: {response.status_code}")
                 return self._mock_shop_data()
-                
+
         except requests.RequestException as e:
             # Suppress error logs for configuration issues
             return self._mock_shop_data()
@@ -131,7 +131,7 @@ class EtsyAPIClient:
         """Generate OAuth authorization URL for deeper access"""
         if not self.api_key:
             return ""
-            
+
         # Enhanced OAuth flow from HYPERFOCUSZONEGB notes
         oauth_params = {
             'response_type': 'code',
@@ -140,7 +140,7 @@ class EtsyAPIClient:
             'scope': 'shops_r transactions_r',
             'state': 'hyperfocus_dream_auth'
         }
-        
+
         params_string = '&'.join([f"{k}={v}" for k, v in oauth_params.items()])
         return f"https://www.etsy.com/oauth/connect?{params_string}"
 
@@ -148,13 +148,13 @@ class EtsyAPIClient:
         """Get recent orders from the shop"""
         if not self.is_configured():
             return self._mock_orders()
-            
+
         try:
             # Note: This requires OAuth token for private shop data
             # For now, return mock data with real API structure
             url = f"{self.base_url}/application/shops/{self.shop_id}/receipts"
             response = requests.get(url, headers=self.headers, timeout=10)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 orders = []
@@ -168,24 +168,24 @@ class EtsyAPIClient:
                 return orders
             else:
                 return self._mock_orders()
-                
+
         except Exception as e:
             logger.error(f"Error fetching Etsy orders: {e}")
             return self._mock_orders()
-    
+
     def get_listings(self) -> Dict[str, Any]:
         """Get active listings and their performance"""
         if not self.is_configured():
             return self._mock_listings()
-            
+
         try:
             url = f"{self.base_url}/application/shops/{self.shop_id}/listings/active"
             response = requests.get(url, headers=self.headers, timeout=10)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 listings = data.get('results', [])
-                
+
                 return {
                     'total_listings': len(listings),
                     'active_listings': len([l for l in listings if l.get('state') == 'active']),
@@ -194,17 +194,17 @@ class EtsyAPIClient:
                 }
             else:
                 return self._mock_listings()
-                
+
         except Exception as e:
             logger.error(f"Error fetching Etsy listings: {e}")
             return self._mock_listings()
-    
+
     def get_sales_metrics(self) -> Dict[str, Any]:
         """Get comprehensive sales metrics"""
         shop_info = self.get_shop_info()
         orders = self.get_recent_orders()
         listings = self.get_listings()
-        
+
         # Calculate revenue from recent orders
         recent_revenue = 0
         for order in orders:
@@ -213,7 +213,7 @@ class EtsyAPIClient:
                 recent_revenue += amount
             except (ValueError, KeyError):
                 continue
-        
+
         return {
             'sales': len(orders),
             'revenue': f'£{recent_revenue:.2f}',
@@ -224,7 +224,7 @@ class EtsyAPIClient:
             'recent_orders': orders,
             'status': 'connected' if self.is_configured() else 'mock_data'
         }
-    
+
     def _mock_shop_data(self) -> Dict[str, Any]:
         """Fallback mock data for shop info"""
         return {
@@ -233,7 +233,7 @@ class EtsyAPIClient:
             'currency': 'GBP',
             'status': 'mock_data'
         }
-    
+
     def _mock_orders(self) -> List[Dict[str, Any]]:
         """Fallback mock data for orders"""
         return [
@@ -241,7 +241,7 @@ class EtsyAPIClient:
             {'id': '1002', 'total': '£22.50', 'created': '2025-05-25', 'items': 1},
             {'id': '1003', 'total': '£78.25', 'created': '2025-05-24', 'items': 3},
         ]
-    
+
     def _mock_listings(self) -> Dict[str, Any]:
         """Fallback mock data for listings"""
         return {
@@ -253,7 +253,7 @@ class EtsyAPIClient:
 
 class TikTokAPIClient:
     """TikTok Business API integration for creator metrics"""
-    
+
     def __init__(self):
         self.access_token = os.getenv('TIKTOK_ACCESS_TOKEN')
         self.advertiser_id = os.getenv('TIKTOK_ADVERTISER_ID')
@@ -262,22 +262,22 @@ class TikTokAPIClient:
             'Access-Token': self.access_token,
             'Content-Type': 'application/json'
         }
-    
+
     def is_configured(self) -> bool:
         """Check if API credentials are configured"""
         return bool(self.access_token)
-    
+
     def get_account_info(self) -> Dict[str, Any]:
         """Get TikTok account information"""
         if not self.is_configured():
             return self._mock_account_data()
-            
+
         try:
             # Note: Actual TikTok API endpoint would vary based on your setup
             # This is a simplified example
             url = f"{self.base_url}/advertiser/info/"
             response = requests.get(url, headers=self.headers, timeout=10)
-            
+
             if response.status_code == 200:
                 data = response.json()
                 return {
@@ -286,25 +286,25 @@ class TikTokAPIClient:
                 }
             else:
                 return self._mock_account_data()
-                
+
         except Exception as e:
             logger.error(f"TikTok API request failed: {e}")
             return self._mock_account_data()
-    
+
     def get_video_metrics(self) -> Dict[str, Any]:
         """Get video performance metrics"""
         if not self.is_configured():
             return self._mock_video_metrics()
-            
+
         try:
             # In production, this would fetch real video analytics
             # For now, enhanced mock data with realistic structure
             return self._mock_video_metrics()
-            
+
         except Exception as e:
             logger.error(f"Error fetching TikTok metrics: {e}")
             return self._mock_video_metrics()
-    
+
     def get_trending_content(self) -> List[Dict[str, Any]]:
         """Get trending video content"""
         return [
@@ -323,13 +323,13 @@ class TikTokAPIClient:
                 'created': '2025-05-24'
             }
         ]
-    
+
     def get_comprehensive_metrics(self) -> Dict[str, Any]:
         """Get all TikTok metrics combined"""
         account = self.get_account_info()
         metrics = self.get_video_metrics()
         trending = self.get_trending_content()
-        
+
         return {
             'views': metrics['total_views'],
             'likes': metrics['total_likes'],
@@ -340,14 +340,14 @@ class TikTokAPIClient:
             'trending_content': trending,
             'status': 'connected' if self.is_configured() else 'mock_data'  # Add missing status field
         }
-    
+
     def _mock_account_data(self) -> Dict[str, Any]:
         """Fallback mock data for TikTok account"""
         return {
             'name': 'HYPERFOCUS Creator',
             'status': 'mock_data'
         }
-    
+
     def _mock_video_metrics(self) -> Dict[str, Any]:
         """Fallback mock data for video metrics"""
         return {
@@ -362,7 +362,7 @@ class TikTokAPIClient:
 def fetch_all_metrics() -> Dict[str, SocialMetrics]:
     """Fetch metrics from all configured social media APIs"""
     metrics = {}
-    
+
     # Etsy metrics
     etsy_client = EtsyAPIClient()
     etsy_metrics = etsy_client.get_sales_metrics()
@@ -372,7 +372,7 @@ def fetch_all_metrics() -> Dict[str, SocialMetrics]:
         last_updated=datetime.now().isoformat(),
         status=etsy_metrics['status']
     )
-    
+
     # TikTok metrics
     tiktok_client = TikTokAPIClient()
     tiktok_metrics = tiktok_client.get_comprehensive_metrics()
@@ -382,29 +382,29 @@ def fetch_all_metrics() -> Dict[str, SocialMetrics]:
         last_updated=datetime.now().isoformat(),
         status='connected'  # Assume connected for mockup
     )
-    
+
     return metrics
 
 class SocialMediaAggregator:
     """Aggregates metrics from all social media platforms"""
-    
+
     def __init__(self):
         self.etsy_client = EtsyAPIClient()
         self.tiktok_client = TikTokAPIClient()
         self.cache = {}
         self.cache_timeout = 300  # 5 minutes
-    
+
     def get_all_metrics(self, use_cache: bool = True) -> Dict[str, Any]:
         """Get metrics from all platforms"""
         if use_cache and 'all_metrics' in self.cache:
             cache_time = self.cache['all_metrics']['timestamp']
             if time.time() - cache_time < self.cache_timeout:
                 return self.cache['all_metrics']['data']
-        
+
         # Fetch fresh data
         etsy_metrics = self.etsy_client.get_sales_metrics()
         tiktok_metrics = self.tiktok_client.get_comprehensive_metrics()
-        
+
         aggregated = {
             'etsy': etsy_metrics,
             'tiktok': tiktok_metrics,
@@ -421,14 +421,14 @@ class SocialMediaAggregator:
                 'tiktok': self.tiktok_client.is_configured()
             }
         }
-        
+
         # Cache the result
         if use_cache:
             self.cache['all_metrics'] = {
                 'data': aggregated,
                 'timestamp': time.time()
             }
-        
+
         return aggregated
 
 def get_live_social_metrics() -> Dict[str, Any]:
@@ -440,7 +440,7 @@ def main():
     """Main entry point for the script"""
     logger.info("Fetching all social media metrics...")
     all_metrics = fetch_all_metrics()
-    
+
     # Log or process the metrics as needed
     for platform, metrics in all_metrics.items():
         logger.info(f"{platform} Metrics: {json.dumps(metrics.metrics, indent=2)}")
