@@ -3,7 +3,7 @@
 Your neurodivergent productivity companion
 """
 
-from .broski_core import BROskiCore, BROskiResponse, get_broski_status
+from .broski_core import BROskiCore, BROskiResponse, get_ultra_broski_status
 from .token_commands import BROskiTokenCommands
 from .token_engine import BROskiTokenEngine
 
@@ -15,5 +15,5 @@ __all__ = [
     "BROskiResponse",
     "BROskiTokenEngine",
     "BROskiTokenCommands",
-    "get_broski_status",
+    "get_ultra_broski_status",
 ]

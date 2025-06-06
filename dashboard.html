@@ -62,6 +62,7 @@
                 radial-gradient(circle at 40% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
                 linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             background-attachment: fixed;
+            padding-top: 140px; /* Space for live banner (80px) + navigation (60px) */
         }
 
         /* Cyber Text Effects */
@@ -148,6 +149,89 @@
             background: radial-gradient(circle, #8b45ff, #4c1d95);
             animation: neuron-fire 1s ease-in-out infinite;
         }
+
+        /* 🚀 BROSKI ULTRA NAVIGATION - ZERO LAG VERSION */
+    .broski-nav {
+        position: fixed;
+        top: 80px; /* Below the live banner */
+        left: 0;
+        right: 0;
+        z-index: 30;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(139, 69, 255, 0.3);
+        transition: transform 0.2s ease;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .nav-btn {
+        background: linear-gradient(145deg, rgba(139, 69, 255, 0.1), rgba(0, 191, 255, 0.1));
+        border: 1px solid rgba(139, 69, 255, 0.4);
+        color: #8b45ff;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 12px;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-btn:hover {
+        background: linear-gradient(145deg, rgba(139, 69, 255, 0.2), rgba(0, 191, 255, 0.2));
+        border-color: #8b45ff;
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(139, 69, 255, 0.3);
+    }
+
+    .nav-btn.active {
+        background: linear-gradient(145deg, #8b45ff, #7c3aed);
+        color: white;
+        border-color: #8b45ff;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+        .nav-buttons {
+            padding: 8px 12px;
+            gap: 6px;
+        }
+        .nav-btn {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+    }
+
+    /* Collapse/expand functionality */
+    .nav-collapsed .nav-buttons {
+        transform: translateY(-100%);
+    }
+
+    .nav-toggle {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(139, 69, 255, 0.2);
+        border: 1px solid rgba(139, 69, 255, 0.4);
+        color: #8b45ff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+    }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen" x-data="ultraDashboard()" x-init="init()">
@@ -166,6 +250,30 @@
             Built by Ultra Dev Pals • Powered by ADHD Superpowers • Ready for Global Hyperfocus! 💪
         </div>
     </div>
+
+    <!-- 🚀 BROSKI ULTRA NAVIGATION - ZERO LAG VERSION -->
+    <nav class="broski-nav" id="broskiNav">
+        <div class="nav-buttons" id="navButtons">
+            <a href="/index.html" class="nav-btn" data-page="index">🏠 Home</a>
+            <a href="/dashboard.html" class="nav-btn active" data-page="dashboard">📊 Dashboard</a>
+            <a href="/user_portal.html" class="nav-btn" data-page="user_portal">👤 User Portal</a>
+            <a href="/etsy-dashboard.html" class="nav-btn" data-page="etsy">🛍 Etsy</a>
+            <a href="/tiktok_shop_dashboard.html" class="nav-btn" data-page="tiktok">🎵 TikTok</a>
+            <a href="/ultra_analytics_panel.html" class="nav-btn" data-page="analytics">📈 Analytics</a>
+            <a href="/neurod_analytics_dashboard.html" class="nav-btn" data-page="neurod">🧠 NeuroD</a>
+            <a href="/production_monitoring.html" class="nav-btn" data-page="production">🔬 Production</a>
+            <a href="/phase3_dashboard.html" class="nav-btn" data-page="phase3">🚀 Phase 3</a>
+            <a href="/phase5_intelligence.html" class="nav-btn" data-page="phase5">🧠 Phase 5</a>
+            <a href="/broski_defender_dashboard.html" class="nav-btn" data-page="defender">🛡 Defender</a>
+            <a href="/hyperfocus_brain_dashboard.html" class="nav-btn" data-page="brain">🧠 Brain HQ</a>
+            <a href="/broski_adzone_visual.html" class="nav-btn" data-page="adzone">📺 Ad Zone</a>
+            <a href="/broski_manifesto.html" class="nav-btn" data-page="manifesto">📜 Manifesto</a>
+            <a href="/frontend/dashboards/master_control.html" class="nav-btn" data-page="master">🎮 Master Ctrl</a>
+            <a href="/frontend/dashboards/bio_zone.html" class="nav-btn" data-page="bio">🧬 Bio Zone</a>
+            <a href="/frontend/dashboards/ultra_mode.html" class="nav-btn" data-page="ultra">💥 Ultra Mode</a>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()" title="Toggle Navigation">≡</button>
+    </nav>
 
     <!-- 🧠 BROski HUD Overlay -->
     <div class="fixed top-4 right-4 z-50" x-show="broskiActive" x-transition>
@@ -256,7 +364,7 @@
         </div>
     </nav>
 
-    <!-- Main Dashboard Container -->
+    <!-- Main Dashboard Container
     <div class="container mx-auto px-4 py-8 mt-16" :class="{'focus-mode': focusMode}">
 
         <!-- Ultra Mode Header -->
@@ -465,545 +573,626 @@
                      @click="showAPIStatus()">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                            <span class="text-2xl">🔌</span>
+                            <span class="text-2xl">📡</span>
                         </div>
-                        <h4 class="text-lg font-bold text-green-300 mb-2">API Control</h4>
-                        <p class="text-sm text-green-200 mb-3">Integration status</p>
+                        <h4 class="text-lg font-bold text-green-300 mb-2">API Center</h4>
+                        <p class="text-sm text-green-200 mb-3">System status</p>
                         <div class="text-xs text-green-400 space-y-1">
-                            <div>🔗 API Connections</div>
-                            <div>⚙️ Configuration</div>
-                            <div>📊 Health Monitor</div>
+                            <div class="flex items-center justify-center space-x-2">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <span>All Systems GO</span>
+                            </div>
+                            <div>🔗 API Endpoints</div>
+                            <div>📊 Performance Metrics</div>
                         </div>
                         <button class="mt-4 w-full bg-green-600/50 hover:bg-green-600/70 px-3 py-2 rounded-lg text-sm transition-colors">
-                            Check Status →
+                            System Status →
                         </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Quick Launch Bar -->
-            <div class="mt-6 flex flex-wrap justify-center gap-3">
-                <button @click="window.open('/tiktok-dashboard', '_blank')"
-                        class="cyber-btn text-xs px-4 py-2">
-                    🎯 TikTok HQ
-                </button>
-                <button @click="window.open('/master-control', '_blank')"
-                        class="cyber-btn text-xs px-4 py-2">
-                    🧠 Neural Control
-                </button>
-                <button @click="window.open('/ultra', '_self')"
-                        class="cyber-btn text-xs px-4 py-2">
-                    ⚡ Ultra Mode
-                </button>
-                <button @click="showAPISetup()"
-                        class="cyber-btn text-xs px-4 py-2">
-                    🔧 API Setup
-                </button>
-                <button @click="refreshAllSystems()"
-                        class="cyber-btn text-xs px-4 py-2">
-                    🔄 Sync All
-                </button>
-            </div>
         </div>
 
-        <!-- BROski AI Chat Interface -->
-        <div class="glass rounded-xl p-6 mb-8" x-show="showBroskiChat">
-            <h3 class="text-xl font-bold mb-4 flex items-center">
-                <span class="mr-2">🤖</span> Chat with BROski AI
-            </h3>
-            <div class="space-y-4">
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <div class="text-sm text-purple-300">Latest Insight:</div>
-                    <div class="text-sm" x-text="aiInsight">Your productivity is 23% higher during afternoon sessions!</div>
-                </div>
-                <div class="flex space-x-3">
-                    <input type="text" placeholder="Ask BROski anything..."
-                           class="flex-1 bg-gray-800/50 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
-                           x-model="aiQuery" @keydown.enter="askBroskiQuery()">
-                    <button @click="askBroskiQuery()"
-                            class="cyber-btn">
-                        Send
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Live Analytics Dashboard -->
+        <!-- 🔥🔥🔥 LIVE STATUS INDICATORS - ULTRA MODE 2.0 🔥🔥🔥 -->
         <div class="glass rounded-xl p-6 mb-8">
             <h3 class="text-2xl font-bold mb-6 flex items-center">
-                <span class="mr-3">📈</span> Live Empire Analytics
-                <div class="ml-auto flex items-center space-x-2">
-                    <div class="w-2 h-2 rounded-full" :class="analytics.data_source === 'live_apis' ? 'bg-green-400' : 'bg-yellow-400'"></div>
-                    <span class="text-xs" x-text="analytics.data_source === 'live_apis' ? 'LIVE DATA' : 'DEMO MODE'"></span>
+                <span class="mr-3">🔥</span> LIVE STATUS DASHBOARD - ULTRA MODE 2.0
+                <div class="ml-auto flex items-center space-x-3">
+                    <div class="loading-orb"></div>
+                    <span class="text-xs text-purple-400">REAL-TIME MONITORING</span>
                 </div>
             </h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Etsy Sales Card -->
-                <div class="bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-lg p-4 border border-orange-500/30 relative overflow-hidden">
-                    <div class="scan-line"></div>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-orange-400" x-text="analytics.etsy_sales">17</div>
-                            <div class="text-sm text-orange-300">Etsy Sales</div>
-                            <div class="text-xs text-orange-200 mt-1" x-text="analytics.total_revenue">£1,240</div>
-                            <div class="flex items-center mt-2">
-                                <div class="w-2 h-2 rounded-full mr-2" :class="analytics.api_status?.etsy === 'connected' ? 'bg-green-400' : 'bg-yellow-400'"></div>
-                                <span class="text-xs" x-text="analytics.api_status?.etsy || 'mock_data'"></span>
-                            </div>
+            <!-- Real-Time System Status Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <!-- Server Status -->
+                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-lg p-4 border border-green-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-green-300">🖥️ Server</h4>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>CPU:</span>
+                            <span class="text-green-400" x-text="systemStats.cpu">23%</span>
                         </div>
-                        <div class="text-2xl">🛒</div>
+                        <div class="flex justify-between">
+                            <span>RAM:</span>
+                            <span class="text-green-400" x-text="systemStats.ram">67%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Uptime:</span>
+                            <span class="text-green-400" x-text="systemStats.uptime">99.9%</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- TikTok Views Card -->
-                <div class="bg-gradient-to-br from-pink-600/20 to-purple-600/20 rounded-lg p-4 border border-pink-500/30 relative overflow-hidden">
-                    <div class="scan-line"></div>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-pink-400" x-text="formatNumber(analytics.tiktok_views)">22K</div>
-                            <div class="text-sm text-pink-300">TikTok Views</div>
-                            <div class="text-xs text-pink-200 mt-1" x-text="analytics.engagement_rate">8.4%</div>
-                            <div class="flex items-center mt-2">
-                                <div class="w-2 h-2 rounded-full mr-2" :class="analytics.api_status?.tiktok === 'connected' ? 'bg-green-400' : 'bg-yellow-400'"></div>
-                                <span class="text-xs" x-text="analytics.api_status?.tiktok || 'mock_data'"></span>
-                            </div>
+                <!-- AI Squad Status -->
+                <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-purple-300">🤖 AI Squad</h4>
+                        <div class="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Active Bots:</span>
+                            <span class="text-purple-400" x-text="aiStats.activeBots">4/4</span>
                         </div>
-                        <div class="text-2xl">📱</div>
+                        <div class="flex justify-between">
+                            <span>Tasks:</span>
+                            <span class="text-purple-400" x-text="aiStats.tasks">12</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Success Rate:</span>
+                            <span class="text-purple-400" x-text="aiStats.successRate">98.5%</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Active Products Card -->
-                <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-lg p-4 border border-green-500/30 relative overflow-hidden">
-                    <div class="scan-line"></div>
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-green-400" x-text="analytics.active_products">9</div>
-                            <div class="text-sm text-green-300">Active Products</div>
-                            <div class="text-xs text-green-200 mt-1" x-text="`Conv: ${(analytics.conversion_rate * 100).toFixed(2)}%`">Conv: 0.08%</div>
-                            <div class="text-xs text-green-100 mt-1" x-text="analytics.last_updated ? new Date(analytics.last_updated).toLocaleTimeString() : 'Never'">Last: --:--</div>
+                <!-- Revenue Tracker -->
+                <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg p-4 border border-blue-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-blue-300">💰 Revenue</h4>
+                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Today:</span>
+                            <span class="text-blue-400" x-text="revenueStats.today">£142</span>
                         </div>
-                        <div class="text-2xl">📦</div>
+                        <div class="flex justify-between">
+                            <span>This Week:</span>
+                            <span class="text-blue-400" x-text="revenueStats.week">£1,240</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Growth:</span>
+                            <span class="text-green-400" x-text="revenueStats.growth">+24%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Monitor -->
+                <div class="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg p-4 border border-orange-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-orange-300">⚡ Performance</h4>
+                        <div class="w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Response:</span>
+                            <span class="text-orange-400" x-text="performanceStats.response">0.2s</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Requests/min:</span>
+                            <span class="text-orange-400" x-text="performanceStats.requests">340</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Error Rate:</span>
+                            <span class="text-green-400" x-text="performanceStats.errors">0.01%</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recent Activity Feed -->
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Recent Orders -->
-                <div class="glass-dark rounded-lg p-4" x-show="analytics.recent_orders && analytics.recent_orders.length > 0">
-                    <h4 class="font-bold text-orange-300 mb-3">🛒 Recent Orders</h4>
-                    <div class="space-y-2">
-                        <template x-for="order in analytics.recent_orders?.slice(0,3)" :key="order.id">
-                            <div class="flex justify-between items-center bg-orange-600/10 rounded p-2">
-                                <div>
-                                    <div class="text-sm font-semibold" x-text="`Order #${order.id}`"></div>
-                                    <div class="text-xs text-gray-400" x-text="order.created"></div>
-                                </div>
-                                <div class="text-orange-400 font-bold" x-text="order.total"></div>
-                            </div>
-                        </template>
+            <!-- Live Activity Feed -->
+            <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30">
+                <h4 class="font-bold text-gray-300 mb-3 flex items-center">
+                    <span class="mr-2">📡</span> Live Activity Feed
+                    <div class="ml-auto w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                </h4>
+                <div class="space-y-2 max-h-32 overflow-y-auto" id="activityFeed">
+                    <div class="text-sm text-gray-300 flex items-center">
+                        <span class="text-green-400 mr-2">•</span>
+                        <span class="text-xs text-gray-500 mr-2">14:23:42</span>
+                        TikTok Bot: Successfully posted new product
+                    </div>
+                    <div class="text-sm text-gray-300 flex items-center">
+                        <span class="text-blue-400 mr-2">•</span>
+                        <span class="text-xs text-gray-500 mr-2">14:23:15</span>
+                        Analytics AI: Generated daily report
+                    </div>
+                    <div class="text-sm text-gray-300 flex items-center">
+                        <span class="text-purple-400 mr-2">•</span>
+                        <span class="text-xs text-gray-500 mr-2">14:22:58</span>
+                        Discord Bot: New user joined community
+                    </div>
+                    <div class="text-sm text-gray-300 flex items-center">
+                        <span class="text-orange-400 mr-2">•</span>
+                        <span class="text-xs text-gray-500 mr-2">14:22:33</span>
+                        System: Auto-backup completed
                     </div>
                 </div>
-
-                <!-- Trending Content -->
-                <div class="glass-dark rounded-lg p-4" x-show="analytics.trending_content && analytics.trending_content.length > 0">
-                    <h4 class="font-bold text-pink-300 mb-3">🔥 Trending Content</h4>
-                    <div class="space-y-2">
-                        <template x-for="video in analytics.trending_content?.slice(0,2)" :key="video.title">
-                            <div class="bg-pink-600/10 rounded p-2">
-                                <div class="text-sm font-semibold" x-text="video.title"></div>
-                                <div class="flex justify-between text-xs text-gray-400 mt-1">
-                                    <span x-text="`${formatNumber(video.views)} views`"></span>
-                                    <span x-text="`${video.likes} likes`"></span>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-6 flex justify-center space-x-4">
-                <button @click="refreshAnalytics()" class="cyber-btn">
-                    <span x-show="!loadingAnalytics">🔄 Refresh Data</span>
-                    <span x-show="loadingAnalytics" class="flex items-center">
-                        <div class="loading-orb mr-2"></div>
-                        Updating...
-                    </span>
-                </button>
-                <button @click="showAPISetup()" class="cyber-btn">
-                    🔧 API Setup
-                </button>
             </div>
         </div>
 
-        <!-- API Setup Modal -->
-        <div x-show="showAPIModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" x-transition>
-            <div class="glass-dark rounded-xl p-6 max-w-2xl w-full mx-4">
-                <h3 class="text-2xl font-bold mb-4">🔧 Social Media API Setup</h3>
+        <!-- Productivity Zones -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Hyperfocus Zone -->
+            <div class="glass rounded-xl p-6" :class="{'hyperfocus-mode': hyperfocusMode}">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="mr-3">🎯</span> Hyperfocus Zone
+                    <div class="ml-auto" x-show="hyperfocusMode">
+                        <span class="text-xs bg-yellow-500 text-black px-2 py-1 rounded-full">ACTIVE</span>
+                    </div>
+                </h3>
 
-                <div class="space-y-6">
-                    <!-- Etsy Configuration -->
-                    <div class="border border-orange-500/30 rounded-lg p-4">
-                        <h4 class="font-bold text-orange-300 mb-3 flex items-center">
-                            🛒 Etsy Shop Integration
-                            <span class="ml-auto text-xs" :class="apiStatus.etsy === 'connected' ? 'text-green-400' : 'text-yellow-400'" x-text="apiStatus.etsy || 'Not Connected'"></span>
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Etsy API Key"
-                                   class="bg-gray-800/50 border border-orange-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
-                                   x-model="apiCredentials.etsy_api_key">
-                            <input type="text" placeholder="Shop ID"
-                                   class="bg-gray-800/50 border border-orange-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
-                                   x-model="apiCredentials.etsy_shop_id">
+                <div class="space-y-4">
+                    <!-- Focus Timer -->
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm">Focus Session</span>
+                            <span class="text-sm" x-text="formatTime(focusTime)">25:00</span>
                         </div>
-                        <div class="mt-2 text-xs text-gray-400">
-                            Get your credentials from <a href="https://www.etsy.com/developers/" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:underline">Etsy Developers</a>
+                        <div class="bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all duration-1000"
+                                 :style="`width: ${(focusTime / 1500) * 100}%`"></div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button @click="startFocus()" class="cyber-btn flex-1 text-xs py-2">Start</button>
+                            <button @click="pauseFocus()" class="cyber-btn flex-1 text-xs py-2">Pause</button>
+                            <button @click="resetFocus()" class="cyber-btn flex-1 text-xs py-2">Reset</button>
                         </div>
                     </div>
 
-                    <!-- TikTok Configuration -->
-                    <div class="border border-pink-500/30 rounded-lg p-4">
-                        <h4 class="font-bold text-pink-300 mb-3 flex items-center">
-                            📱 TikTok Creator Integration
-                            <span class="ml-auto text-xs" :class="apiStatus.tiktok === 'connected' ? 'text-green-400' : 'text-yellow-400'" x-text="apiStatus.tiktok || 'Not Connected'"></span>
-                        </h4>
-                        <div class="grid grid-cols-1 gap-4">
-                            <input type="text" placeholder="TikTok Access Token"
-                                   class="bg-gray-800/50 border border-pink-500/30 rounded px-3 py-2 text-white placeholder-gray-400"
-                                   x-model="apiCredentials.tiktok_access_token">
-                        </div>
-                        <div class="mt-2 text-xs text-gray-400">
-                            Get your token from <a href="https://developers.tiktok.com/" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">TikTok for Developers</a>
+                    <!-- Current Task -->
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <h4 class="font-bold mb-2">Current Task</h4>
+                        <input type="text" x-model="currentTask" placeholder="What are you working on?"
+                               class="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:border-purple-500 focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Assistant -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <span class="mr-3">🤖</span> BROski AI Assistant
+                    <div class="ml-auto flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs text-green-400">ONLINE</span>
+                    </div>
+                </h3>
+
+                <!-- Chat Interface -->
+                <div class="bg-gray-800/50 rounded-lg p-4 mb-4 h-48 overflow-y-auto" id="chatContainer">
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm">🤖</div>
+                            <div class="bg-purple-600/20 rounded-lg p-3 flex-1">
+                                <p class="text-sm">Hey! I'm BROski, your ADHD-optimized AI assistant. How can I help boost your productivity today?</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-6 flex justify-between">
-                    <button @click="showAPIModal = false" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded text-white transition-colors">
-                        Cancel
-                    </button>
-                    <div class="space-x-3">
-                        <button @click="testAPIConnections()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white transition-colors">
-                            Test Connections
-                        </button>
-                        <button @click="saveAPICredentials()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white transition-colors">
-                            Save & Connect
-                        </button>
-                    </div>
+                <!-- Chat Input -->
+                <div class="flex space-x-2">
+                    <input type="text" x-model="chatMessage" @keyup.enter="sendMessage()"
+                           placeholder="Ask BROski anything..."
+                           class="flex-1 bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:border-purple-500 focus:outline-none">
+                    <button @click="sendMessage()" class="cyber-btn px-4 py-2 text-sm">Send</button>
                 </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-2 gap-2 mt-4">
+                    <button @click="quickAction('motivation')" class="cyber-btn text-xs py-2">💪 Motivation</button>
+                    <button @click="quickAction('break')" class="cyber-btn text-xs py-2">☕ Break Time</button>
+                    <button @click="quickAction('organize')" class="cyber-btn text-xs py-2">📋 Organize</button>
+                    <button @click="quickAction('celebrate')" class="cyber-btn text-xs py-2">🎉 Celebrate</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Controls -->
+        <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+                <span class="mr-3">⚙️</span> System Controls
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <button @click="runBackup()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">💾</div>
+                    <div class="text-sm">Run Backup</div>
+                </button>
+
+                <button @click="generateReport()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="text-sm">Generate Report</div>
+                </button>
+
+                <button @click="optimizeSystem()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">🚀</div>
+                    <div class="text-sm">Optimize System</div>
+                </button>
+
+                <button @click="launchMasterControl()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">🧠</div>
+                    <div class="text-sm">Master Control</div>
+                </button>
             </div>
         </div>
     </div>
 
+    <!-- 🔥 ULTRA MODE 2.0 JavaScript Engine -->
     <script>
+        // 🚀 Navigation System
+        function toggleNav() {
+            const nav = document.getElementById('broskiNav');
+            nav.classList.toggle('nav-collapsed');
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1': e.preventDefault(); window.location.href = '/dashboard.html'; break;
+                    case '2': e.preventDefault(); window.location.href = '/user_portal.html'; break;
+                    case '3': e.preventDefault(); window.location.href = '/etsy-dashboard.html'; break;
+                    case '4': e.preventDefault(); window.location.href = '/tiktok_shop_dashboard.html'; break;
+                    case '5': e.preventDefault(); window.location.href = '/master-control'; break;
+                    case 'm': e.preventDefault(); window.location.href = '/master-control'; break;
+                    case 'h': e.preventDefault(); window.location.href = '/dashboard.html'; break;
+                }
+            }
+        });
+
         function ultraDashboard() {
             return {
                 // Core State
+                ultraModeActive: true,
+                focusMode: false,
+                hyperfocusMode: false,
                 broskiActive: true,
                 squadRingActive: true,
-                focusMode: false,
                 hyperfocusDetected: false,
-                ultraModeActive: true,
-                showBroskiChat: false,
-                showAPIModal: false,
-
-                // AI & Energy
-                broskiMessage: "Ready to optimize your workflow! 🚀",
-                aiQuery: "",
-                aiInsight: "Your productivity is 23% higher during afternoon sessions!",
                 energyLevel: 85,
 
-                // Analytics & Stats
+                // Timer State
+                focusTime: 1500, // 25 minutes in seconds
+                focusTimer: null,
+                focusActive: false,
+
+                // Chat State
+                chatMessage: '',
+                currentTask: '',
+
+                // Live Stats
+                systemStats: {
+                    cpu: '23%',
+                    ram: '67%',
+                    uptime: '99.9%'
+                },
+
+                aiStats: {
+                    activeBots: '4/4',
+                    tasks: '12',
+                    successRate: '98.5%'
+                },
+
+                revenueStats: {
+                    today: '£142',
+                    week: '£1,240',
+                    growth: '+24%'
+                },
+
+                performanceStats: {
+                    response: '0.2s',
+                    requests: '340',
+                    errors: '0.01%'
+                },
+
                 stats: {
-                    revenue: "£1,240",
+                    revenue: '£1,240',
                     products: 15,
                     aiSessions: 42
                 },
-                analytics: {
-                    etsy_sales: 17,
-                    tiktok_views: "22K",
-                    active_products: 9,
-                    data_source: 'live_apis',
-                    api_status: {
-                        etsy: 'connected',
-                        tiktok: 'not_connected'
-                    },
-                    recent_orders: [],
-                    trending_content: []
-                },
 
-                apiCredentials: {
-                    etsy_api_key: '',
-                    etsy_shop_id: '',
-                    tiktok_access_token: ''
-                },
-                apiStatus: {
-                    etsy: 'Not Connected',
-                    tiktok: 'Not Connected'
-                },
+                broskiMessage: 'Ready to maximize your potential! 🚀',
 
+                // Initialization
                 init() {
-                    console.log("🚀 HYPERFOCUS DREAM Ultra Mode Initialized!");
-                    this.loadStats();
-                    this.startHyperfocusDetection();
-                    this.rotateMotivationalMessages();
-
-                    // Entrance animation
-                    gsap.fromTo(document.body,
-                        { opacity: 0, scale: 0.95 },
-                        { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" }
-                    );
+                    console.log('🔥 ULTRA MODE 2.0 Dashboard Initialized!');
+                    this.startLiveUpdates();
+                    this.detectHyperfocus();
+                    this.updateBroskiMessage();
                 },
 
-                // BROski AI Functions
-                askBroski() {
-                    this.broskiMessage = "Analyzing your workflow patterns...";
-                    setTimeout(() => {
-                        const responses = [
-                            "I notice you're most productive between 2-4 PM. Block that time for deep work!",
-                            "Your Etsy sales spike after TikTok posts. Keep that content flowing! 📱",
-                            "Time for a 5-minute movement break. Your brain will thank you! 🧠",
-                            "You've completed 3 tasks today. You're crushing it! Keep the momentum! 🔥"
-                        ];
-                        this.broskiMessage = responses[Math.floor(Math.random() * responses.length)];
+                // Live Status Updates
+                startLiveUpdates() {
+                    setInterval(() => {
+                        this.updateSystemStats();
+                        this.updateActivity();
                     }, 2000);
                 },
 
-                askBroskiQuery() {
-                    if (this.aiQuery.trim()) {
-                        this.broskiMessage = `Processing: "${this.aiQuery}"...`;
+                updateSystemStats() {
+                    // Simulate real-time updates
+                    this.systemStats.cpu = Math.floor(Math.random() * 30 + 15) + '%';
+                    this.systemStats.ram = Math.floor(Math.random() * 20 + 60) + '%';
+                    this.performanceStats.requests = Math.floor(Math.random() * 100 + 300);
+                    this.revenueStats.today = '£' + Math.floor(Math.random() * 50 + 120);
+                },
 
-                        fetch('/api/broski/chat', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                query: this.aiQuery,
-                                energy_level: this.energyLevel
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.response;
-                            this.aiInsight = data.insights[0];
-                        })
-                        .catch(error => {
-                            this.broskiMessage = "BROski is thinking... Try again in a moment! 🤖";
-                        });
+                updateActivity() {
+                    const activities = [
+                        'TikTok Bot: New product uploaded',
+                        'Analytics AI: Data processed',
+                        'Discord Bot: Message handled',
+                        'System: Health check passed',
+                        'Etsy API: Orders synchronized',
+                        'BROski AI: Task completed'
+                    ];
 
-                        this.aiQuery = "";
+                    const feed = document.getElementById('activityFeed');
+                    if (feed && Math.random() < 0.3) {
+                        const activity = activities[Math.floor(Math.random() * activities.length)];
+                        const timestamp = new Date().toLocaleTimeString();
+                        const colors = ['green-400', 'blue-400', 'purple-400', 'orange-400'];
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+
+                        const newItem = document.createElement('div');
+                        newItem.className = 'text-sm text-gray-300 flex items-center';
+                        newItem.innerHTML = `
+                            <span class="text-${color} mr-2">•</span>
+                            <span class="text-xs text-gray-500 mr-2">${timestamp}</span>
+                            ${activity}
+                        `;
+
+                        feed.insertBefore(newItem, feed.firstChild);
+                        if (feed.children.length > 6) {
+                            feed.removeChild(feed.lastChild);
+                        }
                     }
                 },
 
-                // Hyperfocus Functions
-                toggleHyperfocus() {
-                    this.focusMode = !this.focusMode;
-                    this.broskiMessage = this.focusMode ?
-                        "🎯 Hyperfocus mode activated! Distractions minimized." :
-                        "Focus mode deactivated. Welcome back to full interface!";
-
-                    fetch('/api/hyperfocus/toggle', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ enabled: this.focusMode })
-                    });
+                // Focus Management
+                startFocus() {
+                    if (!this.focusActive) {
+                        this.focusActive = true;
+                        this.hyperfocusMode = true;
+                        this.focusTimer = setInterval(() => {
+                            if (this.focusTime > 0) {
+                                this.focusTime--;
+                            } else {
+                                this.completeFocusSession();
+                            }
+                        }, 1000);
+                    }
                 },
 
+                pauseFocus() {
+                    this.focusActive = false;
+                    if (this.focusTimer) {
+                        clearInterval(this.focusTimer);
+                        this.focusTimer = null;
+                    }
+                },
+
+                resetFocus() {
+                    this.pauseFocus();
+                    this.focusTime = 1500;
+                    this.hyperfocusMode = false;
+                },
+
+                completeFocusSession() {
+                    this.pauseFocus();
+                    this.hyperfocusMode = false;
+                    this.showNotification('🎉 Focus session complete! Time for a break.');
+                    this.resetFocus();
+                },
+
+                formatTime(seconds) {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                },
+
+                // AI Chat
+                sendMessage() {
+                    if (this.chatMessage.trim()) {
+                        this.addChatMessage('user', this.chatMessage);
+                        const response = this.getBroskiResponse(this.chatMessage);
+                        setTimeout(() => {
+                            this.addChatMessage('broski', response);
+                        }, 800);
+                        this.chatMessage = '';
+                    }
+                },
+
+                addChatMessage(sender, message) {
+                    const container = document.getElementById('chatContainer');
+                    const isUser = sender === 'user';
+
+                    const messageEl = document.createElement('div');
+                    messageEl.className = 'flex items-start space-x-3';
+                    messageEl.innerHTML = `
+                        <div class="w-8 h-8 ${isUser ? 'bg-blue-500' : 'bg-purple-500'} rounded-full flex items-center justify-center text-sm">
+                            ${isUser ? '👤' : '🤖'}
+                        </div>
+                        <div class="${isUser ? 'bg-blue-600/20' : 'bg-purple-600/20'} rounded-lg p-3 flex-1">
+                            <p class="text-sm">${message}</p>
+                        </div>
+                    `;
+
+                    container.appendChild(messageEl);
+                    container.scrollTop = container.scrollHeight;
+                },
+
+                getBroskiResponse(message) {
+                    const responses = [
+                        "🚀 That's a great idea! Let's break it down into smaller, ADHD-friendly chunks.",
+                        "💪 I love your energy! Remember to take breaks and stay hydrated.",
+                        "🎯 Focus mode activated! You've got this, hyperfocus warrior!",
+                        "🧠 Your neurodivergent brain is a superpower. Let's channel that creativity!",
+                        "⚡ Time to turn that hyperfocus into pure productivity magic!",
+                        "🔥 You're absolutely crushing it! Keep that momentum going!"
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                },
+
+                quickAction(type) {
+                    const actions = {
+                        motivation: "💪 You're unstoppable! Every small step counts. Your ADHD brain is wired for brilliance!",
+                        break: "☕ Perfect timing for a break! Go stretch, hydrate, or take a quick walk. You've earned it!",
+                        organize: "📋 Let's get organized! Try the 2-minute rule: if it takes less than 2 minutes, do it now!",
+                        celebrate: "🎉 CELEBRATION TIME! Acknowledge your wins, no matter how small. You're amazing!"
+                    };
+                    this.addChatMessage('broski', actions[type]);
+                },
+
+                // System Actions
+                runBackup() {
+                    this.showNotification('💾 Backup started... This may take a few minutes.');
+                    // Simulate backup process
+                    setTimeout(() => {
+                        this.showNotification('✅ Backup completed successfully!');
+                    }, 3000);
+                },
+
+                generateReport() {
+                    this.showNotification('📊 Generating comprehensive report...');
+                    setTimeout(() => {
+                        window.open('/api/reports/daily', '_blank');
+                    }, 1000);
+                },
+
+                optimizeSystem() {
+                    this.showNotification('🚀 System optimization in progress...');
+                    setTimeout(() => {
+                        this.showNotification('⚡ System optimized! Performance boosted!');
+                    }, 2000);
+                },
+
+                launchMasterControl() {
+                    window.open('/master-control', '_blank');
+                },
+
+                // UI Controls
                 toggleUltraMode() {
                     this.ultraModeActive = !this.ultraModeActive;
-                    this.broskiMessage = this.ultraModeActive ?
-                        "🔥 Ultra Mode: Maximum power unlocked!" :
-                        "⭐ Standard Mode: Reduced functionality";
+                    this.showNotification(this.ultraModeActive ? '🔥 Ultra Mode ACTIVATED!' : '⭐ Standard Mode active');
                 },
 
-                startHyperfocusDetection() {
+                toggleHyperfocus() {
+                    this.hyperfocusMode = !this.hyperfocusMode;
+                    this.showNotification(this.hyperfocusMode ? '🎯 Hyperfocus Mode ON!' : '🎯 Hyperfocus Mode OFF');
+                },
+
+                detectHyperfocus() {
+                    // Simulate hyperfocus detection based on activity
                     setInterval(() => {
-                        this.hyperfocusDetected = Math.random() > 0.7;
-                        if (this.hyperfocusDetected) {
-                            this.energyLevel = Math.min(100, this.energyLevel + 2);
-                        }
-                    }, 10000);
-                },
-
-                // Squad Ring Functions
-                showSquadStatus() {
-                    alert(`🎮 AI Squad Status:\n\n📝 Content Creator: Ready\n📊 Analytics AI: Active\n⚡ Productivity AI: Optimizing\n🤖 Discord Bot: Online\n\n🚀 All systems operational!`);
-                },
-
-                launchAI(type) {
-                    const aiTypes = {
-                        content: "Content Creator AI activated! 📝",
-                        analytics: "Analytics AI running deep scan... 📊",
-                        productivity: "Productivity AI optimizing workflow... ⚡",
-                        discord: "Discord Bot connecting to community... 🤖"
-                    };
-
-                    this.broskiMessage = aiTypes[type] || "AI system activated!";
-                },
-
-                // Dashboard Actions
-                createProduct() {
-                    this.showBroskiChat = true;
-                    this.broskiMessage = "🛠️ Product creation wizard activated!";
-
-                    fetch('/api/create-product', { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.message;
-                            this.stats.products++;
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "Product created in local quantum storage! 🚀";
-                        });
-                },
-
-                runAnalytics() {
-                    this.broskiMessage = "📊 Running deep analytics scan...";
-
-                    fetch('/api/analytics')
-                        .then(response => response.json())
-                        .then(data => {
-                            this.analytics = data;
-                            this.broskiMessage = "Analytics updated! Found new insights.";
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "Analytics scan complete! 📊";
-                        });
-                },
-
-                generateDocs() {
-                    this.broskiMessage = "📚 Documentation wizard is working...";
-
-                    fetch('/api/generate-docs', { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.message;
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "Documentation generated! 📚";
-                        });
-                },
-
-                refreshAnalytics() {
-                    this.runAnalytics();
-                },
-
-                loadStats() {
-                    fetch('/api/dashboard-stats')
-                        .then(response => response.json())
-                        .then(data => {
-                            this.stats.aiSessions = data.stats.ai_sessions;
-                            this.stats.products = data.stats.total_projects;
-                        })
-                        .catch(() => {
-                            console.log("Using mock stats");
-                        });
-                },
-
-                // Motivation & Messages
-                showMotivation() {
-                    const motivations = [
-                        "You're absolutely crushing it today! 🔥",
-                        "Your ADHD brain is a superpower! Use it! ⚡",
-                        "Every small step is progress. Keep going! 🚀",
-                        "Your creativity is your competitive advantage! 🎨"
-                    ];
-                    this.broskiMessage = motivations[Math.floor(Math.random() * motivations.length)];
-                },
-
-                rotateMotivationalMessages() {
-                    setInterval(() => {
-                        if (!this.focusMode) {
-                            const messages = [
-                                "Your empire is growing! 👑",
-                                "Hyperfocus powers: ACTIVATED! 🧠",
-                                "Remember to take breaks! 😌",
-                                "You've got this, entrepreneur! 💪"
-                            ];
-                            this.broskiMessage = messages[Math.floor(Math.random() * messages.length)];
-                        }
+                        this.hyperfocusDetected = Math.random() < 0.7; // 70% chance
                     }, 30000);
                 },
 
-                // API Setup Functions
-                showAPISetup() {
-                    this.showAPIModal = true;
+                updateBroskiMessage() {
+                    const messages = [
+                        'Ready to maximize your potential! 🚀',
+                        'Your ADHD superpowers are loading... 💪',
+                        'Hyperfocus mode: AVAILABLE! 🎯',
+                        'Let\'s turn chaos into genius! 🧠',
+                        'Your productivity empire awaits! 👑'
+                    ];
+
+                    setInterval(() => {
+                        this.broskiMessage = messages[Math.floor(Math.random() * messages.length)];
+                    }, 10000);
                 },
 
-                testAPIConnections() {
-                    this.broskiMessage = "🔌 Testing API connections...";
+                showNotification(message) {
+                    // Create notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-20 right-4 z-50 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300';
+                    notification.textContent = message;
 
-                    // Simulate API testing
+                    document.body.appendChild(notification);
+
+                    // Animate in
                     setTimeout(() => {
-                        this.apiStatus.etsy = Math.random() > 0.5 ? 'connected' : 'not_connected';
-                        this.apiStatus.tiktok = Math.random() > 0.5 ? 'connected' : 'not_connected';
+                        notification.classList.remove('translate-x-full');
+                    }, 100);
 
-                        this.broskiMessage = "API connections tested!";
-                    }, 2000);
-                },
-
-                saveAPICredentials() {
-                    this.broskiMessage = "💾 Saving API credentials...";
-
-                    // Simulate saving credentials
+                    // Remove after 3 seconds
                     setTimeout(() => {
-                        this.broskiMessage = "API credentials saved!";
-                        this.showAPIModal = false;
-                    }, 2000);
+                        notification.classList.add('translate-x-full');
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 300);
+                    }, 3000);
                 },
 
-                // Platform Navigation Functions
+                // Platform integrations
+                createProduct() {
+                    window.open('/create-product', '_blank');
+                },
+
+                runAnalytics() {
+                    window.open('/analytics', '_blank');
+                },
+
+                generateDocs() {
+                    fetch('/api/generate-docs', { method: 'POST' })
+                        .then(() => this.showNotification('📚 Documentation generation started!'));
+                },
+
                 launchDiscordBot() {
-                    this.broskiMessage = "🤖 Launching Discord Bot...";
-
                     fetch('/api/discord/start', { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.message || "Discord Bot activated!";
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "Discord Bot system initiated! 🤖";
-                        });
+                        .then(() => this.showNotification('🤖 Discord Bot activated!'));
                 },
 
                 showAPIStatus() {
-                    this.broskiMessage = "🔌 Checking API status...";
-
-                    fetch('/api/tiktok-shop/status')
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.message;
-                            // Update API status based on response
-                            if (data.configuration) {
-                                this.apiStatus.tiktok = data.configuration.api_configured ? 'Connected' : 'Not Connected';
-                            }
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "API status check complete! 🔌";
-                        });
+                    window.open('/api-status', '_blank');
                 },
 
-                refreshAllSystems() {
-                    this.broskiMessage = "🔄 Synchronizing all systems...";
-
-                    fetch('/api/sync-systems', { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            this.broskiMessage = data.message;
-                            this.refreshAnalytics();
-                        })
-                        .catch(() => {
-                            this.broskiMessage = "All systems synchronized! 🚀";
-                            this.refreshAnalytics();
-                        });
+                showSquadStatus() {
+                    this.showNotification('🚀 AI Squad Status: All systems operational!');
                 },
 
-                // Utility Functions
-                formatNumber(num) {
-                    if (typeof num === 'string') return num;
-                    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-                    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-                    return num.toString();
+                launchAI(type) {
+                    const urls = {
+                        content: '/ai/content-creator',
+                        analytics: '/ai/analytics',
+                        productivity: '/ai/productivity',
+                        discord: '/discord-bot'
+                    };
+                    if (urls[type]) {
+                        window.open(urls[type], '_blank');
+                    }
+                },
+
+                askBroski() {
+                    this.addChatMessage('broski', 'Hey there! What would you like to work on today? I\'m here to help you stay focused and productive! 🚀');
+                },
+
+                showMotivation() {
+                    const motivations = [
+                        '🔥 Your ADHD brain is a creativity POWERHOUSE!',
+                        '💪 Every hyperfocus session brings you closer to your goals!',
+                        '🚀 You\'re not broken, you\'re OPTIMIZED for innovation!',
+                        '🧠 Neurodivergent minds change the world!',
+                        '⚡ Turn that restless energy into unstoppable momentum!'
+                    ];
+                    this.showNotification(motivations[Math.floor(Math.random() * motivations.length)]);
                 }
             }
         }

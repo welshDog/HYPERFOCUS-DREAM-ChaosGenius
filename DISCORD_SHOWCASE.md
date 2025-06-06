@@ -81,7 +81,7 @@
 - **Dopamine Scanner** - Detects mood from messages and responds accordingly
 - **Daily Rituals** - Automated community engagement and motivation
 - **Quest System** - Gamified productivity challenges
-- **HyperGems** - Neurodivergent reward currency
+- **BROski$** - Neurodivergent reward currency
 - **Flow State Detection** - Recognizes when you're in the zone
 
 ---

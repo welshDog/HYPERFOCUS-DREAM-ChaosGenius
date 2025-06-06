@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-06-06T07:57:18.538955",
+  "security_score": "2/4",
+  "security_percentage": 50.0,
+  "vulnerabilities": [
+    "\ud83d\udea8 REAL Discord token found in .env",
+    "\ud83d\udea8 REAL API key exposed: ETSY_API_KEY in .env",
+    "\ud83d\udea8 REAL API key exposed: OPENAI_API_KEY in .env",
+    "\ud83d\udea8 REAL API key exposed: OPENAI_API_KEY in .env",
+    "\ud83d\udea8 REAL API key exposed: ETSY_API_KEY in .env",
+    "\ud83d\udea8 REAL API key exposed: ETSY_API_KEY in .env.prod",
+    "\ud83d\udea8 Missing .gitignore entries: *.pem"
+  ],
+  "status": "NEEDS_ATTENTION"
+}

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 BROski$ Ultra Wallet Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .wallet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .wallet-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wallet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .balance-display {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .balance-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .wallet-address {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #96CEB4, #FFEAA7);
+            color: #2d3436;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .transaction-history {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .transaction-in {
+            border-left-color: #00B894;
+        }
+
+        .transaction-out {
+            border-left-color: #E17055;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .security-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .security-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .security-high {
+            background: #00B894;
+            color: white;
+        }
+
+        .security-medium {
+            background: #FDCB6E;
+            color: #2d3436;
+        }
+
+        .security-low {
+            background: #E17055;
+            color: white;
+        }
+
+        .qr-code {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: white;
+            margin: 0 auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        .shop-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .shop-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .shop-item:hover {
+            transform: scale(1.05);
+        }
+
+        .shop-price {
+            font-size: 1.5em;
+            color: #FFD700;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .wallet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                flex: none;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            color: white;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔐 BROski$ Ultra Wallet Dashboard</h1>
+            <p>Your neurodivergent-friendly crypto companion</p>
+        </div>
+
+        <!-- Main Wallet Grid -->
+        <div class="wallet-grid">
+            <!-- Balance Card -->
+            <div class="wallet-card">
+                <h2>💰 Your Balance</h2>
+                <div class="balance-display">
+                    <div class="balance-amount" id="balance-amount">1,234.56</div>
+                    <div>BROski$ Tokens</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="daily-earned">+25</div>
+                        <div>Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="streak-count">🔥 7</div>
+                        <div>Day Streak</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="openSendModal()">💸 Send</button>
+                    <button class="btn btn-secondary" onclick="claimDaily()">🎁 Daily</button>
+                    <button class="btn btn-success" onclick="openShop()">🛒 Shop</button>
+                </div>
+            </div>
+
+            <!-- Wallet Info Card -->
+            <div class="wallet-card">
+                <h2>🏦 Wallet Details</h2>
+
+                <div class="security-status">
+                    <span>Security Level:</span>
+                    <span class="security-badge security-high" id="security-level">🛡️ High</span>
+                </div>
+
+                <div class="wallet-address" id="wallet-address">
+                    0xBROski1234567890abcdef...
+                </div>
+
+                <div class="qr-code">
+                    <div class="qr-placeholder" id="qr-code">
+                        📱 QR Code
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="copyAddress()">📋 Copy</button>
+                    <button class="btn btn-primary" onclick="showBackup()">🔐 Backup</button>
+                </div>
+            </div>
+
+            <!-- Leaderboard Card -->
+            <div class="wallet-card">
+                <h2>🏆 Leaderboard</h2>
+                <div id="leaderboard">
+                    <div class="transaction-item">
+                        <span>🥇 ChaosGenius</span>
+                        <span>2,847 BROski$</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span>🥈 FocusBro</span>
+                        <span>1,923 BROski$</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span>🥉 ADHDWarrior</span>
+                        <span>1,456 BROski$</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span>4. You</span>
+                        <span id="your-balance">1,234 BROski$</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="transaction-history">
+            <h2>📊 Recent Transactions</h2>
+            <div id="transaction-list">
+                <div class="transaction-item transaction-in">
+                    <div>
+                        <strong>Daily Reward</strong><br>
+                        <small>2 hours ago</small>
+                    </div>
+                    <div style="color: #00B894;">+15 BROski$</div>
+                </div>
+                <div class="transaction-item transaction-out">
+                    <div>
+                        <strong>Tip to @FocusBro</strong><br>
+                        <small>1 day ago</small>
+                    </div>
+                    <div style="color: #E17055;">-5 BROski$</div>
+                </div>
+                <div class="transaction-item transaction-in">
+                    <div>
+                        <strong>Helped in ADHD Support</strong><br>
+                        <small>2 days ago</small>
+                    </div>
+                    <div style="color: #00B894;">+20 BROski$</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop Section -->
+        <div class="transaction-history" id="shop-section" style="display: none;">
+            <h2>🛒 BROski$ Ultra Shop</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <h3>🚀 Discord Boost</h3>
+                    <p>Show off your wealth!</p>
+                    <div class="shop-price">25 BROski$</div>
+                    <button class="btn btn-primary" onclick="buyItem('discord_boost')">Buy Now</button>
+                </div>
+                <div class="shop-item">
+                    <h3>🎨 Custom Role</h3>
+                    <p>Pick your role color!</p>
+                    <div class="shop-price">50 BROski$</div>
+                    <button class="btn btn-primary" onclick="buyItem('custom_role')">Buy Now</button>
+                </div>
+                <div class="shop-item">
+                    <h3>💎 VIP Access</h3>
+                    <p>Exclusive channels</p>
+                    <div class="shop-price">100 BROski$</div>
+                    <button class="btn btn-primary" onclick="buyItem('vip_access')">Buy Now</button>
+                </div>
+                <div class="shop-item">
+                    <h3>🧠 Focus Session</h3>
+                    <p>1-on-1 ADHD coaching</p>
+                    <div class="shop-price">75 BROski$</div>
+                    <button class="btn btn-primary" onclick="buyItem('focus_session')">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Modal -->
+    <div id="sendModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSendModal()">&times;</span>
+            <h2>💸 Send BROski$ Tokens</h2>
+            <form id="sendForm">
+                <div class="form-group">
+                    <label for="recipient">Recipient:</label>
+                    <input type="text" id="recipient" placeholder="@username or wallet address" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" placeholder="0.00" step="0.01" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (optional):</label>
+                    <input type="text" id="message" placeholder="What's this for?">
+                </div>
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary">🚀 Send Tokens</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeSendModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dashboard functionality
+        let currentBalance = 1234.56;
+        let dailyStreak = 7;
+
+        function updateBalance(newBalance) {
+            currentBalance = newBalance;
+            document.getElementById('balance-amount').textContent = newBalance.toFixed(2);
+            document.getElementById('your-balance').textContent = `${newBalance.toFixed(0)} BROski$`;
+        }
+
+        function claimDaily() {
+            // Simulate daily reward
+            const reward = 10 + (dailyStreak * 2);
+            updateBalance(currentBalance + reward);
+            dailyStreak++;
+
+            document.getElementById('streak-count').textContent = `🔥 ${dailyStreak}`;
+            document.getElementById('daily-earned').textContent = `+${reward}`;
+
+            // Add transaction to history
+            addTransaction(`Daily Reward - Day ${dailyStreak}`, reward, 'in');
+
+            alert(`🎉 Daily reward claimed! +${reward} BROski$ earned!\n🔥 Streak: ${dailyStreak} days`);
+        }
+
+        function addTransaction(description, amount, type) {
+            const transactionList = document.getElementById('transaction-list');
+            const newTransaction = document.createElement('div');
+            newTransaction.className = `transaction-item transaction-${type}`;
+
+            const color = type === 'in' ? '#00B894' : '#E17055';
+            const sign = type === 'in' ? '+' : '-';
+
+            newTransaction.innerHTML = `
+                <div>
+                    <strong>${description}</strong><br>
+                    <small>Just now</small>
+                </div>
+                <div style="color: ${color};">${sign}${amount} BROski$</div>
+            `;
+
+            transactionList.insertBefore(newTransaction, transactionList.firstChild);
+        }
+
+        function openSendModal() {
+            document.getElementById('sendModal').style.display = 'block';
+        }
+
+        function closeSendModal() {
+            document.getElementById('sendModal').style.display = 'none';
+        }
+
+        function openShop() {
+            const shopSection = document.getElementById('shop-section');
+            shopSection.style.display = shopSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function copyAddress() {
+            const address = document.getElementById('wallet-address').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                alert('📋 Wallet address copied to clipboard!');
+            });
+        }
+
+        function showBackup() {
+            alert('🔐 Backup phrase: word1 word2 word3 word4...\n\n⚠️ Keep this safe and never share it!');
+        }
+
+        function buyItem(itemId) {
+            const items = {
+                'discord_boost': { name: 'Discord Boost Badge', price: 25 },
+                'custom_role': { name: 'Custom Role Color', price: 50 },
+                'vip_access': { name: 'VIP Channel Access', price: 100 },
+                'focus_session': { name: 'Focus Session', price: 75 }
+            };
+
+            const item = items[itemId];
+            if (currentBalance >= item.price) {
+                updateBalance(currentBalance - item.price);
+                addTransaction(`Purchased: ${item.name}`, item.price, 'out');
+                alert(`🛒 Purchase successful!\n✅ ${item.name} bought for ${item.price} BROski$`);
+            } else {
+                alert(`❌ Insufficient funds!\nNeed ${item.price} BROski$, you have ${currentBalance.toFixed(2)}`);
+            }
+        }
+
+        // Send form handling
+        document.getElementById('sendForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const recipient = document.getElementById('recipient').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const message = document.getElementById('message').value;
+
+            if (amount > currentBalance) {
+                alert('❌ Insufficient balance!');
+                return;
+            }
+
+            updateBalance(currentBalance - amount);
+            addTransaction(`Sent to ${recipient}${message ? ': ' + message : ''}`, amount, 'out');
+
+            alert(`💸 Successfully sent ${amount} BROski$ to ${recipient}!`);
+            closeSendModal();
+
+            // Reset form
+            document.getElementById('sendForm').reset();
+        });
+
+        // Load wallet data on page load
+        window.addEventListener('load', function() {
+            // Simulate loading wallet data
+            setTimeout(() => {
+                console.log('🔐 BROski$ Ultra Wallet Dashboard loaded!');
+            }, 1000);
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('sendModal');
+            if (event.target === modal) {
+                closeSendModal();
+            }
+        });
+    </script>
+</body>
+</html>

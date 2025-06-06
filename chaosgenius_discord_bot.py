@@ -131,7 +131,7 @@ def init_user_profile(user_id):
         user_profiles[user_id] = {
             "dopamine": 75,
             "focus_level": "Balanced",
-            "hypergems": 0,
+            "broski$": 0,
             "daily_streak": 0,
             "last_active": datetime.now(),
             "quests_completed": 0,
@@ -268,7 +268,7 @@ async def energy_check_slash(interaction: discord.Interaction):
         value=f"`{dopamine_bar}` {dopamine_level}%",
         inline=False,
     )
-    embed.add_field(name="💎 HyperGems", value=str(profile["hypergems"]), inline=True)
+    embed.add_field(name="💎 BROski$", value=str(profile["broski$"]), inline=True)
     embed.add_field(
         name="🔥 Daily Streak", value=f"{profile['daily_streak']} days", inline=True
     )
@@ -386,7 +386,7 @@ async def upgrade_role_slash(interaction: discord.Interaction):
             "cost": 500,
             "description": "Special color + priority support",
         },
-        "💎 HyperGem Master": {
+        "💎 BROski$ Master": {
             "cost": 1000,
             "description": "Exclusive channels + custom emoji",
         },
@@ -464,14 +464,14 @@ class IdeaSubmissionModal(discord.ui.Modal, title="💡 Share Your Brainwave"):
 
         # Award tokens for sharing
         profile = init_user_profile(interaction.user.id)
-        profile["hypergems"] += 10
+        profile["broski$"] += 10
 
         embed = discord.Embed(
             title="💡 Idea Captured!",
             description=f"**{self.idea_title.value}** has been added to the Ultra Squad review queue!",
             color=0x4CAF50,
         )
-        embed.add_field(name="💎 Reward", value="10 HyperGems earned!", inline=True)
+        embed.add_field(name="💎 Reward", value="10 BROski$ earned!", inline=True)
         embed.add_field(
             name="🎯 Status", value="Under review by the Ultra Squad", inline=True
         )
@@ -534,7 +534,7 @@ class BugReportModal(discord.ui.Modal, title="🐛 Bug Report with Style"):
 
         # Award tokens for helpful reporting
         profile = init_user_profile(interaction.user.id)
-        profile["hypergems"] += 15
+        profile["broski$"] += 15
 
         embed = discord.Embed(
             title="🐛 Bug Captured!",
@@ -542,7 +542,7 @@ class BugReportModal(discord.ui.Modal, title="🐛 Bug Report with Style"):
             color=0xFFAA00,
         )
         embed.add_field(
-            name="💎 Bug Hunter Reward", value="15 HyperGems earned!", inline=True
+            name="💎 Bug Hunter Reward", value="15 BROski$ earned!", inline=True
         )
         embed.add_field(
             name="🔧 Status", value="Our devs are on the case!", inline=True
@@ -651,7 +651,7 @@ class BROskiInteractiveView(discord.ui.View):
             color=0xFF6B35,
         )
         embed.add_field(
-            name="💰 Reward", value="5 HyperGems + dopamine boost!", inline=True
+            name="💰 Reward", value="5 BROski$ + dopamine boost!", inline=True
         )
         embed.add_field(
             name="⏰ Time Limit", value="No pressure - when you're ready!", inline=True
@@ -821,7 +821,7 @@ class BROskiPathSelector(discord.ui.Select):
         profile["broski_path"] = selected
 
         # Award path selection bonus
-        profile["hypergems"] += 25
+        profile["broski$"] += 25
 
         path_info = {
             "🎨 Creative Chaos": {
@@ -862,7 +862,7 @@ class BROskiPathSelector(discord.ui.Select):
         embed.add_field(name="🎁 Your Perks", value=info["perks"], inline=False)
         embed.add_field(
             name="💎 Bonus Reward",
-            value="25 HyperGems for choosing your path!",
+            value="25 BROski$ for choosing your path!",
             inline=True,
         )
 
@@ -893,7 +893,7 @@ async def dashboard_slash(interaction: discord.Interaction):
 
     # User stats
     embed.add_field(name="⚡ Energy", value=f"{profile['dopamine']}%", inline=True)
-    embed.add_field(name="💎 HyperGems", value=str(profile["hypergems"]), inline=True)
+    embed.add_field(name="💎 BROski$", value=str(profile["broski$"]), inline=True)
     embed.add_field(
         name="🏆 Quests", value=str(profile["quests_completed"]), inline=True
     )
@@ -906,7 +906,7 @@ async def dashboard_slash(interaction: discord.Interaction):
         name="🎯 Path", value=profile.get("broski_path", "Not chosen"), inline=True
     )
     embed.add_field(
-        name="📊 Level", value=f"{min(10, profile['hypergems'] // 100)}", inline=True
+        name="📊 Level", value=f"{min(10, profile['broski$'] // 100)}", inline=True
     )
 
     # Create dashboard view with all controls
@@ -989,7 +989,7 @@ class DashboardView(discord.ui.View):
             description=f"**Your Mission:** {quest}",
             color=0xFF6B35,
         )
-        embed.add_field(name="💰 Reward", value="5-10 HyperGems", inline=True)
+        embed.add_field(name="💰 Reward", value="5-10 BROski$", inline=True)
         embed.add_field(name="⏰ Deadline", value="When you feel like it!", inline=True)
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -1004,7 +1004,7 @@ class DashboardView(discord.ui.View):
         # Create a simple reaction-based game
         embed = discord.Embed(
             title="🎮 Reaction Game!",
-            description="First to react with 🚀 wins HyperGems!\nGame starts in 3... 2... 1...",
+            description="First to react with 🚀 wins BROski$!\nGame starts in 3... 2... 1...",
             color=0xFF6B35,
         )
 
@@ -1127,7 +1127,7 @@ class RoleUpgradeView(discord.ui.View):
 
             # Check if user has enough tokens (mock check for now)
             profile = init_user_profile(interaction.user.id)
-            current_gems = profile["hypergems"]
+            current_gems = profile["broski$"]
 
             if current_gems < info["cost"]:
                 embed = discord.Embed(
@@ -1144,7 +1144,7 @@ class RoleUpgradeView(discord.ui.View):
                 return
 
             # Process role upgrade
-            profile["hypergems"] -= info["cost"]
+            profile["broski$"] -= info["cost"]
 
             embed = discord.Embed(
                 title="🚀 Role Upgrade Successful!",
@@ -1156,7 +1156,7 @@ class RoleUpgradeView(discord.ui.View):
             )
             embed.add_field(
                 name="💰 Remaining Balance",
-                value=f"{profile['hypergems']} BROski$",
+                value=f"{profile['broski$']} BROski$",
                 inline=True,
             )
 
@@ -1423,10 +1423,11 @@ class FocusRoomView(discord.ui.View):
             )
             # Award bonus gems
             profile = init_user_profile(interaction.user.id)
-            profile["hypergems"] += 20
+            profile["broski$"] += 20
+
             embed.add_field(
-                name="💎 Reward",
-                value="20 HyperGems for focus excellence!",
+                name="💎 Focus Reward",
+                value="20 BROski$ for focus excellence!",
                 inline=True,
             )
 
@@ -1434,14 +1435,12 @@ class FocusRoomView(discord.ui.View):
 
 
 # 🎮 6. MINI-GAMES & INTERACTIVE CHALLENGES
-@bot.tree.command(
-    name="gem-rush", description="💎 Quick reaction game to earn HyperGems"
-)
+@bot.tree.command(name="gem-rush", description="💎 Quick reaction game to earn BROski$")
 async def gem_rush_slash(interaction: discord.Interaction):
     """💎 Reaction-based mini-game for earning gems"""
 
     embed = discord.Embed(
-        title="💎 HyperGem Rush!",
+        title="💎 BROski$ Rush!",
         description="Get ready for a reaction challenge! First to react wins gems!",
         color=0xFF6B35,
     )
@@ -1450,7 +1449,7 @@ async def gem_rush_slash(interaction: discord.Interaction):
         value="Watch for the 💎 emoji and be first to react!",
         inline=False,
     )
-    embed.add_field(name="🏆 Rewards", value="Winner gets 25 HyperGems!", inline=True)
+    embed.add_field(name="🏆 Rewards", value="Winner gets 25 BROski$!", inline=True)
     embed.add_field(name="⏰ Game starts in", value="3... 2... 1...", inline=True)
 
     await interaction.response.send_message(embed=embed)
@@ -1478,14 +1477,14 @@ async def gem_rush_slash(interaction: discord.Interaction):
 
             # Award winner
             profile = init_user_profile(user.id)
-            profile["hypergems"] += 25
+            profile["broski$"] += 25
 
             winner_embed = discord.Embed(
                 title="🏆 We Have a Winner!",
-                description=f"**{user.display_name}** wins the HyperGem Rush!",
+                description=f"**{user.display_name}** wins the BROski$ Rush!",
                 color=0x4CAF50,
             )
-            winner_embed.add_field(name="💎 Prize", value="25 HyperGems!", inline=True)
+            winner_embed.add_field(name="💎 Prize", value="25 BROski$!", inline=True)
             winner_embed.add_field(
                 name="⚡ Reaction Time", value="Lightning fast!", inline=True
             )
@@ -1562,9 +1561,7 @@ async def brain_quiz_slash(interaction: discord.Interaction):
 
     options_text = "\n".join(question["options"])
     embed.add_field(name="📝 Options", value=options_text, inline=False)
-    embed.add_field(
-        name="💎 Reward", value="Correct answer = 15 HyperGems!", inline=True
-    )
+    embed.add_field(name="💎 Reward", value="Correct answer = 15 BROski$!", inline=True)
     embed.add_field(name="⏰ Time Limit", value="30 seconds to answer!", inline=True)
 
     # Create quiz view
@@ -1614,7 +1611,7 @@ class QuizView(discord.ui.View):
             if is_correct:
                 # Award gems for correct answer
                 profile = init_user_profile(interaction.user.id)
-                profile["hypergems"] += 15
+                profile["broski$"] += 15
 
                 embed = discord.Embed(
                     title="🎉 Correct!",
@@ -1622,7 +1619,7 @@ class QuizView(discord.ui.View):
                     color=0x4CAF50,
                 )
                 embed.add_field(
-                    name="💎 Reward", value="15 HyperGems earned!", inline=True
+                    name="💎 Reward", value="15 BROski$ earned!", inline=True
                 )
             else:
                 embed = discord.Embed(
@@ -1714,7 +1711,7 @@ async def daily_mission_slash(interaction: discord.Interaction):
         color=0xFF6B35,
     )
 
-    embed.add_field(name="💰 Reward", value=f"{total_reward} HyperGems", inline=True)
+    embed.add_field(name="💰 Reward", value=f"{total_reward} BROski$", inline=True)
     embed.add_field(
         name="🔥 Streak Bonus", value=f"x{bonus_multiplier} multiplier!", inline=True
     )
@@ -1769,7 +1766,7 @@ async def complete_mission_slash(interaction: discord.Interaction, proof: str = 
     base_reward = 20
     streak_bonus = profile["daily_streak"] // 7 * 10
     total_reward = base_reward + streak_bonus
-    profile["hypergems"] += total_reward
+    profile["broski$"] += total_reward
 
     embed = discord.Embed(
         title="🎉 Mission Complete!",
@@ -1778,7 +1775,7 @@ async def complete_mission_slash(interaction: discord.Interaction, proof: str = 
     )
 
     embed.add_field(
-        name="💎 Rewards Earned", value=f"{total_reward} HyperGems", inline=True
+        name="💎 Rewards Earned", value=f"{total_reward} BROski$", inline=True
     )
     embed.add_field(
         name="🔥 Daily Streak", value=f"{profile['daily_streak']} days", inline=True
@@ -1793,7 +1790,7 @@ async def complete_mission_slash(interaction: discord.Interaction, proof: str = 
     # Special rewards for streak milestones
     if profile["daily_streak"] % 7 == 0:  # Weekly milestone
         bonus_gems = profile["daily_streak"] * 5
-        profile["hypergems"] += bonus_gems
+        profile["broski$"] += bonus_gems
         embed.add_field(
             name="🌟 Streak Bonus!",
             value=f"{bonus_gems} extra gems for {profile['daily_streak']} day streak!",
@@ -1862,7 +1859,7 @@ class MissionView(discord.ui.View):
             description=f"**Quick Option:** {alternative}",
             color=0xFF6B35,
         )
-        embed.add_field(name="💰 Reward", value="15 HyperGems", inline=True)
+        embed.add_field(name="💰 Reward", value="15 BROski$", inline=True)
         embed.add_field(name="⏰ Duration", value="Quick & easy!", inline=True)
 
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -1906,7 +1903,7 @@ class MissionCompletionModal(discord.ui.Modal, title="🎉 Mission Complete!"):
         profile["last_mission_date"] = today
         profile["daily_streak"] = profile.get("daily_streak", 0) + 1
         profile["quests_completed"] = profile.get("quests_completed", 0) + 1
-        profile["hypergems"] += self.reward
+        profile["broski$"] += self.reward
 
         embed = discord.Embed(
             title="🎉 Mission Accomplished!",
@@ -1914,9 +1911,7 @@ class MissionCompletionModal(discord.ui.Modal, title="🎉 Mission Complete!"):
             color=0x4CAF50,
         )
 
-        embed.add_field(
-            name="💎 Rewards", value=f"{self.reward} HyperGems", inline=True
-        )
+        embed.add_field(name="💎 Rewards", value=f"{self.reward} BROski$", inline=True)
         embed.add_field(
             name="🔥 Streak", value=f"{profile['daily_streak']} days", inline=True
         )
@@ -1976,8 +1971,8 @@ async def on_message(message):
 
             await message.channel.send(response)
 
-            # Award HyperGems for engagement
-            user_profile["hypergems"] += 1
+            # Award BROski$ for engagement
+            user_profile["broski$"] += 1
 
             # Log mood detection
             logger.info(f"Mood detected: {detected_mood} for {message.author.name}")

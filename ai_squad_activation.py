@@ -457,7 +457,7 @@ class AutoPlannerAgent:
             "dopamine_rewards": [
                 "🎉 Celebrate each completed task",
                 "🏆 Share progress with community",
-                "💎 Earn HyperGems for milestones",
+                "💎 Earn BROski$ for milestones",
                 "🚀 Unlock next project level",
             ],
             "hyperfocus_sessions": len(detailed_tasks) // 3,
@@ -1334,7 +1334,7 @@ async def main() -> Dict[str, Any]:
                 f"{result.get('message', 'Minor glitch')}"
             )
 
-    print(f"\n💎 Total Energy Boost: +{total_energy_boost} HyperGems!")
+    print(f"\n💎 Total Energy Boost: +{total_energy_boost} BROski$!")
     print(
         "🧠💜 Your AI Squad is now working 24/7 to support your "
         "neurodivergent empire! 💜🧠"

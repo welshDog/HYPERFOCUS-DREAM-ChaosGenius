@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""
+ChaosGenius Project Deployment to IPFS
+=======================================
+Automate the process of deploying ChaosGenius static files to IPFS and linking to an Unstoppable Domain.
+"""
+
+import os
+import subprocess
+import requests
+
+class ChaosGeniusIPFSDeployer:
+  def __init__(self, site_folder, bucket_name, domain_name):
+    self.site_folder = site_folder
+    self.bucket_name = bucket_name
+    self.domain_name = domain_name
+
+  def upload_to_filebase(self):
+    """Upload the static website folder to Filebase"""
+    print("Uploading files to Filebase...")
+    # Replace with actual Filebase CLI or API commands
+    try:
+      result = subprocess.run(
+        ["filebase", "upload", self.site_folder, self.bucket_name],
+        check=True,
+        capture_output=True,
+        text=True
+      )
+      print(result.stdout)
+      return result.stdout.strip()  # Assuming CID is returned
+    except subprocess.CalledProcessError as e:
+      print(f"Error uploading to Filebase: {e.stderr}")
+      return None
+
+  def link_to_domain(self, cid):
+    """Link the IPFS CID to the Unstoppable Domain"""
+    print(f"Linking CID {cid} to domain {self.domain_name}...")
+    # Replace with actual Unstoppable Domains API or manual steps
+    try:
+      # Simulate API call or manual linking
+      response = requests.post(
+        "https://api.unstoppabledomains.com/link",
+        json={"domain": self.domain_name, "cid": cid}
+      )
+      if response.status_code == 200:
+        print("Domain linked successfully!")
+      else:
+        print(f"Failed to link domain: {response.text}")
+    except Exception as e:
+      print(f"Error linking domain: {e}")
+
+  def deploy(self):
+    """Main deployment process"""
+    if not os.path.exists(self.site_folder):
+      print(f"Error: Folder {self.site_folder} does not exist.")
+      return
+
+    cid = self.upload_to_filebase()
+    if cid:
+      self.link_to_domain(cid)
+    else:
+      print("Deployment failed. CID not generated.")
+
+if __name__ == "__main__":
+  # Example usage
+  site_folder = "chaosgenius-site"
+  bucket_name = "chaosgenius-bucket"
+  domain_name = "yourdomain.crypto"
+
+  deployer = ChaosGeniusIPFSDeployer(site_folder, bucket_name, domain_name)
+  deployer.deploy()

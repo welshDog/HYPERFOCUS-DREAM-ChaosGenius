@@ -51,7 +51,7 @@ OLD CHANNEL NAME → NEW HYPERFOCUSZONE NAME
 /zone-welcome - Interactive welcome experience
 /hyperfocus-session [duration] - Start focus timer with group notifications
 /broski-help [topic] - AI-powered help for ADHD productivity
-/token-balance - Check BROski$ and HyperGems
+/token-balance - Check BROski$ and BROski$
 /daily-quest - Get personalized neurodivergent-friendly missions
 /mood-check - AI mood analysis with support suggestions
 /body-double - Find focus partners in voice channels
@@ -63,7 +63,7 @@ OLD CHANNEL NAME → NEW HYPERFOCUSZONE NAME
 
 🔹 **Launch Week Bonuses**: 2x XP for first 100 members
 🔹 **Daily Streaks**: Consecutive activity rewards
-🔹 **HyperGem Economy**: Earn gems for engagement, focus sessions, helping others
+🔹 **BROski$ Economy**: Earn gems for engagement, focus sessions, helping others
 🔹 **BROski$ Tokens**: Advanced economy for role upgrades and perks
 🔹 **Focus Session Leaderboards**: Weekly top focusers get special roles
 🔹 **Creative Challenges**: Monthly art/content contests with prizes
@@ -112,9 +112,9 @@ OLD CHANNEL NAME → NEW HYPERFOCUSZONE NAME
 ## 🎮 BROSKI ECONOMY (Gamification & Rewards)
 
 📍 #broski-command-center (All bot commands, upgraded from #bot-commands)
-📍 #token-trading-floor (BROski$ economy, HyperGem trades)
+📍 #token-trading-floor (BROski$ economy, BROski$ trades)
 📍 #quest-central (Daily missions, challenges)
-📍 #hypergems-vault (Rewards showcase, leaderboards)
+📍 #broskigems-vault (Rewards showcase, leaderboards)
 📍 #launch-week-exclusive (Special founder perks)
 
 ## 🛡️ SUPPORT & ADMIN (Moderation & Help)
@@ -168,7 +168,7 @@ OLD CHANNEL NAME → NEW HYPERFOCUSZONE NAME
 # 🎊 LAUNCH WEEK SPECIAL FEATURES:
 
 🔥 **FOUNDER STATUS**: First 100 active members get permanent founder role
-💎 **DOUBLE REWARDS**: 2x HyperGems and BROski$ for all activities
+💎 **DOUBLE REWARDS**: 2x BROski$ and BROski$ for all activities
 🎁 **EXCLUSIVE PERKS**: Launch week members get special channel access
 🚀 **BONUS CONTENT**: Extra TikTok content, 3D print files, business templates
 👑 **VIP ACCESS**: Direct line to HyperfocusZone founders for feedback
