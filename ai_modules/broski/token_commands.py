@@ -292,6 +292,8 @@ class BROskiTokenCommands:
             inline=False,
         )
 
-        embed.set_footer(text="BROski$ ClanVerse Ultra • Community Excellence Rewards")
+        embed.set_footer(
+            text="BROski$ ClanVerse Ultra • Community Excellence Rewards"
+        )
 
         return embed

@@ -142,9 +142,9 @@ HYPERFOCUS_CHANNEL_STRUCTURE = {
                 "topic": "🎯 Daily quests, challenges, and dopamine missions from BROski",
             },
             {
-                "name": "hypergems-vault",
+                "name": "broskigems-vault",
                 "type": "text",
-                "topic": "💎 HyperGems leaderboard, achievements, and reward celebrations",
+                "topic": "💎 BROski$ leaderboard, achievements, and reward celebrations",
             },
             {
                 "name": "launch-week-exclusive",
@@ -161,7 +161,7 @@ HYPERFOCUS_ROLES = {
     "🚀 Launch Week Legend": {"color": 0xFF6B35, "permissions": [], "hoist": True},
     "🏆 Founder": {"color": 0x9C27B0, "permissions": [], "hoist": True},
     "👑 Zone Champion": {"color": 0xFFD700, "permissions": [], "hoist": True},
-    "💎 HyperGem Master": {"color": 0x00FFFF, "permissions": [], "hoist": True},
+    "💎 BROski$ Master": {"color": 0x00FFFF, "permissions": [], "hoist": True},
     # 🧠 Neurodivergent Identity (Optional)
     "🧠 ADHD Brain": {"color": 0xFF69B4, "permissions": [], "hoist": False},
     "🌟 Autistic Excellence": {"color": 0x7B68EE, "permissions": [], "hoist": False},
@@ -319,7 +319,7 @@ Your brain isn't broken - this place was built FOR it!
 2. Introduce yourself in <#introduce-yourself>
 3. Try `!broski hello` to meet your AI companion
 4. Join a <#hyperfocus-lounge> voice session
-5. Start earning HyperGems and BROski$ tokens!
+5. Start earning BROski$ and BROski$ tokens!
 
 **Welcome to the empire, legend! Let's build something amazing together!** 👑
                 """,
@@ -371,7 +371,7 @@ class LaunchWeekManager:
 **🔥 LAUNCH WEEK SPECIALS (June 5-12, 2025):**
 
 🎮 **DOUBLE XP FOR EVERYTHING!**
-• Quest completions: 2x HyperGems
+• Quest completions: 2x BROski$
 • Focus sessions: 2x rewards
 • Community engagement: 2x tokens
 

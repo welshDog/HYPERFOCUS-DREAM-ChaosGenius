@@ -1,0 +1,168 @@
+<!-- 🚀 BROSKI ULTRA NAVIGATION - ZERO LAG VERSION -->
+<style>
+/* Ultra-optimized CSS for zero lag navigation */
+.broski-nav {
+    position: fixed;
+    top: 80px; /* Below the live banner */
+    left: 0;
+    right: 0;
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 69, 255, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.nav-btn {
+    background: linear-gradient(145deg, rgba(139, 69, 255, 0.1), rgba(0, 191, 255, 0.1));
+    border: 1px solid rgba(139, 69, 255, 0.4);
+    color: #8b45ff;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(145deg, rgba(139, 69, 255, 0.2), rgba(0, 191, 255, 0.2));
+    border-color: #8b45ff;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 69, 255, 0.3);
+}
+
+.nav-btn.active {
+    background: linear-gradient(145deg, #8b45ff, #7c3aed);
+    color: white;
+    border-color: #8b45ff;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .nav-buttons {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+/* Collapse/expand functionality */
+.nav-collapsed .nav-buttons {
+    transform: translateY(-100%);
+}
+
+.nav-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 69, 255, 0.2);
+    border: 1px solid rgba(139, 69, 255, 0.4);
+    color: #8b45ff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+</style>
+
+<nav class="broski-nav" id="broskiNav">
+    <div class="nav-buttons" id="navButtons">
+        <a href="/index.html" class="nav-btn" data-page="index">🏠 Home</a>
+        <a href="/dashboard.html" class="nav-btn" data-page="dashboard">📊 Dashboard</a>
+        <a href="/user_portal.html" class="nav-btn" data-page="user_portal">👤 User Portal</a>
+        <a href="/etsy-dashboard.html" class="nav-btn" data-page="etsy">🛍 Etsy</a>
+        <a href="/tiktok_shop_dashboard.html" class="nav-btn" data-page="tiktok">🎵 TikTok</a>
+        <a href="/ultra_analytics_panel.html" class="nav-btn" data-page="analytics">📈 Analytics</a>
+        <a href="/neurod_analytics_dashboard.html" class="nav-btn" data-page="neurod">🧠 NeuroD</a>
+        <a href="/production_monitoring.html" class="nav-btn" data-page="production">🔬 Production</a>
+        <a href="/phase3_dashboard.html" class="nav-btn" data-page="phase3">🚀 Phase 3</a>
+        <a href="/phase5_intelligence.html" class="nav-btn" data-page="phase5">🧠 Phase 5</a>
+        <a href="/broski_defender_dashboard.html" class="nav-btn" data-page="defender">🛡 Defender</a>
+        <a href="/hyperfocus_brain_dashboard.html" class="nav-btn" data-page="brain">🧠 Brain HQ</a>
+        <a href="/broski_adzone_visual.html" class="nav-btn" data-page="adzone">📺 Ad Zone</a>
+        <a href="/broski_manifesto.html" class="nav-btn" data-page="manifesto">📜 Manifesto</a>
+        <a href="/frontend/dashboards/master_control.html" class="nav-btn" data-page="master">🎮 Master Ctrl</a>
+        <a href="/frontend/dashboards/bio_zone.html" class="nav-btn" data-page="bio">🧬 Bio Zone</a>
+        <a href="/frontend/dashboards/ultra_mode.html" class="nav-btn" data-page="ultra">💥 Ultra Mode</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleNav()" title="Toggle Navigation">≡</button>
+</nav>
+
+<script>
+// Ultra-fast navigation with zero lag
+(function() {
+    'use strict';
+
+    // Get current page for active highlighting
+    const currentPage = window.location.pathname.split('/').pop().split('.')[0] || 'index';
+
+    // Highlight active page
+    document.addEventListener('DOMContentLoaded', function() {
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            const pageName = btn.getAttribute('data-page');
+            if (currentPage.includes(pageName) || (currentPage === '' && pageName === 'index')) {
+                btn.classList.add('active');
+            }
+        });
+    });
+
+    // Toggle navigation visibility
+    window.toggleNav = function() {
+        const nav = document.getElementById('broskiNav');
+        nav.classList.toggle('nav-collapsed');
+
+        // Save state
+        localStorage.setItem('broski-nav-collapsed', nav.classList.contains('nav-collapsed'));
+    };
+
+    // Restore nav state
+    if (localStorage.getItem('broski-nav-collapsed') === 'true') {
+        document.getElementById('broskiNav').classList.add('nav-collapsed');
+    }
+
+    // Preload critical pages for instant navigation
+    const criticalPages = ['/dashboard.html', '/user_portal.html', '/ultra_analytics_panel.html'];
+    criticalPages.forEach(page => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = page;
+        document.head.appendChild(link);
+    });
+
+    // Add click tracking for analytics
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('nav-btn')) {
+            const pageName = e.target.getAttribute('data-page');
+            console.log(`🚀 BROski Nav: Navigating to ${pageName}`);
+
+            // Optional: Send to analytics
+            if (window.gtag) {
+                gtag('event', 'navigation_click', {
+                    'page_name': pageName,
+                    'source': 'broski_nav'
+                });
+            }
+        }
+    });
+})();
+</script>

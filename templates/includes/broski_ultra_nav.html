@@ -1,0 +1,386 @@
+<!-- 🚀 BROski Ultra Navigation Template - Flask Include -->
+<nav class="broski-ultra-nav" id="broski-nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <span class="brand-icon">🧠</span>
+            <span class="brand-text">BROski Ultra</span>
+        </div>
+
+        <div class="nav-buttons" id="nav-buttons">
+            <!-- Core Dashboards -->
+            <a href="/" class="nav-btn {{ 'active' if request.endpoint == 'index' else '' }}" data-route="home">
+                <span class="btn-icon">🏠</span>
+                <span class="btn-text">Home</span>
+            </a>
+
+            <a href="/dashboard" class="nav-btn {{ 'active' if request.endpoint == 'dashboard' else '' }}" data-route="dashboard">
+                <span class="btn-icon">📊</span>
+                <span class="btn-text">Dashboard</span>
+            </a>
+
+            <a href="/user_portal" class="nav-btn {{ 'active' if request.endpoint == 'user_portal' else '' }}" data-route="user">
+                <span class="btn-icon">👤</span>
+                <span class="btn-text">User Portal</span>
+            </a>
+
+            <!-- E-commerce Zone -->
+            <a href="/etsy-dashboard" class="nav-btn {{ 'active' if request.endpoint == 'etsy_dashboard' else '' }}" data-route="etsy">
+                <span class="btn-icon">🛍</span>
+                <span class="btn-text">Etsy</span>
+            </a>
+
+            <a href="/tiktok_shop_dashboard" class="nav-btn {{ 'active' if request.endpoint == 'tiktok_dashboard' else '' }}" data-route="tiktok">
+                <span class="btn-icon">🎵</span>
+                <span class="btn-text">TikTok</span>
+            </a>
+
+            <!-- Analytics Powerhouse -->
+            <a href="/ultra_analytics_panel" class="nav-btn {{ 'active' if request.endpoint == 'ultra_analytics' else '' }}" data-route="analytics">
+                <span class="btn-icon">📈</span>
+                <span class="btn-text">Analytics</span>
+            </a>
+
+            <a href="/neurod_analytics_dashboard" class="nav-btn {{ 'active' if request.endpoint == 'neurod_analytics' else '' }}" data-route="neurod">
+                <span class="btn-icon">🧠</span>
+                <span class="btn-text">NeuroD</span>
+            </a>
+
+            <!-- Production Zone -->
+            <a href="/production_monitoring" class="nav-btn {{ 'active' if request.endpoint == 'production_monitor' else '' }}" data-route="production">
+                <span class="btn-icon">🔬</span>
+                <span class="btn-text">Production</span>
+            </a>
+
+            <!-- Phase Evolution -->
+            <a href="/phase3_dashboard" class="nav-btn {{ 'active' if request.endpoint == 'phase3' else '' }}" data-route="phase3">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-text">Phase 3</span>
+            </a>
+
+            <a href="/phase5_intelligence" class="nav-btn {{ 'active' if request.endpoint == 'phase5' else '' }}" data-route="phase5">
+                <span class="btn-icon">🧠</span>
+                <span class="btn-text">Phase 5</span>
+            </a>
+
+            <!-- BROski Defense System -->
+            <a href="/broski_defender_dashboard" class="nav-btn {{ 'active' if request.endpoint == 'broski_defender' else '' }}" data-route="defender">
+                <span class="btn-icon">🛡</span>
+                <span class="btn-text">Defender</span>
+            </a>
+
+            <a href="/hyperfocus_brain_dashboard" class="nav-btn {{ 'active' if request.endpoint == 'hyperfocus_brain' else '' }}" data-route="brain">
+                <span class="btn-icon">🧠</span>
+                <span class="btn-text">Brain HQ</span>
+            </a>
+
+            <!-- BROski Creative Zone -->
+            <a href="/broski_adzone_visual" class="nav-btn {{ 'active' if request.endpoint == 'adzone' else '' }}" data-route="adzone">
+                <span class="btn-icon">📺</span>
+                <span class="btn-text">Ad Zone</span>
+            </a>
+
+            <a href="/broski_manifesto" class="nav-btn {{ 'active' if request.endpoint == 'manifesto' else '' }}" data-route="manifesto">
+                <span class="btn-icon">📜</span>
+                <span class="btn-text">Manifesto</span>
+            </a>
+
+            <!-- Master Control Center -->
+            <a href="/frontend/dashboards/master_control" class="nav-btn {{ 'active' if 'master_control' in request.endpoint else '' }}" data-route="master">
+                <span class="btn-icon">🎮</span>
+                <span class="btn-text">Master Ctrl</span>
+            </a>
+
+            <a href="/frontend/dashboards/bio_zone" class="nav-btn {{ 'active' if 'bio_zone' in request.endpoint else '' }}" data-route="bio">
+                <span class="btn-icon">🧬</span>
+                <span class="btn-text">Bio Zone</span>
+            </a>
+
+            <a href="/frontend/dashboards/ultra_mode" class="nav-btn {{ 'active' if 'ultra_mode' in request.endpoint else '' }}" data-route="ultra">
+                <span class="btn-icon">💥</span>
+                <span class="btn-text">Ultra Mode</span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileNav()">
+            <span class="hamburger"></span>
+        </button>
+
+        <!-- User Status -->
+        <div class="nav-status">
+            <span class="status-indicator {{ 'online' if session.get('user_id') else 'offline' }}"></span>
+            <span class="status-text">{{ session.get('username', 'Guest') }}</span>
+        </div>
+    </div>
+</nav>
+
+<style>
+/* 🚀 BROski Ultra Navigation - Zero Lag CSS */
+.broski-ultra-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #00ffff;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #00ffff;
+    font-size: 1.2rem;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    flex: 1;
+    justify-content: center;
+    max-height: 60px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    will-change: transform, background-color;
+    transform: translateZ(0);
+}
+
+.nav-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: #00ffff;
+    transform: translateY(-1px) translateZ(0);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #00ffff, #0099cc);
+    color: #000;
+    font-weight: bold;
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+.btn-text {
+    font-size: 0.8rem;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff4444;
+}
+
+.status-indicator.online {
+    background: #00ff00;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-buttons {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 46, 0.95);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    .nav-buttons.mobile-open {
+        display: flex;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-btn {
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+
+    .btn-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra Performance Optimizations */
+.nav-btn, .nav-container, .broski-ultra-nav {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Preload hover states for zero-lag */
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.nav-btn:hover::before {
+    opacity: 1;
+}
+</style>
+
+<script>
+// 🚀 BROski Ultra Navigation JavaScript - Lightning Fast
+function toggleMobileNav() {
+    const navButtons = document.getElementById('nav-buttons');
+    navButtons.classList.toggle('mobile-open');
+}
+
+// Preload critical pages for instant navigation
+function preloadCriticalPages() {
+    const criticalRoutes = [
+        '/dashboard',
+        '/user_portal',
+        '/ultra_analytics_panel',
+        '/production_monitoring'
+    ];
+
+    criticalRoutes.forEach(route => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = route;
+        document.head.appendChild(link);
+    });
+}
+
+// Ultra-fast page switching with visual feedback
+function handleNavClick(event) {
+    const target = event.target.closest('.nav-btn');
+    if (!target) return;
+
+    // Add loading state
+    target.style.opacity = '0.6';
+    target.innerHTML += ' <span class="loading">⚡</span>';
+
+    // Remove loading state after navigation
+    setTimeout(() => {
+        const loading = target.querySelector('.loading');
+        if (loading) loading.remove();
+        target.style.opacity = '1';
+    }, 500);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    preloadCriticalPages();
+
+    const navButtons = document.getElementById('nav-buttons');
+    if (navButtons) {
+        navButtons.addEventListener('click', handleNavClick);
+    }
+
+    // Register service worker for ultra caching
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/static/js/broski-cache-worker.js')
+            .then(() => console.log('🚀 BROski Cache Worker: ACTIVATED'))
+            .catch(err => console.log('⚠️ Cache Worker Error:', err));
+    }
+
+    // Keyboard navigation shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey || e.metaKey) {
+            const shortcuts = {
+                '1': '/dashboard',
+                '2': '/user_portal',
+                '3': '/ultra_analytics_panel',
+                '4': '/production_monitoring',
+                '5': '/phase3_dashboard',
+                'h': '/',
+                'd': '/dashboard'
+            };
+
+            if (shortcuts[e.key]) {
+                e.preventDefault();
+                window.location.href = shortcuts[e.key];
+            }
+        }
+    });
+});
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('broski-nav');
+    const navButtons = document.getElementById('nav-buttons');
+
+    if (nav && !nav.contains(e.target) && navButtons.classList.contains('mobile-open')) {
+        navButtons.classList.remove('mobile-open');
+    }
+});
+</script>

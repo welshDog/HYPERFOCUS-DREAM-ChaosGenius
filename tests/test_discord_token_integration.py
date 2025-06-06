@@ -4,9 +4,10 @@
 Test that Discord bot can load token commands properly
 """
 
-import sys
 import os
-sys.path.append('/workspaces/HYPERFOCUS-DREAM-ChaosGenius')
+import sys
+
+sys.path.append("/root/chaosgenius")
 
 # Test results will be written to this file
 results = []
@@ -17,15 +18,18 @@ try:
     # Test importing Discord components
     import discord
     from discord.ext import commands
+
     results.append("✅ Discord.py imported successfully")
 
     # Test importing BROski components
     from ai_modules.broski.broski_core import BROskiCore, BROskiResponse
+
     results.append("✅ BROski AI Core imported successfully")
 
     # Test importing Token components
-    from ai_modules.broski.token_engine import BROskiTokenEngine
     from ai_modules.broski.token_commands import BROskiTokenCommands
+    from ai_modules.broski.token_engine import BROskiTokenEngine
+
     results.append("✅ Token Engine & Commands imported successfully")
 
     # Test creating token engine
@@ -49,7 +53,7 @@ try:
     checkin_result = token_engine.daily_checkin(test_user)
     results.append(f"✅ Daily Check-in Test: {checkin_result['status']}")
 
-    if checkin_result['status'] == 'success':
+    if checkin_result["status"] == "success":
         balance = token_engine.get_user_balance(test_user)
         results.append(f"✅ User Balance: {balance['broski_tokens']} BROski$")
         results.append(f"✅ User Role: {balance['role']}")
@@ -57,6 +61,7 @@ try:
 
     # Test reward store
     import sqlite3
+
     with sqlite3.connect(token_engine.db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM reward_store WHERE available = TRUE")
@@ -87,12 +92,13 @@ try:
 except Exception as e:
     results.append(f"❌ Error: {e}")
     import traceback
+
     results.append(f"❌ Traceback: {traceback.format_exc()}")
 
 # Write results to file
-with open('/workspaces/HYPERFOCUS-DREAM-ChaosGenius/token_test_results.txt', 'w') as f:
+with open("/root/chaosgenius/token_test_results.txt", "w") as f:
     for line in results:
-        f.write(line + '\n')
+        f.write(line + "\n")
         print(line)
 
 print("\n📄 Test results saved to token_test_results.txt")

@@ -113,8 +113,8 @@
       </div>
       <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
         <div class="text-3xl mb-2">💎</div>
-        <div class="text-2xl font-bold text-blue-600" id="hypergems">2,340</div>
-        <div class="text-sm text-gray-600">HyperGems</div>
+        <div class="text-2xl font-bold text-blue-600" id="broskigems">2,340</div>
+        <div class="text-sm text-gray-600">BROski$</div>
       </div>
       <div class="bg-white rounded-lg shadow-lg p-6 text-center neurodivergent-card">
         <div class="text-3xl mb-2">🚀</div>
@@ -371,13 +371,13 @@
     function updateStats() {
       const stats = {
         projects: Math.floor(Math.random() * 3) + 4,
-        hypergems: Math.floor(Math.random() * 500) + 2000,
+        broskigems: Math.floor(Math.random() * 500) + 2000,
         revenue: Math.floor(Math.random() * 500) + 1000,
         focus: Math.floor(Math.random() * 20) + 80
       };
 
       document.getElementById('active-projects').textContent = stats.projects;
-      document.getElementById('hypergems').textContent = stats.hypergems.toLocaleString();
+      document.getElementById('broskigems').textContent = stats.broskigems.toLocaleString();
       document.getElementById('revenue').textContent = `£${stats.revenue.toLocaleString()}`;
       document.getElementById('focus-score').textContent = `${stats.focus}%`;
     }

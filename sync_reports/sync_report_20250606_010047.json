@@ -1,0 +1,17 @@
+{
+  "sync_period": "last_24_hours",
+  "sync_events": {
+    "cross_promotion": 4,
+    "flash_promotion": 8,
+    "inventory_sync": 4,
+    "metrics_sync": 4,
+    "viral_boost": 8,
+    "viral_notification": 4
+  },
+  "viral_moments": {
+    "count": 8,
+    "avg_views": 12085.0,
+    "total_potential_revenue": 2562.72
+  },
+  "generated_at": "2025-06-06T01:00:47.473594"
+}

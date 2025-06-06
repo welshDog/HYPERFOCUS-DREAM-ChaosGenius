@@ -150,7 +150,7 @@ class ChaosGeniusUltimateShowcase:
             ],
             "💰 Economy & Gamification": [
                 "BROski$ Token System - Reward currency",
-                "HyperGems - Achievement points",
+                "BROski$ - Achievement points",
                 "Level progression - Unlock new features",
                 "Streak tracking - Daily consistency rewards",
             ],
@@ -195,7 +195,8 @@ class ChaosGeniusUltimateShowcase:
                 "Flow state amplification tools",
             ],
             "🎮 Gamification Magic": [
-                "HyperGems for completing tasks",
+                "BROski$ for completing tasks",
+                "BROski$ - Achievement points",
                 "Level progression system",
                 "Achievement unlocking",
                 "Streak bonuses and rewards",

@@ -167,7 +167,7 @@ ENHANCED_CHANNELS = {
             "topic": "Command central! Use /help to see all available BROski commands",
         },
         "token-trading-floor": {
-            "description": "💰 BROski$ economy, HyperGem trades, wealth building",
+            "description": "💰 BROski$ economy, BROski$ trades, wealth building",
             "type": "text",
             "topic": "Build your digital empire! Trade tokens, earn gems, level up",
         },
@@ -176,8 +176,8 @@ ENHANCED_CHANNELS = {
             "type": "text",
             "topic": "Turn productivity into a game! Complete quests, earn rewards",
         },
-        "hypergems-vault": {
-            "description": "💎 Rewards showcase, leaderboards, achievement displays",
+        "broskivault": {
+            "description": "💎 BROski$ leaderboard, achievements, and reward celebrations",
             "type": "text",
             "topic": "Show off your empire! Leaderboards, achievements, and flex zone",
         },
@@ -224,7 +224,7 @@ ENHANCED_ROLES = {
         "hoist": True,
     },
     "🏆 Zone Champion": {"color": HYPERFOCUS_COLORS["electric_blue"], "hoist": True},
-    "💎 HyperGem Master": {"color": HYPERFOCUS_COLORS["creative_pink"], "hoist": True},
+    "💎 BROski$ Master": {"color": HYPERFOCUS_COLORS["creative_pink"], "hoist": True},
     # 🧠 NEURODIVERGENT IDENTITY
     "🧠 ADHD Brain": {"color": HYPERFOCUS_COLORS["electric_blue"]},
     "🌟 Autistic Excellence": {"color": HYPERFOCUS_COLORS["chaos_purple"]},

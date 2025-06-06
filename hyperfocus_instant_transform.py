@@ -33,7 +33,7 @@ def print_banner():
 🎯 MISSION: Transform your Discord into the ultimate neurodivergent empire!
 ⚡ STATUS: Ready to deploy chaos-themed productivity paradise
 🧠 TARGET: Maximum ADHD/Autistic brain optimization
-💎 OUTCOME: Epic community with HyperGems, BROski AI, and pure neurodivergent excellence!
+💎 OUTCOME: Epic community with BROski$, BROski AI, and pure neurodivergent excellence!
 
 🚀💜━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━💜🚀
 """
@@ -177,7 +177,7 @@ def show_preview():
 👑 HyperfocusZone Founder (Admin level)
 🚀 Launch Week Legend (Special highlight)
 🏆 Zone Champion (Top tier)
-💎 HyperGem Master (Rewards master)
+💎 BROski$ Master (Rewards master)
 
 🧠 NEURODIVERGENT IDENTITY ROLES:
 🧠 ADHD Brain
@@ -241,7 +241,7 @@ def show_preview():
 ├── #broski-command-center
 ├── #token-trading-floor
 ├── #quest-central
-├── #hypergems-vault
+├── #broskigems-vault
 └── #launch-week-exclusive
 
 🛡️ SUPPORT & ADMIN
@@ -268,7 +268,7 @@ def show_preview():
 🤖 BOT FEATURES TO BE ACTIVATED:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Enhanced BROski AI with neurodivergent optimization
-• HyperGem economy and reward system
+• BROski$ economy and reward system
 • Daily quest and mission system
 • Focus session timers and body doubling
 • Mood detection and support systems

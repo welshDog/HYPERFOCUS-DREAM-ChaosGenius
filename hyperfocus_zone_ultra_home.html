@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 HyperfocusZone - Your Neuro-Spicy Home 🌟</title>
+    <style>
+        :root {
+            /* Neuro-Spicy Color Palette */
+            --calm-blue: #6B8DD6;
+            --hype-orange: #FF6B6B;
+            --glow-purple: #9B59B6;
+            --cozy-green: #52C41A;
+            --soft-pink: #FFB6C1;
+            --gentle-gray: #F5F5F5;
+            --warm-white: #FEFEFE;
+            --dopamine-yellow: #FFD93D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--gentle-gray) 0%, var(--warm-white) 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Gentle Mode Styles */
+        .gentle-mode {
+            animation: none !important;
+            transition: all 0.8s ease !important;
+            background: var(--gentle-gray) !important;
+        }
+
+        .gentle-mode * {
+            animation: none !important;
+        }
+
+        /* Top Message Bar */
+        .neuro-star-message {
+            background: linear-gradient(90deg, var(--soft-pink), var(--dopamine-yellow));
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: gentle-pulse 3s infinite;
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .mode-button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .mode-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .calm-mode { background: var(--calm-blue); color: white; }
+        .hype-mode { background: var(--hype-orange); color: white; }
+        .glow-mode { background: var(--glow-purple); color: white; }
+        .cozy-mode { background: var(--cozy-green); color: white; }
+        .gentle-toggle { background: var(--soft-pink); color: #333; }
+
+        /* Focus Dashboard */
+        .focus-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .focus-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--glow-purple);
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* One Thing Focus Strip */
+        .one-thing-focus {
+            background: linear-gradient(135deg, var(--dopamine-yellow), var(--soft-pink));
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: none;
+        }
+
+        .one-thing-focus.active {
+            display: block;
+            animation: focus-glow 2s infinite alternate;
+        }
+
+        @keyframes focus-glow {
+            0% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3); }
+            100% { box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6); }
+        }
+
+        /* Mini Quests */
+        .mini-quests {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .quest-item {
+            padding: 10px;
+            margin: 10px 0;
+            background: var(--gentle-gray);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quest-item:hover {
+            background: var(--dopamine-yellow);
+            transform: scale(1.02);
+        }
+
+        .quest-item.completed {
+            background: var(--cozy-green);
+            color: white;
+            text-decoration: line-through;
+        }
+
+        /* Dopamine Music Section */
+        .music-section {
+            background: linear-gradient(135deg, var(--glow-purple), var(--calm-blue));
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .music-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .music-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Best Day Button */
+        .best-day-button {
+            background: linear-gradient(135deg, var(--hype-orange), var(--dopamine-yellow));
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .best-day-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Journal Section */
+        .journal-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--soft-pink);
+        }
+
+        .journal-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            background: var(--gentle-gray);
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .journal-textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: var(--dopamine-yellow);
+            animation: confetti-fall 3s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .control-panel {
+                flex-direction: column;
+            }
+
+            .focus-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .music-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Affirmation Modal */
+        .affirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .affirmation-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            animation: modal-appear 0.5s ease;
+        }
+
+        @keyframes modal-appear {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Message -->
+    <div class="neuro-star-message">
+        💬 "Hey there, Neuro-Star 🌟 You showed up today, and that matters more than you know. This space is yours to grow, explore, and glow."
+    </div>
+
+    <div class="main-container">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="mode-button gentle-toggle" onclick="toggleGentleMode()">🌸 Gentle Mode</button>
+            <button class="mode-button calm-mode" onclick="setMood('calm')">🌊 Calm</button>
+            <button class="mode-button hype-mode" onclick="setMood('hype')">🔥 Hype</button>
+            <button class="mode-button glow-mode" onclick="setMood('glow')">✨ Glow</button>
+            <button class="mode-button cozy-mode" onclick="setMood('cozy')">🏠 Cozy</button>
+            <button class="mode-button" onclick="toggleOneThing()" style="background: var(--glow-purple); color: white;">🧩 One Thing Mode</button>
+        </div>
+
+        <!-- One Thing Focus Strip -->
+        <div class="one-thing-focus" id="oneThingFocus">
+            <h2>🎯 Your One Thing Right Now</h2>
+            <p style="font-size: 24px; margin: 20px 0;">Take a deep breath and focus on just this:</p>
+            <input type="text" placeholder="What's your one focus today?" style="padding: 15px; font-size: 18px; border: none; border-radius: 15px; width: 80%; text-align: center;">
+        </div>
+
+        <!-- Focus Dashboard -->
+        <div class="focus-dashboard">
+            <!-- HyperFocus Zone Card -->
+            <div class="focus-card">
+                <h3>🧠 HyperFocus Zone</h3>
+                <p>Deep work sessions designed for your beautiful brain</p>
+                <button class="mode-button glow-mode" style="margin-top: 15px;" onclick="window.open('/', '_blank')">Start Focus Session</button>
+            </div>
+
+            <!-- BROski$ Economy Card -->
+            <div class="focus-card">
+                <h3>💰 BROski$ Rewards</h3>
+                <p>Earn tokens for every win, big or small</p>
+                <button class="mode-button hype-mode" style="margin-top: 15px;" onclick="window.open('/wallet', '_blank')">Check Balance</button>
+            </div>
+
+            <!-- Community Card -->
+            <div class="focus-card">
+                <h3>👥 Neuro-Spicy Community</h3>
+                <p>Connect with other brilliant chaos minds</p>
+                <button class="mode-button calm-mode" style="margin-top: 15px;" onclick="showAffirmation('Discord community launching soon! You\'ll love connecting with other brilliant minds! 💜')">Join Discord</button>
+            </div>
+        </div>
+
+        <!-- Mini Quests -->
+        <div class="mini-quests">
+            <h3>🌟 Today's Gentle Quests</h3>
+            <div class="quest-item" onclick="completeQuest(this)">💧 Hydrate (drink some water)</div>
+            <div class="quest-item" onclick="completeQuest(this)">😊 Make someone smile</div>
+            <div class="quest-item" onclick="completeQuest(this)">🧘 Take 3 deep breaths</div>
+            <div class="quest-item" onclick="completeQuest(this)">🌱 Do one tiny thing that matters to you</div>
+            <div class="quest-item" onclick="completeQuest(this)">💜 Say something kind to yourself</div>
+        </div>
+
+        <!-- Dopamine Music Section -->
+        <div class="music-section">
+            <h3>🎧 Dopamine Music Zone</h3>
+            <p>Sounds that help your brain feel amazing</p>
+            <div class="music-buttons">
+                <button class="music-btn" onclick="playMusic('lofi')">🎵 Lo-Fi Vibes</button>
+                <button class="music-btn" onclick="playMusic('8bit')">🎮 8-Bit Energy</button>
+                <button class="music-btn" onclick="playMusic('ambient')">🌊 Ambient Calm</button>
+                <button class="music-btn" onclick="playMusic('nature')">🌿 Nature Sounds</button>
+            </div>
+        </div>
+
+        <!-- Journal Section -->
+        <div class="journal-section">
+            <h3>📖 "I Am Not Broken" Journal</h3>
+            <p>Write your wins, thoughts, and everything that makes you uniquely amazing:</p>
+            <textarea class="journal-textarea" placeholder="Today I'm proud of myself because...&#10;&#10;Something that made me smile today was...&#10;&#10;My brain is brilliant because..."></textarea>
+            <button class="mode-button cozy-mode" style="margin-top: 15px;" onclick="saveJournal()">💚 Save My Thoughts</button>
+        </div>
+
+        <!-- Best Day Button -->
+        <button class="best-day-button" onclick="triggerBestDay()">
+            👑 I Did My Best Today! 👑
+        </button>
+    </div>
+
+    <!-- Affirmation Modal -->
+    <div class="affirmation-modal" id="affirmationModal">
+        <div class="affirmation-content">
+            <h2>🌟 You Are Absolutely Amazing! 🌟</h2>
+            <p id="affirmationText">Your brain works differently, and that's your superpower. You showed up, you tried, and that's everything.</p>
+            <button class="mode-button glow-mode" onclick="closeAffirmation()">💜 Thank You</button>
+        </div>
+    </div>
+
+    <script>
+        // Gentle Mode Toggle
+        let gentleMode = false;
+        function toggleGentleMode() {
+            gentleMode = !gentleMode;
+            if (gentleMode) {
+                document.body.classList.add('gentle-mode');
+                showAffirmation("You've activated Gentle Mode. Take your time, breathe easy. You're safe here. 💜");
+            } else {
+                document.body.classList.remove('gentle-mode');
+            }
+        }
+
+        // Mood Setting
+        function setMood(mood) {
+            const moodColors = {
+                calm: 'linear-gradient(135deg, #6B8DD6, #B8E6B8)',
+                hype: 'linear-gradient(135deg, #FF6B6B, #FFD93D)',
+                glow: 'linear-gradient(135deg, #9B59B6, #FF6B6B)',
+                cozy: 'linear-gradient(135deg, #52C41A, #FFB6C1)'
+            };
+            document.body.style.background = moodColors[mood];
+
+            const moodMessages = {
+                calm: "Breathe easy, beautiful brain. You've got this. 🌊",
+                hype: "LET'S GOOO! Your energy is AMAZING! 🔥",
+                glow: "You're absolutely radiant today! Shine bright! ✨",
+                cozy: "Wrapped in warmth and love. You belong here. 🏠"
+            };
+            showAffirmation(moodMessages[mood]);
+        }
+
+        // One Thing Mode
+        function toggleOneThing() {
+            const oneThing = document.getElementById('oneThingFocus');
+            oneThing.classList.toggle('active');
+            if (oneThing.classList.contains('active')) {
+                showAffirmation("One thing at a time. You don't need to do everything right now. 🧩");
+            }
+        }
+
+        // Quest Completion
+        function completeQuest(questElement) {
+            questElement.classList.add('completed');
+            createConfetti();
+            showAffirmation("YES! You did it! Every small step matters. You're amazing! 🌟");
+        }
+
+        // Music Player (placeholder - you can integrate real music)
+        function playMusic(type) {
+            const musicMessages = {
+                lofi: "🎵 Lo-Fi beats activated! Perfect for your beautiful brain.",
+                '8bit': "🎮 8-Bit energy flowing! Game on, superstar!",
+                ambient: "🌊 Ambient calm washing over you. Breathe and be.",
+                nature: "🌿 Nature sounds connecting you to peace."
+            };
+            showAffirmation(musicMessages[type]);
+        }
+
+        // Journal Saving
+        function saveJournal() {
+            const journalText = document.querySelector('.journal-textarea').value;
+            localStorage.setItem('neuroSpicyJournal', journalText);
+            showAffirmation("Your thoughts are precious and saved. Thank you for sharing with yourself. 💚");
+        }
+
+        // Load saved journal
+        window.onload = function() {
+            const savedJournal = localStorage.getItem('neuroSpicyJournal');
+            if (savedJournal) {
+                document.querySelector('.journal-textarea').value = savedJournal;
+            }
+        }
+
+        // Best Day Celebration
+        function triggerBestDay() {
+            createMassiveConfetti();
+            showAffirmation("YOU DID YOUR BEST TODAY AND THAT'S EVERYTHING! You are loved, you are enough, you are brilliant! 👑✨");
+        }
+
+        // Confetti Creation
+        function createConfetti() {
+            const colors = ['#FFD93D', '#FF6B6B', '#9B59B6', '#52C41A', '#FFB6C1'];
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        function createMassiveConfetti() {
+            const colors = ['#FFD93D', '#FF6B6B', '#9B59B6', '#52C41A', '#FFB6C1'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = Math.random() * 15 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Affirmation System
+        function showAffirmation(message) {
+            const modal = document.getElementById('affirmationModal');
+            const text = document.getElementById('affirmationText');
+            text.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeAffirmation() {
+            document.getElementById('affirmationModal').style.display = 'none';
+        }
+
+        // Random encouraging messages every 5 minutes
+        setInterval(() => {
+            const encouragements = [
+                "You're doing great, beautiful brain! 🌟",
+                "Your uniqueness is your strength! 💜",
+                "Every breath you take is an achievement! 🌸",
+                "You belong here, chaos star! ✨",
+                "Your brain is brilliant, not broken! 🧠💚"
+            ];
+            const randomMsg = encouragements[Math.floor(Math.random() * encouragements.length)];
+            showAffirmation(randomMsg);
+        }, 300000); // 5 minutes
+    </script>
+</body>
+</html>

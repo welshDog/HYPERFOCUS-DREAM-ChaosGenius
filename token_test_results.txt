@@ -4,23 +4,10 @@
 ✅ Token Engine & Commands imported successfully
 ✅ Token Engine initialized
 ✅ Discord Bot created
-✅ Token Commands Cog created
-✅ Daily Check-in Test: error
-✅ Available Rewards: 5
-✅ Leaderboard: 0 entries
+❌ Error: BROskiTokenCommands.__init__() takes 1 positional argument but 3 were given
+❌ Traceback: Traceback (most recent call last):
+  File "/root/chaosgenius/tests/test_discord_token_integration.py", line 46, in <module>
+    token_commands = BROskiTokenCommands(bot, token_engine)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BROskiTokenCommands.__init__() takes 1 positional argument but 3 were given
 
-🎉 INTEGRATION TEST PASSED!
-==================================================
-🤖 Discord Bot + BROski$ Token Economy: READY!
-
-📋 Available Token Commands:
-   !wallet - Check BROski$ balance
-   !checkin - Daily token earning
-   !rewards - Browse reward store
-   !redeem <id> - Purchase rewards
-   !leaderboard - Top token earners
-   !earn - Learn earning methods
-
-✅ Token system is fully integrated with Discord bot
-✅ Database is properly initialized
-✅ All token features are operational
