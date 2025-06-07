@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0-cosmic",
+  "deployment_date": "2025-06-07T00:22:38.120643",
+  "components": [
+    "dashboard/dashboard.html",
+    "dashboard/broski_wallet_dashboard.html",
+    "dashboard/broski_manifesto.html",
+    "dashboard/adslot_test_interface.html",
+    "dashboard/broski_adzone_visual.html",
+    "nexus_core/Web3 Project Analyzer AI",
+    "nexus_core/Ultra Mode freestyle mode activated",
+    "nexus_core/DO HAVE vs what we STILL NEED",
+    "nexus_core/Ultra Project AI Manager (HyperBot Pro)",
+    "nexus_core/ULTRA NEXUS CORE",
+    "broski_squad/ai_squad_activation.py",
+    "broski_squad/chaosgenius_discord_bot.py",
+    "broski_squad/broski_api_endpoints.py",
+    "broski_squad/broski_security_validator.py",
+    "broski_squad/broski_wallet_api.py",
+    "docs/README.md",
+    "docs/CHANGELOG.md",
+    "docs/COMPLETE_USER_GUIDE.md",
+    "docs/COMPREHENSIVE_TECHNICAL_REVIEW.md",
+    "docs/BROSKI_HYPERPORTAL_USER_GUIDE.md"
+  ],
+  "ipfs_hashes": {
+    "main": "bafybeichaosgenius3cosmic1749255758"
+  }
+}

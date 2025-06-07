@@ -61,7 +61,9 @@ class BROskiTokenEngine:
         try:
             conn = sqlite3.connect(self.token_db_path)
             cursor = conn.cursor()
-            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='mint'")
+            cursor.execute(
+                "SELECT SUM(amount) FROM transactions WHERE transaction_type='mint'"
+            )
             result = cursor.fetchone()
             conn.close()
             return float(result[0]) if result[0] else 0.0
@@ -113,12 +115,23 @@ class BROskiTokenEngine:
                 (amount, user_id),
             )
 
+            # Get new balance
+            cursor.execute("SELECT balance FROM wallets WHERE user_id = ?", (user_id,))
+            new_balance = cursor.fetchone()[0]
+
             # Record transaction
             cursor.execute(
                 """INSERT INTO transactions
-                   (id, user_id, amount, type, reason, timestamp)
-                   VALUES (?, ?, ?, 'award', ?, ?)""",
-                (transaction_id, user_id, amount, reason, datetime.now().isoformat()),
+                   (id, user_id, amount, transaction_type, description, timestamp, balance_after)
+                   VALUES (?, ?, ?, 'award', ?, ?, ?)""",
+                (
+                    transaction_id,
+                    user_id,
+                    amount,
+                    reason,
+                    datetime.now().isoformat(),
+                    new_balance,
+                ),
             )
 
             conn.commit()
@@ -127,6 +140,7 @@ class BROskiTokenEngine:
             return {
                 "status": "success",
                 "tx_id": transaction_id,
+                "new_balance": new_balance,
                 "message": "Tokens awarded successfully",
             }
 
@@ -143,6 +157,7 @@ class BROskiTokenEngine:
             if self.get_balance(from_user) < amount:
                 return {"status": "error", "message": "Insufficient balance"}
 
+            self._create_wallet(to_user)  # Ensure recipient wallet exists
             transfer_id = self._generate_transaction_id()
 
             conn = sqlite3.connect(self.token_db_path)
@@ -158,18 +173,40 @@ class BROskiTokenEngine:
                 (amount, to_user),
             )
 
+            # Get new balances
+            cursor.execute(
+                "SELECT balance FROM wallets WHERE user_id = ?", (from_user,)
+            )
+            from_balance = cursor.fetchone()[0]
+            cursor.execute("SELECT balance FROM wallets WHERE user_id = ?", (to_user,))
+            to_balance = cursor.fetchone()[0]
+
             # Record transactions
             cursor.execute(
                 """INSERT INTO transactions
-                   (id, user_id, amount, type, reason, timestamp)
-                   VALUES (?, ?, ?, 'transfer_out', ?, ?)""",
-                (transfer_id, from_user, -amount, reason, datetime.now().isoformat()),
+                   (id, user_id, amount, transaction_type, description, timestamp, balance_after)
+                   VALUES (?, ?, ?, 'transfer_out', ?, ?, ?)""",
+                (
+                    transfer_id,
+                    from_user,
+                    -amount,
+                    reason,
+                    datetime.now().isoformat(),
+                    from_balance,
+                ),
             )
             cursor.execute(
                 """INSERT INTO transactions
-                   (id, user_id, amount, type, reason, timestamp)
-                   VALUES (?, ?, ?, 'transfer_in', ?, ?)""",
-                (transfer_id, to_user, amount, reason, datetime.now().isoformat()),
+                   (id, user_id, amount, transaction_type, description, timestamp, balance_after)
+                   VALUES (?, ?, ?, 'transfer_in', ?, ?, ?)""",
+                (
+                    transfer_id,
+                    to_user,
+                    amount,
+                    reason,
+                    datetime.now().isoformat(),
+                    to_balance,
+                ),
             )
 
             conn.commit()
@@ -226,16 +263,17 @@ class BROskiTokenEngine:
             """
             )
 
-            # Create transactions table
+            # Create transactions table with correct column names
             cursor.execute(
                 """
                 CREATE TABLE IF NOT EXISTS transactions (
                     id TEXT PRIMARY KEY,
                     user_id TEXT,
                     amount REAL,
-                    type TEXT,
-                    reason TEXT,
-                    timestamp TEXT
+                    transaction_type TEXT,
+                    description TEXT,
+                    timestamp TEXT,
+                    balance_after REAL
                 )
             """
             )
@@ -265,10 +303,42 @@ class BROskiTokenEngine:
         try:
             conn = sqlite3.connect(self.token_db_path)
             cursor = conn.cursor()
-            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='burn'")
+            cursor.execute(
+                "SELECT SUM(amount) FROM transactions WHERE transaction_type='burn'"
+            )
             result = cursor.fetchone()
             conn.close()
             return float(result[0]) if result[0] else 0.0
         except (sqlite3.Error, ValueError) as e:
             logger.error("Error getting burned tokens: %s", e)
             return 0.0
+
+
+class BROskiTokenAIIntegration:
+    """AI integration for token system"""
+
+    def __init__(self, token_engine: BROskiTokenEngine):
+        self.token_engine = token_engine
+
+    def get_personalized_earning_tips(self, user_id: str) -> list:
+        """Get personalized tips for earning tokens"""
+        balance = self.token_engine.get_balance(user_id)
+
+        tips = [
+            "🎯 Complete daily check-ins for consistent token rewards!",
+            "🤝 Help community members to earn bonus tokens!",
+            "🎨 Share your creative work for creativity bonuses!",
+            "💪 Participate in hyperfocus sessions for achievement tokens!",
+        ]
+
+        if balance < 10:
+            tips.insert(
+                0,
+                "🚀 New to BROski$? Start with daily activities to build your balance!",
+            )
+        elif balance > 100:
+            tips.append(
+                "🏆 You're doing great! Consider helping others or redeeming rewards!"
+            )
+
+        return tips[:3]  # Return top 3 tips

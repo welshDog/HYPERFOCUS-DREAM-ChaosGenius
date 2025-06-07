@@ -1,7 +1,7 @@
 {
   "project_name": "ChaosGenius Engine",
   "tagline": "AI-Powered Neurodivergent Business Creation Ecosystem",
-  "generated_at": "2025-06-06T23:52:41.467033",
+  "generated_at": "2025-06-07T18:23:53.727662",
   "components": [
     {
       "name": "tests",
@@ -19,34 +19,14 @@
       "description": "Component: generated_docs"
     },
     {
-      "name": "BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE.md",
-      "type": "file",
-      "description": "Documentation: BROSKI_CLANVERSE_ULTRA_ACTIVATION_COMPLETE"
-    },
-    {
       "name": "BROski-CLANVERSE-Ultra",
       "type": "directory",
       "description": "Component: BROski-CLANVERSE-Ultra"
     },
     {
-      "name": "quick_organizer.py",
-      "type": "file",
-      "description": "Python module: quick_organizer"
-    },
-    {
-      "name": "SHOWCASE_DEMO.html",
-      "type": "file",
-      "description": "File: SHOWCASE_DEMO.html"
-    },
-    {
       "name": "hboard_api.py",
       "type": "file",
       "description": "Python module: hboard_api"
-    },
-    {
-      "name": "DISCUSSION.md",
-      "type": "file",
-      "description": "Documentation: DISCUSSION"
     },
     {
       "name": "initialize_token_system.py",
@@ -74,29 +54,9 @@
       "description": "Component: frontend"
     },
     {
-      "name": "cleanup_log_20250530_151544.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250530_151544"
-    },
-    {
       "name": "uploads",
       "type": "directory",
       "description": "Component: uploads"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_171713.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_171713"
-    },
-    {
-      "name": "adslot_test_interface.html",
-      "type": "file",
-      "description": "File: adslot_test_interface.html"
-    },
-    {
-      "name": "cleanup_log_20250529_215331.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250529_215331"
     },
     {
       "name": "hyperdimension_engine.py",
@@ -104,19 +64,9 @@
       "description": "Python module: hyperdimension_engine"
     },
     {
-      "name": "chaosgenius_ultra_optimizer_v3.py",
-      "type": "file",
-      "description": "Python module: chaosgenius_ultra_optimizer_v3"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250605_145643.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250605_145643"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250604_182655.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250604_182655"
+      "name": "\ud83d\ude80 Deployment",
+      "type": "directory",
+      "description": "Component: \ud83d\ude80 Deployment"
     },
     {
       "name": "seo_optimizations",
@@ -124,14 +74,9 @@
       "description": "Component: seo_optimizations"
     },
     {
-      "name": "broski_manifesto.html",
-      "type": "file",
-      "description": "File: broski_manifesto.html"
-    },
-    {
-      "name": "SECURITY_SETUP_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: SECURITY_SETUP_GUIDE"
+      "name": "\ud83d\udcdd Documentation",
+      "type": "directory",
+      "description": "Component: \ud83d\udcdd Documentation"
     },
     {
       "name": "Ultra IPFS",
@@ -139,34 +84,14 @@
       "description": "Advanced IPFS integration for Web3 features"
     },
     {
-      "name": "neuro_spicy_home.html",
-      "type": "file",
-      "description": "File: neuro_spicy_home.html"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_232822.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_232822"
-    },
-    {
-      "name": "ultimate_health_report.json",
-      "type": "file",
-      "description": "Configuration: ultimate_health_report"
+      "name": "\ud83c\udf10 Web Assets",
+      "type": "directory",
+      "description": "Component: \ud83c\udf10 Web Assets"
     },
     {
       "name": "logs",
       "type": "directory",
       "description": "Component: logs"
-    },
-    {
-      "name": "chaos_genius_organizer.py",
-      "type": "file",
-      "description": "Python module: chaos_genius_organizer"
-    },
-    {
-      "name": "BROSKI_HYPERPORTAL_USER_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: BROSKI_HYPERPORTAL_USER_GUIDE"
     },
     {
       "name": "docs",
@@ -177,11 +102,6 @@
       "name": "ai_squad_activation.py",
       "type": "file",
       "description": "Python module: ai_squad_activation"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_222456.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_222456"
     },
     {
       "name": "temp",
@@ -199,24 +119,9 @@
       "description": "Component: Tools & Utilities"
     },
     {
-      "name": "SYSTEM_INTELLIGENCE_REPORT.md",
-      "type": "file",
-      "description": "Documentation: SYSTEM_INTELLIGENCE_REPORT"
-    },
-    {
-      "name": "CHANGELOG.md",
-      "type": "file",
-      "description": "Documentation: CHANGELOG"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250605_175152.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250605_175152"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_171916.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_171916"
+      "name": "ipfs_build",
+      "type": "directory",
+      "description": "Component: ipfs_build"
     },
     {
       "name": "Setup & Deploy",
@@ -224,39 +129,9 @@
       "description": "Component: Setup & Deploy"
     },
     {
-      "name": "ultra_analytics_panel.html",
-      "type": "file",
-      "description": "File: ultra_analytics_panel.html"
-    },
-    {
       "name": "gesture_controls",
       "type": "directory",
       "description": "Component: gesture_controls"
-    },
-    {
-      "name": "etsy-dashboard.html",
-      "type": "file",
-      "description": "File: etsy-dashboard.html"
-    },
-    {
-      "name": "COMPLETE_USER_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: COMPLETE_USER_GUIDE"
-    },
-    {
-      "name": "evolution_report_20250605_161826.json",
-      "type": "file",
-      "description": "Configuration: evolution_report_20250605_161826"
-    },
-    {
-      "name": "workspace_optimization_20250529_215500.json",
-      "type": "file",
-      "description": "Configuration: workspace_optimization_20250529_215500"
-    },
-    {
-      "name": "discord_token_validator.py",
-      "type": "file",
-      "description": "Python module: discord_token_validator"
     },
     {
       "name": "auto_plans",
@@ -264,9 +139,14 @@
       "description": "Component: auto_plans"
     },
     {
-      "name": "backup_engine.py",
-      "type": "file",
-      "description": "Python module: backup_engine"
+      "name": "LYNDZ IDEAS",
+      "type": "directory",
+      "description": "Component: LYNDZ IDEAS"
+    },
+    {
+      "name": "\ud83c\udfa8 Frontend & UI",
+      "type": "directory",
+      "description": "Component: \ud83c\udfa8 Frontend & UI"
     },
     {
       "name": "broski_optimization_scheduler.py",
@@ -284,34 +164,14 @@
       "description": "Python module: social_media_feeds"
     },
     {
-      "name": "hyperfocus_project_analysis_20250606_004031.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_004031"
-    },
-    {
       "name": "trend_reports",
       "type": "directory",
       "description": "Component: trend_reports"
     },
     {
-      "name": "DEVELOPMENT_SETUP_GUIDE.md",
-      "type": "file",
-      "description": "Documentation: DEVELOPMENT_SETUP_GUIDE"
-    },
-    {
-      "name": "DISCORD_SHOWCASE.md",
-      "type": "file",
-      "description": "Documentation: DISCORD_SHOWCASE"
-    },
-    {
       "name": "archives",
       "type": "directory",
       "description": "Component: archives"
-    },
-    {
-      "name": "production_autoscaler.py",
-      "type": "file",
-      "description": "Python module: production_autoscaler"
     },
     {
       "name": "cache",
@@ -339,19 +199,9 @@
       "description": "Python module: broski_adslot_system"
     },
     {
-      "name": "broski_adzone_visual.html",
-      "type": "file",
-      "description": "File: broski_adzone_visual.html"
-    },
-    {
-      "name": "SYSTEM_COMPLETION_REPORT.md",
-      "type": "file",
-      "description": "Documentation: SYSTEM_COMPLETION_REPORT"
-    },
-    {
-      "name": "user_portal.html",
-      "type": "file",
-      "description": "File: user_portal.html"
+      "name": "\ud83d\udd27 Maintenance",
+      "type": "directory",
+      "description": "Component: \ud83d\udd27 Maintenance"
     },
     {
       "name": "chaos_genius_ultra_monitor.py",
@@ -369,19 +219,9 @@
       "description": "Python module: hyperfocus_instant_transform"
     },
     {
-      "name": "HYPERFOCUSZONE_DISCORD_ULTRA_RESTRUCTURE_PLAN.md",
-      "type": "file",
-      "description": "Documentation: HYPERFOCUSZONE_DISCORD_ULTRA_RESTRUCTURE_PLAN"
-    },
-    {
       "name": "Ui Upgrade",
       "type": "directory",
       "description": "Component: Ui Upgrade"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_171619.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_171619"
     },
     {
       "name": "Marketing Content",
@@ -389,14 +229,9 @@
       "description": "Component: Marketing Content"
     },
     {
-      "name": "hyperfocus_project_analysis_20250606_005645.json",
+      "name": "enhanced_memory_system.py",
       "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_005645"
-    },
-    {
-      "name": "deploy_phase3.py",
-      "type": "file",
-      "description": "Python module: deploy_phase3"
+      "description": "Python module: enhanced_memory_system"
     },
     {
       "name": "production_assets",
@@ -404,34 +239,29 @@
       "description": "Component: production_assets"
     },
     {
-      "name": "PHASE3_SUCCESS_SUMMARY.md",
-      "type": "file",
-      "description": "Documentation: PHASE3_SUCCESS_SUMMARY"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_171514.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_171514"
-    },
-    {
-      "name": "PORTAL_PREVIEW.md",
-      "type": "file",
-      "description": "Documentation: PORTAL_PREVIEW"
-    },
-    {
       "name": "competitor_analyses",
       "type": "directory",
       "description": "Component: competitor_analyses"
     },
     {
-      "name": "tiktok_shop_dashboard.html",
+      "name": "\ud83e\uddea Testing & Health",
+      "type": "directory",
+      "description": "Component: \ud83e\uddea Testing & Health"
+    },
+    {
+      "name": "pinta_ipfs_setup_helper.py",
       "type": "file",
-      "description": "File: tiktok_shop_dashboard.html"
+      "description": "Python module: pinta_ipfs_setup_helper"
     },
     {
       "name": "cleanup_backups",
       "type": "directory",
       "description": "Component: cleanup_backups"
+    },
+    {
+      "name": "cloudflare_setup_helper.py",
+      "type": "file",
+      "description": "Python module: cloudflare_setup_helper"
     },
     {
       "name": "Scripts & Prompts",
@@ -459,29 +289,9 @@
       "description": "Component: scripts"
     },
     {
-      "name": "production_deploy_config.py",
-      "type": "file",
-      "description": "Python module: production_deploy_config"
-    },
-    {
-      "name": "project_zipper.py",
-      "type": "file",
-      "description": "Python module: project_zipper"
-    },
-    {
-      "name": "cleanup_log_20250606_223829.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250606_223829"
-    },
-    {
       "name": "chaosgenius_ultimate_showcase.py",
       "type": "file",
       "description": "Python module: chaosgenius_ultimate_showcase"
-    },
-    {
-      "name": "health_report.json",
-      "type": "file",
-      "description": "Configuration: health_report"
     },
     {
       "name": "voice_commands",
@@ -489,39 +299,14 @@
       "description": "Component: voice_commands"
     },
     {
-      "name": "README.md",
-      "type": "file",
-      "description": "Main project documentation"
-    },
-    {
       "name": "blog_drafts",
       "type": "directory",
       "description": "Component: blog_drafts"
     },
     {
-      "name": "dashboard_api.py",
-      "type": "file",
-      "description": "Python module: dashboard_api"
-    },
-    {
       "name": "hyperfocus_discord_restructure_bot.py",
       "type": "file",
       "description": "Python module: hyperfocus_discord_restructure_bot"
-    },
-    {
-      "name": "production_manager.py",
-      "type": "file",
-      "description": "Python module: production_manager"
-    },
-    {
-      "name": "health_check.py",
-      "type": "file",
-      "description": "Python module: health_check"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250606_010004.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_010004"
     },
     {
       "name": "archived_logs",
@@ -539,24 +324,9 @@
       "description": "Python module: discord_auto_roles_payouts"
     },
     {
-      "name": "hyperfocus_project_analysis_20250606_132408.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250606_132408"
-    },
-    {
-      "name": "PRE_LAUNCH_CHECKLIST.md",
-      "type": "file",
-      "description": "Documentation: PRE_LAUNCH_CHECKLIST"
-    },
-    {
       "name": "hyperfocus_live_monitor.py",
       "type": "file",
       "description": "Python module: hyperfocus_live_monitor"
-    },
-    {
-      "name": "folder_optimizer.py",
-      "type": "file",
-      "description": "Python module: folder_optimizer"
     },
     {
       "name": "static",
@@ -569,24 +339,9 @@
       "description": "Component: email_campaigns"
     },
     {
-      "name": "project_cleanup_organizer.py",
-      "type": "file",
-      "description": "Python module: project_cleanup_organizer"
-    },
-    {
-      "name": "chaosgenius_system_optimizer.py",
-      "type": "file",
-      "description": "Python module: chaosgenius_system_optimizer"
-    },
-    {
-      "name": "pre_launch_audit_report.json",
-      "type": "file",
-      "description": "Configuration: pre_launch_audit_report"
-    },
-    {
-      "name": "home_ui.html",
-      "type": "file",
-      "description": "File: home_ui.html"
+      "name": "B.R.A.I.N.DROP",
+      "type": "directory",
+      "description": "Component: B.R.A.I.N.DROP"
     },
     {
       "name": "Business Data",
@@ -594,24 +349,19 @@
       "description": "Component: Business Data"
     },
     {
-      "name": "COMPREHENSIVE_TECHNICAL_REVIEW.md",
-      "type": "file",
-      "description": "Documentation: COMPREHENSIVE_TECHNICAL_REVIEW"
+      "name": "\ud83d\udce6 Archives & Backups",
+      "type": "directory",
+      "description": "Component: \ud83d\udce6 Archives & Backups"
     },
     {
-      "name": "project_health_monitor.py",
+      "name": "emergency_ai_specialist.py",
       "type": "file",
-      "description": "Python module: project_health_monitor"
+      "description": "Python module: emergency_ai_specialist"
     },
     {
-      "name": "security_audit_report.json",
-      "type": "file",
-      "description": "Configuration: security_audit_report"
-    },
-    {
-      "name": "cleanup_log_20250606_233147.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250606_233147"
+      "name": "\u2699\ufe0f Configuration",
+      "type": "directory",
+      "description": "Component: \u2699\ufe0f Configuration"
     },
     {
       "name": "broski_ultra_server_armor.py",
@@ -629,64 +379,14 @@
       "description": "Python module: app"
     },
     {
-      "name": "startup_manager.py",
-      "type": "file",
-      "description": "Python module: startup_manager"
-    },
-    {
-      "name": "dashboard.html",
-      "type": "file",
-      "description": "File: dashboard.html"
-    },
-    {
-      "name": "index.html",
-      "type": "file",
-      "description": "File: index.html"
-    },
-    {
-      "name": "dashboard_api_backup.py",
-      "type": "file",
-      "description": "Python module: dashboard_api_backup"
-    },
-    {
-      "name": "start.py",
-      "type": "file",
-      "description": "Python module: start"
-    },
-    {
-      "name": "hyperfocus_zone_ultra_home.html",
-      "type": "file",
-      "description": "File: hyperfocus_zone_ultra_home.html"
-    },
-    {
-      "name": "LAUNCH_ANNOUNCEMENTS.md",
-      "type": "file",
-      "description": "Documentation: LAUNCH_ANNOUNCEMENTS"
-    },
-    {
-      "name": "phase4_production_manager.py",
-      "type": "file",
-      "description": "Python module: phase4_production_manager"
+      "name": "\ud83d\udccb Logs & Temp",
+      "type": "directory",
+      "description": "Component: \ud83d\udccb Logs & Temp"
     },
     {
       "name": "revenue_reports",
       "type": "directory",
       "description": "Component: revenue_reports"
-    },
-    {
-      "name": "DEPLOYMENT_COMPLETE_REPORT.md",
-      "type": "file",
-      "description": "Documentation: DEPLOYMENT_COMPLETE_REPORT"
-    },
-    {
-      "name": "business_blueprint_20250525_112142.json",
-      "type": "file",
-      "description": "Configuration: business_blueprint_20250525_112142"
-    },
-    {
-      "name": "ultra_neuro_home.html",
-      "type": "file",
-      "description": "File: ultra_neuro_home.html"
     },
     {
       "name": "sync_reports",
@@ -704,11 +404,6 @@
       "description": "Component: comment_replies"
     },
     {
-      "name": "PROJECT_IMPACT_REPORT.md",
-      "type": "file",
-      "description": "Documentation: PROJECT_IMPACT_REPORT"
-    },
-    {
       "name": "market_research",
       "type": "directory",
       "description": "Component: market_research"
@@ -719,29 +414,14 @@
       "description": "Python module: chaosgenius_evolution_pipeline"
     },
     {
+      "name": "\ud83d\udcca Analytics & Reports",
+      "type": "directory",
+      "description": "Component: \ud83d\udcca Analytics & Reports"
+    },
+    {
       "name": "ULTRA_BROSKI_PROJECT",
       "type": "directory",
       "description": "Component: ULTRA_BROSKI_PROJECT"
-    },
-    {
-      "name": "PHASE4_PRODUCTION_COMPLETE.md",
-      "type": "file",
-      "description": "Documentation: PHASE4_PRODUCTION_COMPLETE"
-    },
-    {
-      "name": "neurod_analytics_dashboard.html",
-      "type": "file",
-      "description": "File: neurod_analytics_dashboard.html"
-    },
-    {
-      "name": "cleanup_log_20250529_215256.json",
-      "type": "file",
-      "description": "Configuration: cleanup_log_20250529_215256"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250604_183739.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250604_183739"
     },
     {
       "name": "Welcome & Onboarding",
@@ -754,29 +434,9 @@
       "description": "Component: content_optimizations"
     },
     {
-      "name": "advanced_project_optimizer.py",
-      "type": "file",
-      "description": "Python module: advanced_project_optimizer"
-    },
-    {
       "name": "chaosgenius_discord_bot.py",
       "type": "file",
       "description": "Python module: chaosgenius_discord_bot"
-    },
-    {
-      "name": "BROSKI_X_FOREVER_MANIFESTO.md",
-      "type": "file",
-      "description": "Documentation: BROSKI_X_FOREVER_MANIFESTO"
-    },
-    {
-      "name": "chaos_genius_ultra_optimizer.py",
-      "type": "file",
-      "description": "Python module: chaos_genius_ultra_optimizer"
-    },
-    {
-      "name": "README_MASTER_INDEX.md",
-      "type": "file",
-      "description": "Documentation: README_MASTER_INDEX"
     },
     {
       "name": "production_config",
@@ -784,9 +444,9 @@
       "description": "Component: production_config"
     },
     {
-      "name": "broski_security_validator.py",
-      "type": "file",
-      "description": "Python module: broski_security_validator"
+      "name": "__pycache__",
+      "type": "directory",
+      "description": "Component: __pycache__"
     },
     {
       "name": "broski_endpoints.py",
@@ -804,14 +464,14 @@
       "description": "Component: Notes"
     },
     {
-      "name": "hyperfocus_project_analysis_20250605_154903.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250605_154903"
+      "name": "\ud83d\uddc4\ufe0f Databases",
+      "type": "directory",
+      "description": "Component: \ud83d\uddc4\ufe0f Databases"
     },
     {
-      "name": "phase3_manager.py",
+      "name": "ultra_search_engine.py",
       "type": "file",
-      "description": "Python module: phase3_manager"
+      "description": "Python module: ultra_search_engine"
     },
     {
       "name": "cross_platform_sync_engine.py",
@@ -819,34 +479,9 @@
       "description": "Python module: cross_platform_sync_engine"
     },
     {
-      "name": "workspace_optimizer.py",
-      "type": "file",
-      "description": "Python module: workspace_optimizer"
-    },
-    {
-      "name": "hyperfocus_project_analysis_20250604_183910.json",
-      "type": "file",
-      "description": "Configuration: hyperfocus_project_analysis_20250604_183910"
-    },
-    {
       "name": ".vscode-upload.json",
       "type": "file",
       "description": "Configuration: .vscode-upload"
-    },
-    {
-      "name": "adslots.json",
-      "type": "file",
-      "description": "Configuration: adslots"
-    },
-    {
-      "name": "system_monitor.py",
-      "type": "file",
-      "description": "Python module: system_monitor"
-    },
-    {
-      "name": "RELEASE_NOTES_v2.0.0.md",
-      "type": "file",
-      "description": "Documentation: RELEASE_NOTES_v2.0.0"
     },
     {
       "name": "chaosgenius_voice_commands.py",
@@ -857,11 +492,6 @@
       "name": "htmlcov",
       "type": "directory",
       "description": "Component: htmlcov"
-    },
-    {
-      "name": "PHASE3_COMPLETION_REPORT.md",
-      "type": "file",
-      "description": "Documentation: PHASE3_COMPLETION_REPORT"
     },
     {
       "name": "graceful_shutdown_example.py",
@@ -884,44 +514,14 @@
       "description": "Python module: broski_api_endpoints"
     },
     {
-      "name": "PROJECT_COMPLETION_STATUS.md",
-      "type": "file",
-      "description": "Documentation: PROJECT_COMPLETION_STATUS"
-    },
-    {
-      "name": "etsy_key_validator.py",
-      "type": "file",
-      "description": "Python module: etsy_key_validator"
-    },
-    {
       "name": "auto_doc_generator.py",
       "type": "file",
       "description": "Python module: auto_doc_generator"
     },
     {
-      "name": "DEMO_MANIFEST.json",
-      "type": "file",
-      "description": "Configuration: DEMO_MANIFEST"
-    },
-    {
       "name": "broski_auth_system",
       "type": "directory",
       "description": "Component: broski_auth_system"
-    },
-    {
-      "name": "phase5_intelligence_manager.py",
-      "type": "file",
-      "description": "Python module: phase5_intelligence_manager"
-    },
-    {
-      "name": "setup_demo_version.py",
-      "type": "file",
-      "description": "Python module: setup_demo_version"
-    },
-    {
-      "name": "broski_wallets_SECURE.json",
-      "type": "file",
-      "description": "Configuration: broski_wallets_SECURE"
     },
     {
       "name": "flask_cloudflare_ultra_starter_pack",
@@ -934,19 +534,9 @@
       "description": "Component: broski_legal_pack"
     },
     {
-      "name": "broski_wallet_dashboard.html",
-      "type": "file",
-      "description": "File: broski_wallet_dashboard.html"
-    },
-    {
       "name": "config",
       "type": "directory",
       "description": "Component: config"
-    },
-    {
-      "name": "FINAL_DEPLOYMENT_COMMANDS.md",
-      "type": "file",
-      "description": "Documentation: FINAL_DEPLOYMENT_COMMANDS"
     },
     {
       "name": "backups",
@@ -959,6 +549,11 @@
       "description": "Python module: .secret_easter_eggs"
     },
     {
+      "name": "emergency_broski_wrapper.py",
+      "type": "file",
+      "description": "Python module: emergency_broski_wrapper"
+    },
+    {
       "name": "broski_hyperportal",
       "type": "directory",
       "description": "Component: broski_hyperportal"
@@ -967,11 +562,6 @@
       "name": "api",
       "type": "directory",
       "description": "Component: api"
-    },
-    {
-      "name": "security_validator.py",
-      "type": "file",
-      "description": "Python module: security_validator"
     }
   ],
   "documentation_tools": [
@@ -1030,9 +620,9 @@
   ],
   "tech_stack": {
     "languages": [
-      "Python",
       "HTML",
-      "JavaScript"
+      "JavaScript",
+      "Python"
     ],
     "frameworks": [],
     "tools": [

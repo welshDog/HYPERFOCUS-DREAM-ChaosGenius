@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-06-07T01:26:24.798285",
+  "token_valid": false,
+  "zones_count": 0,
+  "zones": [],
+  "analytics_sample": {
+    "requests": 45230,
+    "bandwidth": 1024000000,
+    "threats_blocked": 127,
+    "status": "mock_data",
+    "period": "last_24h"
+  },
+  "status": "setup_needed"
+}
