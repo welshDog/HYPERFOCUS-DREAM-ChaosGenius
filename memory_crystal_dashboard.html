@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 BROski Memory Crystal Command Center 💎</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #16213e 100%);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .crystal-dashboard {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        .dashboard-title {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #00ff88;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .crystal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .crystal-card {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .crystal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+            border-color: #00ffff;
+        }
+
+        .crystal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .crystal-card:hover::before {
+            left: 100%;
+        }
+
+        .crystal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .crystal-type {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .crystal-size {
+            background: rgba(0, 255, 136, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .crystal-stats {
+            margin-bottom: 15px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .crystal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .crystal-btn {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .crystal-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .intelligence-overview {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .intelligence-level {
+            font-size: 4em;
+            color: #00ffff;
+            text-shadow: 0 0 30px #00ffff;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .brain-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .brain-stat {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #00ff88;
+            text-align: center;
+        }
+
+        .brain-stat-value {
+            font-size: 2em;
+            color: #00ffff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .brain-stat-label {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
+        .crystal-timeline {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00ffff;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-left: 4px solid #00ff88;
+        }
+
+        .timeline-time {
+            min-width: 120px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        .timeline-event {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .floating-crystal {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.8;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(0px) rotate(180deg); }
+            75% { transform: translateY(-10px) rotate(270deg); }
+        }
+
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 250px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .control-panel.minimized {
+            padding: 10px;
+            min-width: auto;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-panel.minimized > *:not(.toggle-controls) {
+            display: none;
+        }
+
+        .toggle-controls {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00ff88 0%, #00ffff 100%);
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .toggle-controls:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.6);
+            background: linear-gradient(135deg, #00ffff 0%, #00ff88 100%);
+        }
+
+        .toggle-controls div {
+            font-size: 1.2em;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .minimized-indicator {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00ff88; }
+            100% { text-shadow: 0 0 15px #00ffff, 0 0 25px #00ff88; }
+        }
+
+        .system-status {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ff88;
+            margin-right: 10px;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .crystal-preview {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 3px solid #00ff88;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            z-index: 2000;
+            display: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #ff4444;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="crystal-dashboard">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="dashboard-title">💎⚡ BROski Memory Crystal Command Center ⚡💎</div>
+            <div class="dashboard-subtitle">ULTRA INTELLIGENCE MANAGEMENT SYSTEM - LEGENDARY BRAIN POWER</div>
+        </div>
+
+        <!-- Intelligence Overview -->
+        <div class="intelligence-overview">
+            <h2>🧠 BRAIN INTELLIGENCE OVERVIEW</h2>
+            <div class="intelligence-level" id="intelligenceLevel">94.9%</div>
+            <div class="brain-stats-grid">
+                <div class="brain-stat">
+                    <div class="brain-stat-value" id="totalCrystals">12</div>
+                    <div class="brain-stat-label">💎 Memory Crystals</div>
+                </div>
+                <div class="brain-stat">
+                    <div class="brain-stat-value" id="totalMemories">247</div>
+                    <div class="brain-stat-label">🧠 Total Memories</div>
+                </div>
+                <div class="brain-stat">
+                    <div class="brain-stat-value" id="totalPatterns">83</div>
+                    <div class="brain-stat-label">🧩 Patterns</div>
+                </div>
+                <div class="brain-stat">
+                    <div class="brain-stat-value" id="energyLevel">10/10</div>
+                    <div class="brain-stat-label">⚡ Energy Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crystal Grid -->
+        <div class="crystal-grid" id="crystalGrid">
+            <!-- Crystals will be populated dynamically -->
+        </div>
+
+        <!-- Crystal Timeline -->
+        <div class="crystal-timeline">
+            <div class="timeline-title">🕒 CRYSTAL GENERATION TIMELINE</div>
+            <div id="crystalTimeline">
+                <!-- Timeline will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <h3>🎛️ CONTROL CENTER</h3>
+        <button class="control-btn" onclick="generateNewCrystal()">💎 Generate New Crystal</button>
+        <button class="control-btn" onclick="refreshDashboard()">🔄 Refresh Dashboard</button>
+        <button class="control-btn" onclick="viewBrainStats()">📊 Brain Statistics</button>
+        <button class="control-btn" onclick="exportAllCrystals()">📦 Export All Crystals</button>
+        <button class="control-btn" onclick="openMainDashboard()">🎛️ Main Dashboard</button>
+
+        <div class="system-status">
+            <div><span class="status-indicator"></span>Brain Engine: ACTIVE</div>
+            <div><span class="status-indicator"></span>Crystal Forge: OPERATIONAL</div>
+            <div><span class="status-indicator"></span>Intelligence: LEGENDARY</div>
+        </div>
+
+        <!-- Toggle Controls -->
+        <div class="toggle-controls" onclick="toggleControlPanel()">
+            <div class="minimized-indicator">⚙️</div>
+        </div>
+    </div>
+
+    <!-- Crystal Preview Modal -->
+    <div class="crystal-preview" id="crystalPreview">
+        <button class="close-btn" onclick="closeCrystalPreview()">&times;</button>
+        <div id="crystalPreviewContent">
+            <!-- Crystal details will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // 💎 BROski Memory Crystal Dashboard JavaScript 💎
+
+        let crystalData = [];
+        let dashboardStats = {
+            totalCrystals: 12,
+            totalMemories: 247,
+            totalPatterns: 83,
+            intelligenceLevel: 94.9,
+            energyLevel: 10
+        };
+
+        // Initialize dashboard
+        function initializeDashboard() {
+            console.log('💎 BROski Memory Crystal Dashboard: Initializing...');
+            loadCrystalData();
+            updateDashboardStats();
+            createFloatingCrystals();
+            startRealTimeUpdates();
+            console.log('💎 Dashboard fully operational!');
+        }
+
+        // Load crystal data from files
+        async function loadCrystalData() {
+            // Simulate loading crystal files
+            const crystalTypes = ['compact', 'premium', 'ultimate', 'showcase'];
+            const timestamps = [
+                '20250607_212256', '20250607_212553', '20250607_212638',
+                '20250607_212639', '20250607_212554', '20250607_212257'
+            ];
+
+            crystalData = [];
+            let id = 1;
+
+            for (const type of crystalTypes) {
+                for (let i = 0; i < 3; i++) {
+                    const timestamp = timestamps[Math.floor(Math.random() * timestamps.length)];
+                    const size = type === 'compact' ? '0.01' :
+                               type === 'premium' ? '0.17' :
+                               type === 'ultimate' ? '0.17' : '0.17';
+
+                    crystalData.push({
+                        id: id++,
+                        type: type.toUpperCase(),
+                        filename: `broski_crystal_${type}_${timestamp}.broski`,
+                        size: size + ' MB',
+                        memories: Math.floor(Math.random() * 50) + 10,
+                        patterns: Math.floor(Math.random() * 20) + 5,
+                        intelligence: (Math.random() * 10 + 90).toFixed(1),
+                        created: new Date(2025, 5, 7, 21, Math.floor(Math.random() * 60)),
+                        status: 'ACTIVE'
+                    });
+                }
+            }
+
+            renderCrystalGrid();
+            renderCrystalTimeline();
+        }
+
+        // Render crystal grid
+        function renderCrystalGrid() {
+            const grid = document.getElementById('crystalGrid');
+            grid.innerHTML = '';
+
+            crystalData.forEach(crystal => {
+                const card = document.createElement('div');
+                card.className = 'crystal-card';
+                card.innerHTML = `
+                    <div class="crystal-header">
+                        <div class="crystal-type">💎 ${crystal.type}</div>
+                        <div class="crystal-size">${crystal.size}</div>
+                    </div>
+                    <div class="crystal-stats">
+                        <div class="stat-row">
+                            <span>🧠 Memories:</span>
+                            <span>${crystal.memories}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>🧩 Patterns:</span>
+                            <span>${crystal.patterns}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>🎯 Intelligence:</span>
+                            <span>${crystal.intelligence}%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>📅 Created:</span>
+                            <span>${crystal.created.toLocaleDateString()}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>📁 File:</span>
+                            <span>${crystal.filename}</span>
+                        </div>
+                    </div>
+                    <div class="crystal-actions">
+                        <button class="crystal-btn" onclick="viewCrystal(${crystal.id})">👁️ View</button>
+                        <button class="crystal-btn" onclick="analyzeCrystal(${crystal.id})">🧩 Analyze</button>
+                        <button class="crystal-btn" onclick="exportCrystal(${crystal.id})">📤 Export</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render crystal timeline
+        function renderCrystalTimeline() {
+            const timeline = document.getElementById('crystalTimeline');
+            timeline.innerHTML = '';
+
+            const sortedCrystals = [...crystalData].sort((a, b) => b.created - a.created);
+
+            sortedCrystals.forEach(crystal => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.innerHTML = `
+                    <div class="timeline-time">${crystal.created.toLocaleTimeString()}</div>
+                    <div class="timeline-event">
+                        <strong>💎 ${crystal.type} Crystal Generated</strong><br>
+                        ${crystal.memories} memories • ${crystal.patterns} patterns • ${crystal.intelligence}% intelligence
+                    </div>
+                `;
+                timeline.appendChild(item);
+            });
+        }
+
+        // Update dashboard stats
+        function updateDashboardStats() {
+            document.getElementById('intelligenceLevel').textContent = dashboardStats.intelligenceLevel + '%';
+            document.getElementById('totalCrystals').textContent = dashboardStats.totalCrystals;
+            document.getElementById('totalMemories').textContent = dashboardStats.totalMemories;
+            document.getElementById('totalPatterns').textContent = dashboardStats.totalPatterns;
+            document.getElementById('energyLevel').textContent = dashboardStats.energyLevel + '/10';
+        }
+
+        // Create floating crystals animation
+        function createFloatingCrystals() {
+            setInterval(() => {
+                const crystal = document.createElement('div');
+                crystal.className = 'floating-crystal';
+                crystal.style.left = Math.random() * window.innerWidth + 'px';
+                crystal.style.top = window.innerHeight + 'px';
+
+                document.body.appendChild(crystal);
+
+                // Animate upward
+                let pos = window.innerHeight;
+                const interval = setInterval(() => {
+                    pos -= 2;
+                    crystal.style.top = pos + 'px';
+
+                    if (pos < -50) {
+                        clearInterval(interval);
+                        document.body.removeChild(crystal);
+                    }
+                }, 50);
+            }, 3000);
+        }
+
+        // Start real-time updates
+        function startRealTimeUpdates() {
+            setInterval(() => {
+                // Simulate minor stat changes
+                dashboardStats.intelligenceLevel = Math.min(99.9, dashboardStats.intelligenceLevel + 0.1);
+                dashboardStats.totalMemories += Math.floor(Math.random() * 3);
+                updateDashboardStats();
+            }, 5000);
+        }
+
+        // Control functions
+        function generateNewCrystal() {
+            console.log('💎 Generating new crystal...');
+            showNotification('💎 Generating new memory crystal... This will take a moment!');
+
+            // Simulate crystal generation
+            setTimeout(() => {
+                dashboardStats.totalCrystals++;
+                const newCrystal = {
+                    id: crystalData.length + 1,
+                    type: 'PREMIUM',
+                    filename: `broski_crystal_premium_${Date.now()}.broski`,
+                    size: '0.18 MB',
+                    memories: Math.floor(Math.random() * 50) + 10,
+                    patterns: Math.floor(Math.random() * 20) + 5,
+                    intelligence: (Math.random() * 10 + 90).toFixed(1),
+                    created: new Date(),
+                    status: 'ACTIVE'
+                };
+
+                crystalData.unshift(newCrystal);
+                renderCrystalGrid();
+                renderCrystalTimeline();
+                updateDashboardStats();
+                showNotification('💎✨ New memory crystal forged successfully!');
+            }, 3000);
+        }
+
+        function refreshDashboard() {
+            showNotification('🔄 Refreshing dashboard...');
+            loadCrystalData();
+            updateDashboardStats();
+            showNotification('✅ Dashboard refreshed!');
+        }
+
+        function viewBrainStats() {
+            const stats = `🧠 BROSKI BRAIN STATISTICS
+
+💎 Total Crystals: ${dashboardStats.totalCrystals}
+🧠 Total Memories: ${dashboardStats.totalMemories}
+🧩 Pattern Recognition: ${dashboardStats.totalPatterns}
+🎯 Intelligence Level: ${dashboardStats.intelligenceLevel}%
+⚡ Energy Level: ${dashboardStats.energyLevel}/10
+
+🚀 Status: ULTRA LEGENDARY OPERATIONAL`;
+
+            alert(stats);
+        }
+
+        function exportAllCrystals() {
+            showNotification('📦 Exporting all crystals... (Feature coming soon!)');
+        }
+
+        function openMainDashboard() {
+            window.open('/dashboard.html', '_blank');
+        }
+
+        function viewCrystal(id) {
+            const crystal = crystalData.find(c => c.id === id);
+            if (crystal) {
+                const preview = document.getElementById('crystalPreview');
+                const content = document.getElementById('crystalPreviewContent');
+
+                content.innerHTML = `
+                    <h2>💎 ${crystal.type} Crystal Analysis</h2>
+                    <div style="margin: 20px 0;">
+                        <strong>📁 File:</strong> ${crystal.filename}<br>
+                        <strong>📊 Size:</strong> ${crystal.size}<br>
+                        <strong>🧠 Memories:</strong> ${crystal.memories}<br>
+                        <strong>🧩 Patterns:</strong> ${crystal.patterns}<br>
+                        <strong>🎯 Intelligence:</strong> ${crystal.intelligence}%<br>
+                        <strong>📅 Created:</strong> ${crystal.created.toLocaleString()}<br>
+                        <strong>🔥 Status:</strong> ${crystal.status}
+                    </div>
+                    <div style="background: rgba(0,255,136,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <h3>🧩 Crystal Contents Preview:</h3>
+                        <p>• Memory type distribution analysis</p>
+                        <p>• Crew contribution analytics</p>
+                        <p>• Timeline analysis and patterns</p>
+                        <p>• Intelligence metrics and scores</p>
+                        <p>• Visual brain activity charts</p>
+                        <p>• Comprehensive analytics suite</p>
+                    </div>
+                `;
+
+                preview.style.display = 'block';
+            }
+        }
+
+        function analyzeCrystal(id) {
+            showNotification('🧩 Analyzing crystal patterns... (Feature coming soon!)');
+        }
+
+        function exportCrystal(id) {
+            const crystal = crystalData.find(c => c.id === id);
+            if (crystal) {
+                showNotification(`📤 Exporting ${crystal.filename}... (Feature coming soon!)`);
+            }
+        }
+
+        function closeCrystalPreview() {
+            document.getElementById('crystalPreview').style.display = 'none';
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 255, 136, 0.9);
+                color: #000;
+                padding: 15px 25px;
+                border-radius: 25px;
+                font-weight: bold;
+                z-index: 3000;
+                border: 2px solid #00ffff;
+                box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 4000);
+        }
+
+        // Toggle control panel minimized state
+        function toggleControlPanel() {
+            const panel = document.querySelector('.control-panel');
+            panel.classList.toggle('minimized');
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>

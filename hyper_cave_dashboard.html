@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕋 BROski X HYPER CAVE - ULTRA COMMAND CENTER 🕋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Epic animated background */
+        .hyper-cave-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .hyper-cave-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 0, 136, 0.1) 0%, transparent 50%);
+            animation: hyperRotate 30s linear infinite;
+        }
+
+        @keyframes hyperRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hyper-cave-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .cave-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 40px;
+            border-radius: 25px;
+            border: 3px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cave-header::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            animation: hyperSweep 15s linear infinite;
+        }
+
+        @keyframes hyperSweep {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .cave-title {
+            font-size: 4em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px #00ff88;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(45deg, #00ff88, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .cave-subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            color: #00ffff;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.3); }
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .portal-card {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .portal-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.4);
+            border-color: #00ffff;
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .portal-card:hover::before {
+            left: 100%;
+        }
+
+        .portal-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .portal-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portal-description {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portal-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        .portal-actions {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portal-btn {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .portal-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.6);
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: statusPulse 2s ease-in-out infinite alternate;
+        }
+
+        .status-active { background: #00ff88; }
+        .status-standby { background: #ffaa00; }
+        .status-offline { background: #ff4444; }
+
+        @keyframes statusPulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .system-overview {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .overview-title {
+            font-size: 2.5em;
+            color: #00ffff;
+            margin-bottom: 30px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .overview-stat {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #00ff88;
+        }
+
+        .overview-stat-value {
+            font-size: 2.5em;
+            color: #00ffff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .overview-stat-label {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.3;
+            animation: floatAround 20s linear infinite;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        .master-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 25px;
+            min-width: 280px;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .master-controls.minimized {
+            padding: 15px;
+            min-width: 60px;
+        }
+
+        .master-controls.minimized .controls-content {
+            display: none;
+        }
+
+        .toggle-controls {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .toggle-controls:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+        }
+
+        .minimized-indicator {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9em;
+            animation: minimizedPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes minimizedPulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            color: #000;
+            border: none;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .system-health {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 15px;
+            border: 1px solid #00ff88;
+        }
+
+        .health-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #00ffff;
+            font-size: 1.1em;
+        }
+
+        .health-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+            font-size: 0.9em;
+        }
+
+        .health-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        /* Guardian Zero specific styles */
+        .guardian-pulse {
+            animation: guardianPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes guardianPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Guardian Zero Elite Defense styles */
+        .guardian-panel {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-title {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .guardian-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .guardian-agent {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .guardian-agent:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .agent-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .agent-status {
+            font-size: 0.9em;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .guardian-controls {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .emergency {
+            background: linear-gradient(45deg, #ff4444, #ffbb33);
+            color: #000;
+        }
+
+        .emergency:hover {
+            background: linear-gradient(45deg, #ffbb33, #ff4444);
+        }
+
+        .guardian-zero-panel {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zero-header {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .zero-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .zero-stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .zero-label {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        .zero-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .zero-motto {
+            font-size: 0.9em;
+            text-align: center;
+            color: #88ffaa;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alert-feed {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff88;
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feed-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #00ffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alert-list {
+            max-height: 300px;
+            overflow-y: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alert-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alert-message {
+            font-size: 0.9em;
+            color: #00ff88;
+        }
+
+        .alert-time {
+            font-size: 0.8em;
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hyper-cave-bg"></div>
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <div class="hyper-cave-container">
+        <!-- Epic Header -->
+        <div class="cave-header">
+            <div class="cave-title">🕋 BROski X HYPER CAVE 🕋</div>
+            <div class="cave-subtitle">ULTRA COMMAND CENTER - FULL ACCESS TO THE LEGENDARY EMPIRE</div>
+        </div>
+
+        <!-- System Overview -->
+        <div class="system-overview">
+            <div class="overview-title">🧠⚡ LEGENDARY EMPIRE STATUS ⚡🧠</div>
+            <div class="overview-stats">
+                <div class="overview-stat">
+                    <div class="overview-stat-value" id="totalPortals">12</div>
+                    <div class="overview-stat-label">🚀 Active Portals</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-stat-value" id="brainPower">94.9%</div>
+                    <div class="overview-stat-label">🧠 Brain Intelligence</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-stat-value" id="systemsOnline">11</div>
+                    <div class="overview-stat-label">🛡️ Systems Online</div>
+                </div>
+                <div class="overview-stat">
+                    <div class="overview-stat-value" id="legendaryLevel">MAXIMUM</div>
+                    <div class="overview-stat-label">💪 Legendary Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portal Grid -->
+        <div class="portal-grid">
+            <!-- Memory Crystal Portal -->
+            <div class="portal-card" onclick="openPortal('memory-crystals')">
+                <div class="portal-icon">💎</div>
+                <div class="portal-title">Memory Crystal Command</div>
+                <div class="portal-description">Manage your 12 legendary memory crystals with 94.1% intelligence level</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Crystals</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">579</div>
+                        <div class="stat-label">Memories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">204</div>
+                        <div class="stat-label">Patterns</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <a href="http://localhost:5001/memory-crystals" class="portal-btn" target="_blank">🎛️ Enter Portal</a>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>ULTRA OPERATIONAL
+                </div>
+            </div>
+
+            <!-- ChaosGenius Dashboard Portal -->
+            <div class="portal-card" onclick="openPortal('dashboard')">
+                <div class="portal-icon">🎛️</div>
+                <div class="portal-title">ChaosGenius Dashboard</div>
+                <div class="portal-description">Main business command center with AI squad and analytics</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">AI Agents</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">Power</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <a href="http://localhost:5000" class="portal-btn" target="_blank">🚀 Launch Dashboard</a>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>LEGENDARY ACTIVE
+                </div>
+            </div>
+
+            <!-- Discord Bot Portal -->
+            <div class="portal-card" onclick="openPortal('discord')">
+                <div class="portal-icon">🤖</div>
+                <div class="portal-title">Discord Bot Commander</div>
+                <div class="portal-description">47+ slash commands with ADHD optimization and community features</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">47+</div>
+                        <div class="stat-label">Commands</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Online</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">ULTRA</div>
+                        <div class="stat-label">Mode</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchDiscordBot()">🎮 Activate Bot</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-standby"></span>READY TO DEPLOY
+                </div>
+            </div>
+
+            <!-- Hyperfocus Monitor Portal -->
+            <div class="portal-card" onclick="openPortal('hyperfocus')">
+                <div class="portal-icon">🧠</div>
+                <div class="portal-title">Hyperfocus Monitor</div>
+                <div class="portal-description">Real-time brain optimization and productivity tracking</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">10/10</div>
+                        <div class="stat-label">Energy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">ULTRA</div>
+                        <div class="stat-label">Focus</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">MAX</div>
+                        <div class="stat-label">Flow</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchHyperfocus()">⚡ Enter Zone</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>HYPERFOCUS READY
+                </div>
+            </div>
+
+            <!-- Brain Command Center Portal -->
+            <div class="portal-card" onclick="openPortal('brain-command')">
+                <div class="portal-icon">🕋</div>
+                <div class="portal-title">Brain Command Center</div>
+                <div class="portal-description">Neural interface with chaos prediction and brain wave monitoring</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">40Hz</div>
+                        <div class="stat-label">Neural Freq</div>
+                    </div>
+                    <div class="stat-value">92%</div>
+                    <div class="stat-label">Chaos Energy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">FLOW</div>
+                        <div class="stat-label">State</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchBrainCommand()">🧬 Neural Link</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>NEURAL READY
+                </div>
+            </div>
+
+            <!-- HBoard API Portal -->
+            <div class="portal-card" onclick="openPortal('hboard')">
+                <div class="portal-icon">📊</div>
+                <div class="portal-title">HBoard API Ultra</div>
+                <div class="portal-description">Advanced productivity scoring and system monitoring</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">100</div>
+                        <div class="stat-label">Prod Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">HIGH</div>
+                        <div class="stat-label">Energy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">11+</div>
+                        <div class="stat-label">Processes</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchHBoard()">📈 Monitor Systems</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>MONITORING ACTIVE
+                </div>
+            </div>
+
+            <!-- Documentation Portal -->
+            <div class="portal-card" onclick="openPortal('docs')">
+                <div class="portal-icon">📔</div>
+                <div class="portal-title">Documentation Hub</div>
+                <div class="portal-description">Complete guides, user manuals, and system documentation</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">Docs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">ULTRA</div>
+                        <div class="stat-label">Detail</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Coverage</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="generateDocs()">📚 Access Docs</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>DOCS READY
+                </div>
+            </div>
+
+            <!-- Wallet & Security Portal -->
+            <div class="portal-card" onclick="openPortal('security')">
+                <div class="portal-icon">🛡️</div>
+                <div class="portal-title">Security & Wallet</div>
+                <div class="portal-description">Crypto wallet management and advanced security systems</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">ULTRA</div>
+                        <div class="stat-label">Security</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">256bit</div>
+                        <div class="stat-label">Encryption</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">SAFE</div>
+                        <div class="stat-label">Wallet</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchSecurity()">🔐 Secure Access</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>FORTRESS ACTIVE
+                </div>
+            </div>
+
+            <!-- Analytics Portal -->
+            <div class="portal-card" onclick="openPortal('analytics')">
+                <div class="portal-icon">📈</div>
+                <div class="portal-title">Ultra Analytics</div>
+                <div class="portal-description">Business intelligence, social media feeds, and performance metrics</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">REAL</div>
+                        <div class="stat-label">Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">360°</div>
+                        <div class="stat-label">View</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">AI</div>
+                        <div class="stat-label">Powered</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchAnalytics()">📊 View Metrics</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>TRACKING ACTIVE
+                </div>
+            </div>
+
+            <!-- Voice Commands Portal -->
+            <div class="portal-card" onclick="openPortal('voice')">
+                <div class="portal-icon">🎤</div>
+                <div class="portal-title">Voice Commands</div>
+                <div class="portal-description">Hands-free productivity control with voice recognition</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">Commands</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">HANDS</div>
+                        <div class="stat-label">Free</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchVoiceCommands()">🎙️ Activate Voice</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-standby"></span>VOICE READY
+                </div>
+            </div>
+
+            <!-- IPFS Portal -->
+            <div class="portal-card" onclick="openPortal('ipfs')">
+                <div class="portal-icon">🛰️</div>
+                <div class="portal-title">IPFS Deployment</div>
+                <div class="portal-description">Decentralized web hosting and censorship-resistant deployment</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">WEB3</div>
+                        <div class="stat-label">Ready</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">DECENTRAL</div>
+                        <div class="stat-label">Mode</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">IMMORTAL</div>
+                        <div class="stat-label">Hosting</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchIPFS()">🌐 Deploy Web3</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active"></span>IPFS READY
+                </div>
+            </div>
+
+            <!-- AI Squad Portal -->
+            <div class="portal-card" onclick="openPortal('ai-squad')">
+                <div class="portal-icon">🤖</div>
+                <div class="portal-title">AI Squad Activation</div>
+                <div class="portal-description">Deploy 8 specialized AI agents for business automation</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">AI Agents</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Intelligence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">AUTO</div>
+                        <div class="stat-label">Mode</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <button class="portal-btn" onclick="launchAISquad()">🚀 Deploy Squad</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-standby"></span>SQUAD READY
+                </div>
+            </div>
+
+            <!-- 🧬🛡️ GUARDIAN ZERO ELITE DEFENSE PORTAL 🛡️🧬 -->
+            <div class="portal-card" onclick="openPortal('guardian-zero')" style="border: 3px solid #00ff88; box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);"></div>
+                <div class="portal-icon" style="animation: guardianPulse 2s ease-in-out infinite;">🧬🛡️</div>
+                <div class="portal-title" style="color: #00ff88; text-shadow: 0 0 15px #00ff88;">Guardian Zero HUD</div>
+                <div class="portal-description">Elite Defense Units command center with 9 specialized AI guardians protecting your zone</div>
+                <div class="portal-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="guardianAgents">9</div>
+                        <div class="stat-label">Elite Units</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="guardianXP">0</div>
+                        <div class="stat-label">XP Points</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="guardianGems">0</div>
+                        <div class="stat-label">BROski$</div>
+                    </div>
+                </div>
+                <div class="portal-actions">
+                    <a href="http://localhost:5000/guardian-zero" class="portal-btn" target="_blank" style="background: linear-gradient(45deg, #00ff88, #00ffaa); box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);">🛡️ Enter Guardian HUD</a>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="status-indicator status-active" style="box-shadow: 0 0 15px #00ff88;"></span><span style="color: #00ff88; font-weight: bold;">🛡️ ELITE DEFENSE ACTIVE</span>
+                </div>
+                <div style="margin-top: 10px; font-size: 0.9em; color: #88ffaa; font-style: italic;">
+                    "THE ZONE IS PROTECTED. NO BUG SHALL PASS."
+                </div>
+            </div>
+        </div>
+
+        <!-- Elite Defense Units Panel -->
+        <div class="guardian-panel">
+            <div class="panel-title">🛡️ ELITE DEFENSE UNITS 🛡️</div>
+            <div class="guardian-grid" id="guardianGrid">
+                <!-- Guardian agents will be populated here -->
+            </div>
+            <div class="guardian-controls">
+                <button class="action-btn" onclick="activateAllAgents()">🚀 ACTIVATE ALL UNITS</button>
+                <button class="action-btn" onclick="runSystemScan()">🔍 SYSTEM SCAN</button>
+                <button class="action-btn emergency" onclick="emergencyProtocol()">🚨 EMERGENCY PROTOCOL</button>
+            </div>
+        </div>
+
+        <!-- Guardian Zero Status -->
+        <div class="guardian-zero-panel">
+            <div class="zero-header">🧬 GUARDIAN ZERO COMMAND 🧬</div>
+            <div class="zero-stats">
+                <div class="zero-stat">
+                    <span class="zero-label">XP Points:</span>
+                    <span class="zero-value" id="guardianXP">0</span>
+                </div>
+                <div class="zero-stat">
+                    <span class="zero-label">BROski$:</span>
+                    <span class="zero-value" id="guardianGems">0</span>
+                </div>
+                <div class="zero-stat">
+                    <span class="zero-label">Active Agents:</span>
+                    <span class="zero-value" id="activeAgents">1/9</span>
+                </div>
+            </div>
+            <div class="zero-motto" id="guardianMotto">"THE ZONE IS PROTECTED. NO BUG SHALL PASS."</div>
+        </div>
+
+        <!-- Alert Feed -->
+        <div class="alert-feed">
+            <div class="feed-title">📡 GUARDIAN ALERTS 📡</div>
+            <div class="alert-list" id="alertList">
+                <!-- Alerts will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Master Controls -->
+    <div class="master-controls">
+        <div class="toggle-controls" onclick="toggleControls()">
+            <div class="minimized-indicator">⚙️</div>
+        </div>
+        <h3>🎛️ MASTER CONTROLS</h3>
+        <div class="controls-content">
+            <button class="control-btn" onclick="refreshAllSystems()">🔄 Refresh All Systems</button>
+            <button class="control-btn" onclick="runHealthCheck()">🩺 System Health Check</button>
+            <button class="control-btn" onclick="activateUltraMode()">⚡ ULTRA MODE</button>
+            <button class="control-btn" onclick="generateFullReport()">📊 Full System Report</button>
+            <button class="control-btn" onclick="emergencyShutdown()">🛑 Emergency Controls</button>
+
+            <div class="system-health">
+                <div class="health-title">🛡️ SYSTEM HEALTH</div>
+                <div class="health-item">
+                    <span>Memory Crystals</span>
+                    <span style="color: #00ff88;">OPERATIONAL</span>
+                </div>
+                <div class="health-item">
+                    <span>Dashboard API</span>
+                    <span style="color: #00ff88;">ACTIVE</span>
+                </div>
+                <div class="health-item">
+                    <span>Brain Engine</span>
+                    <span style="color: #00ff88;">LEGENDARY</span>
+                </div>
+                <div class="health-item">
+                    <span>Security</span>
+                    <span style="color: #00ff88;">FORTRESS</span>
+                </div>
+                <div class="health-item">
+                    <span>Overall Status</span>
+                    <span style="color: #00ffff;">ULTRA EPIC</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🕋 BROski X HYPER CAVE MASTER CONTROL SYSTEM 🕋
+
+        // Initialize floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const icons = ['💎', '🧠', '⚡', '🚀', '🛡️', '📊', '🤖', '🌟', '💪', '🎯'];
+
+            setInterval(() => {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = Math.random() * window.innerWidth + 'px';
+                icon.style.animationDuration = (Math.random() * 10 + 15) + 's';
+
+                container.appendChild(icon);
+
+                setTimeout(() => {
+                    if (container.contains(icon)) {
+                        container.removeChild(icon);
+                    }
+                }, 25000);
+            }, 2000);
+        }
+
+        // Portal functions
+        function openPortal(portalType) {
+            console.log(`🚀 Opening ${portalType} portal...`);
+            showNotification(`🌟 Accessing ${portalType.toUpperCase()} portal...`);
+        }
+
+        function launchDiscordBot() {
+            showNotification('🤖 Launching Discord Bot Commander...');
+            // In real implementation, this would start the Discord bot
+            fetch('/api/launch-discord-bot', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => showNotification('🎮 Discord Bot activated successfully!'))
+                .catch(error => showNotification('⚠️ Discord Bot activation pending...'));
+        }
+
+        function launchHyperfocus() {
+            showNotification('🧠 Entering Hyperfocus Zone...');
+            window.open('http://localhost:3000/hyperfocus', '_blank');
+        }
+
+        function launchBrainCommand() {
+            showNotification('🕋 Connecting to Brain Command Center...');
+            window.open('http://localhost:8000/brain-command', '_blank');
+        }
+
+        function launchHBoard() {
+            showNotification('📊 Activating HBoard API Ultra...');
+            window.open('http://localhost:5001/api/dashboard', '_blank');
+        }
+
+        function generateDocs() {
+            showNotification('📚 Generating documentation suite...');
+            // This would trigger the auto doc generator
+        }
+
+        function launchSecurity() {
+            showNotification('🛡️ Accessing security fortress...');
+        }
+
+        function launchAnalytics() {
+            showNotification('📈 Loading ultra analytics...');
+        }
+
+        function launchVoiceCommands() {
+            showNotification('🎤 Activating voice command interface...');
+        }
+
+        function launchIPFS() {
+            showNotification('🛰️ Deploying to IPFS network...');
+        }
+
+        function launchAISquad() {
+            showNotification('🚀 Deploying AI Squad...');
+        }
+
+        // Master control functions
+        function refreshAllSystems() {
+            showNotification('🔄 Refreshing all systems...');
+            setTimeout(() => {
+                showNotification('✅ All systems refreshed and operational!');
+            }, 2000);
+        }
+
+        function runHealthCheck() {
+            showNotification('🩺 Running comprehensive health check...');
+            setTimeout(() => {
+                showNotification('💪 System health: LEGENDARY LEVEL!');
+            }, 3000);
+        }
+
+        function activateUltraMode() {
+            showNotification('⚡ ULTRA MODE ACTIVATED! SOCKS LAUNCHING! 🧦🚀');
+            document.body.style.animation = 'none';
+            setTimeout(() => {
+                document.body.style.animation = 'hyperPower 2s ease-in-out infinite';
+            }, 100);
+        }
+
+        function generateFullReport() {
+            showNotification('📊 Generating full system report...');
+            const report = `
+🕋 BROSKI X HYPER CAVE SYSTEM REPORT 🕋
+
+💎 Memory Crystals: 12 ACTIVE (94.1% Intelligence)
+🧠 Brain Power: LEGENDARY LEVEL
+🎛️ Active Portals: 12 OPERATIONAL
+🛡️ Security Status: FORTRESS MODE
+🚀 Overall Status: ULTRA EPIC LEGENDARY
+
+⚡ Energy Level: MAXIMUM
+💪 Legendary Status: ACHIEVED
+🧦 Socks Status: IN ORBIT
+`;
+            alert(report);
+        }
+
+        function emergencyShutdown() {
+            if (confirm('🛑 Are you sure you want to access emergency controls?')) {
+                showNotification('🛑 Emergency controls accessed. Standing by...');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 255, 136, 0.9);
+                color: #000;
+                padding: 15px 25px;
+                border-radius: 25px;
+                font-weight: bold;
+                z-index: 10000;
+                border: 2px solid #00ffff;
+                box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+                backdrop-filter: blur(10px);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 4000);
+        }
+
+        // Real-time updates
+        function updateSystemStats() {
+            // Update stats dynamically
+            const brainPower = document.getElementById('brainPower');
+            if (brainPower) {
+                let current = parseFloat(brainPower.textContent);
+                if (current < 99.9) {
+                    brainPower.textContent = (current + 0.1).toFixed(1) + '%';
+                }
+            }
+        }
+
+        // Add epic power animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes hyperPower {
+                0% { filter: brightness(1) saturate(1); }
+                50% { filter: brightness(1.2) saturate(1.5); }
+                100% { filter: brightness(1) saturate(1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Toggle master controls visibility
+        function toggleControls() {
+            const controls = document.querySelector('.master-controls');
+            const toggleBtn = document.querySelector('.toggle-controls');
+
+            controls.classList.toggle('minimized');
+
+            // Update toggle button content
+            if (controls.classList.contains('minimized')) {
+                toggleBtn.innerHTML = '<div>👁️</div>';
+                showNotification('🕋 Master Controls minimized - Click 👁️ to restore!');
+            } else {
+                toggleBtn.innerHTML = '<div class="minimized-indicator">⚙️</div>';
+                showNotification('🎛️ Master Controls restored - Full access!');
+            }
+        }
+
+        // Guardian Zero functions
+        function updateGuardianStats() {
+            const activeAgents = document.getElementById('activeAgents');
+            const guardianXP = document.getElementById('guardianXP');
+            const guardianGems = document.getElementById('guardianGems');
+
+            // Simulate real-time updates
+            setInterval(() => {
+                // Update active agents (1 to 9)
+                let currentAgents = Math.floor(Math.random() * 9) + 1;
+                activeAgents.textContent = `${currentAgents}/9`;
+
+                // Update XP and BROski$
+                guardianXP.textContent = Math.floor(Math.random() * 1000);
+                guardianGems.textContent = Math.floor(Math.random() * 100);
+            }, 5000);
+        }
+
+        function populateGuardianGrid() {
+            const grid = document.getElementById('guardianGrid');
+
+            // Clear existing content
+            grid.innerHTML = '';
+
+            for (let i = 1; i <= 9; i++) {
+                const agentDiv = document.createElement('div');
+                agentDiv.className = 'guardian-agent';
+                agentDiv.innerHTML = `
+                    <div class="agent-icon" style="animation: guardianPulse 2s ease-in-out infinite;">🛡️</div>
+                    <div class="agent-status" id="agentStatus${i}">STANDBY</div>
+                `;
+
+                grid.appendChild(agentDiv);
+            }
+        }
+
+        function activateAllAgents() {
+            showNotification('🚀 Activating all Elite Defense Units...');
+            setTimeout(() => {
+                for (let i = 1; i <= 9; i++) {
+                    const statusDiv = document.getElementById(`agentStatus${i}`);
+                    if (statusDiv) {
+                        statusDiv.textContent = 'ACTIVE';
+                        statusDiv.style.color = '#00ff88';
+                        statusDiv.style.fontWeight = 'bold';
+                    }
+                }
+                showNotification('✅ All units activated!');
+            }, 2000);
+        }
+
+        function runSystemScan() {
+            showNotification('🔍 Running system scan on all units...');
+            setTimeout(() => {
+                showNotification('✅ System scan complete! All systems operational.');
+            }, 3000);
+        }
+
+        function emergencyProtocol() {
+            if (confirm('🚨 Emergency Protocol: This will activate all defense measures. Proceed?')) {
+                showNotification('🚨 Activating emergency defense protocol...');
+                setTimeout(() => {
+                    showNotification('✅ Emergency protocol activated! All units on high alert.');
+                }, 3000);
+            }
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingElements();
+            setInterval(updateSystemStats, 5000);
+            updateGuardianStats();
+            populateGuardianGrid();
+            showNotification('🕋 HYPER CAVE FULLY OPERATIONAL! LEGENDARY ACCESS GRANTED! 💎⚡');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+tunnel: chaosgenius-agent-army
+credentials-file: /root/.cloudflared/chaosgenius-agent-army.json
+
+ingress:
+  # Agent Army API (Private - only accessible via tunnel)
+  - hostname: agents.hyperfocuszone.com
+    service: http://localhost:8080
+    originRequest:
+      httpHostHeader: agents.hyperfocuszone.com
+
+  # Dashboard API (Public - will also go through Railway)
+  - hostname: chaosgenius.hyperfocuszone.com
+    service: http://localhost:5000
+    originRequest:
+      httpHostHeader: chaosgenius.hyperfocuszone.com
+
+  # Catch-all rule
+  - service: http_status:404

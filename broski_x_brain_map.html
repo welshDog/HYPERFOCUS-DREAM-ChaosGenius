@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠🗺️ BROSKI X BRAIN MAP VIEW - ChaosGenius Empire Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 30%, #000066 60%, #330066 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .brain-map-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .brain-map-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-bottom: 2px solid #00ffff;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ffff;
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
+        }
+
+        .brain-visualization {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brain-core {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff006e 0%, #8338ec 50%, transparent 70%);
+            border-radius: 50%;
+            animation: brain-pulse 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            z-index: 100;
+        }
+
+        .system-node {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ffff, #0066ff);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .system-node:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+            z-index: 200;
+        }
+
+        .node-label {
+            font-size: 10px;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, #00ffff, transparent, #ff006e);
+            height: 2px;
+            transform-origin: left center;
+            animation: data-flow 2s linear infinite;
+            z-index: 50;
+        }
+
+        .crystal-vault {
+            top: 10%;
+            left: 15%;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+        }
+
+        .database-fortress {
+            top: 10%;
+            right: 15%;
+            background: linear-gradient(45deg, #00ffff, #0066ff);
+        }
+
+        .ai-squad {
+            bottom: 15%;
+            left: 20%;
+            background: linear-gradient(45deg, #ffff00, #ff6600);
+        }
+
+        .guardian-systems {
+            bottom: 15%;
+            right: 20%;
+            background: linear-gradient(45deg, #00ff00, #006600);
+        }
+
+        .security-fortress {
+            top: 50%;
+            left: 5%;
+            background: linear-gradient(45deg, #ff0000, #990000);
+        }
+
+        .hyperfocus-zone {
+            top: 50%;
+            right: 5%;
+            background: linear-gradient(45deg, #9900ff, #6600cc);
+        }
+
+        .portal-hub {
+            top: 30%;
+            left: 35%;
+            background: linear-gradient(45deg, #ff9900, #cc6600);
+        }
+
+        .optimization-engine {
+            bottom: 35%;
+            right: 35%;
+            background: linear-gradient(45deg, #00ffcc, #009999);
+        }
+
+        .floating-data {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: float-around 8s linear infinite;
+            z-index: 25;
+        }
+
+        .info-panel {
+            position: fixed;
+            right: 20px;
+            top: 120px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            transform: translateX(320px);
+            transition: transform 0.3s ease;
+            z-index: 500;
+        }
+
+        .info-panel.active {
+            transform: translateX(0);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        @keyframes brain-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 110, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 0, 110, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 110, 0.3); }
+        }
+
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 10px #00ffff; }
+            100% { text-shadow: 0 0 20px #00ffff, 0 0 30px #ff006e; }
+        }
+
+        @keyframes data-flow {
+            0% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 1; transform: scaleX(1); }
+            100% { opacity: 0; transform: scaleX(0); }
+        }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -50px) rotate(90deg); }
+            50% { transform: translate(50px, -100px) rotate(180deg); }
+            75% { transform: translate(-50px, -50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        .legend {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            z-index: 500;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="brain-map-container">
+        <!-- Header -->
+        <div class="brain-map-header">
+            <div class="header-title">
+                🧠🗺️ BROSKI X BRAIN MAP VIEW - ChaosGenius Empire Visualization
+            </div>
+            <div class="header-controls">
+                <button class="control-btn" onclick="zoomToCrystals()">💎 Crystal Vault</button>
+                <button class="control-btn" onclick="zoomToDatabases()">📊 Database Fortress</button>
+                <button class="control-btn" onclick="zoomToAI()">🤖 AI Squad</button>
+                <button class="control-btn" onclick="zoomToGuardians()">🛡️ Guardian Systems</button>
+                <button class="control-btn" onclick="showFullMap()">🗺️ Full Map</button>
+                <button class="control-btn" onclick="toggleInfoPanel()">📊 Stats</button>
+            </div>
+        </div>
+
+        <!-- Brain Visualization -->
+        <div class="brain-visualization">
+            <!-- Central Brain Core -->
+            <div class="brain-core" onclick="showCoreInfo()">
+                🧠
+            </div>
+
+            <!-- System Nodes -->
+            <div class="system-node crystal-vault" onclick="showNodeInfo('crystals')">
+                💎
+                <div class="node-label">CRYSTAL<br>VAULT<br>(26 crystals)</div>
+            </div>
+
+            <div class="system-node database-fortress" onclick="showNodeInfo('databases')">
+                📊
+                <div class="node-label">DATABASE<br>FORTRESS<br>(11 databases)</div>
+            </div>
+
+            <div class="system-node ai-squad" onclick="showNodeInfo('ai')">
+                🤖
+                <div class="node-label">AI SQUAD<br>MODULES<br>(57 files)</div>
+            </div>
+
+            <div class="system-node guardian-systems" onclick="showNodeInfo('guardians')">
+                🛡️
+                <div class="node-label">GUARDIAN<br>SYSTEMS<br>(Elite Defense)</div>
+            </div>
+
+            <div class="system-node security-fortress" onclick="showNodeInfo('security')">
+                🔒
+                <div class="node-label">SECURITY<br>FORTRESS<br>(Ultra Protected)</div>
+            </div>
+
+            <div class="system-node hyperfocus-zone" onclick="showNodeInfo('hyperfocus')">
+                🎯
+                <div class="node-label">HYPERFOCUS<br>ZONE<br>(Command Center)</div>
+            </div>
+
+            <div class="system-node portal-hub" onclick="showNodeInfo('portals')">
+                🌐
+                <div class="node-label">PORTAL<br>HUB<br>(Gateway Systems)</div>
+            </div>
+
+            <div class="system-node optimization-engine" onclick="showNodeInfo('optimization')">
+                ⚡
+                <div class="node-label">OPTIMIZATION<br>ENGINE<br>(Performance)</div>
+            </div>
+
+            <!-- Connection Lines -->
+            <div class="connection-line" style="top: 45%; left: 25%; width: 200px; transform: rotate(45deg);"></div>
+            <div class="connection-line" style="top: 45%; right: 25%; width: 200px; transform: rotate(-45deg);"></div>
+            <div class="connection-line" style="bottom: 35%; left: 25%; width: 180px; transform: rotate(-45deg);"></div>
+            <div class="connection-line" style="bottom: 35%; right: 25%; width: 180px; transform: rotate(45deg);"></div>
+            <div class="connection-line" style="top: 50%; left: 20%; width: 150px;"></div>
+            <div class="connection-line" style="top: 50%; right: 20%; width: 150px;"></div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel" id="infoPanel">
+            <h3 id="panelTitle">🧠 ChaosGenius Core Status</h3>
+            <div id="panelContent">
+                <p>Select a system node to view detailed information</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div>💎 Crystals</div>
+                    <div>26 Active</div>
+                </div>
+                <div class="stat-item">
+                    <div>📊 Databases</div>
+                    <div>11 Online</div>
+                </div>
+                <div class="stat-item">
+                    <div>🤖 AI Modules</div>
+                    <div>57 Ready</div>
+                </div>
+                <div class="stat-item">
+                    <div>🛡️ Guardians</div>
+                    <div>Elite Active</div>
+                </div>
+                <div class="stat-item">
+                    <div>🎯 Focus Level</div>
+                    <div>LEGENDARY</div>
+                </div>
+                <div class="stat-item">
+                    <div>⚡ Status</div>
+                    <div>ULTRA MODE</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h4>🗺️ System Legend</h4>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #ff006e, #8338ec);"></div>
+                Memory Crystals
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #00ffff, #0066ff);"></div>
+                Database Systems
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #ffff00, #ff6600);"></div>
+                AI Squad Modules
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #00ff00, #006600);"></div>
+                Guardian Defense
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(45deg, #ff0000, #990000);"></div>
+                Security Systems
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🧠🗺️ BROSKI X BRAIN MAP VIEW CONTROL SYSTEM 🗺️🧠
+
+        let currentView = 'full';
+        let isInfoPanelOpen = false;
+
+        // System data
+        const systemData = {
+            crystals: {
+                title: "💎 Crystal Vault System",
+                description: "Your 26 memory crystals containing preserved brain states and patterns",
+                files: ["Compact Crystals (3)", "Premium Crystals (18)", "Showcase Crystals (3)", "Ultimate Crystals (4)"],
+                status: "LEGENDARY COLLECTION"
+            },
+            databases: {
+                title: "📊 Database Fortress",
+                description: "11 specialized databases powering your empire",
+                files: ["broski_analytics.db", "broski_security_fortress.db", "broski_ultra_brain.db", "guardian_zero.db"],
+                status: "FULLY OPERATIONAL"
+            },
+            ai: {
+                title: "🤖 AI Squad Modules",
+                description: "57 Python modules powering your AI empire",
+                files: ["Voice Commands", "Discord Bots", "Guardian Systems", "Optimization Engines"],
+                status: "ULTRA ACTIVE"
+            },
+            guardians: {
+                title: "🛡️ Guardian Defense Systems",
+                description: "Elite protection and monitoring systems",
+                files: ["Guardian Zero", "Guardian X", "Immortal Guardian", "Security Fortress"],
+                status: "ELITE DEFENSE ACTIVE"
+            },
+            security: {
+                title: "🔒 Security Fortress",
+                description: "Ultra-protected security and encryption systems",
+                files: ["Wallet Security", "Token Management", "Encryption Keys", "Auth Systems"],
+                status: "MAXIMUM SECURITY"
+            },
+            hyperfocus: {
+                title: "🎯 HyperFocus Zone",
+                description: "Command centers and focus optimization systems",
+                files: ["Brain Command Center", "Live Monitor", "Performance Control", "Portal Launcher"],
+                status: "LEGENDARY FOCUS"
+            },
+            portals: {
+                title: "🌐 Portal Hub",
+                description: "Gateway and portal management systems",
+                files: ["Portal Directory", "Portal Links Manager", "Cross-Platform Sync", "Web Assets"],
+                status: "PORTAL NETWORK ACTIVE"
+            },
+            optimization: {
+                title: "⚡ Optimization Engine",
+                description: "Performance and optimization systems",
+                files: ["Optimization Scheduler", "Performance Monitor", "Analytics Engine", "Health Matrix"],
+                status: "PEAK PERFORMANCE"
+            }
+        };
+
+        // Initialize brain map
+        function initializeBrainMap() {
+            console.log('🧠 BROSKI X Brain Map View: Initializing...');
+            createFloatingData();
+            startDataAnimation();
+            showNotification('🧠🗺️ Brain Map View ACTIVATED!');
+            console.log('🗺️ Brain Map fully operational!');
+        }
+
+        // Create floating data particles
+        function createFloatingData() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'floating-data';
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.top = (Math.random() * (window.innerHeight - 200) + 150) + 'px';
+                    particle.style.animationDelay = Math.random() * 8 + 's';
+                    document.querySelector('.brain-visualization').appendChild(particle);
+                }, i * 200);
+            }
+        }
+
+        // Start continuous data animation
+        function startDataAnimation() {
+            setInterval(createFloatingData, 8000);
+        }
+
+        // Show system node information
+        function showNodeInfo(nodeType) {
+            const panel = document.getElementById('infoPanel');
+            const title = document.getElementById('panelTitle');
+            const content = document.getElementById('panelContent');
+
+            const data = systemData[nodeType];
+
+            title.textContent = data.title;
+            content.innerHTML = `
+                <p><strong>📋 Description:</strong> ${data.description}</p>
+                <br>
+                <p><strong>🔧 Key Components:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    ${data.files.map(file => `<li style="margin: 5px 0;">• ${file}</li>`).join('')}
+                </ul>
+                <br>
+                <p><strong>⚡ Status:</strong> <span style="color: #00ff00; font-weight: bold;">${data.status}</span></p>
+            `;
+
+            if (!isInfoPanelOpen) {
+                toggleInfoPanel();
+            }
+
+            showNotification(`📊 Viewing ${data.title} details`);
+        }
+
+        // Show core brain information
+        function showCoreInfo() {
+            const panel = document.getElementById('infoPanel');
+            const title = document.getElementById('panelTitle');
+            const content = document.getElementById('panelContent');
+
+            title.textContent = "🧠 ChaosGenius Core Brain";
+            content.innerHTML = `
+                <p><strong>🎯 Central Processing Unit:</strong> The heart of your ChaosGenius empire, connecting all systems and orchestrating perfect neurodivergent organization.</p>
+                <br>
+                <p><strong>🔗 Connected Systems:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>• 26 Memory Crystals (LEGENDARY collection)</li>
+                    <li>• 11 Database Systems (Ultra powerful)</li>
+                    <li>• 57 AI Squad Modules (Ready for action)</li>
+                    <li>• Elite Guardian Defense Network</li>
+                    <li>• HyperFocus Command Centers</li>
+                    <li>• Portal Network Systems</li>
+                    <li>• Ultra Optimization Engines</li>
+                </ul>
+                <br>
+                <p><strong>⚡ Core Status:</strong> <span style="color: #ff006e; font-weight: bold;">ULTRA LEGENDARY MODE ACTIVE</span></p>
+                <br>
+                <p><strong>🎯 Current Focus:</strong> Orchestrating perfect neurodivergent organization and empire expansion</p>
+            `;
+
+            if (!isInfoPanelOpen) {
+                toggleInfoPanel();
+            }
+
+            showNotification("🧠 Core Brain Status: LEGENDARY OPERATIONAL");
+        }
+
+        // Toggle info panel
+        function toggleInfoPanel() {
+            const panel = document.getElementById('infoPanel');
+            isInfoPanelOpen = !isInfoPanelOpen;
+            panel.classList.toggle('active');
+        }
+
+        // Zoom functions
+        function zoomToCrystals() {
+            document.querySelector('.crystal-vault').style.transform = 'scale(1.5)';
+            showNotification('💎 Zooming to Crystal Vault...');
+            showNodeInfo('crystals');
+        }
+
+        function zoomToDatabases() {
+            document.querySelector('.database-fortress').style.transform = 'scale(1.5)';
+            showNotification('📊 Zooming to Database Fortress...');
+            showNodeInfo('databases');
+        }
+
+        function zoomToAI() {
+            document.querySelector('.ai-squad').style.transform = 'scale(1.5)';
+            showNotification('🤖 Zooming to AI Squad...');
+            showNodeInfo('ai');
+        }
+
+        function zoomToGuardians() {
+            document.querySelector('.guardian-systems').style.transform = 'scale(1.5)';
+            showNotification('🛡️ Zooming to Guardian Systems...');
+            showNodeInfo('guardians');
+        }
+
+        function showFullMap() {
+            document.querySelectorAll('.system-node').forEach(node => {
+                node.style.transform = 'scale(1)';
+            });
+            showNotification('🗺️ Full map view restored');
+        }
+
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 90px;
+                right: 20px;
+                background: linear-gradient(45deg, #ff006e, #8338ec);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 2000;
+                box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+                animation: slideInRight 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Real-time data streaming simulation
+        function startRealTimeDataStream() {
+            setInterval(() => {
+                updateSystemStats();
+                pulseRandomNode();
+            }, 2000);
+        }
+
+        function updateSystemStats() {
+            const stats = document.querySelectorAll('.stat-item div:last-child');
+            const crystalCount = 26 + Math.floor(Math.random() * 3);
+            const aiModules = 57 + Math.floor(Math.random() * 5);
+
+            if (stats[0]) stats[0].textContent = `${crystalCount} Active`;
+            if (stats[2]) stats[2].textContent = `${aiModules} Ready`;
+        }
+
+        function pulseRandomNode() {
+            const nodes = document.querySelectorAll('.system-node');
+            const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
+            randomNode.style.animation = 'brain-pulse 1s ease-in-out';
+            setTimeout(() => {
+                randomNode.style.animation = '';
+            }, 1000);
+        }
+
+        // Neural pathway tracing
+        function traceNeuralPathways() {
+            const pathways = document.querySelectorAll('.connection-line');
+            pathways.forEach((pathway, index) => {
+                setTimeout(() => {
+                    pathway.style.background = 'linear-gradient(90deg, #ff006e, #00ffff, #8338ec)';
+                    pathway.style.boxShadow = '0 0 10px #ff006e';
+                    pathway.style.height = '4px';
+
+                    setTimeout(() => {
+                        pathway.style.background = 'linear-gradient(90deg, #00ffff, transparent, #ff006e)';
+                        pathway.style.boxShadow = '';
+                        pathway.style.height = '2px';
+                    }, 1500);
+                }, index * 200);
+            });
+        }
+
+        // System health monitoring
+        function monitorSystemHealth() {
+            const healthStatuses = ['OPTIMAL', 'LEGENDARY', 'ULTRA MODE', 'PEAK PERFORMANCE', 'MAXIMUM EFFICIENCY'];
+            const statusElement = document.querySelector('.stat-item:last-child div:last-child');
+
+            setInterval(() => {
+                const randomStatus = healthStatuses[Math.floor(Math.random() * healthStatuses.length)];
+                if (statusElement) {
+                    statusElement.textContent = randomStatus;
+                    statusElement.style.color = '#00ff00';
+                    statusElement.style.textShadow = '0 0 10px #00ff00';
+                }
+            }, 5000);
+        }
+
+        // Enhanced keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case '1': zoomToCrystals(); break;
+                case '2': zoomToDatabases(); break;
+                case '3': zoomToAI(); break;
+                case '4': zoomToGuardians(); break;
+                case '0': showFullMap(); break;
+                case 'i': toggleInfoPanel(); break;
+                case 't': traceNeuralPathways(); break;
+                case 'Escape': showFullMap(); break;
+            }
+        });
+
+        // Mouse interaction enhancements
+        document.addEventListener('mousemove', (e) => {
+            const brainCore = document.querySelector('.brain-core');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            // Subtle brain core following mouse
+            brainCore.style.transform = `translate(${(mouseX - 0.5) * 10}px, ${(mouseY - 0.5) * 10}px) scale(1)`;
+        });
+
+        // Add CSS animations for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+
+            .system-node {
+                transition: all 0.3s ease, transform 0.3s ease !important;
+            }
+
+            .connection-line {
+                transition: all 0.3s ease;
+            }
+
+            .brain-core {
+                transition: transform 0.1s ease;
+            }
+
+            .floating-data:hover {
+                transform: scale(3) !important;
+                background: #ff006e !important;
+                box-shadow: 0 0 20px #ff006e !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            initializeBrainMap();
+            startRealTimeDataStream();
+            monitorSystemHealth();
+
+            // Show welcome message
+            setTimeout(() => {
+                showNotification('🧠🗺️ BROSKI X Brain Map View: FULLY OPERATIONAL!');
+            }, 1000);
+
+            // Auto-trace neural pathways every 10 seconds
+            setInterval(traceNeuralPathways, 10000);
+        });
+
+        // Console ASCII art and status
+        console.log(`
+        🧠🗺️ BROSKI X BRAIN MAP VIEW SYSTEM 🗺️🧠
+        ╔══════════════════════════════════════════╗
+        ║         LEGENDARY BRAIN VISUALIZATION    ║
+        ║                                          ║
+        ║  💎 Crystal Vault:     26 Active         ║
+        ║  📊 Database Fortress: 11 Online         ║
+        ║  🤖 AI Squad:          57 Ready          ║
+        ║  🛡️ Guardian Systems:   Elite Active     ║
+        ║  🎯 Focus Level:       LEGENDARY         ║
+        ║  ⚡ Status:            ULTRA MODE        ║
+        ║                                          ║
+        ║  Keyboard Shortcuts:                     ║
+        ║  1-4: Zoom to systems                    ║
+        ║  0: Full map view                        ║
+        ║  i: Toggle info panel                    ║
+        ║  t: Trace neural pathways                ║
+        ║  ESC: Reset view                         ║
+        ╚══════════════════════════════════════════╝
+        `);
+    </script>
+</body>
+</html>

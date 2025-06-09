@@ -1,0 +1,4 @@
+flask
+schedule
+psutil
+sqlite3

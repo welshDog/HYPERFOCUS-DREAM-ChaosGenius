@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 ChaosGenius Portal Directory</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .portal-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .portal-card:hover {
+            transform: translateY(-5px);
+        }
+        .portal-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .portal-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .status-active { color: #4ade80; }
+        .status-planned { color: #fbbf24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠💜 ChaosGenius Portal Directory</h1>
+            <p>Your centralized hub for all ADHD-optimized productivity portals</p>
+        </div>
+
+        <div class="portal-grid">
+
+            <div class="portal-card">
+                <h3>🧠 BROski HyperPortal</h3>
+                <p>ADHD-optimized productivity portal with secret admin access</p>
+                <p class="status-active">Status: ACTIVE</p>
+                <a href="http://localhost:5173" class="portal-link" target="_blank">🚀 Launch Portal</a>
+            </div>
+
+            <div class="portal-card">
+                <h3>🎛️ ChaosGenius Dashboard</h3>
+                <p>Main control center for all ChaosGenius operations</p>
+                <p class="status-active">Status: ACTIVE</p>
+                <a href="http://localhost:5000" class="portal-link" target="_blank">🚀 Launch Portal</a>
+            </div>
+
+            <div class="portal-card">
+                <h3>💎 Memory Crystal Portal</h3>
+                <p>AI memory storage and retrieval system</p>
+                <p class="status-active">Status: ACTIVE</p>
+                <a href="http://localhost:5001/memory-crystals" class="portal-link" target="_blank">🚀 Launch Portal</a>
+            </div>
+
+            <div class="portal-card">
+                <h3>🧠 Hyperfocus Zone</h3>
+                <p>Deep focus productivity environment</p>
+                <p class="status-planned">Status: PLANNED</p>
+                <a href="http://localhost:3000/hyperfocus" class="portal-link" target="_blank">🚀 Launch Portal</a>
+            </div>
+
+            <div class="portal-card">
+                <h3>🕋 Brain Command Center</h3>
+                <p>Advanced AI command and control interface</p>
+                <p class="status-planned">Status: PLANNED</p>
+                <a href="http://localhost:8000/brain-command" class="portal-link" target="_blank">🚀 Launch Portal</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh status every 30 seconds
+        setInterval(() => {
+            location.reload();
+        }, 30000);
+    </script>
+</body>
+</html>

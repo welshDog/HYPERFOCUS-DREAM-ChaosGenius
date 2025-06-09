@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY requirements_minimal.txt .
+RUN pip install --no-cache-dir -r requirements_minimal.txt
+
+COPY dashboard_api.py .
+COPY *.db ./ 
+COPY broski_*.py ./
+
+EXPOSE 5000
+CMD ["python", "dashboard_api.py"]

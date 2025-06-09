@@ -1,0 +1,8 @@
+
+# Sensitive files - don't send to Copilot
+*.env
+*_secure.db
+broski_wallets_*.json
+**/secrets/**
+**/.env*
+**/config/production.json

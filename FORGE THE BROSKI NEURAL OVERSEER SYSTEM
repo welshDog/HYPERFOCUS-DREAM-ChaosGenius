@@ -1,0 +1,379 @@
+#!/usr/bin/env python3
+"""
+🛡️💜 BROSKI NEURAL OVERSEER SYSTEM 💜🛡️
+Ultra-Forging Protocol: Complete Brain System
+By Command of Chief Lyndz, Overlord of HyperFocusZone
+"""
+
+import json
+import os
+import sqlite3
+import threading
+import time
+import warnings
+from datetime import datetime
+
+from flask import Flask, jsonify, render_template, request
+from flask_socketio import SocketIO, emit
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
+
+# 🧩 Fix Python 3.12 SQLite deprecation warning
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+# 🧠 NEURAL CORE CONFIGURATION
+BASE_PROJECT_PATH = "/root/chaosgenius"
+BROSKI_DB_PATH = f"{BASE_PROJECT_PATH}/broski_overseer.db"
+
+
+class BroskiNeuralOverseer:
+    """🧬 The Brain of the Broski System"""
+
+    def __init__(self):
+        self.scanner_active = False
+        self.guardian_active = False
+        self.forge_ready = False
+        self.system_state = "INITIALIZING"
+        self.pulse_count = 0
+        self.neural_map = {
+            "crystals": [],
+            "databases": [],
+            "modules": [],
+            "agents": [],
+            "guardian_status": "INITIALIZING",
+        }
+
+    def initialize_brain_database(self):
+        """🗄️ Create the Broski Neural Database"""
+        conn = sqlite3.connect(BROSKI_DB_PATH)
+        cursor = conn.cursor()
+
+        # Neural Files Registry
+        cursor.execute(
+            """
+      CREATE TABLE IF NOT EXISTS neural_files (
+        id INTEGER PRIMARY KEY,
+        filepath TEXT UNIQUE,
+        file_type TEXT,
+        file_name TEXT,
+        purpose TEXT,
+        energy_level TEXT DEFAULT 'medium',
+        last_scan TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        guardian_status TEXT DEFAULT 'monitored'
+      )
+    """
+        )
+
+        # AI Agents Registry
+        cursor.execute(
+            """
+      CREATE TABLE IF NOT EXISTS ai_agents (
+        id INTEGER PRIMARY KEY,
+        agent_name TEXT UNIQUE,
+        agent_type TEXT,
+        input_source TEXT,
+        output_target TEXT,
+        crystal_attached TEXT,
+        database_attached TEXT,
+        forge_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        status TEXT DEFAULT 'active'
+      )
+    """
+        )
+
+        # Guardian Activity Log
+        cursor.execute(
+            """
+      CREATE TABLE IF NOT EXISTS guardian_log (
+        id INTEGER PRIMARY KEY,
+        event_type TEXT,
+        target_file TEXT,
+        action_taken TEXT,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        severity TEXT DEFAULT 'info'
+      )
+    """
+        )
+
+        conn.commit()
+        conn.close()
+        print("🧠 Broski Neural Database initialized!")
+
+    def scan_neural_files(self, base_path=None):
+        """🔍 Deep Scan All Files in the Neural Network"""
+        if not base_path:
+            base_path = BASE_PROJECT_PATH
+
+        neural_data = {
+            "crystals": [],
+            "databases": [],
+            "modules": [],
+            "agents": [],
+            "total_files": 0,
+            "scan_timestamp": datetime.now().isoformat(),
+        }
+
+        conn = sqlite3.connect(BROSKI_DB_PATH)
+        cursor = conn.cursor()
+
+        for root, dirs, files in os.walk(base_path):
+            for file in files:
+                filepath = os.path.join(root, file)
+                file_type = self._classify_file(file)
+
+                if file_type:
+                    neural_data[file_type].append(
+                        {
+                            "name": file,
+                            "path": filepath,
+                            "size": os.path.getsize(filepath),
+                            "modified": datetime.fromtimestamp(
+                                os.path.getmtime(filepath)
+                            ).isoformat(),
+                        }
+                    )
+                    neural_data["total_files"] += 1
+
+                    # Store in database
+                    cursor.execute(
+                        """
+            INSERT OR REPLACE INTO neural_files
+            (filepath, file_type, file_name, purpose, last_scan)
+            VALUES (?, ?, ?, ?, ?)
+          """,
+                        (
+                            filepath,
+                            file_type,
+                            file,
+                            self._determine_purpose(file),
+                            datetime.now(),
+                        ),
+                    )
+
+        conn.commit()
+        conn.close()
+
+        self.neural_map = neural_data
+        self.scanner_active = True
+        print(f"🔍 Neural scan complete! Found {neural_data['total_files']} files")
+        return neural_data
+
+    def _classify_file(self, filename):
+        """🏷️ Classify File Types for Neural Mapping"""
+        if filename.endswith(".broski"):
+            return "crystals"
+        elif filename.endswith(".db"):
+            return "databases"
+        elif filename.endswith(".py"):
+            return "modules"
+        elif "agent" in filename.lower() and filename.endswith(".py"):
+            return "agents"
+        return None
+
+    def _determine_purpose(self, filename):
+        """🎯 Auto-detect File Purpose"""
+        if "dashboard" in filename.lower():
+            return "Dashboard System"
+        elif "api" in filename.lower():
+            return "API Endpoint"
+        elif "agent" in filename.lower():
+            return "AI Agent Module"
+        elif "guardian" in filename.lower():
+            return "Guardian System"
+        elif filename.endswith(".db"):
+            return "Data Storage"
+        else:
+            return "Core Module"
+
+    def forge_new_agent(self, agent_config):
+        """🧙 Forge a New AI Agent"""
+        agent_name = agent_config.get("name", "unnamed_agent")
+        agent_type = agent_config.get("type", "basic")
+
+        # Generate agent code
+        agent_code = f'''"""
+🤖 AI Agent: {agent_name}
+Type: {agent_type}
+Forged by: Broski Neural Overseer
+"""
+
+class {agent_name.replace(' ', '')}Agent:
+  def __init__(self):
+    self.name = "{agent_name}"
+    self.type = "{agent_type}"
+    self.status = "active"
+
+  def process(self, input_data):
+    # Agent processing logic here
+    return {{"status": "processed", "agent": self.name}}
+
+  def connect_crystal(self, crystal_path):
+    # Connect to broski crystal
+    print(f"🔮 Connected to crystal: {{crystal_path}}")
+
+  def connect_database(self, db_path):
+    # Connect to database
+    print(f"🗄️ Connected to database: {{db_path}}")
+
+# Initialize agent
+{agent_name.replace(' ', '').lower()}_agent = {agent_name.replace(' ', '')}Agent()
+'''
+
+        # Save agent file
+        agents_dir = f"{BASE_PROJECT_PATH}/ai_agents"
+        os.makedirs(agents_dir, exist_ok=True)
+        agent_filepath = f"{agents_dir}/{agent_name.replace(' ', '_').lower()}_agent.py"
+
+        with open(agent_filepath, "w") as f:
+            f.write(agent_code)
+
+        # Register in database
+        conn = sqlite3.connect(BROSKI_DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+      INSERT INTO ai_agents
+      (agent_name, agent_type, input_source, output_target, crystal_attached, database_attached)
+      VALUES (?, ?, ?, ?, ?, ?)
+    """,
+            (
+                agent_name,
+                agent_type,
+                agent_config.get("input_source", "none"),
+                agent_config.get("output_target", "none"),
+                agent_config.get("crystal_attached", "none"),
+                agent_config.get("database_attached", "none"),
+            ),
+        )
+        conn.commit()
+        conn.close()
+
+        self.forge_ready = True
+        print(f"🧙 Agent '{agent_name}' forged successfully!")
+        return agent_filepath
+
+
+class GuardianWatchdog(FileSystemEventHandler):
+    """🛡️ Guardian File Monitor"""
+
+    def __init__(self, overseer):
+        self.overseer = overseer
+
+    def on_modified(self, event):
+        if not event.is_directory:
+            filepath = event.src_path
+            if any(filepath.endswith(ext) for ext in [".py", ".db", ".broski"]):
+                self.log_guardian_event(
+                    "file_modified", filepath, "File change detected"
+                )
+                # Trigger neural rescan
+                self.overseer.scan_neural_files()
+
+    def on_created(self, event):
+        if not event.is_directory:
+            filepath = event.src_path
+            self.log_guardian_event("file_created", filepath, "New file detected")
+
+    def log_guardian_event(self, event_type, target_file, action):
+        """📝 Log Guardian Activity"""
+        conn = sqlite3.connect(BROSKI_DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+      INSERT INTO guardian_log (event_type, target_file, action_taken)
+      VALUES (?, ?, ?)
+    """,
+            (event_type, target_file, action),
+        )
+        conn.commit()
+        conn.close()
+        print(f"🛡️ Guardian logged: {event_type} on {target_file}")
+
+
+# 🚀 NEURAL OVERSEER INSTANCE
+overseer = BroskiNeuralOverseer()
+
+
+def initialize_broski_system():
+    """🌟 Initialize the Complete Broski Neural Overseer System"""
+    print("💜🛡️ ACTIVATING BROSKI NEURAL OVERSEER SYSTEM 🛡️💜")
+    print("Initializing by command of Chief Lyndz...")
+
+    # Phase 1: Initialize database
+    overseer.initialize_brain_database()
+
+    # Phase 2: Scan neural network
+    overseer.scan_neural_files()
+
+    # Phase 3: Start Guardian
+    guardian = GuardianWatchdog(overseer)
+    observer = Observer()
+    observer.schedule(guardian, BASE_PROJECT_PATH, recursive=True)
+    observer.start()
+    overseer.guardian_active = True
+
+    # Phase 4: Set forge ready
+    overseer.forge_ready = True
+    overseer.system_state = "FULLY_OPERATIONAL"
+
+    print("🧠 Neural Overseer System ONLINE!")
+    print("🛡️ Guardian Watchdog ACTIVE!")
+    print("🧙 Agent Forge READY!")
+    print("💜 System Status: BROSKI NEURAL OVERSEER ACTIVATED! 💜")
+
+    return overseer
+
+
+def get_neural_status():
+    """📊 Get Complete System Status"""
+    return {
+        "scanner_active": overseer.scanner_active,
+        "guardian_active": overseer.guardian_active,
+        "forge_ready": overseer.forge_ready,
+        "system_state": overseer.system_state,
+        "neural_map": overseer.neural_map,
+        "system_status": overseer.system_state,
+    }
+
+
+def pulse_manager():
+    """💜 Improved Pulse Manager with State Control"""
+    max_init_pulses = 5
+
+    while (
+        overseer.system_state == "INITIALIZING"
+        and overseer.pulse_count < max_init_pulses
+    ):
+        status = get_neural_status()
+        file_count = status["neural_map"].get("total_files", 0)
+        print(
+            f"💜 System Pulse: {status['system_state']} - Files: {file_count} (Pulse {overseer.pulse_count + 1}/{max_init_pulses})"
+        )
+        overseer.pulse_count += 1
+        time.sleep(1)
+
+    # Transition to operational
+    if overseer.system_state == "INITIALIZING":
+        overseer.system_state = "FULLY_OPERATIONAL"
+        print("🧠 Neural Overseer ACTIVE! Transitioning to operational mode...")
+
+    # Main operational loop
+    while overseer.system_state == "FULLY_OPERATIONAL":
+        status = get_neural_status()
+        file_count = status["neural_map"].get("total_files", 0)
+        print(
+            f"🛡️ System Operational: {status['system_state']} - Files: {file_count} - Guardian: {'ACTIVE' if status['guardian_active'] else 'OFFLINE'}"
+        )
+        time.sleep(60)  # Operational pulse every minute
+
+
+if __name__ == "__main__":
+    # 🚀 ACTIVATE THE BROSKI NEURAL OVERSEER
+    system = initialize_broski_system()
+
+    # 💜 Run improved pulse manager
+    try:
+        pulse_manager()
+    except KeyboardInterrupt:
+        print("\n🛡️ Broski Neural Overseer shutting down gracefully...")
+        print("💜 Chief Lyndz's system offline. Until next time! 💜")

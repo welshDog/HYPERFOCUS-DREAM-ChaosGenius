@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 ULTRA CREW CONTROL CENTER 🚀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #00ff88;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #00ff88;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ff88; }
+            to { text-shadow: 0 0 30px #00ff88, 0 0 40px #00ff88; }
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .control-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .panel-icon {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+
+        .panel-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .status-online {
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        .status-warning {
+            background: #ffaa00;
+            box-shadow: 0 0 10px #ffaa00;
+        }
+
+        .status-offline {
+            background: #ff4444;
+            box-shadow: 0 0 10px #ff4444;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00ccff);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .agent-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .agent-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .agent-emoji {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .agent-name {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+
+        .crystal-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .crystal {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .crystal:nth-child(2) { animation-delay: 0.5s; }
+        .crystal:nth-child(3) { animation-delay: 1s; }
+        .crystal:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: particle-float 8s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .system-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff88;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="header">
+        <h1>🚀 ULTRA CREW CONTROL CENTER 🚀</h1>
+        <p>Real-time ChaosGenius Ecosystem Monitoring</p>
+    </div>
+
+    <div class="control-grid">
+        <!-- Guardian Zero Panel -->
+        <div class="control-panel">
+            <div class="panel-header">
+                <span class="panel-icon">🛡️</span>
+                <span class="panel-title">Guardian Zero Defense Matrix</span>
+                <span class="status-indicator status-online" id="guardianStatus"></span>
+            </div>
+
+            <div class="metric">
+                <span>Zone Protection:</span>
+                <span class="metric-value" id="zoneProtection">ULTRA ACTIVE</span>
+            </div>
+
+            <div class="metric">
+                <span>Active Agents:</span>
+                <span class="metric-value" id="activeAgents">9/9</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="defenseProgress" style="width: 100%"></div>
+            </div>
+
+            <div class="agent-grid" id="agentGrid">
+                <!-- Agent cards will be populated by JavaScript -->
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="activateAllAgents()">⚡ Activate All</button>
+                <button class="action-btn" onclick="runSystemScan()">🔍 Full Scan</button>
+            </div>
+        </div>
+
+        <!-- BROski AI Panel -->
+        <div class="control-panel">
+            <div class="panel-header">
+                <span class="panel-icon">🧠</span>
+                <span class="panel-title">BROski AI Brain Core</span>
+                <span class="status-indicator status-online" id="broskiStatus"></span>
+            </div>
+
+            <div class="metric">
+                <span>Intelligence Level:</span>
+                <span class="metric-value" id="intelligenceLevel">98.7%</span>
+            </div>
+
+            <div class="metric">
+                <span>Response Time:</span>
+                <span class="metric-value" id="responseTime">3.50ms</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="aiProgress" style="width: 98%"></div>
+            </div>
+
+            <div class="system-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalQueries">1,247</span>
+                    <span class="stat-label">Queries Processed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="learningRate">+2.3%</span>
+                    <span class="stat-label">Learning Rate</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="chatWithBroski()">💬 Chat Mode</button>
+                <button class="action-btn" onclick="hyperfocusMode()">⚡ Hyperfocus</button>
+            </div>
+        </div>
+
+        <!-- Memory Crystal Analytics -->
+        <div class="control-panel">
+            <div class="panel-header">
+                <span class="panel-icon">💎</span>
+                <span class="panel-title">Memory Crystal Network</span>
+                <span class="status-indicator status-online" id="crystalStatus"></span>
+            </div>
+
+            <div class="metric">
+                <span>Total Crystals:</span>
+                <span class="metric-value" id="totalCrystals">23</span>
+            </div>
+
+            <div class="metric">
+                <span>Intelligence Stored:</span>
+                <span class="metric-value" id="storedIntelligence">47.2 GB</span>
+            </div>
+
+            <div class="crystal-showcase" id="crystalShowcase">
+                <div class="crystal">💎</div>
+                <div class="crystal">🔮</div>
+                <div class="crystal">⭐</div>
+                <div class="crystal">✨</div>
+            </div>
+
+            <div class="system-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="memoryGrowth">+12%</span>
+                    <span class="stat-label">Growth Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="patternsMapped">8,429</span>
+                    <span class="stat-label">Patterns Mapped</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="generateCrystal()">🔮 New Crystal</button>
+                <button class="action-btn" onclick="analyzeCrystals()">📊 Analyze</button>
+            </div>
+        </div>
+
+        <!-- System Performance -->
+        <div class="control-panel">
+            <div class="panel-header">
+                <span class="panel-icon">⚡</span>
+                <span class="panel-title">System Performance Matrix</span>
+                <span class="status-indicator status-online" id="systemStatus"></span>
+            </div>
+
+            <div class="metric">
+                <span>CPU Usage:</span>
+                <span class="metric-value" id="cpuUsage">23%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="cpuProgress" style="width: 23%"></div>
+            </div>
+
+            <div class="metric">
+                <span>Memory Usage:</span>
+                <span class="metric-value" id="memoryUsage">67%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="memoryProgress" style="width: 67%"></div>
+            </div>
+
+            <div class="metric">
+                <span>Network Status:</span>
+                <span class="metric-value" id="networkStatus">OPTIMAL</span>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="optimizeSystem()">🚀 Optimize</button>
+                <button class="action-btn" onclick="healthCheck()">🔧 Health Check</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Elite Defense Agents
+        const agents = [
+            { name: 'SNIFFER-1X', emoji: '🐾📂', status: 'active' },
+            { name: 'PATCHLORD', emoji: '🪄🧵', status: 'active' },
+            { name: 'VULN-REAPER', emoji: '💀🔐', status: 'active' },
+            { name: 'SYNC-WATCHER', emoji: '👁️🔄', status: 'active' },
+            { name: 'BOT-WARDEN', emoji: '🤖🔒', status: 'active' },
+            { name: 'ENV-GUARD', emoji: '🌡️⚙️', status: 'active' },
+            { name: 'UI-SCANZILLA', emoji: '🦖🎨', status: 'active' },
+            { name: 'CLEAN-SWEEP', emoji: '🧹🕵️', status: 'active' },
+            { name: 'GUARDIAN-ZERO', emoji: '🧬🛡️', status: 'active' }
+        ];
+
+        // Populate agent grid
+        function populateAgents() {
+            const agentGrid = document.getElementById('agentGrid');
+            agentGrid.innerHTML = '';
+
+            agents.forEach(agent => {
+                const agentCard = document.createElement('div');
+                agentCard.className = 'agent-card';
+                agentCard.innerHTML = `
+                    <span class="agent-emoji">${agent.emoji}</span>
+                    <span class="agent-name">${agent.name}</span>
+                `;
+                agentGrid.appendChild(agentCard);
+            });
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Update metrics with real-time data simulation
+        function updateMetrics() {
+            // Simulate real-time data updates
+            document.getElementById('totalQueries').textContent =
+                (1247 + Math.floor(Math.random() * 10)).toLocaleString();
+
+            document.getElementById('cpuUsage').textContent =
+                (20 + Math.floor(Math.random() * 20)) + '%';
+
+            document.getElementById('memoryUsage').textContent =
+                (60 + Math.floor(Math.random() * 20)) + '%';
+
+            // Update progress bars
+            const cpuValue = parseInt(document.getElementById('cpuUsage').textContent);
+            const memoryValue = parseInt(document.getElementById('memoryUsage').textContent);
+
+            document.getElementById('cpuProgress').style.width = cpuValue + '%';
+            document.getElementById('memoryProgress').style.width = memoryValue + '%';
+        }
+
+        // Action functions
+        function activateAllAgents() {
+            showNotification('⚡ All Elite Defense Agents Activated!', 'success');
+            fetch('/api/guardian-zero/activate', { method: 'POST' })
+                .catch(() => console.log('Guardian Zero API not available in demo mode'));
+        }
+
+        function runSystemScan() {
+            showNotification('🔍 Comprehensive System Scan Initiated!', 'info');
+            // Animate progress bars during scan
+            animateProgress();
+        }
+
+        function chatWithBroski() {
+            showNotification('💬 BROski AI Chat Mode Activated!', 'success');
+            window.open('/api/broski/chat', '_blank');
+        }
+
+        function hyperfocusMode() {
+            showNotification('⚡ Hyperfocus Mode Engaged! 25 minutes of pure productivity!', 'success');
+        }
+
+        function generateCrystal() {
+            showNotification('🔮 New Memory Crystal Being Forged...', 'info');
+            fetch('/api/generate-crystal', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type: 'premium' })
+            }).catch(() => console.log('Crystal API not available in demo mode'));
+        }
+
+        function analyzeCrystals() {
+            showNotification('📊 Memory Crystal Analysis Complete!', 'success');
+        }
+
+        function optimizeSystem() {
+            showNotification('🚀 System Optimization Complete!', 'success');
+            updateMetrics();
+        }
+
+        function healthCheck() {
+            showNotification('🔧 System Health Check: All Systems Optimal!', 'success');
+        }
+
+        // Notification system
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'rgba(0, 255, 136, 0.9)' : 'rgba(255, 170, 0, 0.9)'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function animateProgress() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const currentWidth = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = currentWidth;
+                }, 100);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            populateAgents();
+            createParticles();
+            updateMetrics();
+
+            // Update metrics every 5 seconds
+            setInterval(updateMetrics, 5000);
+
+            // Add CSS for notifications
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

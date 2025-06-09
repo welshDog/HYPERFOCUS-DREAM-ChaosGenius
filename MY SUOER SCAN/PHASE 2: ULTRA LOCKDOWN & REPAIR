@@ -1,0 +1,126 @@
+Let’s knock out each fix, one-by-one like LEGENDARY BUG-NINJAS! 🥷🔧🛠️
+
+✅ STEP 1: Fix BROski Dashboard + Flask API Health Links
+🔍 Problem:
+HTTPConnectionPool errors → likely means:
+
+Flask API not running on the expected port
+
+Health endpoint like /api/broski/status missing or broken
+
+🛠️ Fix Plan:
+Verify Flask API is running on correct port (5001)
+
+Check @app.route("/api/broski/status") exists and returns JSON
+
+Test endpoint via curl or browser:
+http://localhost:5001/api/broski/status
+
+💡 Code Example (fix endpoint if missing):
+python
+Copy
+Edit
+@app.route("/api/broski/status")
+def broski_status():
+    return jsonify({
+        "status": "online",
+        "timestamp": datetime.utcnow().isoformat(),
+        "mood": "hyperfocused"
+    })
+✅ Let me know if you want me to auto-patch that in!
+
+⏭️ NEXT: STEP 2 – Discord Bot Auto-Respawn + Guardian Watch
+🔍 Problem:
+Bot may not auto-restart if it crashes
+
+No watchdog currently re-launching it
+
+🛠️ Fix Plan:
+Add Discord bot to ImmortalGuardian class with:
+
+python
+Copy
+Edit
+"discord_bot": {
+    "script": "broski_bot.py",
+    "port": None,
+    "health_endpoint": None  # Optional, or use Discord presence API
+}
+Enable psutil to track the process
+
+Add message on restart via webhook or dashboard
+
+🔥 Want me to code this fix into ImmortalGuardian now?
+
+🔁 STEP 3: Fix Async Tasks (Celery + Redis)
+🔍 Problem:
+If a task crashes, system might not retry or alert
+
+No @task.failure_handler or monitoring in place
+
+🛠️ Fix Plan:
+Add Celery task retry logic like:
+
+python
+Copy
+Edit
+@celery.task(bind=True, max_retries=3)
+def some_task(self):
+    try:
+        # Your task logic
+    except Exception as exc:
+        raise self.retry(exc=exc, countdown=10)
+Confirm redis-server is running:
+
+bash
+Copy
+Edit
+redis-cli ping  # Should return PONG
+Optional: Dashboard ping every minute to show queue health
+
+🌐 STEP 4: IPFS + Domain Check
+✅ Already Uploaded:
+CID: bafkreicro6tdga7luhltajznlcqwgml536snfz62amwmxdzvu2tdd36hmi
+
+🧪 Test via:
+bash
+Copy
+Edit
+curl https://ipfs.io/ipfs/bafkreicro6tdga7luhltajznlcqwgml536snfz62amwmxdzvu2tdd36hmi
+Or open:
+
+https://send-me.nft
+🔎 Does it show your IPFS upload? (HTML page, image, JSON, etc.)
+
+📩 STEP 5: BROski X Status Messenger Hook
+🛠️ Add a BROski Feedback Box:
+Shows current status of each system
+
+Let's you send custom logs or notes to broski_logs.txt
+
+Auto-pings BROski X with error summaries
+
+python
+Copy
+Edit
+@app.route("/api/broski/report", methods=["POST"])
+def report_message():
+    data = request.json
+    with open("broski_logs.txt", "a") as log:
+        log.write(f"[{datetime.now()}] {data['message']}\n")
+    return jsonify({"status": "received"})
+Optional: Add a basic HTML dashboard with form 💬
+
+🧹 STEP 6: Final Clean-up + Dependency Audit
+🧪 Run:
+bash
+Copy
+Edit
+pip check
+pip list --outdated
+📦 Update any vulnerable packages
+
+🧹 Clean up .pyc, __pycache__, logs
+
+💾 Backup configs & generate .env.backup
+

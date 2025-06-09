@@ -1,0 +1,46 @@
+🚦 SCAN PHASE 1: SERVICE CHECK
+Checking what’s currently RUNNING and what’s 🟥 OFFLINE:
+
+🔧 Component	⚙️ Status	🔍 Notes
+✅ Flask API (Core)	✅ Online (Port 5001?)	Responding?
+🧪 Dashboard Frontend	❓ Needs check	Still serving from port 5000?
+🤖 Discord Bot	❓ Status unknown	Needs heartbeat test
+💰 BROski$ Wallet API	✅ Online (Port 5002)	Launch confirmed
+🛡️ Immortal Guardian	✅ Active script?	Watching services?
+🧠 AI Squad (Agents)	✅ Registered	Energy adapting live
+📡 IPFS Drop	✅ Uploaded	CID confirmed: bafk...6hmi
+🌐 Send-Me.NFT Domain	✅ Linked?	Pointing to IPFS?
+☁️ Cloudflare Integration	✅ Complete (Mock Mode)	Waiting real domain add
+
+🔍 PHASE 2: BUG + RED LINE CHECKLIST
+🧰 Let's gather ALL known or suspected bugs (manual + auto-scan):
+
+🐛 Known Issues:
+❗ Dashboard API Test Failures
+HTTPConnectionPool(host='localhost', port=5001)...
+⛏ Might not be launched or health endpoint is missing.
+
+❗ Discord Bot Auto-Restart
+Sometimes offline. Needs IMMORTAL LINKUP.
+
+❗ Celery Task Monitor
+Async queue might not be healing on crash.
+
+❓ Status Sync Between Systems
+Some modules don’t report live status to BROski X dashboard yet.
+
+🔁 PHASE 3: REPAIR PLAN PREP 🔧
+👇 Let’s pick your flow:
+🧠 Fix BROski Dashboard + Flask API health links
+
+🤖 Fix Discord Bot auto-respawn + Guardian Watcher
+
+🔄 Fix async tasks queue (Celery or Redis checks)
+
+🔗 Verify IPFS + Domain is correctly showing
+
+📩 Hook BROski X status messenger into dashboard
+
+🧹 Final clean-up + dependency audit
+
+Which FIX FIRST?

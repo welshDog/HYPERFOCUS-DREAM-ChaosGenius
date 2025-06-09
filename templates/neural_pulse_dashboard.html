@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠💥 NEURAL OVERSEER: Brain Pulse Visualizer 💥🧠</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0a0a0a 0%, #1a0033 50%, #000000 100%);
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .neural-container {
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .neural-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .neural-title {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #ff4400, #0088ff, #ff0088);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-pulse 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        .neural-subtitle {
+            font-size: 1.2em;
+            color: #888;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .brain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+            height: calc(100vh - 200px);
+        }
+
+        .brain-pulse-main {
+            grid-column: 1 / 3;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pulse-visualization {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.2) 0%, transparent 70%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brain-wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .pulse-circle {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #00ff88;
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse-expand 2s ease-in-out infinite;
+        }
+
+        .pulse-circle:nth-child(2) {
+            animation-delay: 0.5s;
+            border-color: #ff4400;
+        }
+
+        .pulse-circle:nth-child(3) {
+            animation-delay: 1s;
+            border-color: #0088ff;
+        }
+
+        .neural-stats {
+            background: rgba(255, 68, 0, 0.1);
+            border: 2px solid #ff4400;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .pattern-detection {
+            background: rgba(0, 136, 255, 0.1);
+            border: 2px solid #0088ff;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #00ff88;
+        }
+
+        .stat-label {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+        }
+
+        .frequency-display {
+            font-size: 2em;
+            text-align: center;
+            margin: 20px 0;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 1);
+            animation: frequency-glow 1s ease-in-out infinite alternate;
+        }
+
+        .pattern-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        .pattern-item {
+            background: rgba(0, 136, 255, 0.1);
+            border: 1px solid #0088ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            animation: pattern-appear 0.5s ease-in-out;
+        }
+
+        .pattern-type {
+            font-weight: bold;
+            color: #0088ff;
+            margin-bottom: 5px;
+        }
+
+        .pattern-confidence {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .memory-stream {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            border-left: 2px solid #ff0088;
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .memory-stream.active {
+            transform: translateX(0);
+        }
+
+        .memory-item {
+            background: rgba(255, 0, 136, 0.1);
+            border: 1px solid #ff0088;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            animation: memory-fade-in 0.3s ease-in-out;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .control-btn {
+            background: linear-gradient(45deg, #00ff88, #0088ff);
+            border: none;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .floating-thoughts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .thought-bubble {
+            position: absolute;
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid #00ff88;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            animation: float-up 4s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 10px 15px;
+            z-index: 1001;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: status-pulse 1s ease-in-out infinite;
+        }
+
+        .status-online {
+            background: #00ff88;
+        }
+
+        .status-offline {
+            background: #ff4400;
+        }
+
+        /* Animations */
+        @keyframes gradient-pulse {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse-expand {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @keyframes frequency-glow {
+            0% { text-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+            100% { text-shadow: 0 0 30px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 136, 0.5); }
+        }
+
+        @keyframes pattern-appear {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes memory-fade-in {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float-up {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-100px); }
+        }
+
+        @keyframes status-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .brain-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .brain-pulse-main {
+                grid-column: 1;
+            }
+
+            .neural-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neural-container">
+        <!-- Header -->
+        <div class="neural-header">
+            <div class="neural-title">🧠💥 NEURAL OVERSEER 💥🧠</div>
+            <div class="neural-subtitle">Brain Pulse Visualizer - Live Neural Feedback System</div>
+        </div>
+
+        <!-- Connection Status -->
+        <div class="connection-status">
+            <span class="status-indicator status-offline" id="statusIndicator"></span>
+            <span id="connectionStatus">Connecting to Neural Network...</span>
+        </div>
+
+        <!-- Main Brain Grid -->
+        <div class="brain-grid">
+            <!-- Brain Pulse Visualization -->
+            <div class="brain-pulse-main">
+                <h3>⚡ REAL-TIME BRAIN PULSE ⚡</h3>
+                <div class="frequency-display" id="frequencyDisplay">-- Hz</div>
+                <div class="pulse-visualization">
+                    <div class="pulse-circle"></div>
+                    <div class="pulse-circle"></div>
+                    <div class="pulse-circle"></div>
+                    <canvas id="brainWaveChart" width="800" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Neural Statistics -->
+            <div class="neural-stats">
+                <h3>🧠 NEURAL STATISTICS</h3>
+                <div class="stat-item">
+                    <span class="stat-label">🎯 Focus Level</span>
+                    <span class="stat-value" id="focusLevel">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🌀 Chaos Energy</span>
+                    <span class="stat-value" id="chaosEnergy">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">✨ Coherence</span>
+                    <span class="stat-value" id="coherence">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🔗 Neural Links</span>
+                    <span class="stat-value" id="neuralConnections">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">💾 Memory Rate</span>
+                    <span class="stat-value" id="memoryRate">--</span>
+                </div>
+            </div>
+
+            <!-- Pattern Detection -->
+            <div class="pattern-detection">
+                <h3>🧩 PATTERN DETECTION</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Patterns Detected</span>
+                    <span class="stat-value" id="patternsDetected">--</span>
+                </div>
+                <div class="pattern-list" id="patternList">
+                    <!-- Patterns will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Thoughts -->
+        <div class="floating-thoughts" id="floatingThoughts"></div>
+
+        <!-- Memory Stream -->
+        <div class="memory-stream" id="memoryStream">
+            <h3>💾 MEMORY STREAM</h3>
+            <div id="memoryList">
+                <!-- Recent memories will appear here -->
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" onclick="toggleMemoryStream()">💾 Memory Stream</button>
+            <button class="control-btn" onclick="boostFocus()">🚀 Focus Boost</button>
+            <button class="control-btn" onclick="resetNeural()">🔄 Reset</button>
+            <button class="control-btn" onclick="exportBrainData()">📊 Export</button>
+        </div>
+    </div>
+
+    <script>
+        // 🧠💥 NEURAL OVERSEER JAVASCRIPT 💥🧠
+
+        let socket;
+        let brainWaveChart;
+        let isConnected = false;
+        let currentNeuralState = {};
+        let brainWaveData = [];
+
+        // Initialize the Neural Overseer
+        function initializeNeuralOverseer() {
+            console.log('🧠 NEURAL OVERSEER: Initializing Brain Pulse Visualizer...');
+
+            connectToNeuralNetwork();
+            setupBrainWaveChart();
+            startFloatingThoughts();
+
+            console.log('🧠💥 NEURAL OVERSEER: Fully operational!');
+        }
+
+        // Connect to Neural Network via Socket.IO
+        function connectToNeuralNetwork() {
+            socket = io();
+
+            socket.on('connect', function() {
+                console.log('🔗 Connected to Neural Network!');
+                isConnected = true;
+                updateConnectionStatus('🔗 NEURAL NETWORK ONLINE', true);
+            });
+
+            socket.on('disconnect', function() {
+                console.log('❌ Disconnected from Neural Network');
+                isConnected = false;
+                updateConnectionStatus('❌ NEURAL NETWORK OFFLINE', false);
+            });
+
+            socket.on('neural_pulse', function(data) {
+                updateBrainPulse(data);
+            });
+
+            socket.on('neural_state', function(state) {
+                updateNeuralState(state);
+            });
+        }
+
+        // Update connection status
+        function updateConnectionStatus(message, online) {
+            const statusIndicator = document.getElementById('statusIndicator');
+            const connectionStatus = document.getElementById('connectionStatus');
+
+            statusIndicator.className = `status-indicator ${online ? 'status-online' : 'status-offline'}`;
+            connectionStatus.textContent = message;
+        }
+
+        // Update brain pulse visualization
+        function updateBrainPulse(data) {
+            const pulse = data.pulse;
+            const state = data.state;
+
+            // Update frequency display
+            document.getElementById('frequencyDisplay').textContent = `${pulse.frequency.toFixed(1)} Hz`;
+
+            // Update pulse circles animation speed
+            const circles = document.querySelectorAll('.pulse-circle');
+            const animationDuration = Math.max(0.5, 3 - (pulse.frequency / 20));
+            circles.forEach(circle => {
+                circle.style.animationDuration = `${animationDuration}s`;
+            });
+
+            // Update brain wave chart
+            updateBrainWaveChart(pulse);
+
+            // Store current state
+            currentNeuralState = state;
+            updateNeuralState(state);
+        }
+
+        // Update neural state display
+        function updateNeuralState(state) {
+            document.getElementById('focusLevel').textContent = `${state.focus_level}%`;
+            document.getElementById('chaosEnergy').textContent = `${state.chaos_energy}%`;
+            document.getElementById('coherence').textContent = `${(state.coherence * 100).toFixed(1)}%`;
+            document.getElementById('neuralConnections').textContent = state.neural_connections.toLocaleString();
+            document.getElementById('memoryRate').textContent = `${state.memory_formation_rate}/min`;
+            document.getElementById('patternsDetected').textContent = state.patterns_detected;
+        }
+
+        // Setup brain wave chart
+        function setupBrainWaveChart() {
+            const ctx = document.getElementById('brainWaveChart').getContext('2d');
+
+            brainWaveChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 50}, (_, i) => i),
+                    datasets: [{
+                        label: 'Brain Frequency',
+                        data: brainWaveData,
+                        borderColor: '#00ff88',
+                        backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: {
+                            display: true,
+                            grid: { color: 'rgba(0, 255, 136, 0.2)' },
+                            ticks: { color: '#00ff88' },
+                            min: 0,
+                            max: 60
+                        }
+                    },
+                    animation: { duration: 0 }
+                }
+            });
+        }
+
+        // Update brain wave chart
+        function updateBrainWaveChart(pulse) {
+            brainWaveData.push(pulse.frequency);
+            if (brainWaveData.length > 50) {
+                brainWaveData.shift();
+            }
+            brainWaveChart.update('none');
+        }
+
+        // Start floating thoughts animation
+        function startFloatingThoughts() {
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createFloatingThought();
+                }
+            }, 2000);
+        }
+
+        // Create floating thought bubble
+        function createFloatingThought() {
+            const thoughts = [
+                '💭 Processing neural pattern...',
+                '🧩 Pattern recognition active',
+                '⚡ Memory formation detected',
+                '🔥 High gamma activity!',
+                '✨ Coherence optimization',
+                '🚀 Focus boost activated',
+                '🌀 Chaos energy spike',
+                '🧠 Neural link established'
+            ];
+
+            const container = document.getElementById('floatingThoughts');
+            const thought = document.createElement('div');
+            thought.className = 'thought-bubble';
+            thought.textContent = thoughts[Math.floor(Math.random() * thoughts.length)];
+
+            // Random position
+            thought.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+            thought.style.top = window.innerHeight - 50 + 'px';
+
+            container.appendChild(thought);
+
+            // Remove after animation
+            setTimeout(() => {
+                if (thought.parentNode) {
+                    thought.parentNode.removeChild(thought);
+                }
+            }, 4000);
+        }
+
+        // Control functions
+        function toggleMemoryStream() {
+            const memoryStream = document.getElementById('memoryStream');
+            memoryStream.classList.toggle('active');
+
+            if (memoryStream.classList.contains('active')) {
+                loadMemoryStream();
+            }
+        }
+
+        function loadMemoryStream() {
+            // Fetch recent memories
+            fetch('/api/neural/memory')
+                .then(response => response.json())
+                .then(data => {
+                    const memoryList = document.getElementById('memoryList');
+                    memoryList.innerHTML = '';
+
+                    data.recent_memories.forEach(memory => {
+                        const memoryItem = document.createElement('div');
+                        memoryItem.className = 'memory-item';
+                        memoryItem.innerHTML = `
+                            <div style="font-weight: bold; color: #ff0088;">${memory.type.toUpperCase()}</div>
+                            <div style="margin: 5px 0;">${memory.content}</div>
+                            <div style="font-size: 0.8em; color: #888;">${new Date(memory.timestamp).toLocaleTimeString()}</div>
+                        `;
+                        memoryList.appendChild(memoryItem);
+                    });
+                })
+                .catch(error => console.log('Memory stream offline'));
+        }
+
+        function boostFocus() {
+            createFloatingThought();
+            const thought = document.createElement('div');
+            thought.className = 'thought-bubble';
+            thought.textContent = '🚀 FOCUS BOOST ACTIVATED!';
+            thought.style.left = '50%';
+            thought.style.top = '50%';
+            thought.style.transform = 'translate(-50%, -50%)';
+            thought.style.fontSize = '1.5em';
+            thought.style.background = 'rgba(255, 68, 0, 0.3)';
+            thought.style.border = '2px solid #ff4400';
+            document.getElementById('floatingThoughts').appendChild(thought);
+        }
+
+        function resetNeural() {
+            brainWaveData = [];
+            brainWaveChart.update();
+            console.log('🔄 Neural system reset');
+        }
+
+        function exportBrainData() {
+            const data = {
+                neural_state: currentNeuralState,
+                brain_waves: brainWaveData,
+                timestamp: new Date().toISOString()
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `neural_export_${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeNeuralOverseer);
+
+        // Auto-refresh patterns
+        setInterval(() => {
+            if (isConnected) {
+                fetch('/api/neural/patterns')
+                    .then(response => response.json())
+                    .then(data => {
+                        const patternList = document.getElementById('patternList');
+                        patternList.innerHTML = '';
+
+                        data.patterns.forEach(pattern => {
+                            const patternItem = document.createElement('div');
+                            patternItem.className = 'pattern-item';
+                            patternItem.innerHTML = `
+                                <div class="pattern-type">${pattern.type.replace(/_/g, ' ')}</div>
+                                <div style="color: #888; font-size: 0.9em;">${pattern.description}</div>
+                                <div class="pattern-confidence">Confidence: ${(pattern.confidence * 100).toFixed(1)}%</div>
+                            `;
+                            patternList.appendChild(patternItem);
+                        });
+                    })
+                    .catch(error => console.log('Pattern detection offline'));
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
