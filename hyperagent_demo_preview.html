@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖⚡ HyperAgent Demo - Experience the Agent Army! ⚡🤖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .demo-title {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9966ff, #00d4ff, #ff6b6b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: titlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .demo-subtitle {
+            font-size: 1.2em;
+            color: #b19cd9;
+            margin-bottom: 20px;
+        }
+
+        .energy-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(153, 102, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .energy-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #9966ff, #00d4ff);
+            width: 87%;
+            animation: energyFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes energyFlow {
+            0%, 100% { width: 87%; }
+            50% { width: 92%; }
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .agent-chat-panel {
+            background: rgba(153, 102, 255, 0.1);
+            border: 2px solid #9966ff;
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .agent-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #9966ff, #ff6b6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+            animation: avatarGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes avatarGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(153, 102, 255, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(153, 102, 255, 0.8); }
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            animation: messageSlide 0.5s ease-out;
+        }
+
+        @keyframes messageSlide {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.agent {
+            background: linear-gradient(135deg, #9966ff, #7744cc);
+            margin-right: auto;
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-send-btn {
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #9966ff, #ff6b6b);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .adhd-tools-panel {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .tool-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .tool-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .tool-status {
+            font-size: 0.8em;
+            color: #b19cd9;
+        }
+
+        .focus-timer {
+            grid-column: 1 / -1;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .timer-btn {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .timer-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .demo-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .launch-session-btn {
+            padding: 20px 40px;
+            font-size: 1.3em;
+            background: linear-gradient(45deg, #9966ff, #00d4ff, #ff6b6b);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            animation: btnPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(153, 102, 255, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(153, 102, 255, 0.8); }
+        }
+
+        .launch-session-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(153, 102, 255, 1);
+        }
+
+        .score-display {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #b19cd9;
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #9966ff;
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="demo-container">
+        <div class="demo-header">
+            <div class="demo-title">🤖⚡ HyperAgent Demo ⚡🤖</div>
+            <div class="demo-subtitle">Experience the Power of ADHD-Optimized Agent Army</div>
+            <div class="energy-bar">
+                <div class="energy-fill"></div>
+            </div>
+            <div style="color: #00d4ff; font-weight: bold;">⚡ System Energy: 87% | 🧠 Focus Mode: ACTIVE | 🎯 Demo Visitors: <span id="visitorCount">42</span></div>
+        </div>
+
+        <div class="demo-grid">
+            <!-- Agent Chat Panel -->
+            <div class="agent-chat-panel">
+                <div class="chat-header">
+                    <div class="agent-avatar">🤖</div>
+                    <div>
+                        <div style="font-weight: bold; font-size: 1.2em;">BROski Agent</div>
+                        <div style="color: #b19cd9; font-size: 0.9em;">ADHD Optimization Specialist</div>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message agent">
+                        🚀 Hey there, hyperfocus warrior! I'm BROski, your personal ADHD optimization agent. I'm here to help you turn scattered thoughts into structured success! What's on your mind today?
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask me about focus, productivity, or ADHD strategies..." onkeypress="handleChatKeypress(event)">
+                    <button class="chat-send-btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+
+            <!-- ADHD Tools Panel -->
+            <div class="adhd-tools-panel">
+                <h3 style="margin-bottom: 20px; text-align: center; color: #00d4ff;">🧠 ADHD PowerTools Suite</h3>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="activateTool('dopamine')">
+                        <div class="tool-icon">💎</div>
+                        <div class="tool-name">Dopamine Tracker</div>
+                        <div class="tool-status">Active: +15 points</div>
+                    </div>
+
+                    <div class="tool-card" onclick="activateTool('goals')">
+                        <div class="tool-icon">🎯</div>
+                        <div class="tool-name">Focus Goals</div>
+                        <div class="tool-status">3/5 Complete</div>
+                    </div>
+
+                    <div class="tool-card" onclick="activateTool('distraction')">
+                        <div class="tool-icon">🛡️</div>
+                        <div class="tool-name">Distraction Shield</div>
+                        <div class="tool-status">Blocking: 12 sites</div>
+                    </div>
+
+                    <div class="tool-card" onclick="activateTool('energy')">
+                        <div class="tool-icon">⚡</div>
+                        <div class="tool-name">Energy Monitor</div>
+                        <div class="tool-status">Level: Optimal</div>
+                    </div>
+
+                    <div class="focus-timer">
+                        <div style="color: #ff6b6b; font-weight: bold; margin-bottom: 10px;">🔥 Hyperfocus Timer</div>
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                        <div class="timer-controls">
+                            <button class="timer-btn" onclick="startTimer()">▶️ Start</button>
+                            <button class="timer-btn" onclick="pauseTimer()">⏸️ Pause</button>
+                            <button class="timer-btn" onclick="resetTimer()">🔄 Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-footer">
+            <button class="launch-session-btn" onclick="launchFullSession()">
+                🚀 I'M READY! Launch Full Agent Army Session! 🚀
+            </button>
+
+            <div class="score-display" id="scoreDisplay">
+                🎮 Demo Score: 0 points | 💎 Tools Tried: 0/5 | ⚡ Focus Streak: Building...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timerMinutes = 25;
+        let timerSeconds = 0;
+        let timerActive = false;
+        let timerInterval;
+        let demoScore = 0;
+        let toolsTried = new Set();
+        let messageCount = 0;
+
+        // Initialize demo
+        function initDemo() {
+            createParticles();
+            updateVisitorCount();
+
+            // Add welcome sequence
+            setTimeout(() => {
+                addAgentMessage("💜 ADHD brain detected! Let me show you what makes our Agent Army special. Try asking me: 'How do you help with hyperfocus?' or click any tool above!");
+            }, 2000);
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Update visitor count
+        function updateVisitorCount() {
+            const count = document.getElementById('visitorCount');
+            setInterval(() => {
+                count.textContent = Math.floor(Math.random() * 10) + 40;
+            }, 3000);
+        }
+
+        // Chat functionality
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (message) {
+                addUserMessage(message);
+                input.value = '';
+
+                setTimeout(() => {
+                    const response = getAgentResponse(message);
+                    addAgentMessage(response);
+                    updateScore(10);
+                }, 800);
+            }
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function addUserMessage(message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            messageCount++;
+        }
+
+        function addAgentMessage(message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message agent';
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAgentResponse(message) {
+            const responses = {
+                'hyperfocus': "🔥 Hyperfocus is your ADHD superpower! I help you harness it with smart timers, distraction blocking, and energy tracking. When you're in the zone, I protect it. When you're scattered, I help you refocus!",
+                'productivity': "💪 ADHD productivity isn't about forcing neurotypical methods - it's about working WITH your brain! I use gamification, visual progress tracking, and bite-sized goals that actually stick.",
+                'focus': "🎯 Focus for ADHD brains works differently! I track your natural attention patterns and suggest optimal work/break cycles. Plus, I make it FUN with XP points and achievement unlocks!",
+                'help': "🚀 I'm your personal ADHD optimization specialist! I can help with focus strategies, productivity hacks, emotional regulation, task breakdown, and turning your unique brain into a creative powerhouse!",
+                'distracted': "🛡️ Distraction is just untamed curiosity! I help channel that mental energy into productive hyperfocus sessions. Try our Distraction Shield tool - it blocks time-wasters while you work!",
+                'overwhelmed': "💜 Overwhelm is totally valid - ADHD brains process EVERYTHING intensely! Let's break this down: What's the ONE tiny task you could do right now? I'll help you build momentum from there.",
+                'motivation': "⚡ Motivation is like lightning for ADHD brains - unpredictable but POWERFUL! I help you catch those sparks with quick-start tools and dopamine-friendly reward systems!"
+            };
+
+            // Find matching response
+            for (const [key, response] of Object.entries(responses)) {
+                if (message.toLowerCase().includes(key)) {
+                    return response;
+                }
+            }
+
+            // Default responses
+            const defaults = [
+                "🧠 That's a great question! ADHD brains are incredibly creative and powerful. What specific challenge are you facing?",
+                "💎 I love working with ADHD minds - you think outside the box in amazing ways! Tell me more about what you're working on.",
+                "🎮 Your neurodivergent brain is a superpower waiting to be unleashed! How can I help you optimize it today?",
+                "⚡ ADHD brains need different strategies, and that's exactly what I specialize in! What area do you want to improve?"
+            ];
+
+            return defaults[Math.floor(Math.random() * defaults.length)];
+        }
+
+        // ADHD Tools functionality
+        function activateTool(toolName) {
+            toolsTried.add(toolName);
+
+            const messages = {
+                'dopamine': "💎 Dopamine Tracker activated! +25 points for trying something new! This tool tracks your daily wins and builds positive momentum.",
+                'goals': "🎯 Focus Goals loaded! Current session: 'Demo the Agent Army' - you're 60% complete! Keep exploring to level up!",
+                'distraction': "🛡️ Distraction Shield engaged! In full mode, this blocks social media, news sites, and other focus-killers during work sessions.",
+                'energy': "⚡ Energy Monitor online! Your current state: CURIOUS & ENGAGED. Perfect for learning new systems! Recommended action: Keep exploring!"
+            };
+
+            addAgentMessage(messages[toolName]);
+            updateScore(15);
+            updateToolsDisplay();
+        }
+
+        // Timer functionality
+        function startTimer() {
+            if (!timerActive) {
+                timerActive = true;
+                timerInterval = setInterval(updateTimer, 1000);
+                addAgentMessage("🔥 Hyperfocus timer started! You've got this - I'll be here to keep you on track!");
+                updateScore(20);
+            }
+        }
+
+        function pauseTimer() {
+            timerActive = false;
+            clearInterval(timerInterval);
+            addAgentMessage("⏸️ Timer paused. Taking breaks is important for ADHD brains - you're doing great!");
+        }
+
+        function resetTimer() {
+            timerActive = false;
+            clearInterval(timerInterval);
+            timerMinutes = 25;
+            timerSeconds = 0;
+            updateTimerDisplay();
+            addAgentMessage("🔄 Timer reset! Ready for another focused session when you are!");
+        }
+
+        function updateTimer() {
+            if (timerSeconds === 0) {
+                if (timerMinutes === 0) {
+                    // Timer finished
+                    timerActive = false;
+                    clearInterval(timerInterval);
+                    addAgentMessage("🎉 Session complete! Time for a well-deserved break. In the full version, you'd earn XP and unlock new features!");
+                    updateScore(50);
+                    return;
+                }
+                timerMinutes--;
+                timerSeconds = 59;
+            } else {
+                timerSeconds--;
+            }
+
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const display = document.getElementById('timerDisplay');
+            const mins = timerMinutes.toString().padStart(2, '0');
+            const secs = timerSeconds.toString().padStart(2, '0');
+            display.textContent = `${mins}:${secs}`;
+        }
+
+        // Score and progress tracking
+        function updateScore(points) {
+            demoScore += points;
+            updateScoreDisplay();
+        }
+
+        function updateScoreDisplay() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const focusStreak = messageCount > 3 ? 'BUILDING!' : 'Getting Started';
+            scoreDisplay.innerHTML = `🎮 Demo Score: ${demoScore} points | 💎 Tools Tried: ${toolsTried.size}/5 | ⚡ Focus Streak: ${focusStreak}`;
+        }
+
+        function updateToolsDisplay() {
+            // Visual feedback could be added here
+        }
+
+        // Launch full session
+        function launchFullSession() {
+            const finalScore = demoScore + (toolsTried.size * 10) + (messageCount * 5);
+
+            const feedback = `
+🚀💜 DEMO COMPLETE! LEGENDARY PERFORMANCE! 💜🚀
+
+📊 Your ADHD Optimization Score: ${finalScore}/100
+🤖 Agent Compatibility: ${toolsTried.size >= 3 ? 'EXCELLENT' : 'GOOD'}
+💎 Engagement Level: ${messageCount >= 2 ? 'HYPERFOCUSED' : 'GETTING STARTED'}
+
+🎯 What happens next:
+✅ Full Agent Army (15+ specialized agents)
+✅ Unlimited timer sessions with XP rewards
+✅ Personal productivity dashboard
+✅ ADHD community access (1,200+ members)
+✅ Memory crystals for idea capture
+✅ Achievement system & badges
+
+🔥 Ready to unlock your ADHD superpowers?
+            `;
+
+            alert(feedback);
+
+            // In a real implementation, this would redirect to signup/onboarding
+            setTimeout(() => {
+                addAgentMessage("💫 Amazing demo session! In the full version, you'd now enter your personalized Agent Army command center. Want to see more? Let's keep chatting!");
+            }, 2000);
+        }
+
+        // Initialize when page loads
+        window.onload = initDemo;
+    </script>
+</body>
+</html>

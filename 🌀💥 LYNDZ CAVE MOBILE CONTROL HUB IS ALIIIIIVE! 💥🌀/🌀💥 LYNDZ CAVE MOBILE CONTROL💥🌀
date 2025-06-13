@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌀 HYPERFOCUS CAVE - MOBILE HUB 🌀</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1f1b2e);
+      color: #00ffcc;
+      text-align: center;
+    }
+    h1 {
+      margin: 1.5rem 0;
+      font-size: 1.8rem;
+    }
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .portal-btn {
+      background: #121212;
+      color: #00ffcc;
+      padding: 1rem;
+      border: 2px solid #00ffcc;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .portal-btn:hover {
+      background: #00ffcc;
+      color: #121212;
+      transform: scale(1.05);
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌀 Hyperfocus Cave - Mobile Control Hub 🌀</h1>
+
+  <div class="button-grid">
+    <button class="portal-btn" onclick="openPortal('/dashboard')">📊 ChaosGenius Dashboard</button>
+    <button class="portal-btn" onclick="openPortal('/revenue')">💰 Revenue Tracker</button>
+    <button class="portal-btn" onclick="openPortal('/broski')">🪙 BROski$ Portal</button>
+    <button class="portal-btn" onclick="openPortal('/health')">🧠 Health Matrix</button>
+    <button class="portal-btn" onclick="openPortal('/security')">🛡️ Security Fortress</button>
+    <button class="portal-btn" onclick="openPortal('/mystery')">🎁 Mystery Box Panel</button>
+    <button class="portal-btn" onclick="activateVoice()">🎙️ Voice Command</button>
+    <button class="portal-btn" onclick="hyperBoost()">🔥 HYPER BOOST</button>
+  </div>
+
+  <div class="footer">
+    🧠 Dream it. Tap it. HYPERFOCUS it. | Mobile Mode ♾️
+  </div>
+
+  <script>
+    function openPortal(path) {
+      const base = window.location.origin;
+      window.open(base + path, '_self');
+    }
+
+    function activateVoice() {
+      alert("🎙️ Voice command system not yet active. Want me to install it next?");
+    }
+
+    function hyperBoost() {
+      alert("⚡ BROSKI HYPER BOOST ACTIVATED! Dopamine surge incoming!");
+    }
+  </script>
+</body>
+</html>

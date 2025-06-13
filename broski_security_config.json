@@ -1,0 +1,48 @@
+{
+  "whitelist_ips": [
+    "127.0.0.1",
+    "::1",
+    "localhost",
+    "0.0.0.0",
+    "192.168.*",
+    "10.*",
+    "172.16.*"
+  ],
+  "whitelist_processes": [
+    "python3",
+    "python",
+    "node",
+    "npm",
+    "git",
+    "ssh",
+    "curl",
+    "wget",
+    "yarn",
+    "scp",
+    "rsync",
+    "docker",
+    "code",
+    "vim",
+    "nano",
+    "tail",
+    "grep",
+    "find"
+  ],
+  "thresholds": {
+    "port_scan_threshold": 5,
+    "max_failed_logins": 3,
+    "suspicious_connection_threshold": 8,
+    "file_change_cooldown": 300
+  },
+  "noise_reduction": {
+    "ignore_local_connections": false,
+    "ignore_common_ports": false,
+    "ignore_development_activity": false,
+    "rate_limit_alerts": false
+  },
+  "stealth_mode": {
+    "enabled": false,
+    "log_only": false,
+    "minimal_alerts": true
+  }
+}

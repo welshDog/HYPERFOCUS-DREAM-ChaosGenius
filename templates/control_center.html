@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌌 ChaosGenius Ultra Control Center 🌌</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #00ff41;
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      color: #00ff41;
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.7);
+      margin-bottom: 10px;
+    }
+
+    .header .motto {
+      color: #ffaa00;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .control-panel {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ff41;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .control-panel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
+    }
+
+    .panel-title {
+      color: #00ff41;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(0, 255, 65, 0.7);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .status-item {
+      background: rgba(0, 255, 65, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00ff41;
+      text-align: center;
+    }
+
+    .status-value {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #ffaa00;
+    }
+
+    .status-label {
+      font-size: 0.9em;
+      color: #00ff41;
+      margin-top: 5px;
+    }
+
+    .command-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .cmd-btn {
+      background: linear-gradient(45deg, #ff0040, #ff4000);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9em;
+    }
+
+    .cmd-btn:hover {
+      background: linear-gradient(45deg, #ff4000, #ff8000);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 0, 64, 0.4);
+    }
+
+    .cmd-btn.galaxy {
+      background: linear-gradient(45deg, #8000ff, #4000ff);
+    }
+
+    .cmd-btn.galaxy:hover {
+      background: linear-gradient(45deg, #a000ff, #6000ff);
+    }
+
+    .cmd-btn.revenue {
+      background: linear-gradient(45deg, #ffaa00, #ff8800);
+    }
+
+    .cmd-btn.revenue:hover {
+      background: linear-gradient(45deg, #ffcc00, #ffaa00);
+    }
+
+    .processes-list {
+      max-height: 300px;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .process-item {
+      padding: 8px;
+      margin-bottom: 5px;
+      background: rgba(0, 255, 65, 0.1);
+      border-radius: 5px;
+      border-left: 3px solid #00ff41;
+      font-size: 0.85em;
+    }
+
+    .legendary-status {
+      background: linear-gradient(45deg, #gold, #ffaa00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+      text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+    }
+
+    .alert-box {
+      background: rgba(255, 0, 0, 0.2);
+      border: 2px solid #ff0040;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    .success-box {
+      background: rgba(0, 255, 0, 0.2);
+      border: 2px solid #00ff41;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .control-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 2em;
+      }
+
+      .command-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header class="header">
+    <h1>🌌 CHAOSGENIUS ULTRA CONTROL CENTER 🌌</h1>
+    <div class="motto">TOTAL EMPIRE CONTROL • LEGENDARY STATUS • BROSKI∞ SUPREMACY</div>
+    <div style="margin-top: 10px; color: #00ff41;">Commander: Chief Lyndz | Power Level: TRANSCENDENT ∞</div>
+  </header>
+
+  <div class="control-grid">
+    <!-- Empire Status Panel -->
+    <div class="control-panel">
+      <div class="panel-title">🚀 EMPIRE STATUS</div>
+      <div class="status-grid">
+        <div class="status-item">
+          <div class="status-value" id="activeProcesses">--</div>
+          <div class="status-label">Active Processes</div>
+        </div>
+        <div class="status-item">
+          <div class="status-value" id="empireHealth">--</div>
+          <div class="status-label">Empire Health</div>
+        </div>
+        <div class="status-item">
+          <div class="status-value" id="networkServices">--</div>
+          <div class="status-label">Network Services</div>
+        </div>
+        <div class="status-item">
+          <div class="status-value" id="cpuUsage">--</div>
+          <div class="status-label">CPU Usage</div>
+        </div>
+      </div>
+      <div class="legendary-status" id="legendaryStatus">🌌 GALAXY EMPEROR</div>
+    </div>
+
+    <!-- Command Control Panel -->
+    <div class="control-panel">
+      <div class="panel-title">🎯 COMMAND CONTROL</div>
+      <div class="command-buttons">
+        <button class="cmd-btn galaxy" onclick="executeCommand('activate_all')">🚀 ACTIVATE ALL</button>
+        <button class="cmd-btn" onclick="executeCommand('stealth_mode')">🌑 STEALTH MODE</button>
+        <button class="cmd-btn revenue" onclick="executeCommand('revenue_boost')">💰 REVENUE BOOST</button>
+        <button class="cmd-btn" onclick="executeCommand('fortress_shield')">🛡️ SHIELDS UP</button>
+        <button class="cmd-btn galaxy" onclick="executeCommand('galaxy_mode')">🌌 GALAXY MODE</button>
+        <button class="cmd-btn" onclick="executeCommand('scan_empire')">🔍 SCAN EMPIRE</button>
+      </div>
+      <div class="alert-box" id="alertBox"></div>
+      <div class="success-box" id="successBox"></div>
+    </div>
+
+    <!-- System Processes Panel -->
+    <div class="control-panel">
+      <div class="panel-title">🤖 ACTIVE PROCESSES</div>
+      <div class="processes-list" id="processesList">
+        <div class="process-item">Loading processes...</div>
+      </div>
+    </div>
+
+    <!-- Empire Components Panel -->
+    <div class="control-panel">
+      <div class="panel-title">🌌 EMPIRE COMPONENTS</div>
+      <div style="margin-bottom: 15px;">
+        <strong style="color: #00ff41;">Galaxy-Tier Systems:</strong>
+        <div id="galaxySystems" style="margin-left: 10px; color: #ffaa00;">Loading...</div>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <strong style="color: #00ff41;">Revenue Engines:</strong>
+        <div id="revenueSystems" style="margin-left: 10px; color: #ffaa00;">Loading...</div>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <strong style="color: #00ff41;">AI Agents:</strong>
+        <div id="aiAgents" style="margin-left: 10px; color: #ffaa00;">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Create animated stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 2 + 's';
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Execute empire commands
+    async function executeCommand(command) {
+      try {
+        const response = await fetch('/api/command', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({command: command})
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+          showSuccess(result.message);
+        } else {
+          showAlert(result.message);
+        }
+
+        // Refresh status after command
+        setTimeout(updateStatus, 2000);
+
+      } catch (error) {
+        showAlert('Command execution failed: ' + error.message);
+      }
+    }
+
+    // Update empire status
+    async function updateStatus() {
+      try {
+        const response = await fetch('/api/status');
+        const status = await response.json();
+
+        document.getElementById('activeProcesses').textContent = status.active_processes || 0;
+        document.getElementById('empireHealth').textContent = Math.round(status.empire_health || 0) + '%';
+        document.getElementById('networkServices').textContent = status.network_services || 0;
+        document.getElementById('cpuUsage').textContent = Math.round(status.cpu_usage || 0) + '%';
+        document.getElementById('legendaryStatus').textContent = status.legendary_status || '🛡️ GUARDIAN';
+
+        // Update processes list
+        const processesList = document.getElementById('processesList');
+        if (status.python_processes && status.python_processes.length > 0) {
+          processesList.innerHTML = status.python_processes.map(proc =>
+            `<div class="process-item">
+                            <strong>PID ${proc.pid}:</strong> ${proc.cmdline.substring(0, 60)}...<br>
+                            <small>CPU: ${proc.cpu}% | Memory: ${proc.memory}%</small>
+                        </div>`
+          ).join('');
+        } else {
+          processesList.innerHTML = '<div class="process-item">No active processes detected</div>';
+        }
+
+      } catch (error) {
+        console.error('Status update failed:', error);
+      }
+    }
+
+    // Load empire components
+    async function loadEmpireComponents() {
+      try {
+        const response = await fetch('/api/empire');
+        const empire = await response.json();
+
+        document.getElementById('galaxySystems').textContent =
+          empire.galaxy_tier_systems.length > 0 ? empire.galaxy_tier_systems.join(', ') : 'None detected';
+
+        document.getElementById('revenueSystems').textContent =
+          empire.revenue_engines.length > 0 ? empire.revenue_engines.join(', ') : 'None detected';
+
+        document.getElementById('aiAgents').textContent =
+          empire.ai_agents.length > 0 ? empire.ai_agents.join(', ') : 'None detected';
+
+      } catch (error) {
+        console.error('Empire components load failed:', error);
+      }
+    }
+
+    // Show alert message
+    function showAlert(message) {
+      const alertBox = document.getElementById('alertBox');
+      alertBox.textContent = message;
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    }
+
+    // Show success message
+    function showSuccess(message) {
+      const successBox = document.getElementById('successBox');
+      successBox.textContent = message;
+      successBox.style.display = 'block';
+      setTimeout(() => {
+        successBox.style.display = 'none';
+      }, 5000);
+    }
+
+    // Initialize control center
+    document.addEventListener('DOMContentLoaded', function () {
+      createStars();
+      updateStatus();
+      loadEmpireComponents();
+
+      // Auto-refresh status every 30 seconds
+      setInterval(updateStatus, 30000);
+    });
+  </script>
+</body>
+
+</html>

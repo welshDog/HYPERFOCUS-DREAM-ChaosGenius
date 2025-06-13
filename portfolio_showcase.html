@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀💎 BROSKI TECH EMPIRE - LEGENDARY SERVICES PORTFOLIO 💎🚀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 30%, #000066 60%, #330066 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Matrix Rain Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .matrix-column {
+            position: absolute;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: matrix-fall 8s linear infinite;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            z-index: 100;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(255, 0, 110, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #00ffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 50px rgba(255, 0, 110, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #00ffff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px #00ffff;
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff006e;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #00ffff;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 100;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin: 80px 0 60px 0;
+            background: linear-gradient(45deg, #ff006e, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+        }
+
+        /* Service Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #ff006e;
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.3);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 110, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .service-card:hover::before {
+            animation: shimmer 1.5s ease-in-out;
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff006e;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .service-description {
+            color: #00ffff;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            padding: 5px 0;
+            color: #00ffff;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .price-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 0, 110, 0.1);
+            border-radius: 15px;
+            border: 1px solid #ff006e;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ff00;
+            display: block;
+            text-shadow: 0 0 20px #00ff00;
+        }
+
+        .price-label {
+            color: #00ffff;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 0, 110, 0.4);
+        }
+
+        .portfolio-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-tech {
+            font-size: 0.9rem;
+            color: #00ffff;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 255, 255, 0.1));
+            border-radius: 25px;
+            padding: 60px;
+            text-align: center;
+            margin: 80px 0;
+            border: 2px solid #00ffff;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            color: #ff006e;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #00ffff;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Animations */
+        @keyframes matrix-fall {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 20px #00ffff; }
+            100% { text-shadow: 0 0 40px #00ffff, 0 0 60px #ff006e; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; gap: 20px; }
+        }
+
+        /* Scroll Effects */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-title">🚀 BROSKI TECH EMPIRE 🚀</div>
+        <div class="hero-subtitle">💎 LEGENDARY TECHNICAL SOLUTIONS THAT DOMINATE 💎</div>
+        <p style="font-size: 1.2rem; color: #00ffff; max-width: 800px; margin: 20px auto;">
+            ⚡ Elite-tier technical services built by a neurodivergent genius who turns complex problems into powerful solutions.
+            Your digital empire starts here. ⚡
+        </p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">LEGENDARY BOTS</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">SUCCESS RATE</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">ULTRA SUPPORT</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Services Section -->
+        <h2 class="section-title fade-in">💎 LEGENDARY SERVICES PORTFOLIO 💎</h2>
+
+        <div class="services-grid">
+            <!-- Discord Bot Development -->
+            <div class="service-card fade-in">
+                <span class="service-icon">🤖</span>
+                <h3 class="service-title">ULTRA DISCORD BOT EMPIRE</h3>
+                <p class="service-description">
+                    Custom Discord bots that dominate servers with advanced AI, moderation, games, and automation.
+                    Built with Python mastery and deployed with military-grade reliability.
+                </p>
+                <ul class="service-features">
+                    <li>Advanced AI chat integration</li>
+                    <li>Custom game & economy systems</li>
+                    <li>Ultra-secure moderation tools</li>
+                    <li>Real-time analytics dashboard</li>
+                    <li>24/7 monitoring & support</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$75 - $500</span>
+                    <span class="price-label">Depending on complexity</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="orderService('discord-bot')">🚀 ORDER NOW</button>
+                    <button class="btn btn-secondary" onclick="viewDemo('discord')">👁️ SEE DEMO</button>
+                </div>
+            </div>
+
+            <!-- Server Security & Optimization -->
+            <div class="service-card fade-in">
+                <span class="service-icon">🛡️</span>
+                <h3 class="service-title">FORTRESS-LEVEL SECURITY</h3>
+                <p class="service-description">
+                    Emergency server rescue, ultra-optimization, and fortress-level security implementation.
+                    Transform your infrastructure into an impenetrable digital fortress.
+                </p>
+                <ul class="service-features">
+                    <li>Emergency system rescue</li>
+                    <li>Performance optimization (up to 300% faster)</li>
+                    <li>Advanced security hardening</li>
+                    <li>DDoS protection setup</li>
+                    <li>24/7 monitoring systems</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$150 - $750</span>
+                    <span class="price-label">Emergency response available</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="orderService('security')">🛡️ SECURE NOW</button>
+                    <button class="btn btn-secondary" onclick="getQuote('security')">💰 GET QUOTE</button>
+                </div>
+            </div>
+
+            <!-- Cloudflare Enterprise -->
+            <div class="service-card fade-in">
+                <span class="service-icon">☁️</span>
+                <h3 class="service-title">CLOUDFLARE DOMINATION</h3>
+                <p class="service-description">
+                    Complete Cloudflare enterprise setup with CDN, security, analytics, and performance optimization.
+                    Make your site lightning-fast and bulletproof.
+                </p>
+                <ul class="service-features">
+                    <li>Global CDN deployment</li>
+                    <li>Advanced security rules</li>
+                    <li>Performance optimization</li>
+                    <li>Real-time analytics</li>
+                    <li>Custom worker scripts</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$250 - $1000</span>
+                    <span class="price-label">One-time setup + optional maintenance</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="orderService('cloudflare')">☁️ DOMINATE</button>
+                    <button class="btn btn-secondary" onclick="learnMore('cloudflare')">📚 LEARN MORE</button>
+                </div>
+            </div>
+
+            <!-- Custom Analytics -->
+            <div class="service-card fade-in">
+                <span class="service-icon">📊</span>
+                <h3 class="service-title">LEGENDARY ANALYTICS</h3>
+                <p class="service-description">
+                    Real-time monitoring dashboards that give you god-mode visibility into your systems.
+                    Know everything, control everything, dominate everything.
+                </p>
+                <ul class="service-features">
+                    <li>Real-time data visualization</li>
+                    <li>Custom metrics tracking</li>
+                    <li>Automated alerts & reports</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Integration with any system</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$50 - $200</span>
+                    <span class="price-label">Per month (setup included)</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="orderService('analytics')">📊 TRACK NOW</button>
+                    <button class="btn btn-secondary" onclick="viewDemo('analytics')">🎯 SEE DEMO</button>
+                </div>
+            </div>
+
+            <!-- Custom Web Applications -->
+            <div class="service-card fade-in">
+                <span class="service-icon">🌐</span>
+                <h3 class="service-title">WEB APP DOMINATION</h3>
+                <p class="service-description">
+                    Full-stack web applications that solve complex problems with elegant, powerful solutions.
+                    From concept to deployment, we build digital empires.
+                </p>
+                <ul class="service-features">
+                    <li>Custom web application development</li>
+                    <li>Database design & optimization</li>
+                    <li>API development & integration</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Cloud deployment & scaling</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$500 - $5000</span>
+                    <span class="price-label">Custom quote based on scope</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="orderService('webapp')">🌐 BUILD NOW</button>
+                    <button class="btn btn-secondary" onclick="getQuote('webapp')">💎 CUSTOM QUOTE</button>
+                </div>
+            </div>
+
+            <!-- Emergency Support -->
+            <div class="service-card fade-in">
+                <span class="service-icon">🚨</span>
+                <h3 class="service-title">EMERGENCY RESCUE</h3>
+                <p class="service-description">
+                    When everything breaks and panic sets in, call the chaos genius.
+                    24/7 emergency response for critical system failures.
+                </p>
+                <ul class="service-features">
+                    <li>24/7 emergency response</li>
+                    <li>System failure recovery</li>
+                    <li>Data recovery & backup</li>
+                    <li>Critical bug fixes</li>
+                    <li>Performance crisis resolution</li>
+                </ul>
+                <div class="price-section">
+                    <span class="price-amount">$100/hour</span>
+                    <span class="price-label">Emergency rate (min 2 hours)</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="emergencyContact()">🚨 HELP NOW</button>
+                    <button class="btn btn-secondary" onclick="learnMore('emergency')">⚡ LEARN MORE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Gallery -->
+        <h2 class="section-title fade-in">🎯 LEGENDARY PROJECTS SHOWCASE 🎯</h2>
+
+        <div class="portfolio-gallery">
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-content">
+                    <div class="portfolio-title">🤖 ChaosGenius AI Empire</div>
+                    <div class="portfolio-tech">Python • SQLite • Discord.py • Advanced AI</div>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-content">
+                    <div class="portfolio-title">🛡️ Guardian Defense System</div>
+                    <div class="portfolio-tech">Security • Monitoring • Real-time Analytics</div>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-content">
+                    <div class="portfolio-title">📊 Ultra Analytics Dashboard</div>
+                    <div class="portfolio-tech">Real-time Data • Custom Visualizations</div>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-content">
+                    <div class="portfolio-title">🌐 HyperFocus Zone Portal</div>
+                    <div class="portfolio-tech">Web App • Database • Cloud Deployment</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section fade-in">
+            <h2 class="contact-title">💎 READY TO BUILD YOUR DIGITAL EMPIRE? 💎</h2>
+            <p style="font-size: 1.3rem; color: #00ffff; margin: 20px 0;">
+                ⚡ Let's transform your vision into legendary technical reality. Contact the chaos genius today. ⚡
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <div>Discord</div>
+                    <div style="color: #ff006e;">@broski_empire</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div>Email</div>
+                    <div style="color: #ff006e;">legend@broski.tech</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">⚡</span>
+                    <div>Emergency</div>
+                    <div style="color: #ff006e;">24/7 Response</div>
+                </div>
+            </div>
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" onclick="startProject()" style="font-size: 1.2rem; padding: 15px 40px;">
+                    🚀 START YOUR EMPIRE TODAY 🚀
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixBg = document.getElementById('matrixBg');
+            const chars = '01010011010010110100101110100101101001011010010111010010110100101110100101101001011010010111';
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const column = document.createElement('div');
+                    column.className = 'matrix-column';
+                    column.style.left = Math.random() * window.innerWidth + 'px';
+                    column.style.animationDelay = Math.random() * 8 + 's';
+                    column.style.animationDuration = (Math.random() * 3 + 5) + 's';
+
+                    let columnText = '';
+                    for (let j = 0; j < 20; j++) {
+                        columnText += chars[Math.floor(Math.random() * chars.length)] + '\\n';
+                    }
+                    column.textContent = columnText;
+
+                    matrixBg.appendChild(column);
+
+                    setTimeout(() => column.remove(), 8000);
+                }, i * 100);
+            }
+        }
+
+        // Scroll Animation
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight * 0.8) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Service Actions
+        function orderService(service) {
+            showNotification(`🚀 Ordering ${service.toUpperCase()} service! Check your DMs.`);
+            // Here you would integrate with your actual ordering system
+        }
+
+        function viewDemo(demo) {
+            showNotification(`👁️ Opening ${demo.toUpperCase()} demo...`);
+            // Here you would open demo links
+        }
+
+        function getQuote(service) {
+            showNotification(`💰 Generating custom quote for ${service.toUpperCase()}...`);
+            // Here you would open quote form
+        }
+
+        function learnMore(service) {
+            showNotification(`📚 Loading ${service.toUpperCase()} details...`);
+            // Here you would show more details
+        }
+
+        function emergencyContact() {
+            showNotification(`🚨 EMERGENCY CONTACT ACTIVATED! Response incoming.`);
+            // Here you would trigger emergency contact
+        }
+
+        function startProject() {
+            showNotification(`🚀 PROJECT INITIATION SEQUENCE STARTED!`);
+            // Here you would open project start form
+        }
+
+        // Notification System
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #ff006e, #8338ec);
+                color: white;
+                padding: 20px;
+                border-radius: 15px;
+                font-weight: bold;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(255, 0, 110, 0.4);
+                animation: slideInRight 0.4s ease-out;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.4s ease-in';
+                setTimeout(() => notification.remove(), 400);
+            }, 4000);
+        }
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            createMatrixRain();
+            handleScrollAnimations();
+
+            // Restart matrix rain every 10 seconds
+            setInterval(createMatrixRain, 10000);
+
+            showNotification('🚀 BROSKI TECH EMPIRE PORTFOLIO: ACTIVATED!');
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Add slide animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log(`
+        🚀💎 BROSKI TECH EMPIRE PORTFOLIO 💎🚀
+        ╔════════════════════════════════════════════╗
+        ║         LEGENDARY SERVICES SHOWCASE        ║
+        ║                                            ║
+        ║  🤖 Discord Bots:    $75-500             ║
+        ║  🛡️ Security:        $150-750            ║
+        ║  ☁️ Cloudflare:      $250-1000           ║
+        ║  📊 Analytics:       $50-200/month       ║
+        ║  🌐 Web Apps:        $500-5000           ║
+        ║  🚨 Emergency:       $100/hour           ║
+        ║                                            ║
+        ║  Status: READY TO DOMINATE                 ║
+        ╚════════════════════════════════════════════╝
+        `);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1134 @@
+{
+  "setup_instructions": {
+    "environment": "Python Virtual Environment",
+    "requirements": [
+      "Python 3.8+",
+      "VS Code",
+      "Git"
+    ],
+    "quick_start": [
+      "Open ChaosGenius.code-workspace in VS Code",
+      "Install recommended extensions",
+      "Run: Ctrl+Shift+P \u2192 Tasks: Run Task \u2192 \ud83e\udde0 Initialize ChaosGenius Environment",
+      "Run: Ctrl+Shift+P \u2192 Tasks: Run Task \u2192 \ud83d\ude80 Run AI Squad Business Creator"
+    ]
+  },
+  "code_analysis": {
+    "python_files": 13221,
+    "markdown_files": 115,
+    "json_files": 5171,
+    "directories": 84
+  },
+  "project_structure": [
+    {
+      "name": "quick_launch.sh",
+      "type": "file",
+      "purpose": "File: quick_launch.sh"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034310.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034310.broski"
+    },
+    {
+      "name": "tests",
+      "type": "directory",
+      "purpose": "Component: tests"
+    },
+    {
+      "name": "broski_secure_wallet_manager.py",
+      "type": "file",
+      "purpose": "Python module: broski_secure_wallet_manager"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034554.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034554.broski"
+    },
+    {
+      "name": "generated_docs",
+      "type": "directory",
+      "purpose": "Component: generated_docs"
+    },
+    {
+      "name": "guardian_x_demo.py",
+      "type": "file",
+      "purpose": "Python module: guardian_x_demo"
+    },
+    {
+      "name": "scorecards",
+      "type": "directory",
+      "purpose": "Component: scorecards"
+    },
+    {
+      "name": "badges",
+      "type": "directory",
+      "purpose": "Component: badges"
+    },
+    {
+      "name": "BROski-CLANVERSE-Ultra",
+      "type": "directory",
+      "purpose": "Component: BROski-CLANVERSE-Ultra"
+    },
+    {
+      "name": "immortal_guardian_ultra.py",
+      "type": "file",
+      "purpose": "Python module: immortal_guardian_ultra"
+    },
+    {
+      "name": "guardian_x_test_report_20250608_003639.json",
+      "type": "file",
+      "purpose": "Configuration: guardian_x_test_report_20250608_003639"
+    },
+    {
+      "name": "hboard_api.py",
+      "type": "file",
+      "purpose": "Python module: hboard_api"
+    },
+    {
+      "name": "health_report_20250608_084929.json",
+      "type": "file",
+      "purpose": "Configuration: health_report_20250608_084929"
+    },
+    {
+      "name": "broski_analytics.db",
+      "type": "file",
+      "purpose": "File: broski_analytics.db"
+    },
+    {
+      "name": "initialize_token_system.py",
+      "type": "file",
+      "purpose": "Python module: initialize_token_system"
+    },
+    {
+      "name": "requirements.txt",
+      "type": "file",
+      "purpose": "File: requirements.txt"
+    },
+    {
+      "name": "immortal_status_api.py",
+      "type": "file",
+      "purpose": "Python module: immortal_status_api"
+    },
+    {
+      "name": "ad_uploads",
+      "type": "directory",
+      "purpose": "Component: ad_uploads"
+    },
+    {
+      "name": "optimization_backups",
+      "type": "directory",
+      "purpose": "Component: optimization_backups"
+    },
+    {
+      "name": "venv",
+      "type": "directory",
+      "purpose": "Component: venv"
+    },
+    {
+      "name": "frontend",
+      "type": "directory",
+      "purpose": "Component: frontend"
+    },
+    {
+      "name": "uploads",
+      "type": "directory",
+      "purpose": "Component: uploads"
+    },
+    {
+      "name": "test_report_complete_20250608_022857.json",
+      "type": "file",
+      "purpose": "Configuration: test_report_complete_20250608_022857"
+    },
+    {
+      "name": "\ud83e\udde0\u2699\ufe0f BROSKI ULTRA SERVER IMMORTALITY PLAN",
+      "type": "file",
+      "purpose": "File: \ud83e\udde0\u2699\ufe0f BROSKI ULTRA SERVER IMMORTALITY PLAN"
+    },
+    {
+      "name": "Dockerfile",
+      "type": "file",
+      "purpose": "File: Dockerfile"
+    },
+    {
+      "name": "hyperdimension_engine.py",
+      "type": "file",
+      "purpose": "Python module: hyperdimension_engine"
+    },
+    {
+      "name": "broski_crystal_showcase_20250607_212554.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_showcase_20250607_212554.broski"
+    },
+    {
+      "name": "\ud83d\ude80 Deployment",
+      "type": "directory",
+      "purpose": "Component: \ud83d\ude80 Deployment"
+    },
+    {
+      "name": "seo_optimizations",
+      "type": "directory",
+      "purpose": "Component: seo_optimizations"
+    },
+    {
+      "name": "chaosgenius-ultimate.code-workspace",
+      "type": "file",
+      "purpose": "File: chaosgenius-ultimate.code-workspace"
+    },
+    {
+      "name": "\ud83d\udcdd Documentation",
+      "type": "directory",
+      "purpose": "Component: \ud83d\udcdd Documentation"
+    },
+    {
+      "name": "Ultra IPFS",
+      "type": "directory",
+      "purpose": "Advanced IPFS integration for Web3 features"
+    },
+    {
+      "name": "pytest.ini",
+      "type": "file",
+      "purpose": "File: pytest.ini"
+    },
+    {
+      "name": "broski_crystal_ultimate_20250607_212257.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_ultimate_20250607_212257.broski"
+    },
+    {
+      "name": "\ud83c\udf10 Web Assets",
+      "type": "directory",
+      "purpose": "Component: \ud83c\udf10 Web Assets"
+    },
+    {
+      "name": "logs",
+      "type": "directory",
+      "purpose": "Component: logs"
+    },
+    {
+      "name": "ULTRA TASKS: PRIORITY FIX LIST",
+      "type": "file",
+      "purpose": "File: ULTRA TASKS: PRIORITY FIX LIST"
+    },
+    {
+      "name": "docs",
+      "type": "directory",
+      "purpose": "Component: docs"
+    },
+    {
+      "name": "ai_squad_activation.py",
+      "type": "file",
+      "purpose": "Python module: ai_squad_activation"
+    },
+    {
+      "name": "extension_supercharger.py",
+      "type": "file",
+      "purpose": "Python module: extension_supercharger"
+    },
+    {
+      "name": "temp",
+      "type": "directory",
+      "purpose": "Component: temp"
+    },
+    {
+      "name": "ultimate_launch_orchestrator.py",
+      "type": "file",
+      "purpose": "Python module: ultimate_launch_orchestrator"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_022849.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_022849.broski"
+    },
+    {
+      "name": "social_media_campaigns",
+      "type": "directory",
+      "purpose": "Component: social_media_campaigns"
+    },
+    {
+      "name": "Tools & Utilities",
+      "type": "directory",
+      "purpose": "Component: Tools & Utilities"
+    },
+    {
+      "name": "ultra_port_manager.py",
+      "type": "file",
+      "purpose": "Python module: ultra_port_manager"
+    },
+    {
+      "name": "portal_links_manager.py",
+      "type": "file",
+      "purpose": "Python module: portal_links_manager"
+    },
+    {
+      "name": "performance_control_center.py",
+      "type": "file",
+      "purpose": "Python module: performance_control_center"
+    },
+    {
+      "name": "ipfs_build",
+      "type": "directory",
+      "purpose": "Component: ipfs_build"
+    },
+    {
+      "name": "Setup & Deploy",
+      "type": "directory",
+      "purpose": "Component: Setup & Deploy"
+    },
+    {
+      "name": "guardian_hud.html",
+      "type": "file",
+      "purpose": "File: guardian_hud.html"
+    },
+    {
+      "name": "gesture_controls",
+      "type": "directory",
+      "purpose": "Component: gesture_controls"
+    },
+    {
+      "name": "broski_health_matrix.py",
+      "type": "file",
+      "purpose": "Python module: broski_health_matrix"
+    },
+    {
+      "name": "auto_plans",
+      "type": "directory",
+      "purpose": "Component: auto_plans"
+    },
+    {
+      "name": "LYNDZ IDEAS",
+      "type": "directory",
+      "purpose": "Component: LYNDZ IDEAS"
+    },
+    {
+      "name": "\ud83c\udfa8 Frontend & UI",
+      "type": "directory",
+      "purpose": "Component: \ud83c\udfa8 Frontend & UI"
+    },
+    {
+      "name": "broski_optimization_scheduler.py",
+      "type": "file",
+      "purpose": "Python module: broski_optimization_scheduler"
+    },
+    {
+      "name": "project_env",
+      "type": "directory",
+      "purpose": "Component: project_env"
+    },
+    {
+      "name": "social_media_feeds.py",
+      "type": "file",
+      "purpose": "Python module: social_media_feeds"
+    },
+    {
+      "name": "trend_reports",
+      "type": "directory",
+      "purpose": "Component: trend_reports"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034437.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034437.broski"
+    },
+    {
+      "name": "archives",
+      "type": "directory",
+      "purpose": "Component: archives"
+    },
+    {
+      "name": "run_lab.py",
+      "type": "file",
+      "purpose": "Python module: run_lab"
+    },
+    {
+      "name": "cache",
+      "type": "directory",
+      "purpose": "Component: cache"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250608_034049.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250608_034049"
+    },
+    {
+      "name": "ChaosGenius.code-workspace",
+      "type": "file",
+      "purpose": "File: ChaosGenius.code-workspace"
+    },
+    {
+      "name": "README_PORTALS.md",
+      "type": "file",
+      "purpose": "Documentation: README_PORTALS"
+    },
+    {
+      "name": "HYPERFOCUS_ZONE_ULTRA_MODE",
+      "type": "directory",
+      "purpose": "Component: HYPERFOCUS_ZONE_ULTRA_MODE"
+    },
+    {
+      "name": "broski_hyperfocus_command_center.py",
+      "type": "file",
+      "purpose": "Python module: broski_hyperfocus_command_center"
+    },
+    {
+      "name": "broski_defender_simulator.py",
+      "type": "file",
+      "purpose": "Python module: broski_defender_simulator"
+    },
+    {
+      "name": "ai_modules",
+      "type": "directory",
+      "purpose": "Component: ai_modules"
+    },
+    {
+      "name": "broski_adslot_system.py",
+      "type": "file",
+      "purpose": "Python module: broski_adslot_system"
+    },
+    {
+      "name": "chaosgenius.db",
+      "type": "file",
+      "purpose": "File: chaosgenius.db"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034309.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034309.broski"
+    },
+    {
+      "name": "broski_crystal_compact_20250607_212553.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_compact_20250607_212553.broski"
+    },
+    {
+      "name": "\ud83d\udd27 Maintenance",
+      "type": "directory",
+      "purpose": "Component: \ud83d\udd27 Maintenance"
+    },
+    {
+      "name": "cleanup_log_20250608_034128.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250608_034128"
+    },
+    {
+      "name": "broski_core.py",
+      "type": "file",
+      "purpose": "Python module: broski_core"
+    },
+    {
+      "name": "broski_ultra_launcher.py",
+      "type": "file",
+      "purpose": "Python module: broski_ultra_launcher"
+    },
+    {
+      "name": "chaos_genius_ultra_monitor.py",
+      "type": "file",
+      "purpose": "Python module: chaos_genius_ultra_monitor"
+    },
+    {
+      "name": "The Zone",
+      "type": "directory",
+      "purpose": "Core Hyperfocus Zone implementation"
+    },
+    {
+      "name": "hyperfocus_instant_transform.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_instant_transform"
+    },
+    {
+      "name": "broski_shield.db",
+      "type": "file",
+      "purpose": "File: broski_shield.db"
+    },
+    {
+      "name": "Ui Upgrade",
+      "type": "directory",
+      "purpose": "Component: Ui Upgrade"
+    },
+    {
+      "name": "Marketing Content",
+      "type": "directory",
+      "purpose": "Component: Marketing Content"
+    },
+    {
+      "name": "chaosgenius_analytics.ipynb",
+      "type": "file",
+      "purpose": "File: chaosgenius_analytics.ipynb"
+    },
+    {
+      "name": "broski_crystal_premium_20250607_212256.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250607_212256.broski"
+    },
+    {
+      "name": "enhanced_memory_system.py",
+      "type": "file",
+      "purpose": "Python module: enhanced_memory_system"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_022851.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_022851.broski"
+    },
+    {
+      "name": "production_assets",
+      "type": "directory",
+      "purpose": "Component: production_assets"
+    },
+    {
+      "name": "cleanup_log_20250608_101755.json",
+      "type": "file",
+      "purpose": "Configuration: cleanup_log_20250608_101755"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_091942.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_091942.broski"
+    },
+    {
+      "name": "competitor_analyses",
+      "type": "directory",
+      "purpose": "Component: competitor_analyses"
+    },
+    {
+      "name": "live_dashboard.html",
+      "type": "file",
+      "purpose": "File: live_dashboard.html"
+    },
+    {
+      "name": "\ud83e\uddea Testing & Health",
+      "type": "directory",
+      "purpose": "Component: \ud83e\uddea Testing & Health"
+    },
+    {
+      "name": "pinta_ipfs_setup_helper.py",
+      "type": "file",
+      "purpose": "Python module: pinta_ipfs_setup_helper"
+    },
+    {
+      "name": "broski_crystal_ultimate_20250608_091941.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_ultimate_20250608_091941.broski"
+    },
+    {
+      "name": "cleanup_backups",
+      "type": "directory",
+      "purpose": "Component: cleanup_backups"
+    },
+    {
+      "name": "cloudflare_setup_helper.py",
+      "type": "file",
+      "purpose": "Python module: cloudflare_setup_helper"
+    },
+    {
+      "name": "Scripts & Prompts",
+      "type": "directory",
+      "purpose": "Component: Scripts & Prompts"
+    },
+    {
+      "name": "broski_wallet_api.py",
+      "type": "file",
+      "purpose": "Python module: broski_wallet_api"
+    },
+    {
+      "name": "hyperfocus_brain_command_center.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_brain_command_center"
+    },
+    {
+      "name": "discord_server_setup.py",
+      "type": "file",
+      "purpose": "Python module: discord_server_setup"
+    },
+    {
+      "name": "scripts",
+      "type": "directory",
+      "purpose": "Component: scripts"
+    },
+    {
+      "name": "broski_ultra_security_fortress.py",
+      "type": "file",
+      "purpose": "Python module: broski_ultra_security_fortress"
+    },
+    {
+      "name": "chaosgenius_ultimate_showcase.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_ultimate_showcase"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034311.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034311.broski"
+    },
+    {
+      "name": "health_report.json",
+      "type": "file",
+      "purpose": "Configuration: health_report"
+    },
+    {
+      "name": "voice_commands",
+      "type": "directory",
+      "purpose": "Component: voice_commands"
+    },
+    {
+      "name": "blog_drafts",
+      "type": "directory",
+      "purpose": "Component: blog_drafts"
+    },
+    {
+      "name": "dashboard_api.py",
+      "type": "file",
+      "purpose": "Python module: dashboard_api"
+    },
+    {
+      "name": "hyperfocus_discord_restructure_bot.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_discord_restructure_bot"
+    },
+    {
+      "name": "health_check.py",
+      "type": "file",
+      "purpose": "Python module: health_check"
+    },
+    {
+      "name": "\ud83d\udee0 HTML SNIPPET (Basic Version)",
+      "type": "file",
+      "purpose": "File: \ud83d\udee0 HTML SNIPPET (Basic Version)"
+    },
+    {
+      "name": "broski_crystal_ultimate_20250607_212554.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_ultimate_20250607_212554.broski"
+    },
+    {
+      "name": "archived_logs",
+      "type": "directory",
+      "purpose": "Component: archived_logs"
+    },
+    {
+      "name": "broski_fix_lab.db",
+      "type": "file",
+      "purpose": "File: broski_fix_lab.db"
+    },
+    {
+      "name": "broski_crystal_premium_20250607_212639.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250607_212639.broski"
+    },
+    {
+      "name": "bts_security_report_generator.py",
+      "type": "file",
+      "purpose": "Python module: bts_security_report_generator"
+    },
+    {
+      "name": "discord_auto_roles_payouts.py",
+      "type": "file",
+      "purpose": "Python module: discord_auto_roles_payouts"
+    },
+    {
+      "name": "PORT_MAP.md",
+      "type": "file",
+      "purpose": "Documentation: PORT_MAP"
+    },
+    {
+      "name": "ULTRA FIX ENGINE Lab",
+      "type": "file",
+      "purpose": "File: ULTRA FIX ENGINE Lab"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034638.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034638.broski"
+    },
+    {
+      "name": "hyperfocus_live_monitor.py",
+      "type": "file",
+      "purpose": "Python module: hyperfocus_live_monitor"
+    },
+    {
+      "name": "broski_crystal_premium_20250607_212553.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250607_212553.broski"
+    },
+    {
+      "name": "memory_crystal_dashboard.html",
+      "type": "file",
+      "purpose": "File: memory_crystal_dashboard.html"
+    },
+    {
+      "name": "MY SUOER SCAN",
+      "type": "directory",
+      "purpose": "Component: MY SUOER SCAN"
+    },
+    {
+      "name": "static",
+      "type": "directory",
+      "purpose": "Component: static"
+    },
+    {
+      "name": "email_campaigns",
+      "type": "directory",
+      "purpose": "Component: email_campaigns"
+    },
+    {
+      "name": "B.R.A.I.N.DROP",
+      "type": "directory",
+      "purpose": "Component: B.R.A.I.N.DROP"
+    },
+    {
+      "name": "ultra_crew_control_center.html",
+      "type": "file",
+      "purpose": "File: ultra_crew_control_center.html"
+    },
+    {
+      "name": "broski_learning_optimized.db",
+      "type": "file",
+      "purpose": "File: broski_learning_optimized.db"
+    },
+    {
+      "name": "health_report_20250608_101755.json",
+      "type": "file",
+      "purpose": "Configuration: health_report_20250608_101755"
+    },
+    {
+      "name": "Business Data",
+      "type": "directory",
+      "purpose": "Component: Business Data"
+    },
+    {
+      "name": "guardian_zero.db",
+      "type": "file",
+      "purpose": "File: guardian_zero.db"
+    },
+    {
+      "name": "\ud83d\udce6 Archives & Backups",
+      "type": "directory",
+      "purpose": "Component: \ud83d\udce6 Archives & Backups"
+    },
+    {
+      "name": "emergency_ai_specialist.py",
+      "type": "file",
+      "purpose": "Python module: emergency_ai_specialist"
+    },
+    {
+      "name": "broski_crystal_showcase_20250607_212639.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_showcase_20250607_212639.broski"
+    },
+    {
+      "name": "\u2699\ufe0f Configuration",
+      "type": "directory",
+      "purpose": "Component: \u2699\ufe0f Configuration"
+    },
+    {
+      "name": "broski_ultra_server_armor.py",
+      "type": "file",
+      "purpose": "Python module: broski_ultra_server_armor"
+    },
+    {
+      "name": "test_projects",
+      "type": "directory",
+      "purpose": "Component: test_projects"
+    },
+    {
+      "name": "templates",
+      "type": "directory",
+      "purpose": "Component: templates"
+    },
+    {
+      "name": "app.py",
+      "type": "file",
+      "purpose": "Python module: app"
+    },
+    {
+      "name": "portal_launcher.py",
+      "type": "file",
+      "purpose": "Python module: portal_launcher"
+    },
+    {
+      "name": "\ud83d\udccb Logs & Temp",
+      "type": "directory",
+      "purpose": "Component: \ud83d\udccb Logs & Temp"
+    },
+    {
+      "name": "revenue_reports",
+      "type": "directory",
+      "purpose": "Component: revenue_reports"
+    },
+    {
+      "name": "optimization_analytics.db",
+      "type": "file",
+      "purpose": "File: optimization_analytics.db"
+    },
+    {
+      "name": "immortal_guardian.py",
+      "type": "file",
+      "purpose": "Python module: immortal_guardian"
+    },
+    {
+      "name": "broski_crystal_showcase_20250607_212257.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_showcase_20250607_212257.broski"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034623.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034623.broski"
+    },
+    {
+      "name": "sync_reports",
+      "type": "directory",
+      "purpose": "Component: sync_reports"
+    },
+    {
+      "name": "wallet_backups",
+      "type": "directory",
+      "purpose": "Component: wallet_backups"
+    },
+    {
+      "name": "comment_replies",
+      "type": "directory",
+      "purpose": "Component: comment_replies"
+    },
+    {
+      "name": "tools",
+      "type": "directory",
+      "purpose": "Component: tools"
+    },
+    {
+      "name": "broski_cache_bypass_ultra.py",
+      "type": "file",
+      "purpose": "Python module: broski_cache_bypass_ultra"
+    },
+    {
+      "name": "market_research",
+      "type": "directory",
+      "purpose": "Component: market_research"
+    },
+    {
+      "name": "chaosgenius_evolution_pipeline.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_evolution_pipeline"
+    },
+    {
+      "name": "\ud83d\udcca Analytics & Reports",
+      "type": "directory",
+      "purpose": "Component: \ud83d\udcca Analytics & Reports"
+    },
+    {
+      "name": "health_report_20250608_110740.json",
+      "type": "file",
+      "purpose": "Configuration: health_report_20250608_110740"
+    },
+    {
+      "name": "ULTRA_BROSKI_PROJECT",
+      "type": "directory",
+      "purpose": "Component: ULTRA_BROSKI_PROJECT"
+    },
+    {
+      "name": "guardian_x_test_report_20250608_003839.json",
+      "type": "file",
+      "purpose": "Configuration: guardian_x_test_report_20250608_003839"
+    },
+    {
+      "name": "Welcome & Onboarding",
+      "type": "directory",
+      "purpose": "Component: Welcome & Onboarding"
+    },
+    {
+      "name": "broski_crystal_ultimate_20250607_212639.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_ultimate_20250607_212639.broski"
+    },
+    {
+      "name": "content_optimizations",
+      "type": "directory",
+      "purpose": "Component: content_optimizations"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_034444.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_034444.broski"
+    },
+    {
+      "name": "chaosgenius_discord_bot.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_discord_bot"
+    },
+    {
+      "name": "broski_tokens.db",
+      "type": "file",
+      "purpose": "File: broski_tokens.db"
+    },
+    {
+      "name": "chaos_genius_ultra_optimizer.py",
+      "type": "file",
+      "purpose": "Python module: chaos_genius_ultra_optimizer"
+    },
+    {
+      "name": "performance_optimization_report.json",
+      "type": "file",
+      "purpose": "Configuration: performance_optimization_report"
+    },
+    {
+      "name": "broski_crystal_showcase_20250608_091942.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_showcase_20250608_091942.broski"
+    },
+    {
+      "name": "voice_command_center.py",
+      "type": "file",
+      "purpose": "Python module: voice_command_center"
+    },
+    {
+      "name": "production_config",
+      "type": "directory",
+      "purpose": "Component: production_config"
+    },
+    {
+      "name": "guardian_zero_command.py",
+      "type": "file",
+      "purpose": "Python module: guardian_zero_command"
+    },
+    {
+      "name": "__pycache__",
+      "type": "directory",
+      "purpose": "Component: __pycache__"
+    },
+    {
+      "name": "broski_endpoints.py",
+      "type": "file",
+      "purpose": "Python module: broski_endpoints"
+    },
+    {
+      "name": "run_complete_tests.py",
+      "type": "file",
+      "purpose": "Python module: run_complete_tests"
+    },
+    {
+      "name": "Elite Defense Units",
+      "type": "file",
+      "purpose": "File: Elite Defense Units"
+    },
+    {
+      "name": "BROski$ INTER",
+      "type": "directory",
+      "purpose": "Component: BROski$ INTER"
+    },
+    {
+      "name": "Notes",
+      "type": "directory",
+      "purpose": "Component: Notes"
+    },
+    {
+      "name": "health_report_20250608_091647.json",
+      "type": "file",
+      "purpose": "Configuration: health_report_20250608_091647"
+    },
+    {
+      "name": "\ud83d\uddc4\ufe0f Databases",
+      "type": "directory",
+      "purpose": "Component: \ud83d\uddc4\ufe0f Databases"
+    },
+    {
+      "name": "ultra_search_engine.py",
+      "type": "file",
+      "purpose": "Python module: ultra_search_engine"
+    },
+    {
+      "name": "broski_crystal_compact_20250607_212638.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_compact_20250607_212638.broski"
+    },
+    {
+      "name": "cross_platform_sync_engine.py",
+      "type": "file",
+      "purpose": "Python module: cross_platform_sync_engine"
+    },
+    {
+      "name": "broski_crystal_compact_20250607_212256.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_compact_20250607_212256.broski"
+    },
+    {
+      "name": "broski_security_fortress.db",
+      "type": "file",
+      "purpose": "File: broski_security_fortress.db"
+    },
+    {
+      "name": "health_report_20250608_085323.json",
+      "type": "file",
+      "purpose": "Configuration: health_report_20250608_085323"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250608_034123.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250608_034123"
+    },
+    {
+      "name": "broski_wallets_secure.db",
+      "type": "file",
+      "purpose": "File: broski_wallets_secure.db"
+    },
+    {
+      "name": "FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com",
+      "type": "file",
+      "purpose": "File: FINAL LAUNCH SEQUENCE \u2014 HYPERFOCUSzone.com"
+    },
+    {
+      "name": "chaosgenius_voice_commands.py",
+      "type": "file",
+      "purpose": "Python module: chaosgenius_voice_commands"
+    },
+    {
+      "name": "guardian_x_dashboard.html",
+      "type": "file",
+      "purpose": "File: guardian_x_dashboard.html"
+    },
+    {
+      "name": "portal_links_config.json",
+      "type": "file",
+      "purpose": "Configuration: portal_links_config"
+    },
+    {
+      "name": "htmlcov",
+      "type": "directory",
+      "purpose": "Component: htmlcov"
+    },
+    {
+      "name": "graceful_shutdown_example.py",
+      "type": "file",
+      "purpose": "Python module: graceful_shutdown_example"
+    },
+    {
+      "name": "zips",
+      "type": "directory",
+      "purpose": "Component: zips"
+    },
+    {
+      "name": "broski_token_config.json",
+      "type": "file",
+      "purpose": "Configuration: broski_token_config"
+    },
+    {
+      "name": "broski_api_endpoints.py",
+      "type": "file",
+      "purpose": "Python module: broski_api_endpoints"
+    },
+    {
+      "name": "hyper_cave_dashboard.html",
+      "type": "file",
+      "purpose": "File: hyper_cave_dashboard.html"
+    },
+    {
+      "name": "auto_doc_generator.py",
+      "type": "file",
+      "purpose": "Python module: auto_doc_generator"
+    },
+    {
+      "name": "guardian_x_tester.py",
+      "type": "file",
+      "purpose": "Python module: guardian_x_tester"
+    },
+    {
+      "name": "guardian_zero.log",
+      "type": "file",
+      "purpose": "File: guardian_zero.log"
+    },
+    {
+      "name": "broski_auth_system",
+      "type": "directory",
+      "purpose": "Component: broski_auth_system"
+    },
+    {
+      "name": "hyperfocus_project_analysis_20250608_023201.json",
+      "type": "file",
+      "purpose": "Configuration: hyperfocus_project_analysis_20250608_023201"
+    },
+    {
+      "name": "portal_directory.html",
+      "type": "file",
+      "purpose": "File: portal_directory.html"
+    },
+    {
+      "name": "flask_cloudflare_ultra_starter_pack",
+      "type": "directory",
+      "purpose": "Component: flask_cloudflare_ultra_starter_pack"
+    },
+    {
+      "name": "broski_legal_pack",
+      "type": "directory",
+      "purpose": "Component: broski_legal_pack"
+    },
+    {
+      "name": "broski_ultra_brain.db",
+      "type": "file",
+      "purpose": "File: broski_ultra_brain.db"
+    },
+    {
+      "name": "project_evolution_wizard.py",
+      "type": "file",
+      "purpose": "Python module: project_evolution_wizard"
+    },
+    {
+      "name": "start_immortal_system.sh",
+      "type": "file",
+      "purpose": "File: start_immortal_system.sh"
+    },
+    {
+      "name": "config",
+      "type": "directory",
+      "purpose": "Component: config"
+    },
+    {
+      "name": "tash",
+      "type": "file",
+      "purpose": "File: tash"
+    },
+    {
+      "name": "backups",
+      "type": "directory",
+      "purpose": "Component: backups"
+    },
+    {
+      "name": "emergency_broski_wrapper.py",
+      "type": "file",
+      "purpose": "Python module: emergency_broski_wrapper"
+    },
+    {
+      "name": "broski_hyperportal",
+      "type": "directory",
+      "purpose": "Component: broski_hyperportal"
+    },
+    {
+      "name": "api",
+      "type": "directory",
+      "purpose": "Component: api"
+    },
+    {
+      "name": "test_report_complete_20250608_034320.json",
+      "type": "file",
+      "purpose": "Configuration: test_report_complete_20250608_034320"
+    },
+    {
+      "name": "token_test_results.txt",
+      "type": "file",
+      "purpose": "File: token_test_results.txt"
+    },
+    {
+      "name": "broski_crystal_premium_20250608_022850.broski",
+      "type": "file",
+      "purpose": "File: broski_crystal_premium_20250608_022850.broski"
+    }
+  ],
+  "tasks_available": [
+    "\ud83e\udde0 Initialize ChaosGenius Environment",
+    "\ud83d\ude80 Run AI Squad Business Creator",
+    "\ud83d\udd27 Project Analysis & Fix",
+    "\ud83d\udcda Generate Documentation Suite",
+    "\ud83c\udf10 Launch Hyperfocus Zone Preview",
+    "\u26a1 Ultra Mode Deploy",
+    "\ud83c\udf9b\ufe0f Launch ChaosGenius Dashboard",
+    "\ud83c\udf10 Open Dashboard in Browser"
+  ]
+}

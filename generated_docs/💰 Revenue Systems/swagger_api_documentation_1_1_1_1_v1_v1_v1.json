@@ -1,0 +1,551 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ChaosGenius Engine API",
+    "description": "AI-Powered Neurodivergent Business Creation Ecosystem API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Hyperfocus Zone Studio",
+      "url": "http://localhost:5000",
+      "email": "hyperfocus@chaosgenius.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local Development Server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Main Dashboard",
+        "description": "Serves the ChaosGenius Dashboard HTML interface",
+        "responses": {
+          "200": {
+            "description": "Dashboard HTML page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/status": {
+      "get": {
+        "summary": "API Health Check",
+        "description": "Returns the current status of the ChaosGenius Engine API",
+        "responses": {
+          "200": {
+            "description": "API status information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/create-product": {
+      "post": {
+        "summary": "Create New Product Idea",
+        "description": "Creates a new product idea file in the production assets directory",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreationResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error creating product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/generate-docs": {
+      "post": {
+        "summary": "Generate Documentation",
+        "description": "Triggers the auto_doc_generator.py script to create comprehensive documentation",
+        "responses": {
+          "200": {
+            "description": "Documentation generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Documentation generator not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error generating documentation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/analytics": {
+      "get": {
+        "summary": "Get Analytics Data",
+        "description": "Returns comprehensive analytics data mixing real data from database, files, and placeholders",
+        "responses": {
+          "200": {
+            "description": "Analytics data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error retrieving analytics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/dashboard-stats": {
+      "get": {
+        "summary": "Get Dashboard Statistics",
+        "description": "Returns dashboard statistics and recent activity from the database",
+        "responses": {
+          "200": {
+            "description": "Dashboard stats retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardStatsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/launch-ai-squad": {
+      "post": {
+        "summary": "Launch AI Squad",
+        "description": "Launches AI Squad session with custom parameters for business automation",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AiSquadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AI Squad launched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiSquadResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/empire-status": {
+      "get": {
+        "summary": "Get Empire Status",
+        "description": "Returns overall empire status, system health checks, and recommended next actions",
+        "responses": {
+          "200": {
+            "description": "Empire status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpireStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/hyperfocus-analytics": {
+      "get": {
+        "summary": "Get Hyperfocus Analytics",
+        "description": "Returns comprehensive hyperfocus zone analytics including empire stats and neurodivergent power metrics",
+        "responses": {
+          "200": {
+            "description": "Hyperfocus analytics retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HyperfocusAnalyticsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error retrieving hyperfocus analytics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "active"
+          },
+          "message": {
+            "type": "string",
+            "example": "ChaosGenius Engine API is running"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "string",
+            "example": "1.0.0"
+          }
+        }
+      },
+      "ProductCreationRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Hyperfocus Widget v1.0"
+          },
+          "type": {
+            "type": "string",
+            "example": "Custom Creation"
+          },
+          "energy_level": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "example": "high"
+          },
+          "description": {
+            "type": "string",
+            "example": "Revolutionary neurodivergent-friendly tool"
+          }
+        }
+      },
+      "ProductCreationResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "🛠️ New product created!"
+          },
+          "file": {
+            "type": "string",
+            "example": "production_assets/product_ideas/product_2025-05-24_14-30-15.txt"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2025-05-24_14-30-15"
+          }
+        }
+      },
+      "DocumentationResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "📄 Documentation generated!"
+          },
+          "output": {
+            "type": "string",
+            "example": "Documentation created successfully with 6 sections"
+          }
+        }
+      },
+      "AnalyticsResponse": {
+        "type": "object",
+        "properties": {
+          "etsy_sales": {
+            "type": "integer",
+            "example": 17
+          },
+          "tiktok_views": {
+            "type": "integer",
+            "example": 22000
+          },
+          "teemill_orders": {
+            "type": "integer",
+            "example": 5
+          },
+          "total_revenue": {
+            "type": "string",
+            "example": "£1,240"
+          },
+          "active_products": {
+            "type": "integer",
+            "example": 9
+          },
+          "sessions_by_day": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {"type": "string"},
+                "sessions": {"type": "integer"}
+              }
+            }
+          },
+          "activity_by_type": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {"type": "string"},
+                "count": {"type": "integer"}
+              }
+            }
+          }
+        }
+      },
+      "AiSquadRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["business_creator", "advanced_analyzer", "ultra_mode"],
+            "example": "business_creator"
+          },
+          "energy_level": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "example": "high"
+          },
+          "focus": {
+            "type": "string",
+            "example": "product_development"
+          }
+        }
+      },
+      "AiSquadResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "🚀 AI Squad business_creator launched!"
+          },
+          "energy_boost": {
+            "type": "string",
+            "example": "🧠 Hyperfocus mode activated!"
+          },
+          "estimated_completion": {
+            "type": "string",
+            "example": "3-5 minutes"
+          },
+          "script_running": {
+            "type": "string",
+            "example": "setup1"
+          }
+        }
+      },
+      "EmpireStatusResponse": {
+        "type": "object",
+        "properties": {
+          "empire_health": {
+            "type": "string",
+            "example": "85%"
+          },
+          "status_checks": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "dashboard": "✅ ACTIVE",
+              "database": "✅ Connected",
+              "ai_squad": "✅ Ready"
+            }
+          },
+          "next_actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "🎬 Create TikTok content showing EEp Tool",
+              "🛠️ Prototype HelloFresh Frame design"
+            ]
+          },
+          "hyperfocus_message": {
+            "type": "string",
+            "example": "🧠 Your beautiful chaos is becoming beautiful success!"
+          }
+        }
+      },
+      "HyperfocusAnalyticsResponse": {
+        "type": "object",
+        "properties": {
+          "empire_stats": {
+            "type": "object",
+            "properties": {
+              "etsy_listing_live": {"type": "string"},
+              "target_phase_1": {"type": "string"},
+              "eep_sales_needed": {"type": "string"}
+            }
+          },
+          "hyperfocus_metrics": {
+            "type": "object",
+            "properties": {
+              "ai_sessions": {"type": "integer"},
+              "products_created": {"type": "integer"},
+              "weekly_activity": {"type": "string"},
+              "active_energy_level": {"type": "string"}
+            }
+          },
+          "neurodivergent_power_level": {
+            "type": "object",
+            "properties": {
+              "chaos_converted_to_structure": {"type": "string"},
+              "empire_building_momentum": {"type": "string"}
+            }
+          }
+        }
+      },
+      "DashboardStatsResponse": {
+        "type": "object",
+        "properties": {
+          "stats": {
+            "type": "object",
+            "properties": {
+              "totalProjects": {"type": "integer"},
+              "aiSessions": {"type": "integer"},
+              "productsCreated": {"type": "integer"},
+              "communityMembers": {"type": "integer"}
+            }
+          },
+          "activity": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {"type": "integer"},
+                "action": {"type": "string"},
+                "type": {"type": "string"},
+                "time": {"type": "string"}
+              }
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "❌ Error description"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "dashboard",
+      "description": "Dashboard and UI endpoints"
+    },
+    {
+      "name": "analytics",
+      "description": "Analytics and metrics endpoints"
+    },
+    {
+      "name": "ai-squad",
+      "description": "AI automation and squad deployment"
+    },
+    {
+      "name": "products",
+      "description": "Product creation and management"
+    },
+    {
+      "name": "system",
+      "description": "System status and health monitoring"
+    }
+  ]
+}

@@ -106,11 +106,12 @@ class BROskiTaskLauncher:
         logger.info("✅ PHASE 3: System verification...")
         await self.verify_all_systems()
 
-        # Phase 4: Award BROski$ for successful launch
+        # Completion celebration
         self.broski_dollars_earned += 100
-        logger.info(f"💰 Launch sequence complete! Earned 100 BROski$!")
+        logger.info("💰 Launch sequence complete! Earned 100 BROski$!")
 
-        return await self.get_launch_status()
+        # Return status (not await it since it's not async)
+        return self.get_launch_status()
 
     async def launch_task(self, task_name: str) -> bool:
         """🚀 Launch a specific legendary task"""

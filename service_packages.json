@@ -1,0 +1,42 @@
+{
+  "discord_bot_basic": {
+    "name": "Custom Discord Bot (Basic)",
+    "price": 75,
+    "features": [
+      "Custom commands",
+      "Moderation tools",
+      "Basic automation"
+    ],
+    "delivery": "2-3 days"
+  },
+  "discord_bot_premium": {
+    "name": "Premium Discord Bot Suite",
+    "price": 150,
+    "features": [
+      "Advanced AI integration",
+      "Database management",
+      "Custom dashboards"
+    ],
+    "delivery": "3-5 days"
+  },
+  "server_rescue": {
+    "name": "Emergency Server Rescue",
+    "price": 200,
+    "features": [
+      "24hr response",
+      "Security audit",
+      "Performance optimization"
+    ],
+    "delivery": "Same day"
+  },
+  "cloudflare_setup": {
+    "name": "Cloudflare Empire Setup",
+    "price": 250,
+    "features": [
+      "Full CDN setup",
+      "Security rules",
+      "Analytics dashboard"
+    ],
+    "delivery": "1-2 days"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "project": "data_processor",
+    "score": 53,
+    "rank": "Super",
+    "broski_bucks": 25,
+    "fixes": 1,
+    "errors_fixed": 2,
+    "style_score": 9.0,
+    "badge": "badges/Super.svg",
+    "log_file": "logs/fix_log_data_processor.md",
+    "log": "### Fix Log for test_projects/data_processor\n\n\ud83d\ude80 BROSKI AUTOFIX RUNNER v1.0\n========================================\n\ud83d\udd0d Analyzing project: test_projects/data_processor\n\ud83d\udcc1 Found 1 Python files\n\n\ud83d\udcc4 Processing: processor.py\n  \u2714 Fixed line length\n  \u274c Logic error corrected\n  \u274c Syntax error fixed\n\n\ud83c\udfaf SUMMARY:\n   Fixes Applied: 1\n   Errors Fixed: 2\n   Files Processed: 1\n========================================\n\u2705 AUTOFIX COMPLETE!\n\n"
+}

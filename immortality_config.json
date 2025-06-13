@@ -1,0 +1,17 @@
+{
+  "check_interval": 30,
+  "auto_restart_enabled": true,
+  "max_restart_attempts": 3,
+  "health_check_timeout": 10,
+  "quantum_redundancy_enabled": true,
+  "emergency_protocols": {
+    "cpu_threshold": 90.0,
+    "memory_threshold": 85.0,
+    "disk_threshold": 95.0
+  },
+  "notification_webhooks": [],
+  "backup_locations": [
+    "/root/chaosgenius/backups",
+    "/tmp/chaosgenius_emergency_backup"
+  ]
+}

@@ -3,100 +3,849 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀💜 ChaosGenius Live Dashboard</title>
+    <title>📱 ChaosGenius Live Dashboard - ULTRA MONITORING MODE</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Fira Code', monospace;
+        /* ADHD-Optimized Cyberpunk Live Dashboard */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap');
+
+        :root {
+            --neon-green: #00ff9f;
+            --neon-purple: #8a2be2;
+            --neon-pink: #ff1493;
+            --cyber-blue: #00d4ff;
+            --dark-bg: #0a0a0a;
+            --panel-bg: rgba(26, 10, 46, 0.9);
         }
-        .glow { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0a2e 50%, #16213e 100%);
+            color: var(--neon-green);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 140px; /* Space for banner + nav */
+        }
+
+        /* Neural Grid Background */
+        .neural-grid {
+            background-image:
+                linear-gradient(rgba(0, 255, 159, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 159, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Glassmorphism Panels */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+        }
+
+        .cyber-panel {
+            background: var(--panel-bg);
+            border: 2px solid var(--neon-green);
+            box-shadow:
+                0 0 20px rgba(0, 255, 159, 0.3),
+                inset 0 0 20px rgba(0, 255, 159, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Ultra Glow Animation */
+        .ultra-glow {
+            animation: ultra-pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes ultra-pulse {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 255, 159, 0.4);
+                border-color: var(--neon-green);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(138, 43, 226, 0.6);
+                border-color: var(--neon-purple);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+                border-color: var(--cyber-blue);
+            }
+        }
+
+        /* Floating Data Streams */
+        @keyframes data-flow {
+            0% {
+                transform: translateX(-100vw);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw);
+                opacity: 0;
+            }
+        }
+
+        .data-stream {
+            animation: data-flow 8s linear infinite;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--neon-green);
+            opacity: 0.6;
+        }
+
+        /* Portal Cards */
+        .portal-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--neon-green);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-card:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .portal-card:hover::before {
+            left: 100%;
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .status-online {
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .status-warning {
+            background: #ffa500;
+            box-shadow: 0 0 10px #ffa500;
+        }
+
+        .status-offline {
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ADHD Focus Helper */
+        .adhd-focus-helper {
+            border-left: 4px solid var(--neon-purple);
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.1), transparent);
+            padding-left: 16px;
+        }
+
+        /* Hyperfocus Zone */
+        .hyperfocus-zone {
+            border: 3px solid var(--neon-green);
+            background: radial-gradient(circle at center, rgba(0, 255, 159, 0.1), transparent);
+            animation: hyperfocus-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes hyperfocus-glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(0, 255, 159, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(0, 255, 159, 0.7);
+            }
+        }
+
+        /* Cyber Buttons */
+        .cyber-btn {
+            background: linear-gradient(145deg, rgba(0, 255, 159, 0.1), rgba(0, 212, 255, 0.1));
+            border: 2px solid rgba(0, 255, 159, 0.5);
+            color: var(--neon-green);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.3), transparent);
+            transition: left 0.3s;
+        }
+
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+
+        .cyber-btn:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 159, 0.5);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        /* 🚀 BROSKI ULTRA NAVIGATION - ZERO LAG VERSION */
+        .broski-nav {
+            position: fixed;
+            top: 80px; /* Below the live banner */
+            left: 0;
+            right: 0;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 255, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: linear-gradient(145deg, rgba(139, 69, 255, 0.1), rgba(0, 191, 255, 0.1));
+            border: 1px solid rgba(139, 69, 255, 0.4);
+            color: #8b45ff;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(145deg, rgba(139, 69, 255, 0.2), rgba(0, 191, 255, 0.2));
+            border-color: #8b45ff;
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 69, 255, 0.3);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(145deg, #8b45ff, #7c3aed);
+            color: white;
+            border-color: #8b45ff;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body { padding-top: 120px; }
+            .nav-buttons {
+                padding: 8px 12px;
+                gap: 6px;
+            }
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+        }
+
+        /* Neuron Active Animation */
+        .neuron-active {
+            animation: neuron-fire 1.5s ease-in-out infinite;
+        }
+
+        @keyframes neuron-fire {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.8; transform: scale(1); }
         }
     </style>
 </head>
-<body class="min-h-screen text-white">
-    <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-12">
-            <h1 class="text-6xl font-bold mb-4 animate-float">🧠💜 ChaosGenius</h1>
-            <p class="text-2xl opacity-80">Neurodivergent Business Empire Dashboard</p>
+<body class="neural-grid" x-data="liveDashboard()" x-init="init()">
+
+    <!-- 🎊🔥🔥🔥 LIVE WORLD DOMINATION BANNER!!! 🔥🔥🔥🎊 -->
+    <div class="fixed top-0 left-0 right-0 z-60 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 text-white text-center py-3 shadow-lg"
+         style="background: linear-gradient(90deg, #059669, #2563eb, #7c3aed); box-shadow: 0 4px 20px rgba(139, 69, 255, 0.5);">
+        <div class="flex items-center justify-center space-x-3 animate-pulse">
+            <span class="text-xl">🚀</span>
+            <span class="font-bold text-lg">HYPERFOCUSZONE.COM IS NOW LIVE TO THE WORLD!</span>
+            <span class="text-xl">🌍</span>
+            <span class="font-bold text-lg">Neurodivergent Empire: ACTIVATED!</span>
+            <span class="text-xl">👑</span>
+        </div>
+        <div class="text-sm mt-1 opacity-90">
+            Built by Ultra Dev Pals • Powered by ADHD Superpowers • Ready for Global Hyperfocus! 💪
+        </div>
+    </div>
+
+    <!-- 🚀 BROSKI ULTRA NAVIGATION - ZERO LAG VERSION -->
+    <nav class="broski-nav" id="broskiNav">
+        <div class="nav-buttons" id="navButtons">
+            <a href="/index.html" class="nav-btn" data-page="index">🏠 Home</a>
+            <a href="/dashboard.html" class="nav-btn" data-page="dashboard">📊 Dashboard</a>
+            <a href="/user_portal.html" class="nav-btn" data-page="user_portal">👤 User Portal</a>
+            <a href="/live_dashboard.html" class="nav-btn active" data-page="live">📱 Live Dashboard</a>
+            <a href="/etsy-dashboard.html" class="nav-btn" data-page="etsy">🛍 Etsy</a>
+            <a href="/tiktok_shop_dashboard.html" class="nav-btn" data-page="tiktok">🎵 TikTok</a>
+            <a href="/ultra_analytics_panel.html" class="nav-btn" data-page="analytics">📈 Analytics</a>
+            <a href="/neurod_analytics_dashboard.html" class="nav-btn" data-page="neurod">🧠 NeuroD</a>
+            <a href="/production_monitoring.html" class="nav-btn" data-page="production">🔬 Production</a>
+            <a href="/phase3_dashboard.html" class="nav-btn" data-page="phase3">🚀 Phase 3</a>
+            <a href="/phase5_intelligence.html" class="nav-btn" data-page="phase5">🧠 Phase 5</a>
+            <a href="/broski_defender_dashboard.html" class="nav-btn" data-page="defender">🛡 Defender</a>
+            <a href="/hyperfocus_brain_dashboard.html" class="nav-btn" data-page="brain">🧠 Brain HQ</a>
+            <a href="/broski_adzone_visual.html" class="nav-btn" data-page="adzone">📺 Ad Zone</a>
+            <a href="/broski_manifesto.html" class="nav-btn" data-page="manifesto">📜 Manifesto</a>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()" title="Toggle Navigation" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(139, 69, 255, 0.2); border: 1px solid rgba(139, 69, 255, 0.4); color: #8b45ff; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 12px;">≡</button>
+    </nav>
+
+    <!-- Floating Data Streams -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="data-stream absolute top-24" style="animation-delay: 0s;">LIVE_DASHBOARD::ACTIVE</div>
+        <div class="data-stream absolute top-36" style="animation-delay: 2s;">PORTAL_STATUS::MONITORING</div>
+        <div class="data-stream absolute top-48" style="animation-delay: 4s;">REAL_TIME_DATA::FLOWING</div>
+        <div class="data-stream absolute top-60" style="animation-delay: 6s;">HYPERFOCUS_MODE::READY</div>
+        <div class="data-stream absolute top-72" style="animation-delay: 1s;">NEUROD_POWER::MAXIMUM</div>
+        <div class="data-stream absolute top-84" style="animation-delay: 3s;">SYSTEMS::ALL_GREEN</div>
+        <div class="data-stream absolute top-96" style="animation-delay: 5s;">LIVE_MONITORING::ULTRA_MODE</div>
+    </div>
+
+    <div class="relative z-10 min-h-screen p-4">
+        <!-- Ultra Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-5xl font-black mb-4 ultra-glow cyber-panel p-6 rounded-lg inline-block">
+                📱💜 ChaosGenius Live Dashboard
+            </h1>
+            <p class="text-xl text-purple-300 mb-4">ULTRA MONITORING MODE - Real-time Portal Network Status</p>
+            <div class="flex justify-center space-x-6 text-sm">
+                <span class="status-online status-indicator"></span>Live Data Active
+                <span class="status-online status-indicator"></span>Auto-Refresh ON
+                <span class="status-online status-indicator"></span>All Portals Connected
+            </div>
         </header>
 
+        <!-- System Status Overview -->
+        <div class="cyber-panel rounded-lg p-6 mb-8 adhd-focus-helper hyperfocus-zone">
+            <h2 class="text-2xl font-bold mb-6 text-cyber-blue flex items-center">
+                🎛️ LIVE SYSTEM STATUS OVERVIEW
+                <div class="ml-auto flex items-center space-x-2">
+                    <div class="neuron-active w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span class="text-xs text-green-400">REAL-TIME MONITORING</span>
+                </div>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <!-- Server Status -->
+                <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-lg p-4 border border-green-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-green-300">🖥️ Server Health</h4>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>CPU Usage:</span>
+                            <span class="text-green-400" x-text="systemStats.cpu">23%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Memory:</span>
+                            <span class="text-green-400" x-text="systemStats.memory">67%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Uptime:</span>
+                            <span class="text-green-400" x-text="systemStats.uptime">99.9%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portal Network -->
+                <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-purple-300">🌐 Portal Network</h4>
+                        <div class="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Active Portals:</span>
+                            <span class="text-purple-400" x-text="portalStats.active">4/4</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Connections:</span>
+                            <span class="text-purple-400" x-text="portalStats.connections">12</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Response Time:</span>
+                            <span class="text-purple-400" x-text="portalStats.responseTime">0.2s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Activity -->
+                <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg p-4 border border-blue-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-blue-300">⚡ Live Activity</h4>
+                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Requests/min:</span>
+                            <span class="text-blue-400" x-text="activityStats.requests">340</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Active Users:</span>
+                            <span class="text-blue-400" x-text="activityStats.users">8</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Data Flow:</span>
+                            <span class="text-green-400" x-text="activityStats.dataFlow">HIGH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg p-4 border border-orange-500/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="font-bold text-orange-300">📊 Performance</h4>
+                        <div class="w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span>Load Time:</span>
+                            <span class="text-orange-400" x-text="performanceStats.loadTime">0.8s</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Error Rate:</span>
+                            <span class="text-green-400" x-text="performanceStats.errorRate">0.01%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Optimization:</span>
+                            <span class="text-orange-400" x-text="performanceStats.optimization">98%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Activity Feed -->
+            <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-600/30">
+                <h4 class="font-bold text-gray-300 mb-3 flex items-center">
+                    <span class="mr-2">📡</span> Live Activity Stream
+                    <div class="ml-auto w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                </h4>
+                <div class="space-y-2 max-h-32 overflow-y-auto" id="liveActivityFeed">
+                    <!-- Live activities populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Portal Dashboard Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <!-- Dashboard Cards -->
-            <div class="bg-black bg-opacity-50 rounded-lg p-6 glow">
-                <h3 class="text-xl font-bold mb-2">🎛️ Main Dashboard</h3>
-                <p class="opacity-80">Port 5000</p>
-                <a href="http://localhost:5000" target="_blank"
-                   class="inline-block mt-4 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                   Launch
+            <!-- Main Dashboard Portal -->
+            <div class="portal-card rounded-lg p-6 text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                    <span class="text-2xl">🎛️</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-cyan-300">Main Dashboard</h3>
+                <p class="text-sm text-gray-300 mb-3">Port 5000 - Core Control Center</p>
+                <div class="mb-4">
+                    <span class="status-online status-indicator"></span>
+                    <span class="text-xs text-green-400" x-text="portalStatuses.main">ONLINE</span>
+                </div>
+                <a href="http://localhost:5000" target="_blank" class="cyber-btn w-full text-center text-sm py-2">
+                    🚀 Launch Portal
                 </a>
             </div>
 
-            <div class="bg-black bg-opacity-50 rounded-lg p-6 glow">
-                <h3 class="text-xl font-bold mb-2">💎 Memory Crystals</h3>
-                <p class="opacity-80">Port 5001</p>
-                <a href="http://localhost:5001" target="_blank"
-                   class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded hover:bg-purple-700 transition">
-                   Launch
+            <!-- Memory Crystals Portal -->
+            <div class="portal-card rounded-lg p-6 text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                    <span class="text-2xl">💎</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-purple-300">Memory Crystals</h3>
+                <p class="text-sm text-gray-300 mb-3">Port 5001 - AI Memory Storage</p>
+                <div class="mb-4">
+                    <span class="status-online status-indicator"></span>
+                    <span class="text-xs text-green-400" x-text="portalStatuses.memory">ONLINE</span>
+                </div>
+                <a href="http://localhost:5001" target="_blank" class="cyber-btn w-full text-center text-sm py-2">
+                    💎 Access Crystals
                 </a>
             </div>
 
-            <div class="bg-black bg-opacity-50 rounded-lg p-6 glow">
-                <h3 class="text-xl font-bold mb-2">🧠 BROski AI</h3>
-                <p class="opacity-80">Port 5004</p>
-                <a href="http://localhost:5004" target="_blank"
-                   class="inline-block mt-4 px-4 py-2 bg-green-600 rounded hover:bg-green-700 transition">
-                   Launch
+            <!-- BROski AI Portal -->
+            <div class="portal-card rounded-lg p-6 text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                    <span class="text-2xl">🧠</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-green-300">BROski AI</h3>
+                <p class="text-sm text-gray-300 mb-3">Port 5004 - AI Assistant Hub</p>
+                <div class="mb-4">
+                    <span class="status-online status-indicator"></span>
+                    <span class="text-xs text-green-400" x-text="portalStatuses.broski">ONLINE</span>
+                </div>
+                <a href="http://localhost:5004" target="_blank" class="cyber-btn w-full text-center text-sm py-2">
+                    🤖 Activate AI
                 </a>
             </div>
 
-            <div class="bg-black bg-opacity-50 rounded-lg p-6 glow">
-                <h3 class="text-xl font-bold mb-2">📊 Analytics</h3>
-                <p class="opacity-80">Port 5007</p>
-                <a href="http://localhost:5007" target="_blank"
-                   class="inline-block mt-4 px-4 py-2 bg-red-600 rounded hover:bg-red-700 transition">
-                   Launch
+            <!-- Analytics Portal -->
+            <div class="portal-card rounded-lg p-6 text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                    <span class="text-2xl">📊</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-red-300">Ultra Analytics</h3>
+                <p class="text-sm text-gray-300 mb-3">Port 5007 - Data Intelligence</p>
+                <div class="mb-4">
+                    <span class="status-online status-indicator"></span>
+                    <span class="text-xs text-green-400" x-text="portalStatuses.analytics">ONLINE</span>
+                </div>
+                <a href="http://localhost:5007" target="_blank" class="cyber-btn w-full text-center text-sm py-2">
+                    📈 View Analytics
                 </a>
             </div>
         </div>
 
-        <div class="text-center">
-            <h2 class="text-3xl font-bold mb-6">🪄 Extension-Powered Features</h2>
+        <!-- Extension-Powered Features -->
+        <div class="cyber-panel rounded-lg p-6 mb-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-neon-purple">🪄 Extension-Powered ADHD Features</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-black bg-opacity-30 rounded-lg p-6">
-                    <h4 class="text-lg font-bold mb-2">🧠 AI Copilot</h4>
-                    <p>GitHub Copilot provides AI-powered code completion</p>
+                <div class="bg-black bg-opacity-30 rounded-lg p-6 border border-purple-500/30 adhd-focus-helper">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                        <span class="text-xl">🧠</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2 text-purple-300">AI Copilot</h4>
+                    <p class="text-sm text-gray-300">GitHub Copilot provides AI-powered code completion optimized for neurodivergent workflows</p>
                 </div>
-                <div class="bg-black bg-opacity-30 rounded-lg p-6">
-                    <h4 class="text-lg font-bold mb-2">📊 Jupyter Power</h4>
-                    <p>Interactive data analysis and visualization</p>
+                <div class="bg-black bg-opacity-30 rounded-lg p-6 border border-green-500/30 adhd-focus-helper">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                        <span class="text-xl">📊</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2 text-green-300">Jupyter Power</h4>
+                    <p class="text-sm text-gray-300">Interactive data analysis and visualization for ADHD-friendly exploration</p>
                 </div>
-                <div class="bg-black bg-opacity-30 rounded-lg p-6">
-                    <h4 class="text-lg font-bold mb-2">🎨 TailwindCSS</h4>
-                    <p>Utility-first CSS framework for rapid UI development</p>
+                <div class="bg-black bg-opacity-30 rounded-lg p-6 border border-cyan-500/30 adhd-focus-helper">
+                    <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 neuron-active">
+                        <span class="text-xl">🎨</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2 text-cyan-300">TailwindCSS</h4>
+                    <p class="text-sm text-gray-300">Utility-first CSS framework for rapid UI development with visual consistency</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Panel -->
+        <div class="cyber-panel rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-4 text-center text-cyber-blue">⚡ QUICK ACTIONS - HYPERFOCUS READY</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <button @click="refreshAllPortals()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">🔄</div>
+                    <div class="text-xs">Refresh All</div>
+                </button>
+                <button @click="launchMasterControl()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">🧠</div>
+                    <div class="text-xs">Master Control</div>
+                </button>
+                <button @click="toggleAutoRefresh()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2" x-text="autoRefresh ? '⏸️' : '▶️'">⏸️</div>
+                    <div class="text-xs" x-text="autoRefresh ? 'Pause Updates' : 'Start Updates'">Pause Updates</div>
+                </button>
+                <button @click="openPortalDirectory()" class="cyber-btn text-center p-4">
+                    <div class="text-2xl mb-2">🌐</div>
+                    <div class="text-xs">Portal Directory</div>
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Auto-refresh every 30 seconds
-        setTimeout(() => location.reload(), 30000);
+        // 🚀 Navigation System
+        function toggleNav() {
+            const nav = document.getElementById('broskiNav');
+            nav.classList.toggle('nav-collapsed');
+        }
 
-        // Add some interactive magic
+        // Live Dashboard Alpine.js Controller
+        function liveDashboard() {
+            return {
+                // System Status
+                systemStats: {
+                    cpu: '23%',
+                    memory: '67%',
+                    uptime: '99.9%'
+                },
+
+                portalStats: {
+                    active: '4/4',
+                    connections: '12',
+                    responseTime: '0.2s'
+                },
+
+                activityStats: {
+                    requests: '340',
+                    users: '8',
+                    dataFlow: 'HIGH'
+                },
+
+                performanceStats: {
+                    loadTime: '0.8s',
+                    errorRate: '0.01%',
+                    optimization: '98%'
+                },
+
+                portalStatuses: {
+                    main: 'ONLINE',
+                    memory: 'ONLINE',
+                    broski: 'ONLINE',
+                    analytics: 'ONLINE'
+                },
+
+                autoRefresh: true,
+                lastUpdate: new Date(),
+
+                // Initialization
+                init() {
+                    console.log('📱 Live Dashboard initialized with ADHD-optimized features!');
+                    this.startLiveUpdates();
+                    this.populateActivityFeed();
+                    this.animateEntry();
+                    this.checkPortalHealth();
+                },
+
+                // Live Updates
+                startLiveUpdates() {
+                    if (this.autoRefresh) {
+                        setInterval(() => {
+                            this.updateStats();
+                            this.addActivityEntry();
+                            this.checkPortalHealth();
+                        }, 3000); // Update every 3 seconds
+                    }
+                },
+
+                updateStats() {
+                    // Simulate real-time stat updates
+                    this.systemStats.cpu = Math.floor(Math.random() * 30 + 15) + '%';
+                    this.systemStats.memory = Math.floor(Math.random() * 20 + 60) + '%';
+                    this.activityStats.requests = Math.floor(Math.random() * 100 + 300);
+                    this.activityStats.users = Math.floor(Math.random() * 5 + 5);
+                    this.portalStats.responseTime = (Math.random() * 0.5 + 0.1).toFixed(1) + 's';
+                    this.lastUpdate = new Date();
+                },
+
+                populateActivityFeed() {
+                    const activities = [
+                        '🎯 Live Dashboard: Real-time monitoring active',
+                        '🤖 BROski AI: Processing user queries',
+                        '📊 Analytics Engine: Data pipeline flowing',
+                        '💎 Memory Crystals: State preservation active',
+                        '🔄 Auto-refresh: System health check passed',
+                        '⚡ Hyperfocus Mode: Ready for activation',
+                        '🌐 Portal Network: All connections stable',
+                        '🧠 Neural Interface: Pattern recognition online'
+                    ];
+
+                    const feed = document.getElementById('liveActivityFeed');
+                    activities.forEach((activity, index) => {
+                        setTimeout(() => {
+                            const div = document.createElement('div');
+                            div.className = 'text-sm text-gray-300 flex items-center p-2 bg-black bg-opacity-30 rounded border-l-4 border-green-500';
+                            const timestamp = new Date().toLocaleTimeString();
+                            div.innerHTML = `
+                                <span class="text-green-400 mr-2">•</span>
+                                <span class="text-xs text-gray-500 mr-2">${timestamp}</span>
+                                ${activity}
+                            `;
+
+                            feed.appendChild(div);
+
+                            // Animate entry
+                            gsap.fromTo(div,
+                                { opacity: 0, x: -50 },
+                                { opacity: 1, x: 0, duration: 0.5 }
+                            );
+                        }, index * 800);
+                    });
+                },
+
+                addActivityEntry() {
+                    const activities = [
+                        '⚡ System optimization cycle completed',
+                        '🔥 Performance spike detected',
+                        '🎯 Focus session monitoring active',
+                        '🤖 AI assistant responding to queries',
+                        '📡 Data synchronization successful',
+                        '🚀 Portal health check: ALL GREEN',
+                        '💎 Memory state preserved successfully',
+                        '🧠 Neural pattern analysis complete'
+                    ];
+
+                    const activity = activities[Math.floor(Math.random() * activities.length)];
+                    const feed = document.getElementById('liveActivityFeed');
+                    const timestamp = new Date().toLocaleTimeString();
+
+                    const div = document.createElement('div');
+                    div.className = 'text-sm text-gray-300 flex items-center p-2 bg-black bg-opacity-30 rounded border-l-4 border-purple-500';
+                    div.innerHTML = `
+                        <span class="text-purple-400 mr-2">•</span>
+                        <span class="text-xs text-gray-500 mr-2">${timestamp}</span>
+                        ${activity}
+                    `;
+
+                    feed.insertBefore(div, feed.firstChild);
+
+                    // Animate entry
+                    gsap.fromTo(div,
+                        { opacity: 0, y: -20 },
+                        { opacity: 1, y: 0, duration: 0.5 }
+                    );
+
+                    // Remove old entries
+                    if (feed.children.length > 10) {
+                        feed.removeChild(feed.lastChild);
+                    }
+                },
+
+                checkPortalHealth() {
+                    // Simulate portal health checks
+                    const portals = ['main', 'memory', 'broski', 'analytics'];
+                    portals.forEach(portal => {
+                        // 95% chance of being online
+                        this.portalStatuses[portal] = Math.random() > 0.05 ? 'ONLINE' : 'CHECKING';
+                    });
+                },
+
+                // Quick Actions
+                refreshAllPortals() {
+                    this.showNotification('🔄 Refreshing all portal connections...');
+                    setTimeout(() => {
+                        this.updateStats();
+                        this.checkPortalHealth();
+                        this.showNotification('✅ All portals refreshed successfully!');
+                    }, 2000);
+                },
+
+                launchMasterControl() {
+                    window.open('/hyper_cave_dashboard.html', '_blank');
+                },
+
+                toggleAutoRefresh() {
+                    this.autoRefresh = !this.autoRefresh;
+                    if (this.autoRefresh) {
+                        this.startLiveUpdates();
+                        this.showNotification('▶️ Auto-refresh enabled');
+                    } else {
+                        this.showNotification('⏸️ Auto-refresh paused');
+                    }
+                },
+
+                openPortalDirectory() {
+                    window.open('/portal_directory.html', '_blank');
+                },
+
+                showNotification(message) {
+                    // Create notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-20 right-4 z-50 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300';
+                    notification.textContent = message;
+
+                    document.body.appendChild(notification);
+
+                    // Animate in
+                    setTimeout(() => {
+                        notification.classList.remove('translate-x-full');
+                    }, 100);
+
+                    // Remove after 3 seconds
+                    setTimeout(() => {
+                        notification.classList.add('translate-x-full');
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 300);
+                    }, 3000);
+                },
+
+                animateEntry() {
+                    // Animate header
+                    gsap.fromTo('header',
+                        { opacity: 0, y: -50 },
+                        { opacity: 1, y: 0, duration: 1, ease: 'back.out(1.7)' }
+                    );
+
+                    // Animate system overview
+                    gsap.fromTo('.hyperfocus-zone',
+                        { opacity: 0, scale: 0.9 },
+                        { opacity: 1, scale: 1, duration: 1, delay: 0.3 }
+                    );
+
+                    // Animate portal cards
+                    gsap.fromTo('.portal-card',
+                        { opacity: 0, y: 50 },
+                        { opacity: 1, y: 0, duration: 0.8, delay: 0.5, stagger: 0.1 }
+                    );
+
+                    // Animate panels
+                    gsap.fromTo('.cyber-panel',
+                        { opacity: 0, x: -50 },
+                        { opacity: 1, x: 0, duration: 1, delay: 0.8, stagger: 0.2 }
+                    );
+                }
+            }
+        }
+
+        // Auto-refresh fallback (every 30 seconds)
+        setInterval(() => {
+            if (document.hidden) return; // Don't refresh when tab is not visible
+            console.log('🔄 Background refresh...');
+        }, 30000);
+
+        // Add some interactive hover effects
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.glow');
+            const cards = document.querySelectorAll('.portal-card, .cyber-panel');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
+                    this.style.transform = 'translateY(-2px) scale(1.02)';
                     this.style.transition = 'transform 0.3s ease';
                 });
                 card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
         });

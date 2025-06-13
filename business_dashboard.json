@@ -1,0 +1,94 @@
+{
+  "business_health": {
+    "overall_score": 0.8268891062752542,
+    "financial_health": 0.8640551639039673,
+    "market_position": 0.9382698004433072,
+    "growth_trajectory": "ACCELERATING"
+  },
+  "real_time_metrics": {
+    "revenue_today": 4014.4271968548865,
+    "opportunities_tracked": 25,
+    "ai_confidence": 0.8597012041252003,
+    "system_performance": "LEGENDARY"
+  },
+  "alerts": [
+    {
+      "alert": "New high-value opportunity detected",
+      "priority": "HIGH"
+    },
+    {
+      "alert": "Market trend shift identified",
+      "priority": "MEDIUM"
+    },
+    {
+      "alert": "Competitor analysis update",
+      "priority": "LOW"
+    }
+  ],
+  "performance_trends": {
+    "7_day_revenue": [
+      3200,
+      3800,
+      4100,
+      3900,
+      4500,
+      4200,
+      4800
+    ],
+    "opportunity_score": [
+      8.2,
+      8.5,
+      8.8,
+      9.1,
+      9.3,
+      9.0,
+      9.5
+    ],
+    "market_sentiment": [
+      "POSITIVE",
+      "BULLISH",
+      "OPTIMISTIC"
+    ]
+  },
+  "revenue_autopilot": {
+    "status": "LEGENDARY MODE ACTIVE",
+    "daily_revenue": 757.7638461163947,
+    "total_broski_earned": 96.6761389621558,
+    "daily_streak": 0,
+    "active_streams": 5,
+    "last_analysis": "2025-06-13T02:48:22.195767",
+    "optimization_suggestions": [
+      "\ud83d\udd27 IMPROVE OR ABANDON - Low ROI, needs major optimization",
+      "\u26a1 AUTOMATE - High effort/low return, needs automation",
+      "\ud83d\udd01 SYSTEMATIZE - High repeatability, create systems",
+      "\ud83d\udd01 SYSTEMATIZE - High repeatability, create systems"
+    ],
+    "stream_performance": [
+      {
+        "name": "discord_gigs",
+        "daily_avg": 20.555808731324436,
+        "roi_score": 0.204,
+        "recommendation": "\ud83d\udd27 IMPROVE OR ABANDON - Low ROI, needs major optimization"
+      },
+      {
+        "name": "tiktok_shop",
+        "daily_avg": 9.382771328514531,
+        "roi_score": 0.223125,
+        "recommendation": "\ud83d\udd01 SYSTEMATIZE - High repeatability, create systems"
+      },
+      {
+        "name": "etsy",
+        "daily_avg": 5.736490381583161,
+        "roi_score": 0.2025,
+        "recommendation": "\ud83d\udd27 IMPROVE OR ABANDON - Low ROI, needs major optimization"
+      },
+      {
+        "name": "teemill",
+        "daily_avg": 5.104269447538386,
+        "roi_score": 0.21375,
+        "recommendation": "\ud83d\udd01 SYSTEMATIZE - High repeatability, create systems"
+      }
+    ]
+  },
+  "timestamp": "2025-06-13T02:48:22.209914"
+}

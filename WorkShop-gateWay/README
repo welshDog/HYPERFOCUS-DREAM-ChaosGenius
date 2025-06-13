@@ -1,0 +1,98 @@
+# WorkShopGateWay Component
+
+A flexible, accessible, and themeable Vuetify-powered slide group component for Vue 3. Perfect for horizontal navigation or menu bars with optional icons, badges, and custom styling.
+
+---
+
+## 📦 Installation
+
+1. Ensure you have Vue 3 and Vuetify installed:
+
+   ```bash
+   npm install vue@^3 vuetify@^3
+   ```
+2. Copy `WorkShopGateWay.vue` into your components folder.
+3. Register in your parent component or globally:
+
+   ```js
+   import WorkShopGateWay from '@/components/WorkShopGateWay.vue'
+
+   export default {
+     components: { WorkShopGateWay }
+   }
+   ```
+
+---
+
+## 🔧 Props
+
+| Name         | Type     | Required | Default                                           | Description                       |
+| ------------ | -------- | -------- | ------------------------------------------------- | --------------------------------- |
+| `modelValue` | `String` | Yes      | —                                                 | Currently selected item label.    |
+| `items`      | `Array`  | No       | Frozen default array of `{ label, icon, badge? }` | List of item objects for display. |
+
+Each item object:
+
+```ts
+interface GatewayItem {
+  label: string       // Display text and value
+  icon?: string       // MDI icon name (e.g. 'mdi-home')
+  badge?: number      // Optional badge count
+}
+```
+
+---
+
+## 🎯 Emits
+
+| Event               | Payload  | Description                           |
+| ------------------- | -------- | ------------------------------------- |
+| `update:modelValue` | `String` | New selected item label when clicked. |
+
+---
+
+## 🖥️ Usage
+
+```vue
+<template>
+  <WorkShopGateWay
+    v-model="currentTab"
+    :items="menuItems"
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentTab = ref('One')
+const menuItems = [
+  { label: 'Home', icon: 'mdi-home' },
+  { label: 'Profile', icon: 'mdi-account', badge: 2 },
+  // ...
+]
+</script>
+```
+
+---
+
+## 🎨 Styling & Customization
+
+* **Scoped Styles**: Default animations and active states via `.workshop-btn` and `.workshop-btn--active`.
+* **Theming**: Leverage Vuetify’s `color` prop, or override entirely with custom classes.
+* **Slots**: Extend via scoped slots for full content replacement (not included by default, but easily added).
+
+---
+
+## 🔗 Integration Tips
+
+* Wrap the component in a parent layout with proper padding to center it.
+* Use `show-arrows` to enable arrow navigation for overflow cases.
+* Combine with `<v-window>` or a virtual scroller for large item sets.
+
+---
+
+## 🚀 Next Steps
+
+* Add custom scoped slots for injected content.
+* Extract icon and badge into separate subcomponents for advanced use cases.
+* Add unit tests with Jest + Vue Test Utils.

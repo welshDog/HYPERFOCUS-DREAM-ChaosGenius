@@ -1,0 +1,26 @@
+[
+  {
+    "system_name": "chaosgenius_discord_bot",
+    "timestamp": "2025-06-12T19:45:42.840527",
+    "success": false,
+    "error": "[Errno 2] No such file or directory: 'python'",
+    "resurrection_type": "AUTO",
+    "attempts": 1
+  },
+  {
+    "system_name": "agent_army_forge_master",
+    "timestamp": "2025-06-12T19:46:22.907406",
+    "success": false,
+    "error": "[Errno 2] No such file or directory: 'python'",
+    "resurrection_type": "AUTO",
+    "attempts": 1
+  },
+  {
+    "system_name": "broski_health_matrix",
+    "timestamp": "2025-06-12T19:47:22.979699",
+    "success": false,
+    "error": "[Errno 2] No such file or directory: 'python'",
+    "resurrection_type": "AUTO",
+    "attempts": 1
+  }
+]

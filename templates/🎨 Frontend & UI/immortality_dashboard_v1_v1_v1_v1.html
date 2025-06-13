@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ ChaosGenius Immortality Protocol - Quantum Redundancy Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ff88;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .immortality-header {
+            background: rgba(0, 255, 136, 0.1);
+            border-bottom: 2px solid #00ff88;
+            padding: 20px;
+            text-align: center;
+            animation: quantum-pulse 2s infinite;
+        }
+
+        @keyframes quantum-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 136, 0.6); }
+        }
+
+        .immortality-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #00ff88;
+        }
+
+        .quantum-status {
+            font-size: 1.2em;
+            color: #ffaa00;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .immortality-panel {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .immortality-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .panel-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ffaa00;
+            text-align: center;
+            text-shadow: 0 0 10px #ffaa00;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: status-blink 1s infinite;
+        }
+
+        .status-healthy { background: #00ff88; }
+        .status-degraded { background: #ffaa00; }
+        .status-critical { background: #ff6600; }
+        .status-dead { background: #ff0000; }
+
+        @keyframes status-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .service-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-metrics {
+            font-size: 0.9em;
+            color: #aaffcc;
+        }
+
+        .metrics-chart {
+            height: 200px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control-button {
+            background: linear-gradient(45deg, #00ff88, #00cc66);
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+        }
+
+        .emergency-button {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+            color: white;
+        }
+
+        .log-container {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+
+        .log-entry {
+            margin: 2px 0;
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .log-timestamp {
+            color: #888;
+            margin-right: 10px;
+        }
+
+        .log-success { color: #00ff88; }
+        .log-warning { color: #ffaa00; }
+        .log-error { color: #ff4444; }
+
+        .quantum-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .matrix-cell {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .matrix-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .matrix-label {
+            font-size: 0.8em;
+            color: #aaffcc;
+        }
+
+        .refresh-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid #00ff88;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="immortality-header">
+        <h1 class="immortality-title">🛡️ IMMORTALITY PROTOCOL 🛡️</h1>
+        <div class="quantum-status" id="quantum-status">
+            QUANTUM REDUNDANCY: <span id="protocol-status">INITIALIZING...</span>
+        </div>
+    </div>
+
+    <div class="refresh-indicator" id="refresh-indicator">🔄</div>
+
+    <div class="dashboard-grid">
+        <!-- System Overview Panel -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">🌌 QUANTUM SYSTEM OVERVIEW</h2>
+            <div class="quantum-matrix" id="system-overview">
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="uptime-value">--</div>
+                    <div class="matrix-label">UPTIME HOURS</div>
+                </div>
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="cpu-value">--</div>
+                    <div class="matrix-label">CPU %</div>
+                </div>
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="memory-value">--</div>
+                    <div class="matrix-label">MEMORY %</div>
+                </div>
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="incidents-value">--</div>
+                    <div class="matrix-label">INCIDENTS (24H)</div>
+                </div>
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="healing-value">--</div>
+                    <div class="matrix-label">AUTO-HEALED</div>
+                </div>
+                <div class="matrix-cell">
+                    <div class="matrix-value" id="services-value">--</div>
+                    <div class="matrix-label">MONITORED</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Status Panel -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">⚡ CRITICAL SERVICES STATUS</h2>
+            <div id="services-container">
+                <div class="service-item">
+                    <span>🔄 Loading services...</span>
+                </div>
+            </div>
+            <div style="margin-top: 15px; text-align: center;">
+                <button class="control-button" onclick="refreshServices()">🔄 REFRESH</button>
+                <button class="control-button emergency-button" onclick="emergencyStop()">🚨 EMERGENCY STOP</button>
+            </div>
+        </div>
+
+        <!-- System Metrics Chart -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">📊 QUANTUM METRICS TIMELINE</h2>
+            <div class="metrics-chart" id="metrics-chart">
+                <canvas id="metricsCanvas" width="400" height="180"></canvas>
+            </div>
+            <div style="text-align: center;">
+                <button class="control-button" onclick="updateMetricsChart()">📈 UPDATE CHART</button>
+            </div>
+        </div>
+
+        <!-- Recent Incidents Panel -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">🚨 RECENT INCIDENTS</h2>
+            <div class="log-container" id="incidents-log">
+                <div class="log-entry">📡 Initializing incident monitoring...</div>
+            </div>
+        </div>
+
+        <!-- Self-Healing Actions Panel -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">🔧 SELF-HEALING ACTIONS</h2>
+            <div class="log-container" id="healing-log">
+                <div class="log-entry">🛠️ Initializing self-healing monitor...</div>
+            </div>
+        </div>
+
+        <!-- Service Control Panel -->
+        <div class="immortality-panel">
+            <h2 class="panel-title">🎛️ SERVICE CONTROL CENTER</h2>
+            <div id="control-panel">
+                <select id="service-selector" style="width: 100%; padding: 10px; margin: 10px 0; background: #000; color: #00ff88; border: 1px solid #00ff88;">
+                    <option>Select Service...</option>
+                </select>
+                <div style="text-align: center;">
+                    <button class="control-button" onclick="restartSelectedService()">🔄 RESTART SERVICE</button>
+                    <button class="control-button" onclick="healSelectedService()">🔧 FORCE HEAL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let immortalityData = {};
+        let metricsHistory = [];
+        let refreshInterval;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🛡️ Immortality Protocol Dashboard Initializing...');
+            startAutoRefresh();
+            loadImmortalityStatus();
+        });
+
+        // Auto-refresh functionality
+        function startAutoRefresh() {
+            refreshInterval = setInterval(() => {
+                loadImmortalityStatus();
+                loadServicesStatus();
+                loadIncidents();
+                loadHealingActions();
+                loadMetricsHistory();
+            }, 5000); // Refresh every 5 seconds
+        }
+
+        // Load immortality protocol status
+        async function loadImmortalityStatus() {
+            try {
+                const response = await fetch('/immortality/api/status');
+                const data = await response.json();
+                immortalityData = data;
+
+                updateProtocolStatus(data);
+                updateSystemOverview(data);
+            } catch (error) {
+                console.error('Error loading immortality status:', error);
+                document.getElementById('protocol-status').textContent = 'CONNECTION ERROR';
+            }
+        }
+
+        // Update protocol status indicator
+        function updateProtocolStatus(data) {
+            const statusElement = document.getElementById('protocol-status');
+            if (data.immortality_active) {
+                statusElement.textContent = 'ACTIVE ✅';
+                statusElement.style.color = '#00ff88';
+            } else {
+                statusElement.textContent = 'OFFLINE ❌';
+                statusElement.style.color = '#ff4444';
+            }
+        }
+
+        // Update system overview metrics
+        function updateSystemOverview(data) {
+            if (data.system_metrics) {
+                document.getElementById('uptime-value').textContent =
+                    Math.round(data.system_metrics.uptime_hours || 0);
+                document.getElementById('cpu-value').textContent =
+                    Math.round(data.system_metrics.cpu_usage || 0) + '%';
+                document.getElementById('memory-value').textContent =
+                    Math.round(data.system_metrics.memory_usage || 0) + '%';
+            }
+
+            document.getElementById('incidents-value').textContent = data.incidents_24h || 0;
+            document.getElementById('healing-value').textContent = data.healing_actions_24h || 0;
+            document.getElementById('services-value').textContent = data.monitored_services || 0;
+        }
+
+        // Load and display services status
+        async function loadServicesStatus() {
+            try {
+                const response = await fetch('/immortality/api/services');
+                const data = await response.json();
+
+                const container = document.getElementById('services-container');
+                const selector = document.getElementById('service-selector');
+
+                container.innerHTML = '';
+                selector.innerHTML = '<option>Select Service...</option>';
+
+                Object.values(data.services || {}).forEach(service => {
+                    // Add to services display
+                    const serviceDiv = document.createElement('div');
+                    serviceDiv.className = 'service-item';
+                    serviceDiv.innerHTML = `
+                        <div>
+                            <span class="status-indicator status-${service.status.toLowerCase()}"></span>
+                            <strong>${service.name}</strong>
+                        </div>
+                        <div class="service-metrics">
+                            ${service.uptime_percentage.toFixed(1)}% |
+                            CPU: ${service.cpu_usage.toFixed(1)}% |
+                            MEM: ${service.memory_usage.toFixed(1)}%
+                        </div>
+                    `;
+                    container.appendChild(serviceDiv);
+
+                    // Add to service selector
+                    const option = document.createElement('option');
+                    option.value = service.name;
+                    option.textContent = service.name;
+                    selector.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading services:', error);
+            }
+        }
+
+        // Load recent incidents
+        async function loadIncidents() {
+            try {
+                const response = await fetch('/immortality/api/incidents');
+                const data = await response.json();
+
+                const container = document.getElementById('incidents-log');
+                container.innerHTML = '';
+
+                data.incidents.forEach(incident => {
+                    const logDiv = document.createElement('div');
+                    logDiv.className = 'log-entry log-error';
+                    logDiv.innerHTML = `
+                        <span class="log-timestamp">${new Date(incident.timestamp).toLocaleTimeString()}</span>
+                        <strong>${incident.service_name}</strong>: ${incident.description}
+                    `;
+                    container.appendChild(logDiv);
+                });
+
+                if (data.incidents.length === 0) {
+                    container.innerHTML = '<div class="log-entry log-success">✅ No incidents in last 24 hours</div>';
+                }
+            } catch (error) {
+                console.error('Error loading incidents:', error);
+            }
+        }
+
+        // Load self-healing actions
+        async function loadHealingActions() {
+            try {
+                const response = await fetch('/immortality/api/healing_actions');
+                const data = await response.json();
+
+                const container = document.getElementById('healing-log');
+                container.innerHTML = '';
+
+                data.actions.forEach(action => {
+                    const logDiv = document.createElement('div');
+                    logDiv.className = `log-entry ${action.success ? 'log-success' : 'log-error'}`;
+                    logDiv.innerHTML = `
+                        <span class="log-timestamp">${new Date(action.timestamp).toLocaleTimeString()}</span>
+                        <strong>${action.service_name}</strong>: ${action.action_type}
+                        ${action.success ? '✅' : '❌'}
+                    `;
+                    container.appendChild(logDiv);
+                });
+
+                if (data.actions.length === 0) {
+                    container.innerHTML = '<div class="log-entry">🛠️ No healing actions needed</div>';
+                }
+            } catch (error) {
+                console.error('Error loading healing actions:', error);
+            }
+        }
+
+        // Load metrics history and update chart
+        async function loadMetricsHistory() {
+            try {
+                const response = await fetch('/immortality/api/metrics/history');
+                const data = await response.json();
+                metricsHistory = data.metrics || [];
+                updateMetricsChart();
+            } catch (error) {
+                console.error('Error loading metrics history:', error);
+            }
+        }
+
+        // Update metrics chart
+        function updateMetricsChart() {
+            const canvas = document.getElementById('metricsCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (metricsHistory.length === 0) {
+                ctx.fillStyle = '#00ff88';
+                ctx.font = '16px Courier New';
+                ctx.fillText('No metrics data available', 50, 90);
+                return;
+            }
+
+            // Draw grid
+            ctx.strokeStyle = '#00ff88';
+            ctx.globalAlpha = 0.2;
+            for (let i = 0; i <= 10; i++) {
+                const y = (canvas.height / 10) * i;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+
+            // Draw metrics lines
+            const maxPoints = Math.min(metricsHistory.length, 50);
+            const stepX = canvas.width / maxPoints;
+
+            // CPU line (green)
+            ctx.strokeStyle = '#00ff88';
+            ctx.beginPath();
+            metricsHistory.slice(-maxPoints).forEach((metric, i) => {
+                const x = i * stepX;
+                const y = canvas.height - (metric.cpu_usage / 100 * canvas.height);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.stroke();
+
+            // Memory line (orange)
+            ctx.strokeStyle = '#ffaa00';
+            ctx.beginPath();
+            metricsHistory.slice(-maxPoints).forEach((metric, i) => {
+                const x = i * stepX;
+                const y = canvas.height - (metric.memory_usage / 100 * canvas.height);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.stroke();
+
+            // Legend
+            ctx.fillStyle = '#00ff88';
+            ctx.font = '12px Courier New';
+            ctx.fillText('CPU', 10, 20);
+            ctx.fillStyle = '#ffaa00';
+            ctx.fillText('Memory', 50, 20);
+        }
+
+        // Control functions
+        async function refreshServices() {
+            await loadServicesStatus();
+        }
+
+        async function restartSelectedService() {
+            const serviceName = document.getElementById('service-selector').value;
+            if (!serviceName || serviceName === 'Select Service...') {
+                alert('Please select a service to restart');
+                return;
+            }
+
+            if (!confirm(`Are you sure you want to restart ${serviceName}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/immortality/api/control/restart_service', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({service_name: serviceName})
+                });
+
+                const result = await response.json();
+                alert(result.message || result.error);
+
+                if (result.success) {
+                    setTimeout(() => loadServicesStatus(), 2000);
+                }
+            } catch (error) {
+                alert('Error restarting service: ' + error);
+            }
+        }
+
+        async function healSelectedService() {
+            const serviceName = document.getElementById('service-selector').value;
+            if (!serviceName || serviceName === 'Select Service...') {
+                alert('Please select a service to heal');
+                return;
+            }
+
+            alert(`Force healing ${serviceName}... Check healing actions log for results.`);
+        }
+
+        async function emergencyStop() {
+            if (!confirm('⚠️ Are you sure you want to STOP the Immortality Protocol?\n\nThis will disable automatic monitoring and healing!')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/immortality/api/control/emergency_stop', {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                alert(result.message || result.error);
+
+                if (result.success) {
+                    clearInterval(refreshInterval);
+                    document.getElementById('protocol-status').textContent = 'EMERGENCY STOPPED ⚠️';
+                    document.getElementById('protocol-status').style.color = '#ff4444';
+                }
+            } catch (error) {
+                alert('Error stopping immortality protocol: ' + error);
+            }
+        }
+
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                clearInterval(refreshInterval);
+            } else {
+                startAutoRefresh();
+            }
+        });
+    </script>
+</body>
+</html>

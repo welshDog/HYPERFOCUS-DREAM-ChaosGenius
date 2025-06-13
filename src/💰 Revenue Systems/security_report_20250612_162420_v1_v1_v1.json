@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-06-12T16:24:20.766166",
+  "period": "1_hour",
+  "summary": {
+    "total_threats": 30019,
+    "threats_blocked": 1669,
+    "broski_dollars_earned": 467045,
+    "currently_blocked_ips": 3,
+    "fortress_status": "FORTRESS MODE"
+  },
+  "threat_breakdown": [
+    {
+      "type": "brute_force",
+      "severity": "HIGH",
+      "count": 192
+    },
+    {
+      "type": "port_scan",
+      "severity": "MEDIUM",
+      "count": 5529
+    }
+  ],
+  "fortress_motto": "NO THREAT SHALL PASS. THE FORTRESS IS IMPENETRABLE."
+}

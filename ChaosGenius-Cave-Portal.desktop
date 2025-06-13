@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=🪄🕋 ChaosGenius Cave Portal 🕋🪄
+Comment=Enter the VCODE Mini Cave - Get Random Agent Missions!
+Exec=python3 "/root/chaosgenius/🪄🕋🧬🛰️💻👑 VCODE MINI CAVE WINDOW – Copy Magic Mode"
+Icon=applications-development
+Terminal=true
+Categories=Development;Utility;
+StartupNotify=true
+Keywords=cave;agent;mission;clipboard;chaos;genius;

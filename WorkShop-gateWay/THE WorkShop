@@ -1,0 +1,91 @@
+<template>
+  <v-slide-group
+    v-model="selected"
+    center-active
+    show-arrows
+    mandatory
+    class="workshop-gateway"
+  >
+    <v-slide-item
+      v-for="item in items"
+      :key="item.label"
+      :value="item.label"
+    >
+      <template v-if="item.badge">
+        <v-badge
+          :content="item.badge"
+          color="error"
+          overlap
+        >
+          <v-btn
+            variant="text"
+            @click="onSelect(item.label)"
+            :class="['workshop-btn', { 'workshop-btn--active': selected === item.label }]"
+            :aria-selected="selected === item.label"
+            :aria-label="`Select ${item.label}`"
+          >
+            <v-icon v-if="item.icon" start>{{ item.icon }}</v-icon>
+            {{ item.label }}
+          </v-btn>
+        </v-badge>
+      </template>
+
+      <template v-else>
+        <v-btn
+          variant="text"
+          @click="onSelect(item.label)"
+          :class="['workshop-btn', { 'workshop-btn--active': selected === item.label }]"
+          :aria-selected="selected === item.label"
+          :aria-label="`Select ${item.label}`"
+        >
+          <v-icon v-if="item.icon" start>{{ item.icon }}</v-icon>
+          {{ item.label }}
+        </v-btn>
+      </template>
+    </v-slide-item>
+  </v-slide-group>
+</template>
+
+<script setup>
+import { ref, watch } from 'vue'
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+    required: true
+  },
+  items: {
+    type: Array,
+    default: () => Object.freeze([
+      { label: 'One',   icon: 'mdi-home',    badge: 3 },
+      { label: 'Two',   icon: 'mdi-account'         },
+      { label: 'Three', icon: 'mdi-settings', badge: 1 },
+      { label: 'Four',  icon: 'mdi-star'            },
+      { label: 'Five',  icon: 'mdi-heart'           },
+      { label: 'Six',   icon: 'mdi-bell',    badge: 5 },
+      { label: 'Seven', icon: 'mdi-email'           }
+    ])
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
+const selected = ref(props.modelValue)
+
+// keep local selected in sync if parent changes v-model
+watch(() => props.modelValue, val => selected.value = val)
+
+function onSelect(val) {
+  selected.value = val
+  emit('update:modelValue', val)
+}
+</script>
+
+<style scoped>
+.workshop-btn {
+  transition: transform 0.1s ease;
+}
+.workshop-btn--active {
+  font-weight: 600;
+  transform: scale(1.1);
+}
+</style>

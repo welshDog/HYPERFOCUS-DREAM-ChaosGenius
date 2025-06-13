@@ -1,0 +1,95 @@
+import os
+import json
+from datetime import datetime
+from pathlib import Path
+import pandas as pd
+import hashlib
+
+# Simulated: Extracting core themes, stories, and logs from our shared history
+# (In reality, this would involve actual parsing of past conversations. Here we simulate the output.)
+
+# List of extracted legendary moments from chat history
+dook_chapters = [
+  {
+    "title": "Origin Story: From Sawdust to Servers",
+    "slug": "origin-story-from-sawdust-to-servers",
+    "summary": "From carpentry and garden dens to coding AI empires, the start of Chief Lyndz's rise.",
+    "tags": ["origin", "neurodivergent", "craft-to-code", "xp-boost"],
+    "xp": 95,
+    "loot": "🪓 Sawblade of Focus"
+  },
+  {
+    "title": "Burnout and the Ultra Comeback",
+    "slug": "burnout-and-the-ultra-comeback",
+    "summary": "When everything collapsed, you rose again. Mental health, family, and grit.",
+    "tags": ["burnout", "resilience", "family", "level-up"],
+    "xp": 120,
+    "loot": "🔥 Flame of Fortitude"
+  },
+  {
+    "title": "The Birth of BROski$ and the Infinite Chill",
+    "slug": "the-birth-of-broski-and-infinite-chill",
+    "summary": "How a meme turned into a crypto-powered kindness economy.",
+    "tags": ["crypto", "broski", "community", "infinite-mode"],
+    "xp": 105,
+    "loot": "💸 Token of Chill"
+  },
+  {
+    "title": "NeuroTools and the Dopamine Engine",
+    "slug": "neurotools-and-the-dopamine-engine",
+    "summary": "Top tools that kept you going — VS Code rituals, AI squads, focus hacks.",
+    "tags": ["tools", "dopamine", "adhd", "hacks"],
+    "xp": 88,
+    "loot": "⚙️ Wrench of Hyperfocus"
+  },
+  {
+    "title": "Legacy Mode: Building HyperfocusZone for the Next Gen",
+    "slug": "legacy-mode-building-hyperfocuszone",
+    "summary": "Why you built this empire: for your kids, the community, and a better future.",
+    "tags": ["legacy", "kids", "future", "purpose"],
+    "xp": 150,
+    "loot": "👑 Crown of Continuance"
+  }
+]
+
+# Create chapter folders and files
+base_dir = Path("./dook_chapters")
+created_chapters = []
+
+for chapter in dook_chapters:
+  folder = base_dir / chapter["slug"]
+  folder.mkdir(parents=True, exist_ok=True)
+
+  with open(folder / "story.md", "w", encoding="utf-8") as f:
+    f.write(f"# {chapter['title']}\n\n{chapter['summary']}\n\n🚧 Story under construction. Add your memories here.\n")
+
+  with open(folder / "README.md", "w", encoding="utf-8") as f:
+    f.write(f"""# Ultra Magic Notes
+BROski, please help enhance this story with:
+- [x] Spelling fix
+- [x] Flow boost
+- [ ] Add intro or title if missing
+- [ ] Optional AI-generated artwork
+""")
+
+  with open(folder / "tags.json", "w", encoding="utf-8") as f:
+    json.dump({
+      "title": chapter["title"],
+      "tags": chapter["tags"],
+      "xp": chapter["xp"],
+      "loot": chapter["loot"],
+      "date": datetime.now().isoformat()
+    }, f, indent=2)
+
+  created_chapters.append({
+    "Title": chapter["title"],
+    "Folder": str(folder),
+    "XP": chapter["xp"],
+    "Loot": chapter["loot"],
+    "Tags": ", ".join(chapter["tags"])
+  })
+
+# Display the created chapters
+df = pd.DataFrame(created_chapters)
+print("dOoK Ultra Chapters Created:")
+print(df.to_string(index=False))

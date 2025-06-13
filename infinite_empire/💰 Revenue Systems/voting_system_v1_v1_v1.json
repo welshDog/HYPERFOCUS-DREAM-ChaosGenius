@@ -1,0 +1,22 @@
+{
+    "voting_system": {
+        "proposal_types": [
+            "New income stream ideas",
+            "Community feature requests",
+            "Token distribution changes",
+            "Collaboration partnerships",
+            "Immortality mechanism upgrades"
+        ],
+        "voting_power": "1 BROSKI∞$ = 1 vote",
+        "minimum_proposal": "100 BROSKI∞$",
+        "quorum_required": "25% of circulating supply",
+        "execution_threshold": "60% approval",
+        "immortal_council": [
+            "ChaosGenius (Founder)",
+            "BROski∞ (AI Representative)",
+            "Community Elected Representative",
+            "Top Contributor of the Month",
+            "Guardian Zero (Security)"
+        ]
+    }
+}

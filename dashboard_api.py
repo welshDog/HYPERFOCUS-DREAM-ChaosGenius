@@ -129,14 +129,14 @@ def internal_error(error):
 # Optimized run configuration
 if __name__ == "__main__":
     print("🚀 Starting OPTIMIZED ChaosGenius Dashboard...")
-    print("💜 Dashboard URL: http://localhost:5000")
+    print("💜 Dashboard URL: http://localhost:5005")
     print("🎯 CPU usage should now be minimal!")
 
     # Run with minimal threading and debugging disabled
     app.run(
         debug=False,  # Disable debug mode for production
         host="0.0.0.0",
-        port=5000,
+        port=5005,  # Changed to 5005 to avoid conflicts
         threaded=True,
         use_reloader=False,  # Disable auto-reloader to prevent CPU spikes
     )

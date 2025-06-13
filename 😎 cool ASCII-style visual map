@@ -1,0 +1,90 @@
+import os
+from pathlib import Path
+
+def create_ascii_structure_map():
+  """
+  Creates an ASCII-style visual map of the chaosgenius project structure
+  """
+
+  # Define the project structure
+  structure = {
+    "chaosgenius/": {
+      "📊 Core Analytics": {
+        "controllers/": ["data_loader.py", "kpi_controller.py", "anomaly_controller.py"],
+        "core/": ["anomaly/", "rca/", "utils/"],
+        "databases/": ["models/", "migrations/"]
+      },
+      "🌐 Web Interface": {
+        "webapp/": ["static/", "templates/", "routes/"],
+        "dashboard_api.py": None,
+        "start_optimized_dashboard.sh": None
+      },
+      "⚙️ Configuration": {
+        "config/": ["settings.py", "database.py"],
+        "docker-compose.yml": None,
+        "requirements.txt": None
+      },
+      "📁 Data & Logs": {
+        "data/": ["raw/", "processed/"],
+        "logs/": ["app.log", "error.log"]
+      }
+    }
+  }
+
+  def generate_ascii_tree(data, prefix="", is_last=True):
+    """Recursively generate ASCII tree structure"""
+    lines = []
+
+    if isinstance(data, dict):
+      items = list(data.items())
+      for i, (key, value) in enumerate(items):
+        is_last_item = (i == len(items) - 1)
+        connector = "└── " if is_last_item else "├── "
+        lines.append(f"{prefix}{connector}{key}")
+
+        if value is not None:
+          extension = "    " if is_last_item else "│   "
+          lines.extend(generate_ascii_tree(value, prefix + extension, is_last_item))
+
+    elif isinstance(data, list):
+      for i, item in enumerate(data):
+        is_last_item = (i == len(data) - 1)
+        connector = "└── " if is_last_item else "├── "
+        lines.append(f"{prefix}{connector}{item}")
+
+    return lines
+
+  # Generate the ASCII map
+  ascii_lines = []
+  ascii_lines.append("🎯 CHAOSGENIUS PROJECT STRUCTURE")
+  ascii_lines.append("=" * 40)
+  ascii_lines.append("")
+
+  for root, content in structure.items():
+    ascii_lines.append(f"📁 {root}")
+    ascii_lines.extend(generate_ascii_tree(content, "", True))
+    ascii_lines.append("")
+
+  # Add performance optimization info
+  ascii_lines.extend([
+    "⚡ OPTIMIZATION STATUS:",
+    "├── Memory Limit: 2GB virtual, 1GB physical",
+    "├── Workers: 1 worker, 2 threads",
+    "├── Max Requests: 1000 with jitter",
+    "└── Timeout: 30s, Keep-alive: 5s",
+    "",
+    "🚀 Dashboard: http://localhost:5000"
+  ])
+
+  return "\n".join(ascii_lines)
+
+# Generate and display the ASCII map
+ascii_map = create_ascii_structure_map()
+print(ascii_map)
+
+# Save to file
+output_file = Path("/root/chaosgenius/project_structure_map.txt")
+with open(output_file, "w", encoding="utf-8") as f:
+  f.write(ascii_map)
+
+print(f"\n✅ ASCII map saved to: {output_file}")

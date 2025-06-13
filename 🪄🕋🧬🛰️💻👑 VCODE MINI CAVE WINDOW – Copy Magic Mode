@@ -1,0 +1,30 @@
+# broski_cave_copy_window.py
+import random
+import pyperclip
+
+# 🚀 AGENT MISSION BANK
+missions = [
+    "🧠 Forge new memory crystals for the dOok!",
+    "🛠️ Run dopamine boost scan on the mainframe.",
+    "🔐 Check all Guardian locks on the Immortal Server.",
+    "📦 Sync Ultra Map to ChaosGenius Archives.",
+    "🎨 Generate next 3D frame idea for Etsy drop!",
+    "🤖 Rewrite old code with CoPilot POWER!",
+    "📣 Broadcast Hyperfocus Mantra in Discord!"
+]
+
+# 🎯 RANDOM MISSION FROM AGENT ARMY
+mission = random.choice(missions)
+pyperclip.copy(mission)
+
+print(f"""
+💻🕋 MINI VC0DE CAVE WINDOW: COPY MODE 🕋💻
+========================================
+🎯 Agent Mission Copied to Clipboard:
+{mission}
+
+✅ Paste it anywhere, soldier of focus!
+🌀 You are now fully aligned with THE ZONE...
+
+""")
+# 🛡️ Stay focused, stay productive! 🛡️

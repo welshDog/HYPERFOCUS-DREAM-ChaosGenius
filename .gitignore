@@ -1,5 +1,82 @@
-# 🧠💥 ChaosGenius .gitignore 💥🧠
-# Keeping the chaos organized while protecting the secrets!
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+project_env/
+venv/
+env/
+ENV/
+.env
+.env.local
+.env.production
+*.key
+*_SECURE.json
+discord_token.txt
+openai_api_key.txt
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+health_report*.json
+*_log_*.json
+evolution_report_*.json
+chaosgenius_showcase_report_*.txt
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+tmp/
+temp/
+.tmp/
+*.tmp
+*.service
+ecosystem.config.js
+*_backup.py
+backup_*/
+*.zip
+*.tar.gz
+*.bundle
+*.png
+*.jpg
+*.jpeg
+*.gif
+!screenshots/
+.easter_egg_discoveries.json
+deploy_to_*.sh
+FINAL_DEPLOYMENT_COMMANDS.md
+*.pdf
+node_modules/
+"before deploy"
+"123blast off checks"
+"Broski  Ultra Adslot System"
+"FINAL LAUNCH SEQUENCE — HYPERFOCUSzone.com"
+# === HYPERFOCUS DREAM PROJECT .GITIGNORE ===
+
+# Virtual Environments
+venv/
+venvve/
+env/
+.env
 
 # Python
 __pycache__/
@@ -22,92 +99,75 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
-# Virtual environments
-project_env/
-venv/
-env/
-ENV/
-
-# Environment variables & secrets
-.env
-.env.local
-.env.production
-*.key
-*_SECURE.json
-discord_token.txt
-openai_api_key.txt
-
-# Database files (keep structure, not data)
-*.db
-*.sqlite
-*.sqlite3
-
-# Logs & reports
+# Analysis Reports & Logs
+hyperfocus_project_analysis_*.json
+project_analysis_report_*.json
+file_organization_log_*.json
+health_report_*.json
+test_report_*.json
+cleanup_log_*.json
+optimization_log_*.json
 *.log
 logs/
-health_report*.json
-*_log_*.json
-evolution_report_*.json
-chaosgenius_showcase_report_*.txt
 
-# OS & Editor
-.DS_Store
-.vscode/
+# Backup Directories
+cleanup_backups/
+optimization_backups/
+archived_reports/
+archived_logs/
+
+# IDE & Editor Files
+.vscode/settings.json
 .idea/
 *.swp
 *.swo
 *~
 
-# Temporary files
-tmp/
-temp/
-.tmp/
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database Files
+*.db
+*.sqlite3
+*.db-journal
+
+# Large Media Files (>50MB)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.flac
+
+# Temporary Files
 *.tmp
+*.temp
+*.bak
+*.backup
 
-# Service files (deployment specific)
-*.service
-ecosystem.config.js
-
-# Backup files
-*_backup.py
-backup_*/
-
-# Archives & bundles
-*.zip
-*.tar.gz
-*.bundle
-
-# Screenshots & images (unless they're docs)
-*.png
-*.jpg
-*.jpeg
-*.gif
-!screenshots/
-
-# Easter egg discoveries (keep the mystery!)
-.easter_egg_discoveries.json
-
-# Deployment secrets
-deploy_to_*.sh
-FINAL_DEPLOYMENT_COMMANDS.md
-
-# Large documentation exports
-*.pdf
-
-# Node modules (if any)
+# Node modules (if any JS)
 node_modules/
+npm-debug.log*
 
-# Special ChaosGenius files to keep private
-"before deploy"
-"123blast off checks"
-"Broski  Ultra Adslot System"
-"FINAL LAUNCH SEQUENCE — HYPERFOCUSzone.com"
+# Docker
+.dockerignore
 
-# Keep the public showcase files visible:
-# README.md ✅
-# PORTAL_PREVIEW.md ✅
-# .secret_easter_eggs.py ✅ (hidden but discoverable)
-# health_check.py ✅ (with hidden hints)
-# All the epic features! ✅
+# Coverage Reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Production secrets
+*.env.production
+*.env.local
+secrets/
+credentials.json

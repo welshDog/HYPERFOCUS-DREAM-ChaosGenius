@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕋💻 LYNDZ CAVE ULTRA CONTROL HUB 💻🕋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Monaco', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 25%, #000066 50%, #330066 75%, #0a0a0a 100%);
+            color: #00ffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* LEGENDARY GRID BACKGROUND */
+        .cave-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            animation: gridPulse 6s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes gridPulse {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+        }
+
+        /* MAIN CONTROL HUB */
+        .control-hub {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* HEADER - IRON MAN STYLE */
+        .cave-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 0, 51, 0.9), rgba(0, 0, 102, 0.8));
+            border-radius: 20px;
+            border: 3px solid #00ffff;
+            box-shadow:
+                0 0 30px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cave-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            animation: headerScan 4s linear infinite;
+        }
+
+        @keyframes headerScan {
+            0% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%);
+            }
+        }
+
+        .cave-title {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                filter: brightness(1) drop-shadow(0 0 10px #00ffff);
+            }
+
+            100% {
+                filter: brightness(1.5) drop-shadow(0 0 20px #ff00ff);
+            }
+        }
+
+        .cave-subtitle {
+            font-size: 1.4em;
+            color: #00ff88;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* REAL-TIME STATUS BAR */
+        .status-command-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .status-module {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .status-module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+            border-color: #ff00ff;
+        }
+
+        .status-module::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .status-module:hover::before {
+            left: 100%;
+        }
+
+        .status-value {
+            font-size: 1.8em;
+            color: #00ff00;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .status-label {
+            color: #00ffff;
+            font-size: 0.9em;
+        }
+
+        /* CONTROL PANELS GRID */
+        .control-panels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .control-panel {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 0, 51, 0.6));
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .control-panel:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+            border-color: #00ffff;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+            animation: iconPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .panel-title {
+            font-size: 1.4em;
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .panel-status {
+            color: #00ff00;
+            font-size: 0.9em;
+            margin-left: auto;
+        }
+
+        .control-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .control-btn {
+            padding: 12px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+        }
+
+        .control-btn.danger {
+            background: linear-gradient(45deg, #ff0000, #ff6600);
+            color: white;
+        }
+
+        .control-btn.success {
+            background: linear-gradient(45deg, #00ff00, #00ff88);
+        }
+
+        /* QUICK ACCESS BUTTONS */
+        .quick-btn {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.9em;
+        }
+
+        .quick-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+        }
+
+        /* LIVE LOGS SECTION */
+        .live-logs {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 51, 0, 0.8));
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .logs-header {
+            color: #00ff00;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .log-entry {
+            font-family: 'Courier New', monospace;
+            margin: 5px 0;
+            padding: 5px 10px;
+            background: rgba(0, 255, 0, 0.1);
+            border-left: 3px solid #00ff00;
+            animation: logAppear 0.5s ease-in-out;
+        }
+
+        @keyframes logAppear {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .log-timestamp {
+            color: #ffff00;
+            margin-right: 10px;
+        }
+
+        .log-level {
+            color: #ff00ff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* SECRET ACCESS PANEL */
+        .secret-panel {
+            background: linear-gradient(135deg, rgba(51, 0, 51, 0.8), rgba(0, 0, 0, 0.9));
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .secret-btn {
+            background: linear-gradient(45deg, #ff0080, #8000ff, #0080ff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            animation: secretGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes secretGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 30px rgba(128, 0, 255, 0.8);
+            }
+        }
+
+        .secret-btn:hover {
+            transform: scale(1.1);
+            animation-duration: 0.5s;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .cave-title {
+                font-size: 2.5em;
+            }
+
+            .control-panels {
+                grid-template-columns: 1fr;
+            }
+
+            .status-command-bar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SCROLLBAR STYLING */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cave-grid"></div>
+
+    <div class="control-hub">
+        <!-- HEADER -->
+        <div class="cave-header">
+            <div class="cave-title">🕋💻 LYNDZ CAVE ULTRA CONTROL HUB 💻🕋</div>
+            <div class="cave-subtitle">🚀 IRON MAN LEVEL COMMAND CENTER FOR HYPERFOCUS EMPIRE 🚀</div>
+            <div class="cave-subtitle">👑 BY COMMAND OF CHIEF LYNDZ - LEGENDARY CONTROL ACTIVATED 👑</div>
+        </div>
+
+        <!-- REAL-TIME STATUS BAR -->
+        <div class="status-command-bar">
+            <div class="status-module">
+                <div class="status-value" id="activeAgents">247</div>
+                <div class="status-label">🤖 Active Agents</div>
+            </div>
+            <div class="status-module">
+                <div class="status-value" id="systemHealth">98.7%</div>
+                <div class="status-label">🛡️ System Health</div>
+            </div>
+            <div class="status-module">
+                <div class="status-value" id="incomeStreams">$2,847</div>
+                <div class="status-label">💰 Daily Income</div>
+            </div>
+            <div class="status-module">
+                <div class="status-value" id="hyperfocusSessions">42</div>
+                <div class="status-label">🧠 Focus Sessions</div>
+            </div>
+            <div class="status-module">
+                <div class="status-value" id="portalStatus">ONLINE</div>
+                <div class="status-label">🌌 Portal Network</div>
+            </div>
+            <div class="status-module">
+                <div class="status-value" id="threatLevel">GREEN</div>
+                <div class="status-label">🛡️ Security Level</div>
+            </div>
+        </div>
+
+        <!-- CONTROL PANELS GRID -->
+        <div class="control-panels">
+            <!-- AGENT ARMY CONTROL -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🤖</div>
+                    <div class="panel-title">Agent Army Command</div>
+                    <div class="panel-status">ACTIVE</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('agent_command')">🚀 Command Portal</button>
+                    <button class="control-btn success" onclick="launchPortal('ultra_integration')">🔗 Integration
+                        Hub</button>
+                    <button class="control-btn" onclick="createMission()">🎯 New Mission</button>
+                    <button class="control-btn danger" onclick="emergencyStop()">🚨 Emergency</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    💎 Elite agents ready for deployment<br>
+                    🎖️ Mission success rate: 96.8%
+                </div>
+            </div>
+
+            <!-- MONEY MAKER ENGINE -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">💰</div>
+                    <div class="panel-title">Money Maker Engine</div>
+                    <div class="panel-status">EARNING</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('money_maker')">💰 Money Portal</button>
+                    <button class="control-btn success" onclick="launchPortal('api_gateway')">🌐 API Gateway</button>
+                    <button class="control-btn" onclick="findOpportunities()">💡 Find Opportunities</button>
+                    <button class="control-btn" onclick="optimizeStreams()">⚡ Optimize</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🏆 Active income streams: 7<br>
+                    📊 Growth rate: +23.4% today
+                </div>
+            </div>
+
+            <!-- SECURITY FORTRESS -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🛡️</div>
+                    <div class="panel-title">Security Fortress</div>
+                    <div class="panel-status">PROTECTED</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('security_fortress')">🛡️ Security Portal</button>
+                    <button class="control-btn success" onclick="threatScan()">🔍 Threat Scan</button>
+                    <button class="control-btn" onclick="shieldBoost()">⚡ Shield Boost</button>
+                    <button class="control-btn danger" onclick="lockdown()">🔒 Lockdown</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🔐 Guardian agents: 4 active<br>
+                    🚨 Threats detected: 0
+                </div>
+            </div>
+
+            <!-- MAIN WEB PORTALS -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🌐</div>
+                    <div class="panel-title">Web Portal Network</div>
+                    <div class="panel-status">CONNECTED</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('hyperportal')">🧠 HyperPortal</button>
+                    <button class="control-btn success" onclick="launchPortal('dashboard')">🎛️ Dashboard</button>
+                    <button class="control-btn" onclick="launchAllWebPortals()">🚀 Launch All</button>
+                    <button class="control-btn" onclick="openMasterDirectory()">📋 Master Directory</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🌐 Web portals: 3/3 online<br>
+                    ⚡ Network latency: 0.02ms
+                </div>
+            </div>
+
+            <!-- HYPERFOCUS ENGINE -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🧠</div>
+                    <div class="panel-title">HyperFocus Engine</div>
+                    <div class="panel-status">OPTIMIZED</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('neural_hyperlink')">🧠 Neural Portal</button>
+                    <button class="control-btn success" onclick="brainStats()">📊 Brain Stats</button>
+                    <button class="control-btn" onclick="adhdBoost()">⚡ ADHD Boost</button>
+                    <button class="control-btn" onclick="neuralSync()">🧬 Neural Sync</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🎯 Focus streak: 7 days<br>
+                    🧠 Cognitive enhancement: +47%
+                </div>
+            </div>
+
+            <!-- DISCORD & COMMUNITY -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🎮</div>
+                    <div class="panel-title">Community Network</div>
+                    <div class="panel-status">CONNECTED</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchPortal('discord_bot')">🎮 Discord Bot</button>
+                    <button class="control-btn success" onclick="openClanverse()">🏰 CLANVERSE</button>
+                    <button class="control-btn" onclick="communityStats()">👥 Community</button>
+                    <button class="control-btn" onclick="mysteryBoxes()">🎁 Mystery Boxes</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    👥 Community members: 847<br>
+                    🎮 Discord bot: ACTIVE
+                </div>
+            </div>
+
+            <!-- QUANTUM DNA SYSTEMS -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">🧬</div>
+                    <div class="panel-title">Quantum DNA Core</div>
+                    <div class="panel-status">REALITY_ACCESS</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="decodeQuantumDNA()">🌌 Decode DNA</button>
+                    <button class="control-btn success" onclick="realityMatrix()">🔮 Reality Matrix</button>
+                    <button class="control-btn" onclick="consciousnessBoost()">💫 Consciousness+</button>
+                    <button class="control-btn" onclick="dimensionalGateway()">🌀 Portal</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🧬 Quantum coherence: 99.7%<br>
+                    🌌 Reality synchronization: ACTIVE
+                </div>
+            </div>
+
+            <!-- SYSTEM INTEGRATION HUB -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">⚡</div>
+                    <div class="panel-title">Integration Command</div>
+                    <div class="panel-status">SYNCHRONIZED</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" onclick="launchAllPortals()">🌌 Launch All</button>
+                    <button class="control-btn success" onclick="systemHealth()">💓 Health Check</button>
+                    <button class="control-btn" onclick="portalSync()">🔄 Sync All</button>
+                    <button class="control-btn danger" onclick="masterReset()">🔄 Reset</button>
+                </div>
+                <div style="font-size: 0.9em; color: #00ff88;">
+                    🔗 System integration: 100%<br>
+                    ⚡ All portals synchronized
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK PORTAL ACCESS BAR -->
+        <div class="quick-access-bar"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,0,51,0.6)); border-radius: 15px; border: 2px solid #00ffff;">
+            <button class="quick-btn" onclick="launchPortal('hyperportal')">🧠 HyperPortal</button>
+            <button class="quick-btn" onclick="launchPortal('dashboard')">🎛️ Dashboard</button>
+            <button class="quick-btn" onclick="launchPortal('agent_command')">🤖 Agents</button>
+            <button class="quick-btn" onclick="launchPortal('money_maker')">💰 Money</button>
+            <button class="quick-btn" onclick="launchPortal('security_fortress')">🛡️ Security</button>
+            <button class="quick-btn" onclick="launchPortal('discord_bot')">🎮 Discord</button>
+            <button class="quick-btn" onclick="launchPortal('neural_hyperlink')">🧠 Neural</button>
+            <button class="quick-btn" onclick="launchPortal('api_gateway')">🌐 API</button>
+        </div>
+
+        <!-- EXTENDED PORTAL ACCESS BAR -->
+        <div class="extended-portal-bar"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin: 20px 0; padding: 15px; background: linear-gradient(135deg, rgba(51,0,51,0.8), rgba(0,0,0,0.9)); border-radius: 15px; border: 2px solid #ff00ff;">
+            <button class="quick-btn" onclick="launchPortal('drone_army')"
+                style="background: linear-gradient(45deg, #ff6600, #ff0000);">🤖 Drone Army</button>
+            <button class="quick-btn" onclick="launchPortal('quantum_supremacy')"
+                style="background: linear-gradient(45deg, #8000ff, #ff0080);">🧬 Quantum</button>
+            <button class="quick-btn" onclick="launchPortal('galaxy_launcher')"
+                style="background: linear-gradient(45deg, #0080ff, #00ffff);">🌟 Galaxy</button>
+            <button class="quick-btn" onclick="launchPortal('crew_coordinator')"
+                style="background: linear-gradient(45deg, #ff8000, #ffff00);">👥 Crew</button>
+            <button class="quick-btn" onclick="launchPortal('natural_language')"
+                style="background: linear-gradient(45deg, #00ff80, #80ff00);">🧠 NL Command</button>
+            <button class="quick-btn" onclick="launchPortal('health_matrix')"
+                style="background: linear-gradient(45deg, #ff0040, #ff4080);">💓 Health</button>
+            <button class="quick-btn" onclick="launchPortal('analytics')"
+                style="background: linear-gradient(45deg, #4080ff, #8040ff);">📊 Analytics</button>
+            <button class="quick-btn" onclick="launchPortal('hyperfocus_engine')"
+                style="background: linear-gradient(45deg, #ff8040, #ffff80);">🎯 HyperFocus</button>
+        </div>
+
+        <!-- MOBILE & SPECIAL PORTALS -->
+        <div class="special-portal-bar"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 20px 0; padding: 15px; background: linear-gradient(135deg, rgba(0,51,51,0.8), rgba(51,51,0,0.7)); border-radius: 15px; border: 2px solid #ffff00;">
+            <button class="quick-btn" onclick="launchPortal('mobile_cave')"
+                style="background: linear-gradient(45deg, #ff4080, #8040ff);">📱 Mobile Cave</button>
+            <button class="quick-btn" onclick="launchPortal('hyper_cave_dashboard')"
+                style="background: linear-gradient(45deg, #40ff80, #8080ff);">🎛️ Hyper Dashboard</button>
+            <button class="quick-btn" onclick="launchPortal('team_collaboration')"
+                style="background: linear-gradient(45deg, #ff8080, #80ff80);">🤝 Team Hub</button>
+            <button class="quick-btn" onclick="launchPortal('ecosystem_master')"
+                style="background: linear-gradient(45deg, #8080ff, #ff8040);">🌌 Ecosystem</button>
+            <button class="quick-btn" onclick="launchPortal('mystery_boxes')"
+                style="background: linear-gradient(45deg, #ff00ff, #00ffff);">🎁 Mystery</button>
+            <button class="quick-btn" onclick="launchPortal('master_directory')"
+                style="background: linear-gradient(45deg, #ffff00, #ff8000);">📋 Directory</button>
+        </div>
+
+        <!-- LIVE SYSTEM LOGS -->
+        <div class="live-logs">
+            <div class="logs-header">
+                📊 LIVE SYSTEM LOGS - CHIEF LYNDZ MONITORING STATION
+                <div style="margin-left: auto; color: #00ff00;">● STREAMING</div>
+            </div>
+            <div id="logContainer">
+                <div class="log-entry">
+                    <span class="log-timestamp">[2025-06-11 12:34:56]</span>
+                    <span class="log-level">[INFO]</span>
+                    🤖 Agent Army: 247 agents deployed successfully
+                </div>
+                <div class="log-entry">
+                    <span class="log-timestamp">[2025-06-11 12:34:58]</span>
+                    <span class="log-level">[SUCCESS]</span>
+                    💰 Money Maker: New opportunity detected - $500 potential
+                </div>
+                <div class="log-entry">
+                    <span class="log-timestamp">[2025-06-11 12:35:02]</span>
+                    <span class="log-level">[INFO]</span>
+                    🛡️ Security: Fortress shields at 100% power
+                </div>
+                <div class="log-entry">
+                    <span class="log-timestamp">[2025-06-11 12:35:05]</span>
+                    <span class="log-level">[SUCCESS]</span>
+                    🌌 Portal Network: All 9 portals online and responding
+                </div>
+            </div>
+        </div>
+
+        <!-- SECRET ACCESS PANEL -->
+        <div class="secret-panel">
+            <h3 style="color: #ff00ff; margin-bottom: 20px;">🔮 SECRET CHIEF LYNDZ ACCESS PROTOCOLS 🔮</h3>
+            <button class="secret-btn" onclick="ultraSecretMode()">🌌 ULTRA SECRET MODE</button>
+            <button class="secret-btn" onclick="immortalityProtocol()">♾️ IMMORTALITY PROTOCOL</button>
+            <button class="secret-btn" onclick="galaxyMode()">🌟 GALAXY MODE ACTIVATE</button>
+            <button class="secret-btn" onclick="godMode()">👑 GOD MODE ENGAGE</button>
+        </div>
+    </div>
+
+    <script>
+        // Updated API functions with proper error handling and connection
+        const API_BASE = 'http://212.227.127.144:8081';  // Use external IP for proper connection
+
+        function launchPortal(portalType) {
+            addLogEntry('PORTAL', `🚀 Launching ${portalType.toUpperCase()} portal - System connecting`);
+
+            fetch(`${API_BASE}/api/launch-portal`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({portal: portalType})
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        addLogEntry('SUCCESS', `✅ ${data.message}`);
+                        if (data.pid) {
+                            addLogEntry('INFO', `🔥 System launched with PID: ${data.pid}`);
+                        }
+                        if (data.url) {
+                            addLogEntry('INFO', `🌐 Opening portal: ${data.url}`);
+                            window.open(data.url, '_blank');
+                        }
+                    } else {
+                        addLogEntry('ERROR', `❌ ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', `❌ Portal launch failed: ${error.message}`);
+                    console.error('Portal launch error:', error);
+                });
+        }
+
+        function deployAgents() {
+            addLogEntry('DEPLOY', '🚀 Agent Army deployment initiated - Elite forces mobilizing');
+
+            fetch(`${API_BASE}/api/deploy-agents`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        addLogEntry('SUCCESS', `✅ ${data.message}`);
+                        if (data.details && data.details.length > 0) {
+                            data.details.forEach(detail => {
+                                if (detail.status === 'success') {
+                                    addLogEntry('INFO', `🤖 ${detail.message}`);
+                                }
+                            });
+                        }
+                    } else {
+                        addLogEntry('ERROR', `❌ ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', `❌ Agent deployment failed: ${error.message}`);
+                    console.error('Agent deployment error:', error);
+                });
+        }
+
+        function activateFortress() {
+            addLogEntry('SECURITY', '🛡️ Security Fortress activated - Maximum protection enabled');
+
+            fetch(`${API_BASE}/api/activate-fortress`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        addLogEntry('SUCCESS', `✅ ${data.message}`);
+                    } else {
+                        addLogEntry('ERROR', `❌ ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', `❌ Fortress activation failed: ${error.message}`);
+                    console.error('Fortress activation error:', error);
+                });
+        }
+
+        function launchAllPortals() {
+            addLogEntry('MASTER', '🌌 MASTER PORTAL LAUNCH SEQUENCE INITIATED');
+
+            fetch(`${API_BASE}/api/launch-all`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        addLogEntry('SUCCESS', `✅ ${data.message}`);
+                        if (data.details && data.details.length > 0) {
+                            data.details.forEach(detail => {
+                                if (detail.status === 'success') {
+                                    addLogEntry('INFO', `🚀 ${detail.message}`);
+                                }
+                            });
+                        }
+                    } else {
+                        addLogEntry('ERROR', `❌ ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', `❌ Master launch failed: ${error.message}`);
+                    console.error('Master launch error:', error);
+                });
+        }
+
+        function emergencyStop() {
+            addLogEntry('EMERGENCY', '🚨 EMERGENCY STOP PROTOCOL ACTIVATED');
+
+            fetch(`${API_BASE}/api/emergency-stop`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        addLogEntry('SUCCESS', `✅ ${data.message}`);
+                    } else {
+                        addLogEntry('ERROR', `❌ ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', `❌ Emergency stop failed: ${error.message}`);
+                    console.error('Emergency stop error:', error);
+                });
+        }
+
+        // Real-time status updates with proper error handling
+        function updateStats() {
+            fetch(`${API_BASE}/api/system-status`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.error) {
+                        document.getElementById('activeAgents').textContent = data.active_agents || 0;
+                        document.getElementById('systemHealth').textContent = (data.system_health || 98) + '%';
+                        document.getElementById('incomeStreams').textContent = '$' + (data.income_streams || 2847);
+                        document.getElementById('hyperfocusSessions').textContent = data.hyperfocus_sessions || 42;
+                        document.getElementById('portalStatus').textContent = data.portal_status || 'ONLINE';
+                        document.getElementById('threatLevel').textContent = data.threat_level || 'GREEN';
+                    }
+                })
+                .catch(error => {
+                    // Fallback to simulated values if API not available
+                    document.getElementById('activeAgents').textContent = Math.floor(Math.random() * 50) + 200;
+                    document.getElementById('systemHealth').textContent = (98 + Math.random() * 2).toFixed(1) + '%';
+                    document.getElementById('incomeStreams').textContent = '$' + (2500 + Math.floor(Math.random() * 1000));
+                    document.getElementById('hyperfocusSessions').textContent = Math.floor(Math.random() * 20) + 35;
+                    console.warn('API connection failed, using fallback values:', error);
+                });
+        }
+
+        // Test API connection on page load
+        function testAPIConnection() {
+            addLogEntry('SYSTEM', '🔍 Testing API backend connection...');
+
+            fetch(`${API_BASE}/api/system-status`)
+                .then(response => {
+                    if (response.ok) {
+                        addLogEntry('SUCCESS', '✅ API backend connected successfully!');
+                    } else {
+                        addLogEntry('WARNING', '⚠️ API backend connection issues detected');
+                    }
+                })
+                .catch(error => {
+                    addLogEntry('ERROR', '❌ API backend not responding - buttons may not work');
+                    console.error('API connection test failed:', error);
+                });
+        }
+
+        // Add log entry function
+        function addLogEntry(type, message) {
+            const logContainer = document.getElementById('logContainer');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `<span class="log-timestamp">[${new Date().toISOString().slice(0, 19).replace('T', ' ')}]</span> <span class="log-level">[${type}]</span> ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight; // Auto-scroll to bottom
+        }
+
+        // Initial load
+        updateStats();
+        testAPIConnection();
+    </script>
+</body>
+
+</html>

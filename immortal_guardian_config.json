@@ -1,0 +1,48 @@
+{
+  "monitored_systems": {
+    "broski_health_matrix": {
+      "script": "broski_health_matrix.py",
+      "port": 5001,
+      "check_interval": 30,
+      "max_failures": 3,
+      "auto_resurrect": true,
+      "resurrection_delay": 5,
+      "health_check_url": "http://localhost:5001/api/health"
+    },
+    "dashboard_api": {
+      "script": "dashboard_api.py",
+      "port": 5000,
+      "check_interval": 30,
+      "max_failures": 3,
+      "auto_resurrect": true,
+      "resurrection_delay": 5,
+      "health_check_url": "http://localhost:5000/api/status"
+    },
+    "chaosgenius_discord_bot": {
+      "script": "chaosgenius_discord_bot.py",
+      "port": null,
+      "check_interval": 60,
+      "max_failures": 2,
+      "auto_resurrect": true,
+      "resurrection_delay": 10,
+      "health_check_url": null
+    },
+    "agent_army_forge_master": {
+      "script": "agent_army_forge_master.py",
+      "port": null,
+      "check_interval": 120,
+      "max_failures": 2,
+      "auto_resurrect": true,
+      "resurrection_delay": 15,
+      "health_check_url": null
+    }
+  },
+  "guardian_settings": {
+    "master_check_interval": 15,
+    "resurrection_cooldown": 30,
+    "max_concurrent_resurrections": 3,
+    "emergency_protocols": true,
+    "notification_enabled": true,
+    "auto_backup_before_resurrection": true
+  }
+}

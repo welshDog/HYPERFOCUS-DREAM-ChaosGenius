@@ -1,0 +1,13 @@
+{
+  "agent_name": "Discord Command Relay",
+  "agent_type": "communication",
+  "powers": [
+    "command_parsing",
+    "status_reporting",
+    "user_authentication"
+  ],
+  "created": "2025-06-12T17:46:09.323921",
+  "energy_level": "maximum",
+  "crystal_type": "communication_crystal",
+  "forged_by": "Chief Lyndz Broski Neural Overseer"
+}
