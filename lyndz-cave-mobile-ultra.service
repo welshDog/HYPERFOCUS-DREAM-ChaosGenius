@@ -1,0 +1,47 @@
+[Unit]
+Description=🕋💻 LYNDZ CAVE MOBILE ULTRA - Immortal Guardian 💻🕋
+Documentation=https://hyperfocuszone.com/lyndz-cave-mobile-ultra
+After=network.target network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/chaosgenius
+ExecStart=/root/chaosgenius/lyndz_cave_mobile_immortal_guardian.sh start
+ExecStop=/root/chaosgenius/lyndz_cave_mobile_immortal_guardian.sh stop
+ExecReload=/root/chaosgenius/lyndz_cave_mobile_immortal_guardian.sh restart
+
+# ♾️ IMMORTALITY SETTINGS ♾️
+Restart=always
+RestartSec=10
+RestartPreventExitStatus=
+KillMode=mixed
+TimeoutStopSec=30
+
+# Performance optimizations for mobile empire
+Nice=-10
+IOSchedulingClass=1
+IOSchedulingPriority=4
+LimitNOFILE=65536
+LimitNPROC=32768
+
+# Security hardening
+NoNewPrivileges=false
+ProtectSystem=false
+ProtectHome=false
+PrivateTmp=false
+
+# Environment
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONUNBUFFERED=1
+Environment=LYNDZ_CAVE_MODE=IMMORTAL
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lyndz-cave-mobile-ultra
+
+[Install]
+WantedBy=multi-user.target

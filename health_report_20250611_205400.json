@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-06-11T20:53:57.540924",
+  "overall_health": "GOOD",
+  "metrics": {
+    "total_files": 53270,
+    "large_files_count": 1,
+    "large_files": [
+      {
+        "path": "/root/chaosgenius/chaosgenius_snapshot_20250608_112324.tar.gz",
+        "size_mb": 81.56525230407715
+      }
+    ],
+    "gitignore_exists": true
+  },
+  "issues": [
+    "Project has excessive file count"
+  ],
+  "recommendations": []
+}

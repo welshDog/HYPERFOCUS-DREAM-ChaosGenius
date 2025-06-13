@@ -1,0 +1,22 @@
+{
+  "account_type": "Lloyds_Basic_3068",
+  "account_holder": "Lyndon Williams",
+  "daily_limit": 500,
+  "per_request_limit": 150,
+  "business_mode": "PREMIUM_MULTIPLIER",
+  "profit_targets": {
+    "hourly": 25,
+    "daily": 200,
+    "weekly": 1400
+  },
+  "investment_strategies": [
+    "crypto_arbitrage",
+    "forex_scalping",
+    "high_yield_savings",
+    "business_opportunities",
+    "passive_income_streams"
+  ],
+  "risk_level": "calculated_aggressive",
+  "auto_reinvest": true,
+  "compound_daily": true
+}

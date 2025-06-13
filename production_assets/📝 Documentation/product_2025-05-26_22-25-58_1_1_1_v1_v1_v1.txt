@@ -1,6 +1,0 @@
-Product: New Product Idea
-Created: 2025-05-26 22:25:58
-Description: Placeholder for new product concept
-
---- DEVELOPMENT NOTES ---
-Add your ideas, features, and implementation notes here.

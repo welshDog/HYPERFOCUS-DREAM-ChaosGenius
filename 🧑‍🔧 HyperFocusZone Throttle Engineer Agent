@@ -1,0 +1,172 @@
+import time
+import redis
+import psutil
+import json
+from abc import ABC, abstractmethod
+
+# ----------------------------------------------------------------------------
+# HyperFocusZone Throttle Engineer Agent
+# Adds a 'HyperFocusZone Twist':
+#  1. Focus Sessions: boost throughput for tasks tagged as current focus.
+#  2. Priority Flags (🔥): instant high-priority allowances.
+#  3. Config-driven: load focus tags and limits from `hfz_config.json`.
+# ----------------------------------------------------------------------------
+
+class HyperFocusZoneConfig:
+    """
+    Loads HyperFocusZone-specific settings from a JSON file.
+    Example hfz_config.json:
+    {
+      "default_limit": 100,
+      "focus_limit_multiplier": 3,
+      "focus_tags": ["ADHD_Morning_Routines", "API_Refactor"],
+      "🔥_boost": 5
+    }
+    """
+    def __init__(self, path="hfz_config.json"):
+        with open(path, 'r') as f:
+            cfg = json.load(f)
+        self.default_limit = cfg.get("default_limit", 100)
+        self.focus_multiplier = cfg.get("focus_limit_multiplier", 2)
+        self.focus_tags = set(cfg.get("focus_tags", []))
+        self.boost_flag = cfg.get("🔥_boost", 5)
+
+class DynamicRateLimiter:
+    def __init__(self, redis_client, prefix="hrw", limit=100, period=60):
+        self.redis = redis_client
+        self.prefix = prefix
+        self.limit = limit
+        self.period = period
+
+    def get_limit(self):
+        cpu = psutil.cpu_percent()
+        if cpu > 80:
+            return max(1, self.limit // 2)
+        elif cpu < 20:
+            return self.limit * 2
+        return self.limit
+
+    def allow(self, key):
+        now = int(time.time())
+        rkey = f"{self.prefix}:{key}"
+        pipe = self.redis.pipeline()
+        pipe.zremrangebyscore(rkey, 0, now - self.period)
+        pipe.zcard(rkey)
+        pipe.zadd(rkey, {now: now})
+        pipe.expire(rkey, self.period)
+        _, count, _, _ = pipe.execute()
+        return count <= self.get_limit()
+
+class HyperFocusRateLimiter(DynamicRateLimiter):
+    """
+    Extends DynamicRateLimiter with HyperFocusZone twist:
+     - Boost for current focus tag
+     - Instant allowances for tasks flagged with 🔥
+    """
+    def __init__(self, redis_client, hfz_config, prefix="hfz", period=60):
+        super().__init__(redis_client, prefix, hfz_config.default_limit, period)
+        self.config = hfz_config
+        self.current_focus = None  # e.g. "ADHD_Morning_Routines"
+
+    def set_focus(self, tag):
+        if tag in self.config.focus_tags:
+            self.current_focus = tag
+            print(f"[HFZ] Focus session started on: {tag}")
+        else:
+            raise ValueError(f"Unknown focus tag: {tag}")
+
+    def clear_focus(self):
+        print(f"[HFZ] Focus session ended: {self.current_focus}")
+        self.current_focus = None
+
+    def get_limit(self, key=None):
+        base = super().get_limit()
+        # Priority flag boost
+        if key and key.endswith("🔥"):
+            return base * self.config.boost_flag
+        # Focus session boost
+        if self.current_focus and key and key.startswith(self.current_focus):
+            return base * self.config.focus_multiplier
+        return base
+
+class PowerMonitor:
+    """Stub for integration with energy metrics (cAdvisor, Telegraf)"""
+    def level(self):
+        # return battery % or container CPU energy usage
+        return psutil.sensors_battery().percent if hasattr(psutil, 'sensors_battery') else 100
+
+    def level_ok(self):
+        return self.level() > 20
+
+class Agent(ABC):
+    @abstractmethod
+    def plan(self, context): pass
+    @abstractmethod
+    def act(self, decision): pass
+    @abstractmethod
+    def observe(self): pass
+
+class ThrottleAgent(Agent):
+    def __init__(self, limiter, power_monitor):
+        self.limiter = limiter
+        self.power = power_monitor
+
+    def plan(self, context):
+        """
+        Decide route based on:
+         - Power OK
+         - Rate limiter allowance
+         - HyperFocusZone focus & priority flags
+        context keys:
+          - 'task_key': unique identifier, can include tag 🔥
+          - 'user'
+        """
+        key = context.get("task_key")
+        if not self.power.level_ok():
+            print("[HFZ] Low power: throttling all tasks.")
+            return None
+        if self.limiter.allow(key):
+            print(f"[HFZ] Allowing task: {key}")
+            return context.get("route")
+        print(f"[HFZ] Throttled task: {key}")
+        return None
+
+    def act(self, decision):
+        if decision:
+            # Invoke the HyperWay pipeline
+            self.execute_hyperway(decision)
+
+    def observe(self):
+        return {"cpu": psutil.cpu_percent(), "battery": self.power.level()}
+
+    def execute_hyperway(self, route):
+        # Placeholder for real HyperWay execution
+        print(f"[HFZ] Executing HyperWay: {route}")
+
+# ------------------ Example Usage ------------------
+if __name__ == "__main__":
+    # Load HFZ config
+    cfg = HyperFocusZoneConfig()
+    redis_client = redis.Redis()
+
+    # Instantiate Enhanced Limiter
+    limiter = HyperFocusRateLimiter(redis_client, cfg)
+    # Start a focus session
+    limiter.set_focus("API_Refactor")
+
+    power = PowerMonitor()
+    agent = ThrottleAgent(limiter, power)
+
+    # Simulate context with focus tag & priority
+    tasks = [
+        {"task_key": "API_Refactor:endpoint_update", "route": "update_endpoint"},
+        {"task_key": "Background_Sync🔥",     "route": "sync_data"},
+        {"task_key": "Metrics_Report",        "route": "generate_report"}
+    ]
+
+    for ctx in tasks:
+        decision = agent.plan(ctx)
+        agent.act(decision)
+        print(agent.observe())
+
+    limiter.clear_focus()

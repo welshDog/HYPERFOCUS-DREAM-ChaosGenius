@@ -1,0 +1,46 @@
+# 🧠💾 HyperShrink: File Crusher by HyperFocusZone
+
+"""
+🔥 Legendary Compression Tool built by the BROski Dev Army 🔥
+Core: Zstandard (.zst)
+Goals: Fast. Clean. Custom. Gamified.
+"""
+
+import zstandard as zstd
+import sys
+from pathlib import Path
+
+def compress_file(input_path: str, output_path: str = None):
+    input_path = Path(input_path)
+    output_path = Path(output_path or str(input_path) + ".hfz")
+
+    with open(input_path, 'rb') as fin, open(output_path, 'wb') as fout:
+        compressor = zstd.ZstdCompressor()
+        with compressor.stream_writer(fout) as writer:
+            fout.write(compressor.compress(fin.read()))
+    print(f"✅ Compressed: {input_path} → {output_path}")
+
+def decompress_file(input_path: str, output_path: str = None):
+    input_path = Path(input_path)
+    output_path = Path(output_path or input_path.stem)
+
+    with open(input_path, 'rb') as fin, open(output_path, 'wb') as fout:
+        decompressor = zstd.ZstdDecompressor()
+        with decompressor.stream_writer(fout) as writer:
+            fout.write(decompressor.decompress(fin.read()))
+    print(f"✅ Decompressed: {input_path} → {output_path}")
+
+if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print("Usage: python hypershrink.py [compress|decompress] filename")
+        sys.exit(1)
+
+    command = sys.argv[1].lower()
+    file = sys.argv[2]
+
+    if command == 'compress':
+        compress_file(file)
+    elif command == 'decompress':
+        decompress_file(file)
+    else:
+        print("Unknown command. Use 'compress' or 'decompress'.")

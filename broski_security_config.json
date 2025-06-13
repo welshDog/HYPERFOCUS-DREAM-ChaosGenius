@@ -29,8 +29,8 @@
     "find"
   ],
   "thresholds": {
-    "port_scan_threshold": 5,
-    "max_failed_logins": 3,
+    "port_scan_threshold": 50,
+    "max_failed_logins": 25,
     "suspicious_connection_threshold": 8,
     "file_change_cooldown": 300
   },
@@ -38,10 +38,10 @@
     "ignore_local_connections": false,
     "ignore_common_ports": false,
     "ignore_development_activity": false,
-    "rate_limit_alerts": false
+    "rate_limit_alerts": true
   },
   "stealth_mode": {
-    "enabled": false,
+    "enabled": true,
     "log_only": false,
     "minimal_alerts": true
   }

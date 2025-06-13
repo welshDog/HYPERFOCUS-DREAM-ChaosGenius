@@ -1,0 +1,32 @@
+{
+  "default_limit": 150,
+  "focus_limit_multiplier": 5,
+  "focus_tags": [
+    "HyperShrink_8000",
+    "Compression_Engine",
+    "File_Optimization",
+    "Ultra_Performance",
+    "Development_Sprint"
+  ],
+  "\ud83d\udd25_boost": 10,
+  "hyperfocus_modes": {
+    "LEGENDARY": {
+      "multiplier": 8,
+      "cpu_threshold": 90
+    },
+    "ULTRA": {
+      "multiplier": 5,
+      "cpu_threshold": 70
+    },
+    "STANDARD": {
+      "multiplier": 3,
+      "cpu_threshold": 50
+    }
+  },
+  "project_priorities": {
+    "HyperShrink_8000": "LEGENDARY",
+    "Money_Making": "ULTRA",
+    "Security": "ULTRA",
+    "Maintenance": "STANDARD"
+  }
+}

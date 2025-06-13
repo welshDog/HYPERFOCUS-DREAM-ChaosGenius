@@ -1,6 +1,0 @@
-Product: Integration Test Product
-Created: 2025-05-27 11:32:32
-Description: Testing the full workflow
-
---- DEVELOPMENT NOTES ---
-Add your ideas, features, and implementation notes here.

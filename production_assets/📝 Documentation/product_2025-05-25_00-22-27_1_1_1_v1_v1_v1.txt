@@ -1,6 +1,0 @@
-Product: broski bot 
-Created: 2025-05-25 00:22:27
-Description: Placeholder for new product concept
-
---- DEVELOPMENT NOTES ---
-Add your ideas, features, and implementation notes here.

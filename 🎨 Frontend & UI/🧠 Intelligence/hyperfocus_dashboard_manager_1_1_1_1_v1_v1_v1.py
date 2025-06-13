@@ -1,1 +1,0 @@
-        self.project_root = Path("/root/chaosgenius")

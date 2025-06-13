@@ -1,83 +1,3 @@
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-project_env/
-venv/
-env/
-ENV/
-.env
-.env.local
-.env.production
-*.key
-*_SECURE.json
-discord_token.txt
-openai_api_key.txt
-*.db
-*.sqlite
-*.sqlite3
-*.log
-logs/
-health_report*.json
-*_log_*.json
-evolution_report_*.json
-chaosgenius_showcase_report_*.txt
-.DS_Store
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-tmp/
-temp/
-.tmp/
-*.tmp
-*.service
-ecosystem.config.js
-*_backup.py
-backup_*/
-*.zip
-*.tar.gz
-*.bundle
-*.png
-*.jpg
-*.jpeg
-*.gif
-!screenshots/
-.easter_egg_discoveries.json
-deploy_to_*.sh
-FINAL_DEPLOYMENT_COMMANDS.md
-*.pdf
-node_modules/
-"before deploy"
-"123blast off checks"
-"Broski  Ultra Adslot System"
-"FINAL LAUNCH SEQUENCE — HYPERFOCUSzone.com"
-# === HYPERFOCUS DREAM PROJECT .GITIGNORE ===
-
-# Virtual Environments
-venv/
-venvve/
-env/
-.env
-
 # Python
 __pycache__/
 *.py[cod]
@@ -96,78 +16,47 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Analysis Reports & Logs
-hyperfocus_project_analysis_*.json
-project_analysis_report_*.json
-file_organization_log_*.json
-health_report_*.json
-test_report_*.json
-cleanup_log_*.json
-optimization_log_*.json
-*.log
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
 logs/
+*.log
 
-# Backup Directories
-cleanup_backups/
-optimization_backups/
-archived_reports/
-archived_logs/
-
-# IDE & Editor Files
-.vscode/settings.json
+# IDE
+.vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# OS Files
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Database Files
-*.db
-*.sqlite3
-*.db-journal
-
-# Large Media Files (>50MB)
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.wav
-*.flac
-
-# Temporary Files
+# Temporary files
+temp/
+tmp/
+cache/
 *.tmp
-*.temp
-*.bak
-*.backup
+*.cache
 
-# Node modules (if any JS)
-node_modules/
-npm-debug.log*
-
-# Docker
-.dockerignore
-
-# Coverage Reports
-htmlcov/
-.coverage
-.coverage.*
-coverage.xml
-*.cover
-
-# Production secrets
-*.env.production
-*.env.local
-secrets/
-credentials.json
+# Backups
+*backup*
+*_backup/
+cleanup_backup/

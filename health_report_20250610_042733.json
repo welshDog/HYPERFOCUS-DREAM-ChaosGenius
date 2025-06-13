@@ -1,0 +1,94 @@
+{
+  "timestamp": "2025-06-10T04:27:33.120824",
+  "system": "ChaosGenius Ultra",
+  "health_check_version": "1.0 - Post Night Shift",
+  "overall_status": "\ud83d\udee0\ufe0f REQUIRES FIXES",
+  "checks": {
+    "imports": {
+      "status": "checking",
+      "tests": [
+        {
+          "name": "BROskiCore Import",
+          "status": "\ud83d\udd27 NEEDS ATTENTION",
+          "details": "No module named 'ai_modules'"
+        },
+        {
+          "name": "Ultra Performance System",
+          "status": "\ud83d\udd27 NEEDS ATTENTION",
+          "details": "No module named 'ai_modules'"
+        },
+        {
+          "name": "BROski Status System",
+          "status": "\ud83d\udd27 NEEDS ATTENTION",
+          "details": "No module named 'ai_modules'"
+        }
+      ]
+    },
+    "files": {
+      "status": "checking",
+      "files": [
+        {
+          "name": "app.py",
+          "status": "\u2705 EXISTS",
+          "size": "1039 bytes"
+        },
+        {
+          "name": "ai_modules/__init__.py",
+          "status": "\u274c MISSING",
+          "size": "0 bytes"
+        },
+        {
+          "name": "ai_modules/broski/__init__.py",
+          "status": "\u274c MISSING",
+          "size": "0 bytes"
+        },
+        {
+          "name": "ai_modules/broski/broski_core.py",
+          "status": "\u2705 EXISTS",
+          "size": "41999 bytes"
+        },
+        {
+          "name": "broski_core.py",
+          "status": "\u2705 EXISTS",
+          "size": "43202 bytes"
+        },
+        {
+          "name": "requirements.txt",
+          "status": "\u274c MISSING",
+          "size": "0 bytes"
+        }
+      ]
+    },
+    "databases": {
+      "status": "checking",
+      "databases": [
+        {
+          "name": "broski_learning_optimized.db",
+          "status": "\u2705 OPERATIONAL",
+          "size": "36864 bytes"
+        },
+        {
+          "name": "broski_analytics.db",
+          "status": "\u2705 OPERATIONAL",
+          "size": "28672 bytes"
+        },
+        {
+          "name": "broski_ultra_brain.db",
+          "status": "\ud83d\udd27 NOT FOUND",
+          "size": "0 bytes"
+        },
+        {
+          "name": "chaosgenius.db",
+          "status": "\ud83d\udd27 NOT FOUND",
+          "size": "0 bytes"
+        }
+      ]
+    }
+  },
+  "health_percentage": 38.46153846153847,
+  "tests_summary": {
+    "total": 13,
+    "passed": 5,
+    "failed": 8
+  }
+}

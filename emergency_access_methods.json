@@ -1,0 +1,9 @@
+{
+  "ssh_primary": "ssh root@your-server -p 22",
+  "ssh_emergency": "ssh root@your-server -p 2222",
+  "web_nexus": "http://your-server:5002",
+  "web_terminal": "http://your-server:8080",
+  "discord_emergency": "!emergency_access in Discord",
+  "auto_recovery": "Runs every 15 minutes automatically",
+  "manual_recovery": "/root/ultimate_emergency_recovery.sh"
+}
