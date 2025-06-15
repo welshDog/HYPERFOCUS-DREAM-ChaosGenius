@@ -277,48 +277,6 @@
       color: #ff0080;
     }
 
-    /* 🧠 AI INSIGHTS STREAM */
-    .ai-insights {
-      max-height: 250px;
-      overflow-y: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .insight-item {
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 10px;
-      animation: insight-glow 3s ease infinite;
-    }
-
-    .insight-info {
-      background: rgba(0, 255, 255, 0.2);
-      border-left: 4px solid #00ffff;
-    }
-
-    .insight-success {
-      background: rgba(0, 255, 136, 0.2);
-      border-left: 4px solid #00ff88;
-    }
-
-    .insight-warning {
-      background: rgba(255, 255, 0, 0.2);
-      border-left: 4px solid #ffff00;
-    }
-
-    @keyframes insight-glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
-      }
-
-      50% {
-        box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
-      }
-    }
-
     /* 🎯 EMPIRE STATUS */
     .empire-status {
       text-align: center;
@@ -328,7 +286,8 @@
 
     .status-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
       gap: 15px;
       margin-top: 15px;
     }
@@ -371,6 +330,10 @@
 
       .health-metrics {
         grid-template-columns: 1fr;
+      }
+
+      .status-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 

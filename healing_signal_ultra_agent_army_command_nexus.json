@@ -1,6 +1,6 @@
 {
   "command": "INITIATE_INTERNAL_HEALING",
-  "timestamp": 1749958828.2565691,
+  "timestamp": 1749998437.075575,
   "commander": "AgentArmyHealingCommander",
   "healing_type": "COMPREHENSIVE",
   "brain_recommendations": {
