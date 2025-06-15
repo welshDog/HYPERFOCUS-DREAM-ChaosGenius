@@ -1,23 +1,62 @@
-# Core Flask application
-Flask==2.3.3
-Flask-CORS==4.0.0
-Werkzeug==2.3.7
+# 📦 requirements.txt - ChaosGenius Empire Dependencies
 
-# API Documentation
-flasgger==0.9.7.1
+# 🤖 AI & ML Core
+openai>=1.0.0
+anthropic>=0.7.0
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
 
-# Environment Management
-python-dotenv==1.0.0
+# 🌐 Web & API
+flask>=2.0.0
+flask-cors>=3.0.0
+requests>=2.28.0
+aiohttp>=3.8.0
+fastapi>=0.68.0
+uvicorn>=0.15.0
 
-# HTTP Requests
-requests==2.31.0
+# 🎮 Discord Integration
+discord.py>=2.0.0
+discord-ext-menus>=1.0.0
 
-# Discord Bot
-discord.py==2.3.2
+# 📊 Analytics & Monitoring
+psutil>=5.8.0
+prometheus-client>=0.14.0
 
-# Database
+# 🗄️ Database
 sqlite3
+sqlalchemy>=1.4.0
 
-# Development Tools (optional)
-# black==23.7.0
-# pytest==7.4.2
+# 🔒 Security
+cryptography>=3.4.0
+bcrypt>=3.2.0
+pyjwt>=2.4.0
+
+# ⚡ Performance
+asyncio
+concurrent.futures
+threading
+
+# 🎯 ADHD & Productivity
+schedule>=1.1.0
+python-dateutil>=2.8.0
+
+# 🎨 Terminal Beauty
+colorama>=0.4.0
+rich>=12.0.0
+termcolor>=1.1.0
+
+# 🔧 Utilities
+python-dotenv>=0.19.0
+pyyaml>=6.0
+jsonschema>=4.0.0
+pathlib
+
+# 📈 Business Intelligence
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# 🌩️ Cloud Integration
+cloudflare>=2.8.0
+boto3>=1.24.0
