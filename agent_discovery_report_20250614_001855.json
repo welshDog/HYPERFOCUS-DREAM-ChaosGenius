@@ -1,0 +1,4528 @@
+{
+  "empty_files": [
+    {
+      "path": "/root/chaosgenius/discord_token_fixer.sh",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/setup_discord_bot.sh",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/ultra_agent_army_emergency.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/special_ops_remote.db-wal",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/agent_army_mission_2_security_fortress.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/nuclear_server_rescue.sh",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/.git/objects/ba/tmp_obj_1wOZNF",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/ai_agents/analytics_brain_scanner.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/ai_agents/discord_command_relay.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/immortality_dashboard.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/community/voting_system.json",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/token_system/broski_infinity_token.json",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/mystery_boxes/launch_collection.json",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/body_doubling/session_types.json",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/income_streams/fusion_controller.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/colorama-0.4.6.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip-24.0.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/zstandard-0.23.0.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/metadata/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/cli/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/legacy/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/__init__.py",
+      "suggestion": "Add Python module with docstring, imports, and basic class/function structure"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/zstandard/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm-4.67.1.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask-3.1.1.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/jinja2/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/requests-2.32.4.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/click/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/pip-24.0.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/psutil-7.0.0.dist-info/REQUESTED",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/itsdangerous/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/werkzeug/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/idna/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/markupsafe/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/certifi/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/blinker/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/charset_normalizer/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask/py.typed",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/crystals/maintenance.broski",
+      "suggestion": "Add appropriate content based on file type and context"
+    },
+    {
+      "path": "/root/chaosgenius/broski_legal_pack/disclaimer",
+      "suggestion": "Add appropriate content based on file type and context"
+    }
+  ],
+  "incomplete_files": [
+    {
+      "path": "/root/chaosgenius/hyperfocuszone_command_center.html",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ultra_agent_army_dashboard.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/cleanup_workspace.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/cave_hub_api_backend.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/cloaked_cave_launchpad.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/broski_discord_interactions_endpoint.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/CHANGELOG.md",
+      "issues": [
+        "bug",
+        "Bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/guardian_hud.html",
+      "issues": [
+        "BUG",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "Bug",
+        "bug",
+        "Bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/broski_health_matrix.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocus_throttle_engineer_agent.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/STRUCTURE_MAP.md",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperagent_demo_preview.html",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/chaosgenius_sales_empire_implementation.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ultra_agent_army_emergency.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ultra_dashboard_api.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/neuro_stars_galaxy.html",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/chaosgenius_ultimate_failsafe.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/deploy_hyperfocuszone.sh",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/terminal_cave_dashboard.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/portfolio_showcase.html",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/dashboard_api.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/digital_universe_expansion.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/team_collaboration_hub.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hypergate_web_panel.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/web_emergency_terminal.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ultimate_auto_integration_system.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/app.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/agent_army_mission_2_security_fortress.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocus_infinite_auto_money_maker.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/chaosgenius_brain_intelligence_hub.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/teemill_income_integrator.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/agent_army_project_discovery.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/broski_brain_data_engine.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/chaosgenius_ultimate_command_nexus.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocus_gamification_engine.py",
+      "issues": [
+        "Bug",
+        "Bug",
+        "bug",
+        "bug",
+        "bug",
+        "Bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ultimate_command_center.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/DISCORD_BOT_SETUP.md",
+      "issues": [
+        "bug",
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyper_cave_dashboard.html",
+      "issues": [
+        "Bug",
+        "Bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyper_stealth_monitor.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/lyndz_ultimate_portal.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ai_agents/analytics_brain_scanner.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ai_agents/discord_command_relay.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/docs/README.md",
+      "issues": [
+        "bug",
+        "bug",
+        "Bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/\ud83c\udfa8 Frontend & UI/dashboard_api.py",
+      "issues": [
+        "# Create new connection if pool is empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/chaosgenius-hybrid/frontend-api/app.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/ai_modules/broski/broski_core.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/immortality_dashboard.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/infinite_empire/income_streams/fusion_controller.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/src/app.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/src/core/broski_core.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/src/api/dashboard_api.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/src/api/dashboard.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py",
+      "issues": [
+        "Hack",
+        "Hack",
+        "Hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distro/distro.py",
+      "issues": [
+        "bug",
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/style.py",
+      "issues": [
+        "xxx",
+        "xxx"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/cmdline.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/regexopt.py",
+      "issues": [
+        "# print '-> first string empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexer.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/unistring.py",
+      "issues": [
+        "Hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/terminal256.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/__init__.py",
+      "issues": [
+        "# This empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/html.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/svg.py",
+      "issues": [
+        "hack",
+        "hack",
+        "hack",
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/latex.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/terminal.py",
+      "issues": [
+        "# even if it's empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/rtf.py",
+      "issues": [
+        "# empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/img.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/filters/__init__.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py",
+      "issues": [
+        "Todo",
+        "Todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__init__.py",
+      "issues": [
+        "# This empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/webencodings/mklabels.py",
+      "issues": [
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/webencodings/labels.py",
+      "issues": [
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/tomli/_parser.py",
+      "issues": [
+        "# Free the namespace now that it points to another empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/specifiers.py",
+      "issues": [
+        "# Note: This use of all() here means that an empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/tags.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/_manylinux.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/requirements.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/exceptions.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/__init__.py",
+      "issues": [
+        "BUG",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py",
+      "issues": [
+        "FIXME",
+        "FIXME",
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py",
+      "issues": [
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py",
+      "issues": [
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/connection.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/response.py",
+      "issues": [
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/common.py",
+      "issues": [
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx",
+        "xxx"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/testing.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/util.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/sjisprober.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/sbcharsetprober.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/universaldetector.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/codingstatemachinedict.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/sbcsgroupprober.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/mbcharsetprober.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/charsetgroupprober.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/resultdict.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/eucjpprober.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/metadata/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/metadata/languages.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/cli/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/msgpack/fallback.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/truststore/_macos.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/truststore/_openssl.py",
+      "issues": [
+        "pass\n"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/truststore/_api.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/metadata.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/database.py",
+      "issues": [
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/version.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/manifest.py",
+      "issues": [
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/util.py",
+      "issues": [
+        "TODO",
+        "todo",
+        "todo",
+        "todo",
+        "todo",
+        "todo"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/index.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/resources.py",
+      "issues": [
+        "todo",
+        "todo",
+        "todo",
+        "todo"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/scripts.py",
+      "issues": [
+        "xxx",
+        "xxx",
+        "xxx"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py",
+      "issues": [
+        "XXX",
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/wheel.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "todo",
+        "todo",
+        "todo",
+        "todo"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/idna/package_data.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py",
+      "issues": [
+        "XXX",
+        "XXX",
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/adapters.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/hooks.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/utils.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/help.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "issues": [
+        "# Default empty",
+        "# method. To prevent iterating over None, simply use an empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/auth.py",
+      "issues": [
+        "XXX",
+        "XXX",
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/serialize.py",
+      "issues": [
+        "# Empty",
+        "# Short circuit if we've been given an empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/filewrapper.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/_cmd.py",
+      "issues": [
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py",
+      "issues": [
+        "pass\n"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/traceback.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/console.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/diagnose.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/cells.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/text.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_timer.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/default_styles.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/logging.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/configuration.py",
+      "issues": [
+        "XXX",
+        "XXX"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cache.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/build_env.py",
+      "issues": [
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/self_outdated_check.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/legacy/resolver.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/legacy/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/reporter.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py",
+      "issues": [
+        "bug",
+        "BUG",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/provider.py",
+      "issues": [
+        "HACK"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/configuration.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/inspect.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/install.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/__init__.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/debug.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/metadata/base.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/metadata/importlib/_compat.py",
+      "issues": [
+        "HACK"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/index/collector.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/index/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/index/package_finder.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/filesystem.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/direct_url_helpers.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/temp_dir.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/urls.py",
+      "issues": [
+        "# According to RFC 8089, same as empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/unpacking.py",
+      "issues": [
+        "FIXME",
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/hashes.py",
+      "issues": [
+        "# If either of the Hashes object is entirely empty",
+        "# empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/_log.py",
+      "issues": [
+        "BUG",
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/misc.py",
+      "issues": [
+        "# Windows can raise spurious ENOTEMPTY"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/subprocess.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/logging.py",
+      "issues": [
+        "bug",
+        "bug",
+        "BUG",
+        "BUG",
+        "BUG",
+        "BUG",
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/main.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/base_command.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/cmdoptions.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/parser.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/req_command.py",
+      "issues": [
+        "# Return None rather than an empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/versioncontrol.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/mercurial.py",
+      "issues": [
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/subversion.py",
+      "issues": [
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/git.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/utils.py",
+      "issues": [
+        "#   and will leave the file alone and with an empty",
+        "#   and with an empty"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/lazy_wheel.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/auth.py",
+      "issues": [
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/distributions/installed.py",
+      "issues": [
+        "pass\n"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/distributions/wheel.py",
+      "issues": [
+        "pass\n"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/models/installation_report.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/models/link.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/models/index.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/prepare.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/freeze.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/wheel_editable.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/__init__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/metadata_legacy.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/wheel.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/build/wheel_legacy.py",
+      "issues": [
+        "BUG",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/install/wheel.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/constructors.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_set.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_file.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_install.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_uninstall.py",
+      "issues": [
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/locations/_distutils.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/locations/base.py",
+      "issues": [
+        "FIXME",
+        "FIXME"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/locations/__init__.py",
+      "issues": [
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/zstandard/backend_cffi.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/zstandard/__init__.py",
+      "issues": [
+        "hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/notebook.py",
+      "issues": [
+        "Hack"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/rich.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/gui.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/utils.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/cli.py",
+      "issues": [
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/tk.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/__init__.py",
+      "issues": [
+        "TODO",
+        "TODO",
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/std.py",
+      "issues": [
+        "TODO"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/__main__.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/completion.sh",
+      "issues": [
+        "BUG"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/_dist_ver.py",
+      "issues": [
+        "Very minimal content"
+      ],
+      "suggestion": "Add comprehensive functionality, error handling, logging, and documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/app.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask/app.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask/sansio/app.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "BUG",
+        "bug",
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/cleanup_backup/dashboard_api.py",
+      "issues": [
+        "bug",
+        "bug",
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    },
+    {
+      "path": "/root/chaosgenius/cleanup_backup/app.py",
+      "issues": [
+        "bug"
+      ],
+      "suggestion": "Complete TODO items, add error handling, improve documentation"
+    }
+  ],
+  "cool_features": [
+    {
+      "feature": "AI Agents",
+      "files": [
+        "/root/chaosgenius/broski_advanced_analytics.py",
+        "/root/chaosgenius/super_ai_agent_orchestrator.py",
+        "/root/chaosgenius/broski_quantum_supremacy_engine.py",
+        "/root/chaosgenius/agent_army_mission_1_code_quality.py",
+        "/root/chaosgenius/broski_money_maker_portal.py"
+      ],
+      "count": 93,
+      "enhancement_suggestion": "Add multi-agent coordination, learning capabilities, and performance metrics"
+    },
+    {
+      "feature": "Discord Integration",
+      "files": [
+        "/root/chaosgenius/dream_discord_community_bot.py",
+        "/root/chaosgenius/discord_gigs_money_maker.py",
+        "/root/chaosgenius/unified_broski_discord_bot.py",
+        "/root/chaosgenius/discord_emergency_bot.py",
+        "/root/chaosgenius/discord_emergency_bot.py"
+      ],
+      "count": 16,
+      "enhancement_suggestion": "Add slash commands, embeds, reactions, and advanced moderation"
+    },
+    {
+      "feature": "Revenue Systems",
+      "files": [
+        "/root/chaosgenius/revenue_autopilot.py",
+        "/root/chaosgenius/teemill_income_integrator.py",
+        "/root/chaosgenius/__pycache__/teemill_income_integrator.cpython-312.pyc"
+      ],
+      "count": 3,
+      "enhancement_suggestion": "Add analytics dashboards, A/B testing, and automated optimization"
+    },
+    {
+      "feature": "Security Features",
+      "files": [
+        "/root/chaosgenius/agent_army_mission_2_security_fortress.py",
+        "/root/chaosgenius/broski_security_fortress_portal.py",
+        "/root/chaosgenius/ai_agents/security_guardian_sentinel.py",
+        "/root/chaosgenius/__pycache__/broski_security_fortress_portal.cpython-312.pyc"
+      ],
+      "count": 4,
+      "enhancement_suggestion": "Add real-time monitoring, ML-based threat detection, and automated responses"
+    },
+    {
+      "feature": "Analytics",
+      "files": [
+        "/root/chaosgenius/neural_overseer_brain_pulse.py",
+        "/root/chaosgenius/chaosgenius_brain_intelligence_hub.py",
+        "/root/chaosgenius/broski_brain_data_engine.py",
+        "/root/chaosgenius/ai_agents/analytics_brain_scanner.py",
+        "/root/chaosgenius/ai_agents/analytics_brain_scanner.py"
+      ],
+      "count": 7,
+      "enhancement_suggestion": "Add predictive analytics, visualization dashboards, and automated insights"
+    },
+    {
+      "feature": "Automation",
+      "files": [
+        "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/autocompletion.py",
+        "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/autocompletion.cpython-312.pyc",
+        "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/autonotebook.py",
+        "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/auto.py",
+        "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/__pycache__/auto.cpython-312.pyc"
+      ],
+      "count": 6,
+      "enhancement_suggestion": "Add smart scheduling, failure recovery, and performance optimization"
+    },
+    {
+      "feature": "Portal Systems",
+      "files": [
+        "/root/chaosgenius/immortality_dashboard_integration.py",
+        "/root/chaosgenius/ultra_agent_army_dashboard.py",
+        "/root/chaosgenius/ultra_dashboard_api.py",
+        "/root/chaosgenius/terminal_cave_dashboard.py",
+        "/root/chaosgenius/dashboard_api.py"
+      ],
+      "count": 14,
+      "enhancement_suggestion": "Add responsive design, real-time updates, and user customization"
+    },
+    {
+      "feature": "Quantum Features",
+      "files": [
+        "/root/chaosgenius/broski_quantum_supremacy_engine.py",
+        "/root/chaosgenius/__pycache__/broski_quantum_supremacy_engine.cpython-312.pyc"
+      ],
+      "count": 2,
+      "enhancement_suggestion": "Add quantum computing integration and advanced algorithms"
+    },
+    {
+      "feature": "Immortality Systems",
+      "files": [
+        "/root/chaosgenius/immortality_dashboard_integration.py",
+        "/root/chaosgenius/immortality_protocol_core.py",
+        "/root/chaosgenius/infinite_empire/immortality_dashboard.py"
+      ],
+      "count": 3,
+      "enhancement_suggestion": "Add redundancy layers, automated healing, and disaster recovery"
+    },
+    {
+      "feature": "HyperFocus Tools",
+      "files": [
+        "/root/chaosgenius/broski_focus_engine.py",
+        "/root/chaosgenius/hyperfocus_throttle_engineer_agent.py",
+        "/root/chaosgenius/hyperfocus_throttle_engineer_agent.py",
+        "/root/chaosgenius/hyperfocuszone_ultimate_agent_coordinator.py",
+        "/root/chaosgenius/hyperfocuszone_ultimate_agent_coordinator.py"
+      ],
+      "count": 21,
+      "enhancement_suggestion": "Add productivity analytics, goal tracking, and automated assistance"
+    }
+  ],
+  "optimization_opportunities": [
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultra_archive_builder_agent.py",
+      "size": "38.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/cleanup_workspace.py",
+      "size": "11.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/deep_multiverse_laser_network_tower.py",
+      "size": "18.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/super_ai_agent_orchestrator.py",
+      "size": "12.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_quantum_supremacy_engine.py",
+      "size": "19.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/agent_army_mission_1_code_quality.py",
+      "size": "15.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/cave_hub_api_backend.py",
+      "size": "12.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_money_maker_portal.py",
+      "size": "45.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_gig_marketplace.py",
+      "size": "31.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperagent_symphony_conductor.py",
+      "size": "13.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/cloaked_cave_launchpad.py",
+      "size": "10.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_discord_interactions_endpoint.py",
+      "size": "25.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_mystery_box_launcher.py",
+      "size": "13.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_focus_engine.py",
+      "size": "30.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_health_matrix.py",
+      "size": "45.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocus_throttle_engineer_agent.py",
+      "size": "14.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultra_agent_army_command_nexus.py",
+      "size": "25.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_discord_portal_connector.py",
+      "size": "16.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/dream_discord_community_bot.py",
+      "size": "62.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_tactical_executor.py",
+      "size": "17.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone_ultimate_agent_coordinator.py",
+      "size": "31.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_supreme_server_guardian.py",
+      "size": "21.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_unified_command_center.py",
+      "size": "19.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_sales_empire_implementation.py",
+      "size": "29.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_portal_discord_commands.py",
+      "size": "29.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_ultimate_failsafe.py",
+      "size": "18.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/neural_overseer_brain_pulse.py",
+      "size": "23.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/agent_recommendation_engine.py",
+      "size": "22.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_auto_earner.py",
+      "size": "14.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_community_walker.py",
+      "size": "20.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/revenue_autopilot.py",
+      "size": "31.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_cryptology_mega_agent.py",
+      "size": "12.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/legendary_achievement_system.py",
+      "size": "12.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/self_paying_server_engine.py",
+      "size": "14.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_security_tuner.py",
+      "size": "10.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_agent_army_command_portal.py",
+      "size": "27.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/dashboard_api.py",
+      "size": "12.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_agent_evolution_engine.py",
+      "size": "11.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/digital_universe_expansion.py",
+      "size": "14.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultra_archive_integration_bridge.py",
+      "size": "15.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_presence_monitor.py",
+      "size": "15.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/team_collaboration_hub.py",
+      "size": "19.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultimate_auto_integration_system.py",
+      "size": "30.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hypergate_manager.py",
+      "size": "17.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_security_fortress_portal.py",
+      "size": "26.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/unified_broski_discord_bot.py",
+      "size": "22.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_natural_language_commander.py",
+      "size": "21.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/immortality_protocol_core.py",
+      "size": "26.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocus_infinite_auto_money_maker.py",
+      "size": "32.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_zone_visual_enhancer.py",
+      "size": "11.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_brain_intelligence_hub.py",
+      "size": "37.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_agent_power_expansion.py",
+      "size": "21.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/teemill_income_integrator.py",
+      "size": "19.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/agent_army_project_discovery.py",
+      "size": "14.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_brain_data_engine.py",
+      "size": "13.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/neural_replay_engine.py",
+      "size": "17.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_discord_bot.py",
+      "size": "22.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_ultimate_command_nexus.py",
+      "size": "38.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocus_gamification_engine.py",
+      "size": "48.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone_discord_bot.py",
+      "size": "13.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultimate_command_center.py",
+      "size": "14.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/chaosgenius_github_supreme_agent.py",
+      "size": "19.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone_ultra_auto_help_party_system.py",
+      "size": "29.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_supreme_unity_orchestrator.py",
+      "size": "27.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyper_stealth_monitor.py",
+      "size": "15.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_nl_web_api.py",
+      "size": "18.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/broski_army_coordination_command.py",
+      "size": "24.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/lyndz_ultimate_portal.py",
+      "size": "18.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/agent_party_command_center.py",
+      "size": "12.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ai_business_agent_sales_strategy.py",
+      "size": "16.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ultimate_system_status_center.py",
+      "size": "12.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/\ud83c\udfa8 Frontend & UI/dashboard_api.py",
+      "size": "79.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/ai_modules/broski/broski_core.py",
+      "size": "41.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/src/bots/discord_bot.py",
+      "size": "12.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/src/bots/broski_bot.py",
+      "size": "23.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/src/core/broski_core.py",
+      "size": "42.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/src/core/neural_overseer_brain_pulse.py",
+      "size": "23.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_8000.py",
+      "size": "21.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hyperfocus_mission_executor.py",
+      "size": "20.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hyperfocus_agent_recommendations.py",
+      "size": "23.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/colorama/ansitowin32.py",
+      "size": "10.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/colorama/tests/ansitowin32_test.py",
+      "size": "10.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py",
+      "size": "108.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/six.py",
+      "size": "33.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/colorama/ansitowin32.py",
+      "size": "10.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/colorama/tests/ansitowin32_test.py",
+      "size": "10.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distro/distro.py",
+      "size": "48.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/cmdline.py",
+      "size": "23.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/util.py",
+      "size": "10.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexer.py",
+      "size": "33.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/unistring.py",
+      "size": "61.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/terminal256.py",
+      "size": "11.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/html.py",
+      "size": "34.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/latex.py",
+      "size": "18.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/img.py",
+      "size": "21.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/filters/__init__.py",
+      "size": "39.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "size": "52.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py",
+      "size": "70.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__init__.py",
+      "size": "11.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/webencodings/__init__.py",
+      "size": "10.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/tomli/_parser.py",
+      "size": "22.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py",
+      "size": "19.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/version.py",
+      "size": "14.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/specifiers.py",
+      "size": "29.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/tags.py",
+      "size": "15.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/packaging/_manylinux.py",
+      "size": "11.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "size": "39.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/poolmanager.py",
+      "size": "19.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py",
+      "size": "10.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "size": "19.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py",
+      "size": "29.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py",
+      "size": "33.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py",
+      "size": "16.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py",
+      "size": "10.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py",
+      "size": "17.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py",
+      "size": "13.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six.py",
+      "size": "33.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py",
+      "size": "14.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py",
+      "size": "21.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "size": "16.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/urllib3/util/timeout.py",
+      "size": "9.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/common.py",
+      "size": "13.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py",
+      "size": "219.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/helpers.py",
+      "size": "37.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/unicode.py",
+      "size": "10.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/testing.py",
+      "size": "13.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py",
+      "size": "26.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py",
+      "size": "23.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/big5freq.py",
+      "size": "30.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langgreekmodel.py",
+      "size": "96.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/chardistribution.py",
+      "size": "9.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langhungarianmodel.py",
+      "size": "99.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/gb2312freq.py",
+      "size": "20.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/universaldetector.py",
+      "size": "14.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langhebrewmodel.py",
+      "size": "95.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langturkishmodel.py",
+      "size": "93.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/escsm.py",
+      "size": "11.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langthaimodel.py",
+      "size": "100.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/johabfreq.py",
+      "size": "41.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langrussianmodel.py",
+      "size": "125.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/euctwfreq.py",
+      "size": "36.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/hebrewprober.py",
+      "size": "14.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/jpcntx.py",
+      "size": "26.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/mbcssm.py",
+      "size": "29.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/jisfreq.py",
+      "size": "25.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/langbulgarianmodel.py",
+      "size": "102.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/euckrfreq.py",
+      "size": "13.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/chardet/metadata/languages.py",
+      "size": "13.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_impl.py",
+      "size": "11.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
+      "size": "10.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/msgpack/fallback.py",
+      "size": "33.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/truststore/_macos.py",
+      "size": "17.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/truststore/_windows.py",
+      "size": "17.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/metadata.py",
+      "size": "38.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/database.py",
+      "size": "50.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/version.py",
+      "size": "23.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/manifest.py",
+      "size": "13.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/util.py",
+      "size": "65.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/index.py",
+      "size": "20.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/resources.py",
+      "size": "10.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/scripts.py",
+      "size": "17.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py",
+      "size": "40.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/wheel.py",
+      "size": "42.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py",
+      "size": "50.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/idna/idnadata.py",
+      "size": "43.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/idna/core.py",
+      "size": "12.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/idna/uts46data.py",
+      "size": "201.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py",
+      "size": "20.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/adapters.py",
+      "size": "19.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/sessions.py",
+      "size": "29.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/cookies.py",
+      "size": "18.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/utils.py",
+      "size": "32.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "size": "34.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/requests/auth.py",
+      "size": "9.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/tenacity/__init__.py",
+      "size": "20.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py",
+      "size": "18.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py",
+      "size": "11.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/traceback.py",
+      "size": "28.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/progress.py",
+      "size": "58.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_win32_console.py",
+      "size": "22.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_cell_widths.py",
+      "size": "9.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/console.py",
+      "size": "96.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/style.py",
+      "size": "26.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/layout.py",
+      "size": "13.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/align.py",
+      "size": "10.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/text.py",
+      "size": "44.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/live.py",
+      "size": "13.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/table.py",
+      "size": "38.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/color.py",
+      "size": "17.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_spinners.py",
+      "size": "19.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py",
+      "size": "34.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py",
+      "size": "35.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/segment.py",
+      "size": "23.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py",
+      "size": "136.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/panel.py",
+      "size": "10.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/rich/logging.py",
+      "size": "11.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "size": "106.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/configuration.py",
+      "size": "13.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cache.py",
+      "size": "10.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/exceptions.py",
+      "size": "23.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/build_env.py",
+      "size": "10.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/wheel_builder.py",
+      "size": "11.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/legacy/resolver.py",
+      "size": "23.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py",
+      "size": "20.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py",
+      "size": "12.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py",
+      "size": "31.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/install.py",
+      "size": "28.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/commands/list.py",
+      "size": "12.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/metadata/base.py",
+      "size": "25.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/metadata/pkg_resources.py",
+      "size": "9.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/index/collector.py",
+      "size": "16.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/index/package_finder.py",
+      "size": "37.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/misc.py",
+      "size": "23.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/utils/logging.py",
+      "size": "11.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/cmdoptions.py",
+      "size": "29.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/parser.py",
+      "size": "10.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/cli/req_command.py",
+      "size": "17.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/versioncontrol.py",
+      "size": "22.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/subversion.py",
+      "size": "11.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/vcs/git.py",
+      "size": "17.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/auth.py",
+      "size": "20.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/network/session.py",
+      "size": "18.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/models/link.py",
+      "size": "20.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/prepare.py",
+      "size": "27.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/operations/install/wheel.py",
+      "size": "26.7KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/constructors.py",
+      "size": "18.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_file.py",
+      "size": "17.4KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_install.py",
+      "size": "34.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/req/req_uninstall.py",
+      "size": "24.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/pip/_internal/locations/__init__.py",
+      "size": "15.0KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/zstandard/backend_cffi.py",
+      "size": "148.9KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/notebook.py",
+      "size": "10.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/utils.py",
+      "size": "11.5KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/cli.py",
+      "size": "10.8KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/HyperShrink_8000/hypershrink_env/lib/python3.12/site-packages/tqdm/std.py",
+      "size": "56.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone/app.py",
+      "size": "24.1KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask/app.py",
+      "size": "60.3KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/hyperfocuszone/venv/lib/python3.12/site-packages/flask/sansio/app.py",
+      "size": "37.2KB",
+      "suggestion": "Consider splitting into smaller modules"
+    },
+    {
+      "type": "Large File",
+      "path": "/root/chaosgenius/cleanup_backup/chaosgenius_discord_bot.py",
+      "size": "12.6KB",
+      "suggestion": "Consider splitting into smaller modules"
+    }
+  ],
+  "hidden_gems": [],
+  "database_insights": [
+    {
+      "database": "/root/chaosgenius/broski_health_matrix.db",
+      "tables": [
+        "health_metrics (8491 records)",
+        "sqlite_sequence (2 records)",
+        "system_alerts (11 records)",
+        "broski_resurrections (0 records)",
+        "performance_predictions (0 records)",
+        "cosmic_health_sync (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_analytics.db",
+      "tables": [
+        "system_metrics (17 records)",
+        "sqlite_sequence (1 records)",
+        "revenue_tracking (5 records)",
+        "sqlite_stat1 (2 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/hyperfocus_performance.db",
+      "tables": [
+        "task_performance (0 records)",
+        "sqlite_sequence (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/agent_party.db",
+      "tables": [
+        "party_achievements (0 records)",
+        "sqlite_sequence (1 records)",
+        "legendary_moments (5 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/immortality_protocol.db",
+      "tables": [],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_money_maker.db",
+      "tables": [
+        "income_transactions (19368 records)",
+        "income_streams (5 records)",
+        "financial_goals (28 records)",
+        "opportunities (2862 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_evolution.db",
+      "tables": [
+        "agent_evolution (0 records)",
+        "evolution_cycles (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/ultra_archive_builder.db",
+      "tables": [
+        "archive_registry (2 records)",
+        "version_control (0 records)",
+        "batch_jobs (0 records)",
+        "xp_leaderboard (0 records)",
+        "auto_shrink_rules (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/chaosgenius.db",
+      "tables": [
+        "sqlite_stat1 (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_quantum_supremacy.db",
+      "tables": [
+        "quantum_agents (4 records)",
+        "reality_portals (3 records)",
+        "consciousness_events (3 records)",
+        "sqlite_sequence (1 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/hyperfocus_portal.db",
+      "tables": [
+        "portal_users (0 records)",
+        "user_sessions (0 records)",
+        "sqlite_stat1 (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/teemill_sales.db",
+      "tables": [
+        "teemill_sales (3 records)",
+        "product_performance (3 records)",
+        "analytics_data (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/ultra_agent_army.db",
+      "tables": [
+        "agent_registry (32 records)",
+        "mission_control (2332 records)",
+        "army_metrics (924 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/hyperagent_symphony.db",
+      "tables": [
+        "symphony_performance (70 records)",
+        "orchestra_coordination (1 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/legendary_achievements.db",
+      "tables": [
+        "legendary_achievements (10 records)",
+        "sqlite_sequence (1 records)",
+        "achievement_progress (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/hyperfocus_infinite_money.db",
+      "tables": [
+        "income_log (176 records)",
+        "sqlite_sequence (2 records)",
+        "server_payments (0 records)",
+        "scaling_metrics (1 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_nl_commands.db",
+      "tables": [
+        "nl_commands (5 records)",
+        "intent_training (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_learning.db",
+      "tables": [
+        "learning_data (1 records)",
+        "sqlite_sequence (1 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_unity_orchestrator.db",
+      "tables": [
+        "system_registry (4 records)",
+        "unity_events (0 records)",
+        "system_sync (12196 records)",
+        "unity_metrics (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_tokens.db",
+      "tables": [
+        "tokens (1 records)",
+        "sqlite_sequence (1 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_security_fortress.db",
+      "tables": [
+        "security_events (10597 records)",
+        "system_health (5128 records)",
+        "threat_intelligence (0 records)",
+        "guardian_agents (4 records)",
+        "stealth_operations (935 records)",
+        "quantum_defense_log (935 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_server_guardian.db",
+      "tables": [
+        "server_metrics (3991 records)",
+        "resource_alerts (12 records)",
+        "process_monitoring (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/unified_command_center.db",
+      "tables": [
+        "system_registry (0 records)",
+        "command_history (0 records)",
+        "sqlite_sequence (1 records)",
+        "performance_metrics (1362 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_army_command.db",
+      "tables": [
+        "army_units (0 records)",
+        "coordinated_responses (25788 records)",
+        "army_operations (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/broski_agent_command.db",
+      "tables": [
+        "agent_registry (8 records)",
+        "command_queue (0 records)",
+        "mission_tracker (0 records)",
+        "agent_performance (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/chaosgenius_ultimate_nexus.db",
+      "tables": [
+        "master_agent_registry (7 records)",
+        "mission_command_center (57 records)",
+        "sales_pipeline_tracker (0 records)",
+        "system_performance_metrics (34446 records)",
+        "neural_network_activity (10040 records)",
+        "supreme_chief_commands (0 records)",
+        "chief_authority_registry (13 records)",
+        "agents (13 records)",
+        "missions (0 records)",
+        "sales_pipeline (0 records)",
+        "system_metrics (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    },
+    {
+      "database": "/root/chaosgenius/hyperfocuszone_coordinator.db",
+      "tables": [
+        "work_sessions (0 records)",
+        "agent_activity (930 records)",
+        "party_events (0 records)"
+      ],
+      "suggestion": "Add indexes, optimize queries, implement caching, and add data analytics"
+    }
+  ],
+  "config_suggestions": [
+    {
+      "config": "/root/chaosgenius/project_optimization_log_20250610_050800.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/tunnel-config.yml",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/security_report_20250608_194840.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/teemill_products.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/presence_monitor.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/agent_army_manifest.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/health_report_20250611_205400.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/pytest.ini",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/ultra_archive_stats.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/money_maker_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/security_report_20250608_174840.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/premium_banking_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/chaosgenius_sales_empire_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/teemill_sales_feed.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/business_dashboard.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/health_report_20250610_042733.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/security_report_20250608_134840.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/immortal_guardian_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/broski_security_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/immortality_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/hfz_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/security_report_20250608_114840.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/service_packages.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/resurrection_log.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/.env",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/railway.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/emergency_access_methods.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/health_report_20250613_132631.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/.pre-commit-config.yaml",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/broski_token_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/security_report_20250608_154840.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/unity_orchestrator_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/ultra_archive_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/hyper_cave_agent_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/github_supreme_config.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/sync_optimization.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/.github/workflows/chaosgenius-supreme.yml",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/logs/system_health.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/infinite_empire/community/voting_system.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/infinite_empire/token_system/broski_infinity_token.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/infinite_empire/mystery_boxes/launch_collection.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/infinite_empire/body_doubling/session_types.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/HyperShrink_8000/hypershrink_stats.json",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/production_config/nginx.conf",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/cleanup_backup/.env",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/broski_auth_system/.env",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    },
+    {
+      "config": "/root/chaosgenius/config/.env",
+      "suggestion": "Add validation, environment-specific configs, and security best practices"
+    }
+  ],
+  "ai_enhancement_opportunities": [
+    {
+      "area": "Natural Language Processing",
+      "suggestion": "Add NLP to the discord bot for better command understanding",
+      "files": [
+        "unified_broski_discord_bot.py",
+        "broski_natural_language_commander.py"
+      ]
+    },
+    {
+      "area": "Predictive Analytics",
+      "suggestion": "Use ML to predict revenue trends and optimize strategies",
+      "files": [
+        "broski_money_maker_portal.py",
+        "revenue_autopilot.py"
+      ]
+    },
+    {
+      "area": "Automated Content Generation",
+      "suggestion": "AI-powered content creation for marketing and documentation",
+      "files": [
+        "ai_business_agent_sales_strategy.py"
+      ]
+    },
+    {
+      "area": "Smart Security",
+      "suggestion": "ML-based threat detection and anomaly detection",
+      "files": [
+        "broski_security_fortress_portal.py",
+        "broski_advanced_security_monitor.sh"
+      ]
+    }
+  ]
+}

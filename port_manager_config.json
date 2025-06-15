@@ -1,0 +1,18 @@
+{
+    "monitoring_interval": 5,
+    "max_allocation_attempts": 3,
+    "security_scan_interval": 30,
+    "performance_threshold": 80.0,
+    "auto_cleanup_enabled": true,
+    "neural_link_enabled": true,
+    "reserved_ports": [
+        22,
+        80,
+        443,
+        3000,
+        5000,
+        8080
+    ],
+    "blacklisted_ports": [],
+    "max_ports_per_service": 10
+}

@@ -1,0 +1,591 @@
+{
+  "scan_timestamp": "2025-06-14T01:12:18.577236",
+  "system_health": {
+    "cpu_usage": 27.5,
+    "memory_usage": 42.3,
+    "disk_usage": 16.8,
+    "running_processes": 270,
+    "uptime": "21.5 hours",
+    "network_active": true,
+    "timestamp": "2025-06-14T01:12:19.686390",
+    "database_health": {
+      "marc_coordination.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.05,
+        "accessible": true
+      },
+      "broski_health_matrix.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 1.28,
+        "accessible": true
+      },
+      "broski_analytics.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.07,
+        "accessible": true
+      },
+      "uk_business_formation.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "hyperfocus_performance.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "agent_party.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "immortality_protocol.db": {
+        "status": "HEALTHY",
+        "tables": 0,
+        "size_mb": 0.0,
+        "accessible": true
+      },
+      "broski_money_maker.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 3.43,
+        "accessible": true
+      },
+      "broski_evolution.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "ultra_archive_builder.db": {
+        "status": "HEALTHY",
+        "tables": 5,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "chaosgenius.db": {
+        "status": "HEALTHY",
+        "tables": 1,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "broski_quantum_supremacy.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "hyperfocus_portal.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "teemill_sales.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "ultra_agent_army.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.67,
+        "accessible": true
+      },
+      "hyperagent_symphony.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "legendary_achievements.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "hyperfocus_infinite_money.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.05,
+        "accessible": true
+      },
+      "broski_nl_commands.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "broski_learning.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "broski_unity_orchestrator.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 2.0,
+        "accessible": true
+      },
+      "broski_tokens.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "broski_security_fortress.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 2.21,
+        "accessible": true
+      },
+      "broski_server_guardian.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.68,
+        "accessible": true
+      },
+      "unified_command_center.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.18,
+        "accessible": true
+      },
+      "broski_army_command.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 3.34,
+        "accessible": true
+      },
+      "broski_agent_command.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "chaosgenius_ultimate_nexus.db": {
+        "status": "HEALTHY",
+        "tables": 11,
+        "size_mb": 5.63,
+        "accessible": true
+      },
+      "hyperfocuszone_coordinator.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.3,
+        "accessible": true
+      },
+      "db_hyperfocus_performance.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_db_broski_army_command.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 3.34,
+        "accessible": true
+      },
+      "db_unified_command_center.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.18,
+        "accessible": true
+      },
+      "db_hyperagent_symphony.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_legendary_achievements.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_broski_learning.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_ultra_archive_builder.db": {
+        "status": "HEALTHY",
+        "tables": 5,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_db_ultra_agent_army.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.67,
+        "accessible": true
+      },
+      "db_ultra_agent_army.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.67,
+        "accessible": true
+      },
+      "db_agent_party.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_broski_nl_commands.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_broski_security_fortress.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 2.2,
+        "accessible": true
+      },
+      "db_db_immortality_protocol.db": {
+        "status": "HEALTHY",
+        "tables": 0,
+        "size_mb": 0.0,
+        "accessible": true
+      },
+      "db_db_hyperfocus_portal.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "db_broski_money_maker.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 3.33,
+        "accessible": true
+      },
+      "db_db_broski_agent_command.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_db_broski_tokens.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_hyperfocus_portal.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "db_db_hyperfocuszone_coordinator.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.3,
+        "accessible": true
+      },
+      "db_db_broski_evolution.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_broski_money_maker.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 3.33,
+        "accessible": true
+      },
+      "db_db_broski_analytics.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.07,
+        "accessible": true
+      },
+      "db_broski_agent_command.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_db_chaosgenius_ultimate_nexus.db": {
+        "status": "HEALTHY",
+        "tables": 11,
+        "size_mb": 5.63,
+        "accessible": true
+      },
+      "db_db_teemill_sales.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_chaosgenius_ultimate_nexus.db": {
+        "status": "HEALTHY",
+        "tables": 11,
+        "size_mb": 5.63,
+        "accessible": true
+      },
+      "db_broski_evolution.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_broski_server_guardian.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.65,
+        "accessible": true
+      },
+      "db_db_broski_learning.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_broski_tokens.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_broski_analytics.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.07,
+        "accessible": true
+      },
+      "db_db_hyperfocus_performance.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_broski_unity_orchestrator.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 1.92,
+        "accessible": true
+      },
+      "db_teemill_sales.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_hyperfocus_infinite_money.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_broski_nl_commands.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_ultra_archive_builder.db": {
+        "status": "HEALTHY",
+        "tables": 5,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_hyperfocuszone_coordinator.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.3,
+        "accessible": true
+      },
+      "db_db_hyperagent_symphony.db": {
+        "status": "HEALTHY",
+        "tables": 2,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_db_unified_command_center.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.18,
+        "accessible": true
+      },
+      "db_legendary_achievements.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_immortality_protocol.db": {
+        "status": "HEALTHY",
+        "tables": 0,
+        "size_mb": 0.0,
+        "accessible": true
+      },
+      "db_chaosgenius.db": {
+        "status": "HEALTHY",
+        "tables": 1,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_broski_health_matrix.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 1.22,
+        "accessible": true
+      },
+      "db_db_hyperfocus_infinite_money.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.04,
+        "accessible": true
+      },
+      "db_db_broski_health_matrix.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 1.22,
+        "accessible": true
+      },
+      "db_db_broski_unity_orchestrator.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 1.92,
+        "accessible": true
+      },
+      "db_db_broski_quantum_supremacy.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "db_db_chaosgenius.db": {
+        "status": "HEALTHY",
+        "tables": 1,
+        "size_mb": 0.01,
+        "accessible": true
+      },
+      "db_broski_army_command.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 3.34,
+        "accessible": true
+      },
+      "db_broski_quantum_supremacy.db": {
+        "status": "HEALTHY",
+        "tables": 4,
+        "size_mb": 0.03,
+        "accessible": true
+      },
+      "db_broski_server_guardian.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.65,
+        "accessible": true
+      },
+      "db_db_agent_party.db": {
+        "status": "HEALTHY",
+        "tables": 3,
+        "size_mb": 0.02,
+        "accessible": true
+      },
+      "db_broski_security_fortress.db": {
+        "status": "HEALTHY",
+        "tables": 6,
+        "size_mb": 2.2,
+        "accessible": true
+      }
+    },
+    "agent_status": {
+      "broski_money_maker_portal": {
+        "pid": 596898,
+        "status": "RUNNING",
+        "memory_mb": 64.32,
+        "cpu_percent": 0.0
+      },
+      "broski_supreme_server_guardian": {
+        "pid": 2040756,
+        "status": "RUNNING",
+        "memory_mb": 35.96,
+        "cpu_percent": 0.0
+      },
+      "broski_army_coordination_command": {
+        "pid": 2044836,
+        "status": "RUNNING",
+        "memory_mb": 146.55,
+        "cpu_percent": 0.0
+      },
+      "broski_supreme_unity_orchestrator": {
+        "pid": 2045088,
+        "status": "RUNNING",
+        "memory_mb": 72.42,
+        "cpu_percent": 0.0
+      },
+      "broski_health_matrix": {
+        "pid": 3272909,
+        "status": "RUNNING",
+        "memory_mb": 57.98,
+        "cpu_percent": 0.0
+      }
+    },
+    "health_score": 100
+  },
+  "backup_status": {
+    "ALPHA": {
+      "status": "ACTIVE",
+      "file_count": 3,
+      "quantum_files": 3,
+      "size_mb": 0.0,
+      "last_modified": "2025-06-14T00:28:24.364591"
+    },
+    "BETA": {
+      "status": "ACTIVE",
+      "file_count": 3,
+      "quantum_files": 3,
+      "size_mb": 0.0,
+      "last_modified": "2025-06-14T00:28:24.364591"
+    },
+    "GAMMA": {
+      "status": "ACTIVE",
+      "file_count": 3,
+      "quantum_files": 3,
+      "size_mb": 0.0,
+      "last_modified": "2025-06-14T00:28:24.364591"
+    },
+    "DELTA": {
+      "status": "ACTIVE",
+      "file_count": 3,
+      "quantum_files": 3,
+      "size_mb": 0.0,
+      "last_modified": "2025-06-14T00:28:24.364591"
+    },
+    "OMEGA": {
+      "status": "ACTIVE",
+      "file_count": 1,
+      "quantum_files": 0,
+      "size_mb": 39.77,
+      "last_modified": "2025-06-14T00:28:26.633596"
+    }
+  },
+  "auto_healing": {
+    "healing_performed": true,
+    "actions_taken": [
+      "Optimize database connections"
+    ],
+    "timestamp": "2025-06-14T01:12:20.879935"
+  },
+  "immortality_score": 100,
+  "recommendations": []
+}

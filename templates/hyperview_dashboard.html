@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🖥️💎 HYPERVIEW DASHBOARD LEGENDARY 💎🖥️</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* 🌈 LEGENDARY HYPERFOCUS ZONE SKIN 🌈 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #00ff88;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* 🌟 ANIMATED BACKGROUND STARS */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #00ff88, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ff0080, transparent),
+        radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #ffff00, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: stars 20s linear infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @keyframes stars {
+      from {
+        transform: translateY(0px);
+      }
+
+      to {
+        transform: translateY(-100px);
+      }
+    }
+
+    /* 🔥 LEGENDARY HEADER */
+    .legendary-header {
+      background: linear-gradient(45deg, #ff0080, #00ff88, #00ffff, #ffff00);
+      background-size: 400% 400%;
+      animation: gradient-pulse 3s ease infinite;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #00ff88;
+      margin-bottom: 20px;
+    }
+
+    @keyframes gradient-pulse {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .legendary-title {
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .legendary-subtitle {
+      font-size: 1.2em;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* 📊 DASHBOARD GRID */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* 💎 LEGENDARY PANELS */
+    .legendary-panel {
+      background: rgba(0, 255, 136, 0.1);
+      border: 2px solid #00ff88;
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 255, 136, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legendary-panel::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+      animation: panel-glow 4s linear infinite;
+    }
+
+    @keyframes panel-glow {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .legendary-panel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0, 255, 136, 0.5);
+      border-color: #ff0080;
+    }
+
+    .panel-header {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 0 0 10px #00ff88;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 🤖 AGENT ACTIVITY STREAM */
+    .agent-activity {
+      max-height: 300px;
+      overflow-y: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .activity-item {
+      padding: 10px;
+      margin: 5px 0;
+      background: rgba(0, 255, 136, 0.2);
+      border-left: 4px solid #00ff88;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      animation: fade-in 0.5s ease;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .activity-item:hover {
+      background: rgba(0, 255, 136, 0.4);
+      transform: translateX(10px);
+    }
+
+    .activity-agent {
+      font-weight: bold;
+      color: #ff0080;
+    }
+
+    .activity-action {
+      color: #00ffff;
+      margin: 5px 0;
+    }
+
+    .activity-time {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    /* 💰 REVENUE FLOW VISUALIZATION */
+    .revenue-flow {
+      position: relative;
+      z-index: 1;
+    }
+
+    .revenue-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 5px 0;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(0, 255, 136, 0.2));
+      border-radius: 10px;
+      animation: revenue-pulse 2s ease infinite;
+    }
+
+    @keyframes revenue-pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .revenue-amount {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #ffff00;
+      text-shadow: 0 0 10px #ffff00;
+    }
+
+    /* 💊 SYSTEM HEALTH PULSE */
+    .health-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .health-metric {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 255, 136, 0.2);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .health-metric:hover {
+      background: rgba(0, 255, 136, 0.4);
+      transform: scale(1.1);
+    }
+
+    .health-value {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .health-optimal {
+      color: #00ff88;
+    }
+
+    .health-warning {
+      color: #ffff00;
+    }
+
+    .health-critical {
+      color: #ff0080;
+    }
+
+    /* 🧠 AI INSIGHTS STREAM */
+    .ai-insights {
+      max-height: 250px;
+      overflow-y: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .insight-item {
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      animation: insight-glow 3s ease infinite;
+    }
+
+    .insight-info {
+      background: rgba(0, 255, 255, 0.2);
+      border-left: 4px solid #00ffff;
+    }
+
+    .insight-success {
+      background: rgba(0, 255, 136, 0.2);
+      border-left: 4px solid #00ff88;
+    }
+
+    .insight-warning {
+      background: rgba(255, 255, 0, 0.2);
+      border-left: 4px solid #ffff00;
+    }
+
+    @keyframes insight-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+      }
+    }
+
+    /* 🎯 EMPIRE STATUS */
+    .empire-status {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .status-item {
+      padding: 15px;
+      background: rgba(255, 0, 128, 0.2);
+      border: 2px solid #ff0080;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .status-item:hover {
+      background: rgba(255, 0, 128, 0.4);
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .status-value {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ff0080;
+      text-shadow: 0 0 15px #ff0080;
+    }
+
+    .status-label {
+      margin-top: 5px;
+      color: #00ffff;
+    }
+
+    /* 📱 RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .legendary-title {
+        font-size: 1.8em;
+      }
+
+      .health-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 🔄 LOADING ANIMATIONS */
+    .loading {
+      text-align: center;
+      font-size: 1.2em;
+      color: #00ff88;
+      animation: loading-pulse 1.5s ease infinite;
+    }
+
+    @keyframes loading-pulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* 🚀 LEGENDARY SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(45deg, #00ff88, #ff0080);
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(45deg, #ff0080, #00ffff);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔥 LEGENDARY HEADER -->
+  <div class="legendary-header">
+    <div class="legendary-title">🖥️💎 HYPERVIEW DASHBOARD LEGENDARY 💎🖥️</div>
+    <div class="legendary-subtitle">🚀 Real-Time Empire Command Center • Live Agent Monitoring • Revenue Flow Tracker 🚀
+    </div>
+  </div>
+
+  <!-- 📊 DASHBOARD GRID -->
+  <div class="dashboard-grid">
+    <!-- 🎯 EMPIRE STATUS -->
+    <div class="legendary-panel">
+      <div class="panel-header">🎯 EMPIRE STATUS</div>
+      <div class="empire-status">
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-value" id="agents-active">--</div>
+            <div class="status-label">Agents Active</div>
+          </div>
+          <div class="status-item">
+            <div class="status-value" id="revenue-streams">--</div>
+            <div class="status-label">Revenue Streams</div>
+          </div>
+          <div class="status-item">
+            <div class="status-value" id="security-level">--</div>
+            <div class="status-label">Security Level</div>
+          </div>
+          <div class="status-item">
+            <div class="status-value" id="threat-level">--</div>
+            <div class="status-label">Threat Level</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🤖 AGENT ACTIVITY STREAM -->
+    <div class="legendary-panel">
+      <div class="panel-header">🤖 LIVE AGENT ACTIVITIES</div>
+      <div class="agent-activity" id="agent-activities">
+        <div class="loading">🔄 Connecting to agent network...</div>
+      </div>
+    </div>
+
+    <!-- 💰 REVENUE FLOW TRACKER -->
+    <div class="legendary-panel">
+      <div class="panel-header">💰 REVENUE FLOW STREAM</div>
+      <div class="revenue-flow" id="revenue-flows">
+        <div class="loading">💸 Connecting to revenue streams...</div>
+      </div>
+    </div>
+
+    <!-- 💊 SYSTEM HEALTH PULSE -->
+    <div class="legendary-panel">
+      <div class="panel-header">💊 SYSTEM HEALTH PULSE</div>
+      <div class="health-metrics">
+        <div class="health-metric">
+          <div class="health-value health-optimal" id="cpu-usage">--</div>
+          <div>CPU Usage</div>
+        </div>
+        <div class="health-metric">
+          <div class="health-value health-optimal" id="memory-usage">--</div>
+          <div>Memory Usage</div>
+        </div>
+        <div class="health-metric">
+          <div class="health-value health-optimal" id="disk-usage">--</div>
+          <div>Disk Usage</div>
+        </div>
+        <div class="health-metric">
+          <div class="health-value health-optimal" id="agent-efficiency">--</div>
+          <div>Agent Efficiency</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🧠 AI INSIGHTS STREAM -->
+    <div class="legendary-panel">
+      <div class="panel-header">🧠 AI INSIGHTS STREAM</div>
+      <div class="ai-insights" id="ai-insights">
+        <div class="loading">🧠 Generating AI insights...</div>
+      </div>
+    </div>
+
+    <!-- 🛡️ SECURITY FORTRESS STATUS -->
+    <div class="legendary-panel">
+      <div class="panel-header">🛡️ SECURITY FORTRESS</div>
+      <div class="empire-status">
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-value" id="threats-blocked">--</div>
+            <div class="status-label">Threats Blocked</div>
+          </div>
+          <div class="status-item">
+            <div class="status-value" id="vulnerabilities-patched">--</div>
+            <div class="status-label">Auto-Patched</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 🚀 LEGENDARY HYPERVIEW JAVASCRIPT ENGINE
+    class LegendaryHyperview {
+      constructor() {
+        this.socket = io();
+        this.setupSocketEvents();
+        this.loadInitialData();
+      }
+
+      setupSocketEvents() {
+        // 🔗 Connection events
+        this.socket.on('connected', (data) => {
+          console.log('🚀 LEGENDARY HYPERVIEW CONNECTED!', data);
+        });
+
+        // 🤖 Agent activity updates
+        this.socket.on('agent_activity', (activity) => {
+          this.addAgentActivity(activity);
+        });
+
+        // 💰 Revenue flow updates
+        this.socket.on('revenue_flow', (revenue) => {
+          this.addRevenueFlow(revenue);
+        });
+
+        // 💊 Health pulse updates
+        this.socket.on('health_pulse', (health) => {
+          this.updateHealthMetrics(health);
+        });
+
+        // 🧠 AI insight updates
+        this.socket.on('ai_insight', (insight) => {
+          this.addAIInsight(insight);
+        });
+
+        // 🛡️ Security event updates
+        this.socket.on('security_event', (event) => {
+          this.handleSecurityEvent(event);
+        });
+      }
+
+      async loadInitialData() {
+        try {
+          const response = await fetch('/api/dashboard-data');
+          const data = await response.json();
+          this.updateEmpireStatus(data.empire_status);
+          this.loadAgentActivities(data.recent_activities);
+          this.loadRevenueFlows(data.revenue_flows);
+          this.loadAIInsights(data.ai_insights);
+        } catch (error) {
+          console.error('💥 Error loading dashboard data:', error);
+        }
+      }
+
+      updateEmpireStatus(status) {
+        document.getElementById('agents-active').textContent = status.agents_active;
+        document.getElementById('revenue-streams').textContent = status.revenue_streams;
+        document.getElementById('security-level').textContent = status.security_level;
+        document.getElementById('threat-level').textContent = status.threat_level;
+      }
+
+      addAgentActivity(activity) {
+        const container = document.getElementById('agent-activities');
+
+        const activityElement = document.createElement('div');
+        activityElement.className = 'activity-item';
+        activityElement.innerHTML = `
+                    <div class="activity-agent">🤖 ${activity.agent}</div>
+                    <div class="activity-action">⚡ ${activity.action}</div>
+                    <div class="activity-time">🕐 ${new Date(activity.timestamp * 1000).toLocaleTimeString()}</div>
+                `;
+
+        container.insertBefore(activityElement, container.firstChild);
+
+        // Keep only last 10 activities visible
+        while (container.children.length > 10) {
+          container.removeChild(container.lastChild);
+        }
+      }
+
+      addRevenueFlow(revenue) {
+        const container = document.getElementById('revenue-flows');
+
+        const revenueElement = document.createElement('div');
+        revenueElement.className = 'revenue-item';
+        revenueElement.innerHTML = `
+                    <div>
+                        <div>${revenue.icon} ${revenue.name}</div>
+                        <div style="font-size: 0.9em; color: #888;">${revenue.type}</div>
+                    </div>
+                    <div class="revenue-amount">$${revenue.amount.toFixed(2)}</div>
+                `;
+
+        container.insertBefore(revenueElement, container.firstChild);
+
+        // Keep only last 8 revenue flows visible
+        while (container.children.length > 8) {
+          container.removeChild(container.lastChild);
+        }
+      }
+
+      updateHealthMetrics(health) {
+        if (health.cpu) {
+          document.getElementById('cpu-usage').textContent = `${health.cpu.usage.toFixed(1)}%`;
+          this.updateHealthColor('cpu-usage', health.cpu.usage, 80);
+        }
+
+        if (health.memory) {
+          document.getElementById('memory-usage').textContent = `${health.memory.usage.toFixed(1)}%`;
+          this.updateHealthColor('memory-usage', health.memory.usage, 85);
+        }
+
+        if (health.disk) {
+          document.getElementById('disk-usage').textContent = `${health.disk.usage.toFixed(1)}%`;
+          this.updateHealthColor('disk-usage', health.disk.usage, 90);
+        }
+
+        if (health.agents) {
+          document.getElementById('agent-efficiency').textContent = `${health.agents.efficiency.toFixed(1)}%`;
+          this.updateHealthColor('agent-efficiency', 100 - health.agents.efficiency, 10);
+        }
+      }
+
+      updateHealthColor(elementId, value, threshold) {
+        const element = document.getElementById(elementId);
+        element.className = 'health-value';
+
+        if (value < threshold * 0.7) {
+          element.classList.add('health-optimal');
+        } else if (value < threshold) {
+          element.classList.add('health-warning');
+        } else {
+          element.classList.add('health-critical');
+        }
+      }
+
+      addAIInsight(insight) {
+        const container = document.getElementById('ai-insights');
+
+        const insightElement = document.createElement('div');
+        insightElement.className = `insight-item insight-${insight.priority}`;
+        insightElement.innerHTML = `
+                    <div>🧠 ${insight.insight}</div>
+                    <div style="font-size: 0.8em; color: #888; margin-top: 5px;">
+                        🕐 ${new Date(insight.timestamp * 1000).toLocaleTimeString()}
+                    </div>
+                `;
+
+        container.insertBefore(insightElement, container.firstChild);
+
+        // Keep only last 6 insights visible
+        while (container.children.length > 6) {
+          container.removeChild(container.lastChild);
+        }
+      }
+
+      loadAgentActivities(activities) {
+        const container = document.getElementById('agent-activities');
+        container.innerHTML = '';
+        activities.forEach(activity => this.addAgentActivity(activity));
+      }
+
+      loadRevenueFlows(flows) {
+        const container = document.getElementById('revenue-flows');
+        container.innerHTML = '';
+        flows.forEach(flow => this.addRevenueFlow(flow));
+      }
+
+      loadAIInsights(insights) {
+        const container = document.getElementById('ai-insights');
+        container.innerHTML = '';
+        insights.forEach(insight => this.addAIInsight(insight));
+      }
+
+      handleSecurityEvent(event) {
+        // Update security fortress counters
+        const threatsElement = document.getElementById('threats-blocked');
+        const currentThreats = parseInt(threatsElement.textContent) || 0;
+        threatsElement.textContent = currentThreats + 1;
+      }
+    }
+
+    // 🚀 Initialize Legendary Hyperview on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      new LegendaryHyperview();
+      console.log('🖥️💎 LEGENDARY HYPERVIEW DASHBOARD ACTIVATED! 💎🖥️');
+    });
+  </script>
+</body>
+
+</html>

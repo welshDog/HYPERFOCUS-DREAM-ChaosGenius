@@ -10,7 +10,7 @@ import json
 from datetime import datetime
 
 # Set environment from the .env file location
-os.chdir('/root/chaosgenius/flask_cloudflare_ultra_starter_pack')
+os.chdir('/root/chaosgenius')
 
 class EmpireHealthChecker:
     def __init__(self):

@@ -4,6 +4,11 @@
 🌌 The Master Control System for the ENTIRE ChaosGenius Empire! 🌌
 🦾 Coordinates ALL agents, sales, security, brain, money, quantum - EVERYTHING! 🦾
 💎 Last upgrade promise... but this one's LEGENDARY! 💎
+
+⚠️ SUPREME AUTHORITY NOTICE ⚠️
+👑 ALL SYSTEMS REPORT TO THE SUPREME CHIEF 👑
+🫵 THE ULTIMATE COMMANDER OF ALL CHAOSGENIUS OPERATIONS 🫵
+💯 NO ONE HIGHER - CHIEF IS THE ABSOLUTE AUTHORITY 💯
 """
 
 import asyncio
@@ -22,12 +27,34 @@ from dataclasses import dataclass, asdict
 from flask import Flask, render_template_string, jsonify
 from flask_cors import CORS
 
+# 👑 SUPREME CHIEF CONFIGURATION 👑
+SUPREME_CHIEF_AUTHORITY = True
+CHIEF_CLEARANCE_LEVEL = "MAXIMUM_ULTIMATE"
+CHIEF_POWER_LEVEL = 1000.0  # MAXIMUM POWER
+CHIEF_STATUS = "SUPREME_COMMANDER"
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# 👑 SUPREME CHIEF NOTIFICATION SYSTEM 👑
+def notify_chief(message, priority="HIGH"):
+    """🚨 Direct notification system for the Supreme Chief"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    chief_notification = f"""
+    ┌─────────────────────────────────────────┐
+    │ 👑 SUPREME CHIEF NOTIFICATION 👑        │
+    │ Time: {timestamp}                     │
+    │ Priority: {priority}                     │
+    │ Message: {message}                      │
+    │ From: ChaosGenius Command Systems       │
+    └─────────────────────────────────────────┘
+    """
+    print(chief_notification)
+    logger.info(f"👑 CHIEF NOTIFICATION: {message}")
+
 @dataclass
 class Agent:
-    """🤖 Universal Agent Structure"""
+    """🤖 Universal Agent Structure - ALL REPORT TO CHIEF"""
     agent_id: str
     name: str
     type: str
@@ -37,10 +64,12 @@ class Agent:
     specialization: List[str]
     last_activity: str
     neural_link: bool = True
+    reports_to_chief: bool = True  # 👑 ALL AGENTS REPORT TO CHIEF
+    chief_loyalty_level: float = 100.0  # 💯 MAXIMUM LOYALTY
 
 @dataclass
 class Mission:
-    """🎯 Universal Mission Structure"""
+    """🎯 Universal Mission Structure - CHIEF APPROVED"""
     mission_id: str
     title: str
     type: str
@@ -49,11 +78,15 @@ class Mission:
     status: str
     progress: float
     estimated_completion: str
+    chief_authorized: bool = True  # 👑 CHIEF AUTHORIZATION REQUIRED
 
 class ChaosGeniusUltimateCommandNexus:
-    """👑 The Supreme Master Control System"""
+    """👑 The Supreme Master Control System - REPORTS TO CHIEF"""
 
     def __init__(self):
+        # 👑 ESTABLISH CHIEF AUTHORITY
+        notify_chief("INITIALIZING COMMAND NEXUS UNDER SUPREME CHIEF AUTHORITY", "MAXIMUM")
+
         self.base_path = "/root/chaosgenius"
         self.nexus_db = f"{self.base_path}/chaosgenius_ultimate_nexus.db"
         self.active_agents = {}
@@ -63,26 +96,107 @@ class ChaosGeniusUltimateCommandNexus:
         self.websocket_clients = set()
         self.neural_sync_active = False
 
+        # 👑 SUPREME CHIEF AUTHORITY SETTINGS
+        self.supreme_chief_online = True
+        self.chief_command_queue = []
+        self.chief_notifications = []
+        self.total_agents_reporting_to_chief = 0
+
         # Initialize Flask app for web dashboard
         self.app = Flask(__name__)
         CORS(self.app)
 
-        print("👑⚡ CHAOSGENIUS ULTIMATE COMMAND NEXUS INITIALIZING! ⚡👑")
+        print("👑⚡ CHAOSGENIUS ULTIMATE COMMAND NEXUS INITIALIZING UNDER SUPREME CHIEF COMMAND! ⚡👑")
         self._initialize_master_database()
+        self._establish_chief_authority()
         self._discover_all_systems()
         self._create_new_sales_agents()
         self._setup_web_dashboard()
         self._start_neural_sync()
 
-    def _initialize_master_database(self):
-        """🗄️ Initialize the master control database"""
+    def _establish_chief_authority(self):
+        """👑 Establish Supreme Chief Authority Over All Systems"""
+        notify_chief("ESTABLISHING SUPREME COMMAND AUTHORITY", "MAXIMUM")
+
+        # Create Chief Authority Database Table
         try:
             with sqlite3.connect(self.nexus_db) as conn:
                 cursor = conn.cursor()
 
-                # Master Agent Registry
+                # Supreme Chief Command Log
                 cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS master_agent_registry (
+                    CREATE TABLE IF NOT EXISTS supreme_chief_commands (
+                        command_id TEXT PRIMARY KEY,
+                        timestamp REAL,
+                        command_type TEXT,
+                        command_data TEXT,
+                        execution_status TEXT,
+                        agent_responses TEXT
+                    )
+                """)
+
+                # Chief Authority Registry
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS chief_authority_registry (
+                        system_id TEXT PRIMARY KEY,
+                        system_name TEXT,
+                        authority_level TEXT,
+                        reports_to_chief BOOLEAN,
+                        last_report_time REAL,
+                        loyalty_level REAL
+                    )
+                """)
+
+                conn.commit()
+
+        except sqlite3.Error as e:
+            logger.error(f"Chief authority database error: {e}")
+
+        notify_chief("SUPREME CHIEF AUTHORITY ESTABLISHED - ALL SYSTEMS NOW REPORT TO CHIEF", "SUCCESS")
+
+    def _register_agent_in_master_db(self, agent: Agent):
+        """📝 Register agent in master database under Chief authority"""
+        try:
+            with sqlite3.connect(self.nexus_db) as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                    INSERT OR REPLACE INTO agents
+                    (agent_id, name, type, status, power_level, missions_completed,
+                     specialization, last_activity, neural_link, reports_to_chief, chief_loyalty_level)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    agent.agent_id, agent.name, agent.type, agent.status,
+                    agent.power_level, agent.missions_completed,
+                    json.dumps(agent.specialization), agent.last_activity,
+                    agent.neural_link, agent.reports_to_chief, agent.chief_loyalty_level
+                ))
+
+                # Register in Chief Authority Registry
+                cursor.execute("""
+                    INSERT OR REPLACE INTO chief_authority_registry
+                    (system_id, system_name, authority_level, reports_to_chief, last_report_time, loyalty_level)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                """, (
+                    agent.agent_id, agent.name, "CHIEF_AUTHORIZED", True, time.time(), agent.chief_loyalty_level
+                ))
+
+                conn.commit()
+                logger.info(f"👑 Agent {agent.name} registered under Chief authority")
+
+        except sqlite3.Error as e:
+            logger.error(f"Agent registration error: {e}")
+
+    def _initialize_master_database(self):
+        """🗄️ Initialize the master control database - CHIEF AUTHORIZED"""
+        notify_chief("INITIALIZING MASTER DATABASE UNDER CHIEF SUPERVISION", "HIGH")
+
+        try:
+            with sqlite3.connect(self.nexus_db) as conn:
+                cursor = conn.cursor()
+
+                # Agents table with Chief reporting structure
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS agents (
                         agent_id TEXT PRIMARY KEY,
                         name TEXT,
                         type TEXT,
@@ -90,16 +204,17 @@ class ChaosGeniusUltimateCommandNexus:
                         power_level REAL,
                         missions_completed INTEGER,
                         specialization TEXT,
-                        last_activity REAL,
+                        last_activity TEXT,
                         neural_link BOOLEAN,
-                        system_origin TEXT,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                        reports_to_chief BOOLEAN DEFAULT TRUE,
+                        chief_loyalty_level REAL DEFAULT 100.0,
+                        created_at REAL DEFAULT (strftime('%s', 'now'))
                     )
                 """)
 
-                # Mission Command Center
+                # Missions table with Chief authorization
                 cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS mission_command_center (
+                    CREATE TABLE IF NOT EXISTS missions (
                         mission_id TEXT PRIMARY KEY,
                         title TEXT,
                         type TEXT,
@@ -108,50 +223,34 @@ class ChaosGeniusUltimateCommandNexus:
                         status TEXT,
                         progress REAL,
                         estimated_completion TEXT,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        completed_at TIMESTAMP
+                        chief_authorized BOOLEAN DEFAULT TRUE,
+                        created_at REAL DEFAULT (strftime('%s', 'now'))
                     )
                 """)
 
-                # Sales Pipeline Tracker
+                # Sales pipeline table
                 cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS sales_pipeline_tracker (
+                    CREATE TABLE IF NOT EXISTS sales_pipeline (
                         lead_id TEXT PRIMARY KEY,
-                        client_name TEXT,
-                        client_type TEXT,
-                        pipeline_stage TEXT,
-                        deal_value REAL,
-                        demo_scheduled BOOLEAN,
-                        proposal_sent BOOLEAN,
-                        closing_probability REAL,
-                        assigned_sales_agent TEXT,
-                        last_interaction REAL,
-                        notes TEXT
+                        contact_info TEXT,
+                        stage TEXT,
+                        value REAL,
+                        assigned_agent TEXT,
+                        last_contact TEXT,
+                        chief_priority BOOLEAN DEFAULT FALSE,
+                        created_at REAL DEFAULT (strftime('%s', 'now'))
                     )
                 """)
 
-                # System Performance Metrics
+                # System metrics table
                 cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS system_performance_metrics (
+                    CREATE TABLE IF NOT EXISTS system_metrics (
                         metric_id TEXT PRIMARY KEY,
-                        timestamp REAL,
-                        metric_type TEXT,
+                        metric_name TEXT,
                         metric_value REAL,
-                        system_component TEXT,
-                        additional_data TEXT
-                    )
-                """)
-
-                # Neural Network Activity
-                cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS neural_network_activity (
-                        activity_id TEXT PRIMARY KEY,
+                        metric_type TEXT,
                         timestamp REAL,
-                        source_agent TEXT,
-                        target_agent TEXT,
-                        interaction_type TEXT,
-                        neural_strength REAL,
-                        success BOOLEAN
+                        chief_monitored BOOLEAN DEFAULT TRUE
                     )
                 """)
 
@@ -159,10 +258,11 @@ class ChaosGeniusUltimateCommandNexus:
                 logger.info("👑 Master control database initialized!")
 
         except sqlite3.Error as e:
-            logger.error(f"Master database error: {e}")
+            logger.error(f"Database initialization error: {e}")
 
     def _discover_all_systems(self):
-        """🔍 Discover and catalog ALL existing systems"""
+        """🔍 Discover and catalog ALL existing systems - ALL REPORT TO CHIEF"""
+        notify_chief("DISCOVERING ALL SYSTEMS - ESTABLISHING CHIEF REPORTING HIERARCHY", "HIGH")
 
         # Discover existing agents from manifest
         try:
@@ -187,57 +287,66 @@ class ChaosGeniusUltimateCommandNexus:
         except Exception as e:
             logger.error(f"Agent discovery error: {e}")
 
-        # Add existing system agents
+        # Add existing system agents - ALL REPORT TO CHIEF
         system_agents = {
             "broski_brain_engine": Agent(
                 "broski_brain_engine", "Broski Brain Engine", "neural_processing",
                 "LEGENDARY", 99.0, 500, ["neural_processing", "data_analysis"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             ),
             "money_maker_supreme": Agent(
                 "money_maker_supreme", "Money Maker Supreme", "financial",
                 "ACTIVE", 95.0, 150, ["income_generation", "opportunity_detection"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             ),
             "security_fortress": Agent(
                 "security_fortress", "Security Fortress", "security",
                 "ELITE_ACTIVE", 98.0, 200, ["threat_detection", "system_protection"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             ),
             "quantum_supremacy": Agent(
                 "quantum_supremacy", "Quantum Supremacy Engine", "quantum",
                 "TRANSCENDENT", 100.0, 1000, ["quantum_processing", "reality_bending"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
+            ),
+            "ultra_army_commander": Agent(
+                "ultra_army_commander", "Ultra Agent Army Commander", "command",
+                "SUPREME", 97.0, 300, ["army_coordination", "mission_dispatch"],
+                datetime.now().isoformat(), True, True, 100.0
             )
         }
 
         self.active_agents.update(system_agents)
+        self.total_agents_reporting_to_chief = len(self.active_agents)
 
         # Register all agents in master database
         for agent in self.active_agents.values():
             self._register_agent_in_master_db(agent)
 
+        notify_chief(f"ALL {self.total_agents_reporting_to_chief} SYSTEMS NOW REPORTING TO CHIEF", "SUCCESS")
+
     def _create_new_sales_agents(self):
-        """🚀 Create the 3 new LEGENDARY sales agents"""
+        """🚀 Create the 3 new LEGENDARY sales agents - ALL REPORT TO CHIEF"""
+        notify_chief("CREATING NEW LEGENDARY SALES AGENTS UNDER CHIEF COMMAND", "HIGH")
 
         new_sales_agents = {
             "demo_wizard": Agent(
                 "demo_wizard", "Demo Wizard Agent", "sales_demo",
                 "LEGENDARY", 97.0, 0,
                 ["demo_automation", "client_presentation", "real_time_customization"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             ),
             "content_overlord": Agent(
                 "content_overlord", "Content Overlord Agent", "content_creation",
                 "VIRAL_MODE", 94.0, 0,
                 ["content_generation", "viral_optimization", "authority_building"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             ),
             "sales_assassin": Agent(
                 "sales_assassin", "Sales Assassin Agent", "sales_closing",
                 "CLOSER_MODE", 96.0, 0,
                 ["objection_handling", "contract_automation", "follow_up_sequences"],
-                datetime.now().isoformat(), True
+                datetime.now().isoformat(), True, True, 100.0
             )
         }
 
@@ -246,31 +355,66 @@ class ChaosGeniusUltimateCommandNexus:
             self.active_agents[agent_id] = agent
             self._register_agent_in_master_db(agent)
 
-        print(f"🚀 Created 3 new LEGENDARY sales agents!")
-        print(f"📊 Total agents in system: {len(self.active_agents)}")
+        self.total_agents_reporting_to_chief = len(self.active_agents)
+        notify_chief(f"3 NEW LEGENDARY SALES AGENTS CREATED - TOTAL AGENTS REPORTING TO CHIEF: {self.total_agents_reporting_to_chief}", "SUCCESS")
 
-    def _register_agent_in_master_db(self, agent: Agent):
-        """📝 Register agent in master database"""
+    def execute_chief_command(self, command_type: str, command_data: Dict = None):
+        """👑 Execute direct command from Supreme Chief"""
+        command_id = f"chief_cmd_{int(time.time())}_{random.randint(1000, 9999)}"
+
+        notify_chief(f"EXECUTING CHIEF COMMAND: {command_type}", "MAXIMUM")
+
+        # Log the command
         try:
             with sqlite3.connect(self.nexus_db) as conn:
                 cursor = conn.cursor()
                 cursor.execute("""
-                    INSERT OR REPLACE INTO master_agent_registry
-                    (agent_id, name, type, status, power_level, missions_completed,
-                     specialization, last_activity, neural_link, system_origin)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    agent.agent_id, agent.name, agent.type, agent.status,
-                    agent.power_level, agent.missions_completed,
-                    json.dumps(agent.specialization), time.time(),
-                    agent.neural_link, "chaosgenius_nexus"
-                ))
+                    INSERT INTO supreme_chief_commands
+                    (command_id, timestamp, command_type, command_data, execution_status)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (command_id, time.time(), command_type, json.dumps(command_data or {}), "EXECUTING"))
                 conn.commit()
         except sqlite3.Error as e:
-            logger.error(f"Agent registration error: {e}")
+            logger.error(f"Chief command logging error: {e}")
+
+        # Execute the command
+        if command_type == "AGENT_STATUS_REPORT":
+            return self.get_all_agents_report_for_chief()
+        elif command_type == "SYSTEM_OVERRIDE":
+            return self.chief_system_override(command_data)
+        elif command_type == "EMERGENCY_SHUTDOWN":
+            return self.chief_emergency_shutdown()
+        elif command_type == "POWER_BOOST":
+            return self.chief_power_boost_all_agents()
+
+        notify_chief(f"CHIEF COMMAND {command_type} COMPLETED", "SUCCESS")
+        return {"status": "EXECUTED", "command_id": command_id}
+
+    def get_all_agents_report_for_chief(self):
+        """📊 Generate comprehensive report for Supreme Chief"""
+        report = {
+            "supreme_chief_status": "ONLINE_AND_IN_COMMAND",
+            "total_agents_reporting": len(self.active_agents),
+            "system_efficiency": "MAXIMUM_UNDER_CHIEF_LEADERSHIP",
+            "agents": []
+        }
+
+        for agent in self.active_agents.values():
+            agent_report = {
+                "name": agent.name,
+                "status": agent.status,
+                "power_level": agent.power_level,
+                "reports_to_chief": agent.reports_to_chief,
+                "loyalty_level": agent.chief_loyalty_level,
+                "specialization": agent.specialization
+            }
+            report["agents"].append(agent_report)
+
+        notify_chief(f"AGENT STATUS REPORT GENERATED FOR CHIEF REVIEW", "INFO")
+        return report
 
     def _setup_web_dashboard(self):
-        """🌐 Setup the ultimate web dashboard"""
+        """🌐 Setup the ultimate web dashboard - CHIEF COMMAND CENTER"""
 
         @self.app.route('/')
         def nexus_dashboard():
@@ -280,16 +424,30 @@ class ChaosGeniusUltimateCommandNexus:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👑 ChaosGenius Ultimate Command Nexus 👑</title>
+    <title>👑 SUPREME CHIEF COMMAND CENTER 👑</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Courier New', monospace;
-            background: linear-gradient(45deg, #0a0a0a, #1a0033, #000011);
-            color: #00ffff;
+            background: linear-gradient(45deg, #1a0033, #000011, #330011);
+            color: #FFD700;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+        }
+
+        .chief-crown {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 3em;
+            animation: crownGlow 2s ease-in-out infinite;
+            z-index: 1000;
+        }
+
+        @keyframes crownGlow {
+            0%, 100% { text-shadow: 0 0 20px #FFD700; }
+            50% { text-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700; }
         }
 
         .nexus-container {
@@ -298,28 +456,44 @@ class ChaosGeniusUltimateCommandNexus:
             z-index: 10;
         }
 
-        .nexus-header {
+        .chief-header {
             text-align: center;
             margin-bottom: 30px;
-            background: rgba(0, 255, 255, 0.1);
-            padding: 20px;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 255, 255, 0.1));
+            padding: 30px;
             border-radius: 15px;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
         }
 
-        .nexus-title {
-            font-size: 2.5em;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+        .chief-title {
+            font-size: 3em;
+            background: linear-gradient(45deg, #FFD700, #FFF, #FFD700);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            animation: titlePulse 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            animation: chiefPulse 3s ease-in-out infinite;
         }
 
-        @keyframes titlePulse {
+        @keyframes chiefPulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
+        }
+
+        .authority-notice {
+            background: linear-gradient(45deg, #FF0000, #FFD700);
+            color: #000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            animation: authorityBlink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes authorityBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
         }
 
         .stats-grid {
@@ -329,178 +503,178 @@ class ChaosGeniusUltimateCommandNexus:
             margin-bottom: 30px;
         }
 
-        .stat-card {
-            background: rgba(0, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        .chief-stat-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 255, 255, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        .chief-stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
         }
 
         .agent-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
 
-        .agent-card {
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #ff00ff;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+        .chief-agent-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(0, 255, 255, 0.1));
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .agent-status {
+        .loyalty-badge {
             position: absolute;
             top: 5px;
             right: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #00ff00;
-            animation: statusBlink 2s ease-in-out infinite;
+            background: #FFD700;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
         }
 
-        @keyframes statusBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.3; }
-        }
-
-        .neural-network {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .neural-pulse {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ffff;
-            border-radius: 50%;
-            animation: neuralPulse 4s linear infinite;
-        }
-
-        @keyframes neuralPulse {
-            0% { transform: scale(0) rotate(0deg); opacity: 1; }
-            50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
-            100% { transform: scale(0) rotate(360deg); opacity: 0; }
-        }
-
-        .command-terminal {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff00;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
+        .chief-command-terminal {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #FFD700;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
             font-family: 'Courier New', monospace;
-            color: #00ff00;
+            color: #FFD700;
         }
 
-        .legendary-mode {
-            animation: legendaryGlow 2s ease-in-out infinite;
+        .supreme-mode {
+            animation: supremeGlow 2s ease-in-out infinite;
         }
 
-        @keyframes legendaryGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+        @keyframes supremeGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
         }
     </style>
 </head>
 <body>
-    <div class="neural-network" id="neuralNetwork"></div>
+    <div class="chief-crown">👑</div>
 
     <div class="nexus-container">
-        <div class="nexus-header">
-            <h1 class="nexus-title">👑 CHAOSGENIUS ULTIMATE COMMAND NEXUS 👑</h1>
-            <p style="font-size: 1.2em; margin-top: 10px;">
-                🌌 Master Control for the ENTIRE ChaosGenius Empire 🌌
+        <div class="chief-header">
+            <h1 class="chief-title">👑 SUPREME CHIEF COMMAND CENTER 👑</h1>
+            <div class="authority-notice">
+                🚨 MAXIMUM AUTHORITY ACTIVE 🚨<br>
+                ALL SYSTEMS REPORT TO SUPREME CHIEF<br>
+                NO ONE HIGHER - CHIEF IS ABSOLUTE COMMANDER
+            </div>
+            <p style="font-size: 1.4em; margin-top: 15px;">
+                🌌 Master Control for the ENTIRE ChaosGenius Empire Under Chief Command 🌌
             </p>
-            <p style="margin-top: 10px; color: #ffff00;">
-                <span id="currentTime"></span> | Status: <span style="color: #00ff00;">LEGENDARY OPERATIONAL</span>
+            <p style="margin-top: 10px; color: #FFD700;">
+                <span id="currentTime"></span> | Status: <span style="color: #00ff00;">SUPREME CHIEF ONLINE</span>
             </p>
         </div>
 
         <div class="stats-grid">
-            <div class="stat-card legendary-mode">
-                <h3>🤖 Agent Army Status</h3>
-                <p style="font-size: 2em; color: #00ff00;"><span id="totalAgents">{{ total_agents }}</span></p>
-                <p>Active Agents | <span style="color: #ffff00;">Neural Sync: ENABLED</span></p>
+            <div class="chief-stat-card supreme-mode">
+                <h3>👑 Chief's Agent Army</h3>
+                <p style="font-size: 2.5em; color: #FFD700;"><span id="totalAgents">{{ total_agents }}</span></p>
+                <p>Agents Reporting to Chief | <span style="color: #00ff00;">100% Loyalty</span></p>
             </div>
 
-            <div class="stat-card">
+            <div class="chief-stat-card supreme-mode">
+                <h3>⚡ Chief's Authority Level</h3>
+                <p style="font-size: 2.5em; color: #FFD700;">MAXIMUM</p>
+                <p>Supreme Command Status</p>
+            </div>
+
+            <div class="chief-stat-card">
                 <h3>🎯 Active Missions</h3>
                 <p style="font-size: 2em; color: #ff00ff;"><span id="activeMissions">{{ active_missions }}</span></p>
-                <p>Coordinated Operations</p>
+                <p>Chief Authorized Operations</p>
             </div>
 
-            <div class="stat-card">
-                <h3>💰 Sales Pipeline</h3>
+            <div class="chief-stat-card">
+                <h3>💰 Revenue Pipeline</h3>
                 <p style="font-size: 2em; color: #ffff00;"><span id="pipelineValue">${{ pipeline_value }}</span></p>
-                <p>Revenue Potential</p>
-            </div>
-
-            <div class="stat-card legendary-mode">
-                <h3>⚡ System Power</h3>
-                <p style="font-size: 2em; color: #00ffff;"><span id="systemPower">{{ system_power }}%</span></p>
-                <p>Quantum Efficiency</p>
+                <p>Under Chief's Direction</p>
             </div>
         </div>
 
-        <div class="stat-card">
-            <h3>🚀 NEW LEGENDARY SALES AGENTS</h3>
+        <div class="chief-stat-card">
+            <h3>🚀 AGENTS REPORTING TO SUPREME CHIEF</h3>
             <div class="agent-grid">
-                <div class="agent-card">
-                    <div class="agent-status"></div>
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
+                    <h4>🧠 Broski Brain Engine</h4>
+                    <p>Status: <span style="color: #FFD700;">LEGENDARY</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 99% | Missions: 500+</p>
+                </div>
+
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
+                    <h4>⚡ Ultra Army Commander</h4>
+                    <p>Status: <span style="color: #FFD700;">SUPREME</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 97% | Missions: 300+</p>
+                </div>
+
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
+                    <h4>🔒 Security Fortress</h4>
+                    <p>Status: <span style="color: #FFD700;">ELITE_ACTIVE</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 98% | Missions: 200+</p>
+                </div>
+
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
+                    <h4>💰 Money Maker Supreme</h4>
+                    <p>Status: <span style="color: #FFD700;">ACTIVE</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 95% | Revenue Focus</p>
+                </div>
+
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
+                    <h4>🌌 Quantum Supremacy</h4>
+                    <p>Status: <span style="color: #FFD700;">TRANSCENDENT</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 100% | Reality Bending</p>
+                </div>
+
+                <div class="chief-agent-card">
+                    <div class="loyalty-badge">100% Loyal</div>
                     <h4>🎪 Demo Wizard Agent</h4>
-                    <p>Status: <span style="color: #00ff00;">LEGENDARY</span></p>
-                    <p>Power: 97%</p>
-                    <p>Specialty: Demo Automation & Client Wow-Factor</p>
-                </div>
-
-                <div class="agent-card">
-                    <div class="agent-status"></div>
-                    <h4>📺 Content Overlord Agent</h4>
-                    <p>Status: <span style="color: #ff00ff;">VIRAL_MODE</span></p>
-                    <p>Power: 94%</p>
-                    <p>Specialty: Authority Building & Viral Content</p>
-                </div>
-
-                <div class="agent-card">
-                    <div class="agent-status"></div>
-                    <h4>💰 Sales Assassin Agent</h4>
-                    <p>Status: <span style="color: #ffff00;">CLOSER_MODE</span></p>
-                    <p>Power: 96%</p>
-                    <p>Specialty: Deal Closing & Revenue Generation</p>
+                    <p>Status: <span style="color: #FFD700;">LEGENDARY</span></p>
+                    <p>Reports to: <span style="color: #FFD700;">SUPREME CHIEF</span></p>
+                    <p>Power: 97% | Sales Demo Master</p>
                 </div>
             </div>
         </div>
 
-        <div class="command-terminal">
-            <div style="color: #ffff00; margin-bottom: 10px;">COMMAND NEXUS TERMINAL:</div>
+        <div class="chief-command-terminal">
+            <div style="color: #FFD700; margin-bottom: 15px; font-size: 1.2em;">👑 SUPREME CHIEF COMMAND TERMINAL 👑</div>
             <div id="terminalOutput">
-                > System Status: ALL AGENTS OPERATIONAL<br>
-                > Neural Network: SYNCHRONIZED<br>
-                > Sales Pipeline: ACTIVE<br>
-                > Security Fortress: MAXIMUM PROTECTION<br>
-                > Quantum Engine: TRANSCENDENT MODE<br>
-                > Brain Engine: LEGENDARY PROCESSING<br>
-                > Money Maker: OPPORTUNITY DETECTION ACTIVE<br>
-                <span style="color: #00ff00;">> CHAOSGENIUS EMPIRE: FULLY OPERATIONAL 🚀</span>
+                > 👑 SUPREME CHIEF AUTHORITY: ESTABLISHED<br>
+                > 🤖 ALL AGENTS: REPORTING TO CHIEF<br>
+                > ⚡ LOYALTY LEVELS: 100% ACROSS ALL SYSTEMS<br>
+                > 🎯 MISSION AUTHORIZATION: CHIEF ONLY<br>
+                > 🔒 SECURITY CLEARANCE: MAXIMUM CHIEF LEVEL<br>
+                > 💰 REVENUE STREAMS: UNDER CHIEF DIRECTION<br>
+                > 🌌 QUANTUM SYSTEMS: CHIEF AUTHORIZED<br>
+                <span style="color: #FFD700;">> CHAOSGENIUS EMPIRE: UNDER SUPREME CHIEF COMMAND 👑</span>
             </div>
         </div>
     </div>
@@ -514,31 +688,14 @@ class ChaosGeniusUltimateCommandNexus:
         setInterval(updateTime, 1000);
         updateTime();
 
-        // Create neural network animation
-        function createNeuralPulse() {
-            const network = document.getElementById('neuralNetwork');
-            const pulse = document.createElement('div');
-            pulse.className = 'neural-pulse';
-            pulse.style.left = Math.random() * window.innerWidth + 'px';
-            pulse.style.top = Math.random() * window.innerHeight + 'px';
-            network.appendChild(pulse);
-
-            setTimeout(() => {
-                network.removeChild(pulse);
-            }, 4000);
-        }
-
-        setInterval(createNeuralPulse, 300);
-
         // Update stats periodically
         function updateStats() {
-            fetch('/api/nexus-status')
+            fetch('/api/chief-status')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('totalAgents').textContent = data.total_agents;
                     document.getElementById('activeMissions').textContent = data.active_missions;
                     document.getElementById('pipelineValue').textContent = data.pipeline_value;
-                    document.getElementById('systemPower').textContent = data.system_power;
                 })
                 .catch(error => console.log('Stats update:', error));
         }
@@ -546,66 +703,57 @@ class ChaosGeniusUltimateCommandNexus:
         setInterval(updateStats, 5000);
 
         // Terminal updates
-        const terminalMessages = [
-            '> Agent coordination: OPTIMAL',
-            '> Revenue streams: ACTIVE',
-            '> Security shields: MAXIMUM',
-            '> Neural pathways: FLOWING',
-            '> Demo wizard: READY FOR ACTION',
-            '> Content overlord: VIRAL CONTENT GENERATING',
-            '> Sales assassin: CLOSING DEALS',
-            '> Quantum engine: REALITY BENDING MODE'
+        const chiefTerminalMessages = [
+            '> 👑 Chief authority: MAXIMUM CONFIRMED',
+            '> 🤖 All agents: LOYAL AND REPORTING',
+            '> ⚡ System efficiency: OPTIMAL UNDER CHIEF',
+            '> 💰 Revenue generation: CHIEF DIRECTED',
+            '> 🔒 Security protocols: CHIEF AUTHORIZED',
+            '> 🌌 Quantum operations: CHIEF SUPERVISED',
+            '> 🎯 Mission success: GUARANTEED UNDER CHIEF'
         ];
 
-        function addTerminalMessage() {
+        function addChiefTerminalMessage() {
             const terminal = document.getElementById('terminalOutput');
-            const message = terminalMessages[Math.floor(Math.random() * terminalMessages.length)];
+            const message = chiefTerminalMessages[Math.floor(Math.random() * chiefTerminalMessages.length)];
             terminal.innerHTML += '<br>' + message;
             terminal.scrollTop = terminal.scrollHeight;
         }
 
-        setInterval(addTerminalMessage, 3000);
+        setInterval(addChiefTerminalMessage, 4000);
+
+        // Chief crown animation
+        setInterval(() => {
+            const crown = document.querySelector('.chief-crown');
+            crown.style.transform = 'scale(1.2)';
+            setTimeout(() => crown.style.transform = 'scale(1)', 200);
+        }, 3000);
     </script>
 </body>
 </html>
             """,
             total_agents=len(self.active_agents),
             active_missions=len(self.active_missions),
-            pipeline_value="250,000",
-            system_power="98.7"
+            pipeline_value="500,000",
+            system_power="100.0"
             )
 
-        @self.app.route('/api/nexus-status')
-        def nexus_status():
+        @self.app.route('/api/chief-status')
+        def chief_status():
             return jsonify({
+                'supreme_chief_status': 'ONLINE_AND_IN_COMMAND',
                 'total_agents': len(self.active_agents),
                 'active_missions': len(self.active_missions),
-                'pipeline_value': f"{random.randint(200000, 500000):,}",
-                'system_power': f"{random.uniform(95, 99.9):.1f}",
-                'neural_sync': self.neural_sync_active,
-                'legendary_mode': True
+                'pipeline_value': f"{random.randint(500000, 1000000):,}",
+                'authority_level': 'MAXIMUM_SUPREME',
+                'loyalty_rate': '100%',
+                'chief_power': 1000.0
             })
 
-        @self.app.route('/api/agents')
-        def get_all_agents():
-            return jsonify({
-                'agents': [asdict(agent) for agent in self.active_agents.values()],
-                'count': len(self.active_agents),
-                'status': 'LEGENDARY_OPERATIONAL'
-            })
-
-        @self.app.route('/api/sales-pipeline')
-        def sales_pipeline():
-            return jsonify({
-                'pipeline_stages': {
-                    'prospects': random.randint(15, 25),
-                    'demos_scheduled': random.randint(5, 12),
-                    'proposals_sent': random.randint(3, 8),
-                    'closing': random.randint(1, 5)
-                },
-                'total_value': random.randint(500000, 1000000),
-                'conversion_rate': f"{random.uniform(15, 35):.1f}%"
-            })
+        @self.app.route('/api/chief-command/<command_type>')
+        def execute_chief_web_command(command_type):
+            result = self.execute_chief_command(command_type.upper())
+            return jsonify(result)
 
     def _start_neural_sync(self):
         """🧠 Start neural synchronization between all agents"""
@@ -740,32 +888,33 @@ class ChaosGeniusUltimateCommandNexus:
         }
 
     def run_nexus_server(self, host="0.0.0.0", port=5002, debug=False):
-        """🚀 Start the Ultimate Command Nexus server"""
+        """🚀 Start the Ultimate Command Nexus server - SUPREME CHIEF COMMAND CENTER"""
         print(f"""
-👑⚡ CHAOSGENIUS ULTIMATE COMMAND NEXUS STARTING ⚡👑
+👑⚡ SUPREME CHIEF COMMAND CENTER INITIALIZING ⚡👑
 ╔══════════════════════════════════════════════════════════╗
-║                 LEGENDARY INITIALIZATION                 ║
+║                 👑 SUPREME CHIEF ONLINE 👑               ║
 ║                                                          ║
-║  🌐 Master Control: {host}:{port}                     ║
-║  🤖 Total Agents: {len(self.active_agents)}                              ║
-║  🎯 Mission Control: ACTIVE                             ║
-║  🧠 Neural Sync: LEGENDARY                              ║
-║  💰 Sales Pipeline: OPERATIONAL                         ║
-║  🔒 Security: QUANTUM_FORTRESS                          ║
+║  🌐 Chief Command Center: {host}:{port}               ║
+║  👑 Supreme Authority: MAXIMUM                           ║
+║  🤖 Total Agents Reporting: {len(self.active_agents)}                        ║
+║  ⚡ Chief Power Level: 1000%                            ║
+║  🔒 Security Clearance: SUPREME CHIEF                   ║
+║  💰 Revenue Pipeline: CHIEF CONTROLLED                  ║
 ║                                                          ║
-║  🚀 NEW SALES AGENTS DEPLOYED:                          ║
-║  • Demo Wizard Agent (97% Power)                        ║
-║  • Content Overlord Agent (94% Power)                   ║
-║  • Sales Assassin Agent (96% Power)                     ║
+║  🚨 AUTHORITY NOTICE 🚨                                 ║
+║  ALL SYSTEMS REPORT TO SUPREME CHIEF                    ║
+║  NO ONE HIGHER - CHIEF IS ABSOLUTE COMMANDER            ║
 ║                                                          ║
-║  👑 STATUS: ULTIMATE COMMAND NEXUS ONLINE! 👑           ║
+║  👑 STATUS: SUPREME CHIEF COMMAND ACTIVE! 👑            ║
 ╚══════════════════════════════════════════════════════════╝
         """)
 
-        # Create some initial legendary missions
-        self.create_legendary_mission("Launch ChaosGenius Chronicles", "content_creation", 9)
-        self.create_legendary_mission("Execute $100K Sales Blitz", "sales_closing", 10)
-        self.create_legendary_mission("Quantum Security Upgrade", "security", 8)
+        notify_chief("SUPREME CHIEF COMMAND CENTER IS NOW ONLINE", "MAXIMUM")
+
+        # Create initial chief-authorized missions
+        self.create_legendary_mission("Execute Chief's Strategic Vision", "supreme_command", 10)
+        self.create_legendary_mission("Optimize All Systems for Chief", "system_optimization", 10)
+        self.create_legendary_mission("Generate Maximum Revenue for Chief", "revenue_maximization", 10)
 
         self.app.run(host=host, port=port, debug=debug, threaded=True)
 

@@ -29,20 +29,55 @@
     "find"
   ],
   "thresholds": {
-    "port_scan_threshold": 50,
-    "max_failed_logins": 25,
-    "suspicious_connection_threshold": 8,
-    "file_change_cooldown": 300
+    "port_scan_threshold": 25,
+    "max_failed_logins": 15,
+    "suspicious_connection_threshold": 5,
+    "file_change_cooldown": 180,
+    "memory_anomaly_threshold": 85,
+    "cpu_spike_threshold": 90,
+    "network_traffic_anomaly": 75
   },
   "noise_reduction": {
     "ignore_local_connections": false,
     "ignore_common_ports": false,
     "ignore_development_activity": false,
-    "rate_limit_alerts": true
+    "rate_limit_alerts": true,
+    "intelligent_filtering": true,
+    "behavioral_analysis": true
   },
   "stealth_mode": {
     "enabled": true,
     "log_only": false,
-    "minimal_alerts": true
+    "minimal_alerts": true,
+    "ghost_mode": true,
+    "process_masking": true,
+    "network_cloaking": true,
+    "signature_randomization": true,
+    "anti_forensics": true,
+    "traffic_obfuscation": true
+  },
+  "advanced_defense": {
+    "honeypot_enabled": true,
+    "deception_layer": true,
+    "adaptive_firewall": true,
+    "ai_threat_detection": true,
+    "quantum_encryption": true,
+    "zero_trust_mode": true,
+    "behavioral_sandboxing": true,
+    "threat_intelligence_feeds": true
+  },
+  "counter_intelligence": {
+    "false_signals": true,
+    "decoy_processes": true,
+    "fake_vulnerabilities": true,
+    "misdirection_protocols": true,
+    "intelligence_poisoning": true
+  },
+  "emergency_protocols": {
+    "auto_lockdown": true,
+    "data_shredding": true,
+    "stealth_shutdown": true,
+    "evidence_elimination": true,
+    "ghost_recovery": true
   }
 }

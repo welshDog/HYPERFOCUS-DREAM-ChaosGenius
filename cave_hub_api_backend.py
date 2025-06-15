@@ -13,6 +13,7 @@ import json
 import time
 import os
 from pathlib import Path
+from typing import Dict, List, Any, Optional
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import threading
@@ -25,13 +26,15 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
+
 class CaveHubAPI:
     """🕋 The Ultimate Cave Hub Button Controller 🕋"""
 
-    def __init__(self):
-        self.cave_path = Path("/root/chaosgenius")
-        self.active_processes = {}
-        self.portal_registry = {
+    def __init__(self) -> None:
+        """Initialize the Cave Hub API with all portal configurations."""
+        self.cave_path: Path = Path("/root/chaosgenius")
+        self.active_processes: Dict[str, subprocess.Popen] = {}
+        self.portal_registry: Dict[str, Dict[str, str]] = {
             'hyperportal': {'url': 'http://localhost:5173', 'type': 'web'},
             'dashboard': {'url': 'http://localhost:5000', 'type': 'web'},
             'agent_command': {'file': 'broski_agent_army_command_portal.py', 'type': 'python'},
@@ -60,12 +63,25 @@ class CaveHubAPI:
 
         logger.info("🔥 Cave Hub API initialized - All buttons ready for action!")
 
-    def launch_python_system(self, file_path: str) -> dict:
-        """🚀 Launch a Python system"""
+    def launch_python_system(self, file_path: str) -> Dict[str, Any]:
+        """
+        🚀 Launch a Python system in the background.
+
+        Args:
+            file_path: Path to the Python file to launch
+
+        Returns:
+            Dict containing status, message, and process info
+        """
         try:
             full_path = self.cave_path / file_path
             if not full_path.exists():
+                logger.error(f"System file not found: {file_path}")
                 return {"status": "error", "message": f"System file not found: {file_path}"}
+
+            # Terminate existing process if running
+            if file_path in self.active_processes:
+                self._terminate_process(file_path)
 
             # Launch in background
             process = subprocess.Popen(
@@ -76,6 +92,7 @@ class CaveHubAPI:
             )
 
             self.active_processes[file_path] = process
+            logger.info(f"🚀 Successfully launched {file_path} with PID {process.pid}")
 
             return {
                 "status": "success",
@@ -83,13 +100,24 @@ class CaveHubAPI:
                 "pid": process.pid
             }
         except Exception as e:
+            logger.error(f"Failed to launch {file_path}: {str(e)}")
             return {"status": "error", "message": f"Launch failed: {str(e)}"}
 
-    def execute_shell_script(self, script_name: str) -> dict:
-        """⚡ Execute shell scripts"""
+    def execute_shell_script(self, script_name: str, timeout: int = 30) -> Dict[str, Any]:
+        """
+        ⚡ Execute shell scripts with timeout protection.
+
+        Args:
+            script_name: Name of the script to execute
+            timeout: Maximum execution time in seconds
+
+        Returns:
+            Dict containing execution results
+        """
         try:
             script_path = self.cave_path / script_name
             if not script_path.exists():
+                logger.error(f"Script not found: {script_name}")
                 return {"status": "error", "message": f"Script not found: {script_name}"}
 
             result = subprocess.run(
@@ -97,63 +125,134 @@ class CaveHubAPI:
                 cwd=str(self.cave_path),
                 capture_output=True,
                 text=True,
-                timeout=30
+                timeout=timeout
             )
 
+            success = result.returncode == 0
+            logger.info(f"⚡ Script {script_name} executed with return code {result.returncode}")
+
             return {
-                "status": "success" if result.returncode == 0 else "error",
+                "status": "success" if success else "error",
                 "message": f"🔥 {script_name} executed!",
                 "output": result.stdout,
-                "error": result.stderr if result.returncode != 0 else None
+                "error": result.stderr if not success else None,
+                "return_code": result.returncode
             }
         except subprocess.TimeoutExpired:
-            return {"status": "error", "message": "Script execution timed out"}
+            logger.warning(f"Script {script_name} execution timed out after {timeout}s")
+            return {"status": "error", "message": f"Script execution timed out after {timeout}s"}
         except Exception as e:
+            logger.error(f"Failed to execute {script_name}: {str(e)}")
             return {"status": "error", "message": f"Execution failed: {str(e)}"}
 
-    def get_system_status(self) -> dict:
-        """📊 Get real-time system status"""
+    def get_system_status(self) -> Dict[str, Any]:
+        """
+        📊 Get comprehensive real-time system status.
+
+        Returns:
+            Dict containing system health metrics and active processes
+        """
         try:
             # Count Python processes
-            python_processes = []
-            for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
-                try:
-                    if 'python' in proc.info['name'].lower():
-                        python_processes.append(proc.info)
-                except (psutil.NoSuchProcess, psutil.AccessDenied):
-                    continue
+            python_processes = self._get_python_processes()
 
             # System resources
-            cpu_percent = psutil.cpu_percent(interval=1)
+            cpu_percent = psutil.cpu_percent(interval=0.1)
             memory = psutil.virtual_memory()
+            disk = psutil.disk_usage('/')
 
-            # Calculate health score
-            health_score = min(100, max(0, 100 - cpu_percent + (memory.available / memory.total * 100)))
+            # Calculate health score based on resource usage
+            health_score = self._calculate_health_score(cpu_percent, memory.percent)
 
             return {
                 "active_agents": len(python_processes),
                 "system_health": round(health_score, 1),
                 "cpu_usage": round(cpu_percent, 1),
                 "memory_usage": round(memory.percent, 1),
+                "disk_usage": round((disk.used / disk.total) * 100, 1),
                 "income_streams": 2847 + int(time.time() % 1000),  # Dynamic value
                 "hyperfocus_sessions": 42 + int(time.time() % 20),
                 "portal_status": "ONLINE",
                 "threat_level": "GREEN",
-                "processes": len(python_processes)
+                "processes": len(python_processes),
+                "active_portals": list(self.active_processes.keys()),
+                "timestamp": time.time()
             }
         except Exception as e:
             logger.error(f"Status check failed: {e}")
-            return {"error": str(e)}
+            return {"error": str(e), "timestamp": time.time()}
+
+    def _get_python_processes(self) -> List[Dict[str, Any]]:
+        """Get all running Python processes."""
+        python_processes = []
+        for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+            try:
+                if 'python' in proc.info['name'].lower():
+                    python_processes.append(proc.info)
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                continue
+        return python_processes
+
+    def _calculate_health_score(self, cpu_percent: float, memory_percent: float) -> float:
+        """Calculate system health score based on resource usage."""
+        # Health decreases with high CPU and memory usage
+        cpu_score = max(0, 100 - cpu_percent)
+        memory_score = max(0, 100 - memory_percent)
+        return (cpu_score + memory_score) / 2
+
+    def _terminate_process(self, file_path: str) -> bool:
+        """Safely terminate a running process."""
+        try:
+            if file_path in self.active_processes:
+                process = self.active_processes[file_path]
+                process.terminate()
+                process.wait(timeout=5)
+                del self.active_processes[file_path]
+                logger.info(f"Terminated existing process for {file_path}")
+                return True
+        except Exception as e:
+            logger.warning(f"Failed to terminate process for {file_path}: {e}")
+        return False
+
+    def launch_multiple_systems(self, systems: List[str], stagger_delay: float = 1.0) -> List[Dict[str, Any]]:
+        """
+        🚀 Launch multiple systems with optional staggered delays.
+
+        Args:
+            systems: List of system files to launch
+            stagger_delay: Delay between launches in seconds
+
+        Returns:
+            List of launch results
+        """
+        results = []
+        for system in systems:
+            if system.endswith('.py'):
+                result = self.launch_python_system(system)
+            elif system.endswith('.sh'):
+                result = self.execute_shell_script(system)
+            else:
+                result = {"status": "error", "message": f"Unknown file type: {system}"}
+
+            results.append(result)
+            if stagger_delay > 0 and system != systems[-1]:  # Don't delay after last item
+                time.sleep(stagger_delay)
+
+        return results
+
 
 cave_api = CaveHubAPI()
 
 # API ENDPOINTS
 
 @app.route('/api/launch-portal', methods=['POST'])
-def launch_portal():
+def launch_portal() -> Any:
     """🚀 Launch any portal system"""
     try:
         data = request.get_json()
+        if not data or 'portal' not in data:
+            return jsonify({"status": "error", "message": "Missing portal parameter"})
+
         portal_type = data.get('portal')
 
         if portal_type not in cave_api.portal_registry:
@@ -173,63 +272,62 @@ def launch_portal():
         return jsonify(result)
 
     except Exception as e:
+        logger.error(f"Portal launch failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/deploy-agents', methods=['POST'])
-def deploy_agents():
-    """🤖 Deploy agent army"""
+def deploy_agents() -> Any:
+    """🤖 Deploy agent army with improved error handling"""
     try:
-        # Launch multiple agent systems
-        results = []
         agent_systems = [
             'agent_army_forge_master.py',
             'agent_money_maker_supreme.py',
             'broski_agent_army_command_portal.py'
         ]
 
-        for system in agent_systems:
-            result = cave_api.launch_python_system(system)
-            results.append(result)
+        results = cave_api.launch_multiple_systems(agent_systems)
+
+        success_count = sum(1 for r in results if r.get('status') == 'success')
 
         return jsonify({
-            "status": "success",
-            "message": "🚀 Agent Army deployed successfully!",
-            "details": results
+            "status": "success" if success_count > 0 else "error",
+            "message": f"🚀 Agent Army deployment: {success_count}/{len(agent_systems)} systems launched!",
+            "details": results,
+            "success_count": success_count,
+            "total_count": len(agent_systems)
         })
 
     except Exception as e:
+        logger.error(f"Agent deployment failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/activate-fortress', methods=['POST'])
-def activate_fortress():
-    """🛡️ Activate security fortress"""
+def activate_fortress() -> Any:
+    """🛡️ Activate security fortress with enhanced monitoring"""
     try:
-        # Launch security systems
         security_systems = [
             'broski_security_fortress_portal.py',
             'broski_advanced_security_monitor.sh'
         ]
 
-        results = []
-        for system in security_systems:
-            if system.endswith('.py'):
-                result = cave_api.launch_python_system(system)
-            else:
-                result = cave_api.execute_shell_script(system)
-            results.append(result)
+        results = cave_api.launch_multiple_systems(security_systems)
+
+        success_count = sum(1 for r in results if r.get('status') == 'success')
 
         return jsonify({
-            "status": "success",
-            "message": "🛡️ Security Fortress activated!",
-            "details": results
+            "status": "success" if success_count > 0 else "error",
+            "message": f"🛡️ Security Fortress: {success_count}/{len(security_systems)} systems activated!",
+            "details": results,
+            "success_count": success_count
         })
 
     except Exception as e:
+        logger.error(f"Security fortress activation failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/launch-all', methods=['POST'])
-def launch_all_systems():
-    """🌌 Launch all major systems"""
+def launch_all_systems() -> Any:
+    """🌌 Launch all major systems with improved coordination"""
     try:
         major_systems = [
             'app.py',
@@ -238,50 +336,58 @@ def launch_all_systems():
             'agent_money_maker_supreme.py'
         ]
 
-        results = []
-        for system in major_systems:
-            result = cave_api.launch_python_system(system)
-            results.append(result)
-            time.sleep(1)  # Stagger launches
+        results = cave_api.launch_multiple_systems(major_systems, stagger_delay=1.0)
+
+        success_count = sum(1 for r in results if r.get('status') == 'success')
 
         return jsonify({
-            "status": "success",
-            "message": "🌌 All major systems launched!",
-            "details": results
+            "status": "success" if success_count > 0 else "error",
+            "message": f"🌌 Major systems launch: {success_count}/{len(major_systems)} systems online!",
+            "details": results,
+            "success_count": success_count
         })
 
     except Exception as e:
+        logger.error(f"System launch failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/system-status')
-def system_status():
+def system_status() -> Any:
     """📊 Get real-time system status"""
     return jsonify(cave_api.get_system_status())
 
 @app.route('/api/emergency-stop', methods=['POST'])
-def emergency_stop():
-    """🚨 Emergency stop all systems"""
+def emergency_stop() -> Any:
+    """🚨 Emergency stop all systems with improved cleanup"""
     try:
         stopped_count = 0
-        for file_path, process in cave_api.active_processes.items():
+        failed_stops = []
+
+        for file_path, process in list(cave_api.active_processes.items()):
             try:
                 process.terminate()
+                process.wait(timeout=5)
                 stopped_count += 1
-            except:
-                pass
+                logger.info(f"Stopped process for {file_path}")
+            except Exception as e:
+                failed_stops.append(f"{file_path}: {str(e)}")
+                logger.warning(f"Failed to stop {file_path}: {e}")
 
         cave_api.active_processes.clear()
 
         return jsonify({
             "status": "success",
-            "message": f"🚨 Emergency stop complete - {stopped_count} systems halted"
+            "message": f"🚨 Emergency stop complete - {stopped_count} systems halted",
+            "stopped_count": stopped_count,
+            "failed_stops": failed_stops
         })
 
     except Exception as e:
+        logger.error(f"Emergency stop failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/activate-galaxy-mode', methods=['POST'])
-def activate_galaxy_mode():
+def activate_galaxy_mode() -> Any:
     """🌌 Activate galaxy mode"""
     try:
         galaxy_script = cave_api.cave_path / "🚀INFINITE_MODE_ACTIVATED.sh"
@@ -297,10 +403,11 @@ def activate_galaxy_mode():
         })
 
     except Exception as e:
+        logger.error(f"Galaxy mode activation failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/stealth-mode', methods=['POST'])
-def activate_stealth_mode():
+def activate_stealth_mode() -> Any:
     """🌑 Activate stealth mode"""
     try:
         result = cave_api.execute_shell_script("🌑ULTRA_OMEGA_STEALTH_MODE.sh")
@@ -311,10 +418,11 @@ def activate_stealth_mode():
         })
 
     except Exception as e:
+        logger.error(f"Stealth mode activation failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 @app.route('/api/revenue-boost', methods=['POST'])
-def revenue_boost():
+def revenue_boost() -> Any:
     """💰 Boost revenue systems"""
     try:
         revenue_systems = [
@@ -323,28 +431,37 @@ def revenue_boost():
             '🚀LEGENDARY_REVENUE_OPTIMIZER_SUPREME.py'
         ]
 
-        results = []
-        for system in revenue_systems:
-            if Path(cave_api.cave_path / system).exists():
-                result = cave_api.launch_python_system(system)
-                results.append(result)
+        # Filter to only existing systems
+        existing_systems = [s for s in revenue_systems if (cave_api.cave_path / s).exists()]
+
+        if not existing_systems:
+            return jsonify({
+                "status": "warning",
+                "message": "💰 No revenue systems found to activate"
+            })
+
+        results = cave_api.launch_multiple_systems(existing_systems)
+
+        success_count = sum(1 for r in results if r.get('status') == 'success')
 
         return jsonify({
-            "status": "success",
-            "message": "💰 REVENUE BOOST ACTIVATED!",
-            "details": results
+            "status": "success" if success_count > 0 else "error",
+            "message": f"💰 REVENUE BOOST: {success_count}/{len(existing_systems)} systems activated!",
+            "details": results,
+            "success_count": success_count
         })
 
     except Exception as e:
+        logger.error(f"Revenue boost failed: {e}")
         return jsonify({"status": "error", "message": str(e)})
 
 # Serve static files
 @app.route('/')
-def index():
+def index() -> Any:
     return send_from_directory('/root/chaosgenius', 'lyndz_cave_ultra_control_hub.html')
 
 @app.route('/<path:filename>')
-def serve_static(filename):
+def serve_static(filename: str) -> Any:
     return send_from_directory('/root/chaosgenius', filename)
 
 if __name__ == "__main__":

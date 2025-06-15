@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             padding: 20px;
             min-height: 100vh;
         }
+
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -19,6 +21,7 @@
             font-weight: bold;
             text-shadow: 0 0 20px #00ffff;
         }
+
         .cave-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -26,6 +29,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .cave-card {
             background: rgba(0, 255, 255, 0.1);
             border: 2px solid #00ffff;
@@ -35,23 +39,27 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .cave-card:hover {
             background: rgba(255, 0, 110, 0.2);
             border-color: #ff006e;
             transform: scale(1.05);
             box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
         }
+
         .cave-title {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
             color: #ff006e;
         }
+
         .cave-description {
             font-size: 14px;
             margin-bottom: 15px;
             opacity: 0.8;
         }
+
         .cave-link {
             display: inline-block;
             background: linear-gradient(45deg, #ff006e, #8338ec);
@@ -62,10 +70,12 @@
             font-weight: bold;
             transition: all 0.3s ease;
         }
+
         .cave-link:hover {
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
         }
+
         .priority-badge {
             background: #ffff00;
             color: #000;
@@ -77,6 +87,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         🛰️🏠 LYNDZ CAVE PORTAL DIRECTORY 🏠🛰️
@@ -106,7 +117,8 @@
         <div class="cave-card" onclick="window.open('hyperfocuszone_command_center.html', '_blank')">
             <div class="cave-title">Hyperfocuszone Command Center<span class="priority-badge">PRIORITY</span></div>
             <div class="cave-description">🎯 Command center - Focus and productivity control</div>
-            <a href="hyperfocuszone_command_center.html" class="cave-link" target="_blank">🚀 ENTER CAVE</a>
+            <a href="hyperfocuszone_command_center.html" class="cave-link" target="_blank">🚀 ENTER HYPERFOCUSZONE.COM
+                🚀</a>
         </div>
 
         <div class="cave-card" onclick="window.open('hyperfocuszone_user_portal.html', '_blank')">
@@ -215,4 +227,5 @@
         });
     </script>
 </body>
+
 </html>

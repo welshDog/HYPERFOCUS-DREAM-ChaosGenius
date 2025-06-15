@@ -12,6 +12,7 @@ Built for LEGENDARY performance and zero conflicts!
 - Agent Army Integration
 - Welcome & Role Management
 - Focus Sessions & Productivity Tracking
+- 🚀 NEW: ULTIMATE REMOTE COMMAND CENTER 🚀
 """
 
 import asyncio
@@ -20,6 +21,9 @@ import os
 import random
 import sqlite3
 import sys
+import subprocess
+import psutil
+import requests
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 
@@ -56,6 +60,10 @@ class UnifiedBROskiBot:
         self.db_path = "/root/chaosgenius/unified_broski_bot.db"
         self.initialize_database()
 
+        # Initialize Remote Command Center
+        self.orchestrator_path = "/root/chaosgenius/LEGENDARY_SYSTEM_ORCHESTRATOR.py"
+        self.empire_active = False
+
         # Bot setup if Discord is available
         if DISCORD_AVAILABLE and self.token:
             intents = discord.Intents.default()
@@ -71,6 +79,7 @@ class UnifiedBROskiBot:
 
             self.setup_events()
             self.setup_commands()
+            self.setup_empire_commands()  # 🚀 NEW: Empire control commands
             self.setup_tasks()
         else:
             self.bot = None
@@ -136,10 +145,14 @@ class UnifiedBROskiBot:
     def setup_events(self):
         """🎯 Setup Discord bot events"""
 
+        # Store bot start time
+        self.bot_start_time = time.time()
+
         @self.bot.event
         async def on_ready():
             print(f"🚀 {self.bot.user} is now ONLINE and LEGENDARY!")
             print(f"🏠 Serving {len(self.bot.guilds)} guilds")
+            print("🎭 REMOTE COMMAND CENTER ACTIVATED!")
 
             # Sync slash commands
             try:
@@ -163,7 +176,7 @@ class UnifiedBROskiBot:
                 )
                 embed.add_field(
                     name="🎯 Getting Started",
-                    value="• Use `/checkin` for daily BROski$ tokens\n• Start focus sessions with `/focus`\n• Check your stats with `/stats`",
+                    value="• Use `/checkin` for daily BROski$ tokens\n• Start focus sessions with `/focus`\n• Check your stats with `/stats`\n• 🚀 NEW: Control the empire with `/empire_status`!",
                     inline=False,
                 )
                 embed.set_thumbnail(url=member.avatar.url if member.avatar else None)
@@ -401,253 +414,397 @@ class UnifiedBROskiBot:
 
             await interaction.response.send_message(embed=embed)
 
-    def setup_tasks(self):
-        """⚙️ Setup background tasks"""
+    def setup_empire_commands(self):
+        """🚀 ULTIMATE REMOTE COMMAND CENTER - Control your digital empire from Discord!"""
 
-        @tasks.loop(hours=1)
-        async def status_updater():
-            """Update bot status"""
-            statuses = [
-                "🧠 Boosting productivity",
-                "💰 Earning BROski$ tokens",
-                "🚀 Building empires",
-                "⚡ Powering focus sessions",
-                "🏆 Creating legends",
-            ]
+        @self.bot.tree.command(
+            name="empire_status", description="🚀 Check the status of your LEGENDARY digital empire!"
+        )
+        async def empire_status(interaction: discord.Interaction):
+            """💎 Display complete empire status"""
+            await interaction.response.defer()
 
-            if self.bot:
-                status = random.choice(statuses)
-                await self.bot.change_presence(activity=discord.Game(name=status))
+            try:
+                # Check system resources
+                cpu_percent = psutil.cpu_percent(interval=1)
+                memory = psutil.virtual_memory()
+                disk = psutil.disk_usage('/')
 
-        @self.bot.event
-        async def on_ready():
-            status_updater.start()
+                # Check if orchestrator is running
+                orchestrator_running = self.check_orchestrator_status()
 
-    # Database helper methods
-    def add_user(self, discord_id: str, username: str):
-        """👤 Add new user to database"""
-        try:
-            conn = sqlite3.connect(self.db_path)
-            cursor = conn.cursor()
+                # Check active agents
+                active_agents = self.get_active_agents()
 
-            cursor.execute(
-                """
-                INSERT OR IGNORE INTO users (discord_id, username)
-                VALUES (?, ?)
-            """,
-                (discord_id, username),
+                embed = discord.Embed(
+                    title="🚀 EMPIRE STATUS REPORT 🚀",
+                    description="Your digital empire at a glance!",
+                    color=0x00FF88 if orchestrator_running else 0xFF4444
+                )
+
+                # System metrics
+                embed.add_field(
+                    name="💻 System Resources",
+                    value=f"🔥 CPU: {cpu_percent}%\n💾 RAM: {memory.percent}%\n💽 Disk: {disk.percent}%",
+                    inline=True
+                )
+
+                # Empire status
+                empire_status = "🟢 LEGENDARY" if orchestrator_running else "🔴 SLEEPING"
+                embed.add_field(
+                    name="👑 Empire Status",
+                    value=f"Status: {empire_status}\nAgents: {len(active_agents)}\nUptime: {self.get_uptime()}",
+                    inline=True
+                )
+
+                # Active agents
+                if active_agents:
+                    agent_list = "\n".join([f"🤖 {agent}" for agent in active_agents[:5]])
+                    if len(active_agents) > 5:
+                        agent_list += f"\n... and {len(active_agents) - 5} more"
+                else:
+                    agent_list = "No active agents"
+
+                embed.add_field(
+                    name="🤖 Active Agents",
+                    value=agent_list,
+                    inline=False
+                )
+
+                await interaction.followup.send(embed=embed)
+
+            except Exception as e:
+                error_embed = discord.Embed(
+                    title="❌ Empire Status Error",
+                    description=f"Failed to get empire status: {str(e)}",
+                    color=0xFF4444
+                )
+                await interaction.followup.send(embed=error_embed)
+
+        @self.bot.tree.command(
+            name="empire_wake", description="🔥 WAKE UP THE EMPIRE! Activate the System Orchestrator!"
+        )
+        async def empire_wake(interaction: discord.Interaction):
+            """💥 Wake up the digital empire"""
+            await interaction.response.defer()
+
+            try:
+                if self.check_orchestrator_status():
+                    embed = discord.Embed(
+                        title="🚀 Empire Already Active!",
+                        description="Your empire is already running at LEGENDARY levels!",
+                        color=0x00FF88
+                    )
+                else:
+                    # Start the orchestrator
+                    result = subprocess.run([
+                        "python3", self.orchestrator_path
+                    ], capture_output=True, text=True, timeout=10)
+
+                    if result.returncode == 0:
+                        embed = discord.Embed(
+                            title="🔥 EMPIRE AWAKENED! 🔥",
+                            description="Your LEGENDARY System Orchestrator is now ONLINE!",
+                            color=0x00FF88
+                        )
+                        embed.add_field(
+                            name="🚀 Status",
+                            value="All systems are GO!\nAgent army is mobilizing!\nEmpire is now LEGENDARY!",
+                            inline=False
+                        )
+                        self.empire_active = True
+                    else:
+                        embed = discord.Embed(
+                            title="❌ Empire Wake Failed",
+                            description=f"Failed to wake empire: {result.stderr}",
+                            color=0xFF4444
+                        )
+
+                await interaction.followup.send(embed=embed)
+
+            except Exception as e:
+                error_embed = discord.Embed(
+                    title="❌ Empire Wake Error",
+                    description=f"Error waking empire: {str(e)}",
+                    color=0xFF4444
+                )
+                await interaction.followup.send(embed=error_embed)
+
+        @self.bot.tree.command(
+            name="empire_sleep", description="😴 Put the empire to sleep (careful with this one!)"
+        )
+        async def empire_sleep(interaction: discord.Interaction):
+            """💤 Put empire to sleep"""
+            await interaction.response.defer()
+
+            # Confirmation required
+            view = EmpireSleepConfirmation()
+            embed = discord.Embed(
+                title="⚠️ EMPIRE SLEEP CONFIRMATION",
+                description="Are you SURE you want to put your LEGENDARY empire to sleep?\n\nThis will stop all active agents and processes!",
+                color=0xFFAA00
             )
 
-            conn.commit()
-            conn.close()
-        except Exception as e:
-            print(f"❌ Error adding user: {e}")
+            await interaction.followup.send(embed=embed, view=view)
 
-    def get_user(self, discord_id: str) -> Optional[Dict]:
-        """👤 Get user data from database"""
-        try:
-            conn = sqlite3.connect(self.db_path)
-            cursor = conn.cursor()
+        @self.bot.tree.command(
+            name="deploy_agent", description="🤖 Deploy a specific agent from your army!"
+        )
+        @app_commands.describe(
+            agent_type="Choose which type of agent to deploy",
+            target="Optional target or parameter for the agent"
+        )
+        @app_commands.choices(agent_type=[
+            app_commands.Choice(name="🧙‍♂️ Code Quality Agent", value="code_quality"),
+            app_commands.Choice(name="🛡️ Security Fortress Agent", value="security"),
+            app_commands.Choice(name="🔍 Project Discovery Agent", value="discovery"),
+            app_commands.Choice(name="💰 Business Agent", value="business"),
+            app_commands.Choice(name="🧠 Analytics Brain", value="analytics"),
+            app_commands.Choice(name="🎯 Focus Engine", value="focus")
+        ])
+        async def deploy_agent(interaction: discord.Interaction, agent_type: str, target: str = None):
+            """🚀 Deploy specific agents"""
+            await interaction.response.defer()
 
-            cursor.execute("SELECT * FROM users WHERE discord_id = ?", (discord_id,))
-            result = cursor.fetchone()
-            conn.close()
-
-            if result:
-                columns = [
-                    "discord_id",
-                    "username",
-                    "broski_tokens",
-                    "daily_streak",
-                    "last_checkin",
-                    "total_focus_minutes",
-                    "level",
-                    "xp",
-                    "created_at",
-                ]
-                return dict(zip(columns, result))
-            return None
-        except Exception as e:
-            print(f"❌ Error getting user: {e}")
-            return None
-
-    def daily_checkin(self, discord_id: str, username: str) -> Dict:
-        """⚡ Handle daily check-in"""
-        try:
-            conn = sqlite3.connect(self.db_path)
-            cursor = conn.cursor()
-
-            # Add user if not exists
-            self.add_user(discord_id, username)
-
-            # Get current user data
-            user_data = self.get_user(discord_id)
-            if not user_data:
-                return {"success": False, "message": "User data error"}
-
-            today = datetime.now().strftime("%Y-%m-%d")
-            last_checkin = user_data["last_checkin"]
-
-            # Check if already checked in today
-            if last_checkin == today:
-                return {
-                    "success": False,
-                    "message": "🎯 You already checked in today! Come back tomorrow for more tokens.",
+            try:
+                agent_scripts = {
+                    "code_quality": "agent_army_mission_1_code_quality.py",
+                    "security": "agent_army_mission_2_security_fortress.py",
+                    "discovery": "agent_army_project_discovery.py",
+                    "business": "ai_business_agent_sales_strategy.py",
+                    "analytics": "broski_advanced_analytics.py",
+                    "focus": "broski_focus_engine.py"
                 }
 
-            # Calculate streak
-            yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
-            if last_checkin == yesterday:
-                new_streak = user_data["daily_streak"] + 1
-            else:
-                new_streak = 1
+                if agent_type not in agent_scripts:
+                    raise ValueError(f"Unknown agent type: {agent_type}")
 
-            # Calculate tokens (base + streak bonus)
-            base_tokens = 50
-            streak_bonus = min(new_streak * 5, 100)  # Max 100 bonus
-            total_tokens_earned = base_tokens + streak_bonus
+                script_path = f"/root/chaosgenius/{agent_scripts[agent_type]}"
 
-            # Update database
-            cursor.execute(
-                """
-                UPDATE users
-                SET broski_tokens = broski_tokens + ?,
-                    daily_streak = ?,
-                    last_checkin = ?,
-                    xp = xp + ?
-                WHERE discord_id = ?
-            """,
-                (
-                    total_tokens_earned,
-                    new_streak,
-                    today,
-                    total_tokens_earned // 2,
-                    discord_id,
-                ),
-            )
+                # Deploy the agent
+                cmd = ["python3", script_path]
+                if target:
+                    cmd.append(target)
 
-            conn.commit()
+                result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
 
-            # Get updated total
-            cursor.execute(
-                "SELECT broski_tokens FROM users WHERE discord_id = ?", (discord_id,)
-            )
-            total_tokens = cursor.fetchone()[0]
+                if result.returncode == 0:
+                    embed = discord.Embed(
+                        title=f"🚀 Agent Deployed Successfully!",
+                        description=f"Your {agent_type.replace('_', ' ').title()} Agent is now ACTIVE!",
+                        color=0x00FF88
+                    )
+                    if result.stdout:
+                        embed.add_field(
+                            name="📋 Agent Report",
+                            value=f"```{result.stdout[:800]}...```" if len(result.stdout) > 800 else f"```{result.stdout}```",
+                            inline=False
+                        )
+                else:
+                    embed = discord.Embed(
+                        title="❌ Agent Deployment Failed",
+                        description=f"Failed to deploy {agent_type} agent",
+                        color=0xFF4444
+                    )
+                    if result.stderr:
+                        embed.add_field(name="Error", value=f"```{result.stderr[:400]}```", inline=False)
 
-            conn.close()
+                await interaction.followup.send(embed=embed)
 
-            return {
-                "success": True,
-                "tokens_earned": total_tokens_earned,
-                "streak": new_streak,
-                "total_tokens": total_tokens,
-            }
-
-        except Exception as e:
-            print(f"❌ Check-in error: {e}")
-            return {"success": False, "message": f"Error: {e}"}
-
-    def start_focus_session(
-        self, discord_id: str, project: str, minutes: int, tokens: int
-    ) -> int:
-        """🧠 Start a focus session"""
-        try:
-            conn = sqlite3.connect(self.db_path)
-            cursor = conn.cursor()
-
-            cursor.execute(
-                """
-                INSERT INTO focus_sessions (discord_id, project, minutes, tokens_earned, started_at)
-                VALUES (?, ?, ?, ?, ?)
-            """,
-                (discord_id, project, minutes, tokens, datetime.now().isoformat()),
-            )
-
-            session_id = cursor.lastrowid
-            conn.commit()
-            conn.close()
-
-            return session_id
-        except Exception as e:
-            print(f"❌ Focus session error: {e}")
-            return 0
-
-    def complete_focus_session(self, discord_id: str, session_id: int, tokens: int):
-        """✅ Complete focus session and award tokens"""
-        try:
-            conn = sqlite3.connect(self.db_path)
-            cursor = conn.cursor()
-
-            # Update session as completed
-            cursor.execute(
-                """
-                UPDATE focus_sessions
-                SET completed_at = ?
-                WHERE id = ? AND discord_id = ?
-            """,
-                (datetime.now().isoformat(), session_id, discord_id),
-            )
-
-            # Award tokens and focus time
-            cursor.execute(
-                """
-                UPDATE users
-                SET broski_tokens = broski_tokens + ?,
-                    total_focus_minutes = total_focus_minutes + (
-                        SELECT minutes FROM focus_sessions WHERE id = ?
-                    ),
-                    xp = xp + ?
-                WHERE discord_id = ?
-            """,
-                (tokens, session_id, tokens, discord_id),
-            )
-
-            conn.commit()
-            conn.close()
-
-        except Exception as e:
-            print(f"❌ Complete session error: {e}")
-
-    def test_mode(self):
-        """🔧 Run bot in test mode"""
-        print("🔧 Running in TEST MODE")
-        print("=" * 50)
-
-        # Test database
-        self.add_user("test_user", "TestUser")
-        user_data = self.get_user("test_user")
-        print(f"✅ Database test: {user_data}")
-
-        # Test check-in
-        checkin_result = self.daily_checkin("test_user", "TestUser")
-        print(f"✅ Check-in test: {checkin_result}")
-
-        print("✅ All systems working in test mode!")
-
-    def run(self):
-        """🚀 Run the unified BROski bot"""
-        if self.bot and self.token:
-            print("🚀💥 STARTING UNIFIED BROSKI BOT! 💥🚀")
-            try:
-                self.bot.run(self.token)
             except Exception as e:
-                print(f"❌ Bot error: {e}")
-                print("🔧 Running in test mode...")
-                self.test_mode()
-        else:
-            print("🔧 Running Unified BROski Bot in test mode...")
-            self.test_mode()
+                error_embed = discord.Embed(
+                    title="❌ Agent Deployment Error",
+                    description=f"Error deploying agent: {str(e)}",
+                    color=0xFF4444
+                )
+                await interaction.followup.send(embed=error_embed)
+
+        @self.bot.tree.command(
+            name="empire_stats", description="📊 Get detailed empire analytics and performance metrics!"
+        )
+        async def empire_stats(interaction: discord.Interaction):
+            """📊 Display detailed empire statistics"""
+            await interaction.response.defer()
+
+            try:
+                # Get system performance
+                cpu_percent = psutil.cpu_percent(interval=1)
+                memory = psutil.virtual_memory()
+                disk = psutil.disk_usage('/')
+                network = psutil.net_io_counters()
+
+                # Get process information
+                processes = len(psutil.pids())
+
+                # Get user statistics from database
+                conn = sqlite3.connect(self.db_path)
+                cursor = conn.cursor()
+
+                cursor.execute("SELECT COUNT(*) FROM users")
+                total_users = cursor.fetchone()[0]
+
+                cursor.execute("SELECT SUM(broski_tokens) FROM users")
+                total_tokens = cursor.fetchone()[0] or 0
+
+                cursor.execute("SELECT SUM(total_focus_minutes) FROM users")
+                total_focus_minutes = cursor.fetchone()[0] or 0
+
+                cursor.execute("SELECT COUNT(*) FROM focus_sessions")
+                total_sessions = cursor.fetchone()[0]
+
+                conn.close()
+
+                # Create detailed stats embed
+                embed = discord.Embed(
+                    title="📊 EMPIRE ANALYTICS DASHBOARD 📊",
+                    description="Your complete empire performance report!",
+                    color=0x0099FF
+                )
+
+                # System Performance
+                embed.add_field(
+                    name="💻 System Performance",
+                    value=f"🔥 CPU: {cpu_percent}%\n💾 RAM: {memory.percent}%\n💽 Disk: {disk.percent}%\n🔢 Processes: {processes}",
+                    inline=True
+                )
+
+                # Network Stats
+                embed.add_field(
+                    name="🌐 Network Activity",
+                    value=f"📤 Sent: {self.format_bytes(network.bytes_sent)}\n📥 Received: {self.format_bytes(network.bytes_recv)}",
+                    inline=True
+                )
+
+                # BROski Economy
+                embed.add_field(
+                    name="💎 BROski Economy",
+                    value=f"👥 Total Users: {total_users}\n💰 Total Tokens: {total_tokens:,}\n⏱️ Focus Hours: {total_focus_minutes // 60:,}h {total_focus_minutes % 60}m\n🎯 Sessions: {total_sessions}",
+                    inline=True
+                )
+
+                # Empire Health Score
+                health_score = self.calculate_empire_health(cpu_percent, memory.percent, disk.percent)
+                health_color = "🟢" if health_score > 80 else "🟡" if health_score > 60 else "🔴"
+
+                embed.add_field(
+                    name="🏥 Empire Health",
+                    value=f"{health_color} Health Score: {health_score}%\nUptime: {self.get_uptime()}\nStatus: {'LEGENDARY' if health_score > 80 else 'GOOD' if health_score > 60 else 'NEEDS ATTENTION'}",
+                    inline=False
+                )
+
+                await interaction.followup.send(embed=embed)
+
+            except Exception as e:
+                error_embed = discord.Embed(
+                    title="❌ Stats Error",
+                    description=f"Failed to get empire stats: {str(e)}",
+                    color=0xFF4444
+                )
+                await interaction.followup.send(embed=error_embed)
+
+    def check_orchestrator_status(self):
+        """🔍 Check if the System Orchestrator is running"""
+        try:
+            for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+                cmdline = proc.info.get('cmdline', [])
+                if any('LEGENDARY_SYSTEM_ORCHESTRATOR.py' in str(cmd) for cmd in cmdline):
+                    return True
+            return False
+        except:
+            return False
+
+    def get_active_agents(self):
+        """🤖 Get list of active agent processes"""
+        active_agents = []
+        try:
+            for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+                cmdline = proc.info.get('cmdline', [])
+                cmdline_str = ' '.join(cmdline) if cmdline else ''
+
+                if any(agent in cmdline_str for agent in [
+                    'agent_army', 'broski_', 'ai_business', 'analytics_brain'
+                ]):
+                    # Extract agent name from cmdline
+                    for cmd in cmdline:
+                        if any(keyword in cmd for keyword in ['agent', 'broski', 'ai_']):
+                            agent_name = cmd.split('/')[-1].replace('.py', '')
+                            if agent_name not in active_agents:
+                                active_agents.append(agent_name)
+                            break
+        except:
+            pass
+        return active_agents
+
+    def get_uptime(self):
+        """⏰ Get bot uptime"""
+        if hasattr(self, 'bot_start_time'):
+            uptime_seconds = time.time() - self.bot_start_time
+            hours = int(uptime_seconds // 3600)
+            minutes = int((uptime_seconds % 3600) // 60)
+            return f"{hours}h {minutes}m"
+        return "Unknown"
+
+    def format_bytes(self, bytes_value):
+        """📊 Format bytes to human readable"""
+        for unit in ['B', 'KB', 'MB', 'GB']:
+            if bytes_value < 1024.0:
+                return f"{bytes_value:.1f}{unit}"
+            bytes_value /= 1024.0
+        return f"{bytes_value:.1f}TB"
+
+    def calculate_empire_health(self, cpu, memory, disk):
+        """🏥 Calculate overall empire health score"""
+        cpu_score = max(0, 100 - cpu)
+        memory_score = max(0, 100 - memory)
+        disk_score = max(0, 100 - disk)
+        return int((cpu_score + memory_score + disk_score) / 3)
 
 
-def main():
-    """🚀 Main function to start Unified BROski Bot"""
-    print("🚀💥 INITIALIZING UNIFIED BROSKI BOT 💥🚀")
-    print("🤖 Ultimate Edition - All features unified!")
-    print("=" * 60)
+class EmpireSleepConfirmation(discord.ui.View):
+    """⚠️ Confirmation view for putting empire to sleep"""
 
-    unified_bot = UnifiedBROskiBot()
-    unified_bot.run()
+    def __init__(self):
+        super().__init__(timeout=30)
 
+    @discord.ui.button(label="💤 Yes, Sleep Empire", style=discord.ButtonStyle.danger)
+    async def confirm_sleep(self, interaction: discord.Interaction, button: discord.ui.Button):
+        try:
+            # Kill orchestrator processes
+            killed_processes = []
+            for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+                cmdline = proc.info.get('cmdline', [])
+                if any('LEGENDARY_SYSTEM_ORCHESTRATOR.py' in str(cmd) for cmd in cmdline):
+                    proc.terminate()
+                    killed_processes.append(f"PID {proc.info['pid']}")
 
-if __name__ == "__main__":
-    main()
+            embed = discord.Embed(
+                title="💤 Empire Put to Sleep",
+                description="Your empire is now resting. Use `/empire_wake` to reactivate!",
+                color=0x888888
+            )
+
+            if killed_processes:
+                embed.add_field(
+                    name="🔄 Processes Stopped",
+                    value=f"Stopped {len(killed_processes)} processes",
+                    inline=False
+                )
+
+            await interaction.response.edit_message(embed=embed, view=None)
+
+        except Exception as e:
+            error_embed = discord.Embed(
+                title="❌ Sleep Error",
+                description=f"Error putting empire to sleep: {str(e)}",
+                color=0xFF4444
+            )
+            await interaction.response.edit_message(embed=error_embed, view=None)
+
+    @discord.ui.button(label="🚀 Cancel, Keep Empire Active", style=discord.ButtonStyle.success)
+    async def cancel_sleep(self, interaction: discord.Interaction, button: discord.ui.Button):
+        embed = discord.Embed(
+            title="🚀 Empire Remains Active!",
+            description="Your LEGENDARY empire continues to dominate!",
+            color=0x00FF88
+        )
+        await interaction.response.edit_message(embed=embed, view=None)

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-06-14T22:29:43.086759",
+  "total_balance": 459632.18,
+  "extracted_amount": 385687.35,
+  "allocations": {
+    "server_upgrades": 18500.0,
+    "agent_treats": 5000.0,
+    "boss_personal": 367187.35
+  },
+  "status": "READY_FOR_WITHDRAWAL"
+}

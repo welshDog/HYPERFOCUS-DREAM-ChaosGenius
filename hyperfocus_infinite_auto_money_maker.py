@@ -97,6 +97,11 @@ class HyperFocusInfiniteMoneyMaker:
                 "daily_potential": 500,
                 "current_rate": 0,
             },
+            "teemill_merch_sales": {
+                "active": True,
+                "daily_potential": 75,
+                "current_rate": 0,
+            },
             "broski_tokens": {
                 "active": True,
                 "daily_potential": 100,

@@ -1,0 +1,23 @@
+{
+  "hyperfocus_hoodie": {
+    "name": "HyperFocus Zone Hoodie",
+    "price": 29.99,
+    "currency": "GBP",
+    "category": "apparel",
+    "status": "active"
+  },
+  "broski_tshirt": {
+    "name": "BROski Empire T-Shirt",
+    "price": 19.99,
+    "currency": "GBP",
+    "category": "apparel",
+    "status": "active"
+  },
+  "chaos_genius_mug": {
+    "name": "ChaosGenius Coffee Mug",
+    "price": 12.99,
+    "currency": "GBP",
+    "category": "accessories",
+    "status": "active"
+  }
+}

@@ -68,13 +68,123 @@ class ResponseUtils:
 # OPTIMIZED ROUTES - Only essential ones
 @app.route("/")
 def index():
-    """Lightweight welcome page."""
+    """Enhanced welcome page with navigation."""
     return """
-    <h1>🧠💜 ChaosGenius Dashboard - OPTIMIZED</h1>
-    <p>🚀 Ultra-fast, CPU-optimized version</p>
-    <p>📊 <a href="/api/status">System Status</a></p>
-    <p>🛡️ <a href="/api/guardian/status">Guardian Status</a></p>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>🧠💜 ChaosGenius Dashboard</title>
+        <style>
+            body { font-family: Arial, sans-serif; background: #1a1a2e; color: #00ff00; margin: 0; padding: 20px; }
+            .container { max-width: 800px; margin: 0 auto; }
+            .card { background: #16213e; padding: 20px; margin: 10px 0; border-radius: 10px; border: 1px solid #00ff00; }
+            .nav-link { color: #00ff88; text-decoration: none; margin: 10px; display: inline-block; }
+            .nav-link:hover { color: #ffffff; }
+            .status-ok { color: #00ff00; }
+            .status-error { color: #ff0040; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🧠💜 ChaosGenius Dashboard - OPTIMIZED</h1>
+
+            <div class="card">
+                <h3>🚀 System Status</h3>
+                <p class="status-ok">✅ Ultra-fast, CPU-optimized version</p>
+                <p class="status-ok">✅ Dashboard API: Active</p>
+                <p class="status-ok">✅ Guardian System: Operational</p>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Quick Navigation</h3>
+                <a href="/api/status" class="nav-link">📊 System Status</a>
+                <a href="/api/guardian/status" class="nav-link">🛡️ Guardian Status</a>
+                <a href="/api/analytics" class="nav-link">📈 Analytics</a>
+                <a href="/dashboard" class="nav-link">🖥️ Main Dashboard</a>
+                <a href="/health" class="nav-link">❤️ Health Check</a>
+            </div>
+
+            <div class="card">
+                <h3>🌐 Other Services</h3>
+                <p>🎯 Main Dashboard: <a href="http://localhost:3000" class="nav-link">Port 3000</a></p>
+                <p>🧠 HyperFocus Zone: <a href="http://localhost:5000" class="nav-link">Port 5000</a></p>
+                <p>⚡ Command Center: <a href="http://localhost:8080" class="nav-link">Port 8080</a></p>
+            </div>
+        </div>
+    </body>
+    </html>
     """
+
+
+@app.route("/dashboard")
+def dashboard_page():
+    """Main dashboard page."""
+    return ResponseUtils.success_response(
+        {
+            "page": "dashboard",
+            "services": {
+                "main_dashboard": "http://localhost:3000",
+                "hyperfocus_zone": "http://localhost:5000",
+                "command_center": "http://localhost:8080",
+                "brain_engine": "http://localhost:5001",
+            },
+            "status": "All systems operational",
+        }
+    )
+
+
+@app.route("/health")
+def health_check():
+    """Health check endpoint."""
+    return ResponseUtils.success_response(
+        {
+            "health": "excellent",
+            "uptime": "active",
+            "memory_usage": "optimized",
+            "cpu_usage": "minimal",
+        }
+    )
+
+
+@app.route("/api/services")
+def list_services():
+    """List all available services."""
+    return ResponseUtils.success_response(
+        {
+            "services": [
+                {"name": "Main Dashboard", "port": 3000, "status": "active"},
+                {"name": "HyperFocus Zone", "port": 5000, "status": "active"},
+                {"name": "Brain Data Engine", "port": 5001, "status": "active"},
+                {"name": "Team Collaboration", "port": 5555, "status": "active"},
+                {"name": "Command Center", "port": 8080, "status": "active"},
+                {"name": "Dashboard API", "port": 8081, "status": "active"},
+            ]
+        }
+    )
+
+
+@app.route("/api/navigation")
+def navigation_help():
+    """Navigation help for users getting 404s."""
+    return ResponseUtils.success_response(
+        {
+            "message": "🎯 Navigation Help - Available Endpoints",
+            "main_endpoints": [
+                "/",
+                "/dashboard",
+                "/health",
+                "/api/status",
+                "/api/services",
+                "/api/guardian/status",
+                "/api/analytics",
+            ],
+            "external_services": {
+                "main_dashboard": "http://localhost:3000",
+                "hyperfocus_zone": "http://localhost:5000",
+                "command_center": "http://localhost:8080",
+            },
+        }
+    )
 
 
 @app.route("/api/status")

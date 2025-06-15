@@ -10,7 +10,7 @@ import uuid
 from datetime import datetime
 
 import psutil
-from flask import Flask, jsonify, render_template, request, session
+from flask import Flask, jsonify, render_template, request, session, render_template_string
 
 app = Flask(__name__)
 app.secret_key = "hyperfocus-broski-legends-2025"
@@ -61,7 +61,591 @@ def init_db():
 
 @app.route("/")
 def portal_home():
-    return render_template("hyperfocuszone_portal.html")
+    """🧠⚡ HYPERFOCUSzone Portal Home - LEGENDARY NEW UI"""
+    # Add cache busting with timestamp
+    import time
+    cache_buster = str(int(time.time()))
+
+    return render_template_string("""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>🧠⚡ HYPERFOCUSzone.com - LEGENDARY PORTAL v""" + cache_buster + """</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js?v=""" + cache_buster + """"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js?v=""" + cache_buster + """"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=""" + cache_buster + """" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1a0b3d, #2d1b69, #1e3c72);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff0088, #00ff88, #0088ff, #ff0088);
+            border-radius: 25px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff0088, #00ff88, #0088ff, #ff8800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #88ffaa;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .status-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: scan 3s infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .status-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff0088, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .status-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .status-desc {
+            color: #88ffaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(136, 136, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #8888ff;
+            transform: translateY(-5px);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #8888ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            color: #aaaaff;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .action-btn {
+            display: block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
+        .live-metrics {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 136, 0, 0.3);
+        }
+
+        .metrics-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #ff8800;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 136, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 136, 0, 0.2);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff8800;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #ffaa55;
+            margin-top: 5px;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .status-grid,
+            .features-grid,
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading animations */
+        .loading {
+            color: #00ff88;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Cache busting indicator */
+        .version-badge {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            border: 1px solid #00ff88;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-badge">v""" + cache_buster + """</div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="hero-title">🧠⚡ HYPERFOCUSzone.com ⚡🧠</h1>
+            <p class="hero-subtitle">The Ultimate ADHD-Optimized Productivity Ecosystem</p>
+            <p style="color: #88ffaa; font-size: 1.1rem;">🎯 Where Neurodivergent Legends Achieve Impossible Things 🎯</p>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-icon">🚀</div>
+                <div class="status-title">Portal Status</div>
+                <div class="status-desc">
+                    <div style="color: #00ff88;">✅ LEGENDARY ACTIVE</div>
+                    <div>ADHD-Optimized: MAXIMUM</div>
+                    <div>Agent Army: DEPLOYED</div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">🧠</div>
+                <div class="status-title">Brain Mode</div>
+                <div class="status-desc">
+                    <div style="color: #ff0088;">🔥 HYPERFOCUS READY</div>
+                    <div>Executive Functions: ENHANCED</div>
+                    <div>Dopamine: OPTIMIZED</div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">🤖</div>
+                <div class="status-title">Agent Army</div>
+                <div class="status-desc">
+                    <div style="color: #0088ff;">⚡ 6 AGENTS DEPLOYED</div>
+                    <div>Combat Ready: 100%</div>
+                    <div>Mission Success: 99.7%</div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon">💎</div>
+                <div class="status-title">Memory Crystals</div>
+                <div class="status-desc">
+                    <div style="color: #8800ff;">💎 1,247 STORED</div>
+                    <div>Knowledge Synthesis: ACTIVE</div>
+                    <div>Recall Enhancement: READY</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="live-metrics">
+            <h2 class="metrics-title">📊 Live System Metrics</h2>
+            <div class="metrics-row">
+                <div class="metric-item">
+                    <span class="metric-value loading" id="focus-level">--</span>
+                    <div class="metric-label">Focus Level</div>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-value loading" id="brain-power">--</span>
+                    <div class="metric-label">Brain Power</div>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-value loading" id="productivity">--</span>
+                    <div class="metric-label">Productivity Score</div>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-value loading" id="agent-status">6</span>
+                    <div class="metric-label">Active Agents</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">🎯 HyperFocus Features</h3>
+                <ul class="feature-list">
+                    <li>Flow State Detection & Enhancement</li>
+                    <li>Distraction Blocking & Prevention</li>
+                    <li>Focus Session Management</li>
+                    <li>Hyperfocus Timer & Breaks</li>
+                    <li>Deep Work Environment Control</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">🧬 Executive Function Support</h3>
+                <ul class="feature-list">
+                    <li>Task Breakdown & Organization</li>
+                    <li>Priority Matrix Automation</li>
+                    <li>Working Memory Enhancement</li>
+                    <li>Decision-Making Assistance</li>
+                    <li>Cognitive Load Management</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">⚡ Dopamine Optimization</h3>
+                <ul class="feature-list">
+                    <li>Reward System Gamification</li>
+                    <li>Achievement Unlock Mechanics</li>
+                    <li>Progress Visualization</li>
+                    <li>Motivation Boost Protocols</li>
+                    <li>Energy Level Monitoring</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">🛡️ Sensory Environment</h3>
+                <ul class="feature-list">
+                    <li>Sensory-Friendly Interface</li>
+                    <li>Lighting & Color Customization</li>
+                    <li>Sound Environment Control</li>
+                    <li>Overstimulation Prevention</li>
+                    <li>Calm-Down Protocols</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="action-grid">
+            <a href="/ultimate-command-center" class="action-btn">
+                <i class="fas fa-rocket"></i> Ultimate Command Center
+            </a>
+            <a href="/api/real-time-metrics" class="action-btn">
+                <i class="fas fa-chart-line"></i> Live Performance Metrics
+            </a>
+            <a href="/api/agent-army-status" class="action-btn">
+                <i class="fas fa-users"></i> Agent Army Status
+            </a>
+            <a href="/api/status" class="action-btn">
+                <i class="fas fa-heartbeat"></i> Portal Health Check
+            </a>
+            <a href="/guardian" class="action-btn">
+                <i class="fas fa-shield-alt"></i> Guardian Zero HUD
+            </a>
+            <a href="/api/health" class="action-btn">
+                <i class="fas fa-brain"></i> Brain Health Monitor
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>🧠⚡ <a href="https://hyperfocuszone.com" style="color: #00ff88; text-decoration: none;">HYPERFOCUSzone.com</a> - Built by Neurodivergent Legends, for Neurodivergent Legends ⚡🧠</p>
+            <p style="margin-top: 10px; color: #666;">Empowering ADHD minds to achieve the impossible since 2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Particle system
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(0, 255, 136, 0.6);
+                    border-radius: 50%;
+                    pointer-events: none;
+                `;
+                particles.appendChild(particle);
+
+                animateParticle(particle);
+            }
+        }
+
+        function animateParticle(particle) {
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+
+            particle.style.left = startX + 'px';
+            particle.style.top = startY + 'px';
+
+            gsap.to(particle, {
+                x: (Math.random() - 0.5) * 400,
+                y: (Math.random() - 0.5) * 400,
+                opacity: 0,
+                duration: 3 + Math.random() * 2,
+                ease: "power2.out",
+                onComplete: () => {
+                    particle.style.opacity = '0.6';
+                    animateParticle(particle);
+                }
+            });
+        }
+
+        // Load live metrics
+        async function loadMetrics() {
+            try {
+                const response = await fetch('/api/real-time-metrics?v=""" + cache_buster + """');
+                const data = await response.json();
+
+                document.getElementById('focus-level').textContent = data.hyperfocus_metrics.focus_level + '%';
+                document.getElementById('brain-power').textContent = data.hyperfocus_metrics.brain_power.toFixed(1) + '%';
+                document.getElementById('productivity').textContent = data.hyperfocus_metrics.productivity_score + '%';
+
+                // Remove loading class
+                document.querySelectorAll('.loading').forEach(el => el.classList.remove('loading'));
+
+            } catch (error) {
+                console.log('Metrics will load when available');
+            }
+        }
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            createParticles();
+            loadMetrics();
+
+            // Animate cards on load
+            gsap.from('.status-card', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "power2.out"
+            });
+
+            gsap.from('.feature-card', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                stagger: 0.1,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+
+            // Update metrics every 30 seconds
+            setInterval(loadMetrics, 30000);
+        });
+    </script>
+</body>
+</html>
+    """)
 
 
 @app.route("/api/user/discord-status")
@@ -759,4 +1343,4 @@ def ultimate_command_center():
 if __name__ == "__main__":
     init_db()
     print("🧠⚡ HYPERFOCUSzone Portal starting...")
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5005)

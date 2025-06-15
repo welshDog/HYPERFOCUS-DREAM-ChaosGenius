@@ -1,0 +1,15 @@
+{
+  "sync_interval": 5,
+  "health_check_interval": 30,
+  "auto_recovery": true,
+  "max_retries": 3,
+  "system_priorities": {
+    "server_guardian": 10,
+    "security_fortress": 9,
+    "agent_army": 8,
+    "money_maker": 7,
+    "quantum_supremacy": 6,
+    "brain_engine": 5
+  },
+  "version": "1.0.0"
+}

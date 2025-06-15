@@ -407,21 +407,23 @@ class BROskiHealthMatrixGodMode:
 
         # Predictive alerts
         predictions = metrics.get("predictions", {})
-        if predictions:
+        if predictions and isinstance(predictions, dict):
             for metric, pred in predictions.items():
-                if (
-                    pred.get("trend") == "increasing"
-                    and pred.get("confidence", 0) > 0.8
-                ):
-                    alerts.append(
-                        {
-                            "type": f"PREDICTED_{metric.upper()}_INCREASE",
-                            "severity": "INFO",
-                            "message": f"Predicted {metric} increase in next hour",
-                            "prediction_confidence": pred.get("confidence", 0),
-                            "auto_resolution": False,
-                        }
-                    )
+                # Ensure pred is a dictionary before calling .get()
+                if isinstance(pred, dict):
+                    if (
+                        pred.get("trend") == "increasing"
+                        and pred.get("confidence", 0) > 0.8
+                    ):
+                        alerts.append(
+                            {
+                                "type": f"PREDICTED_{metric.upper()}_INCREASE",
+                                "severity": "INFO",
+                                "message": f"Predicted {metric} increase in next hour",
+                                "prediction_confidence": pred.get("confidence", 0),
+                                "auto_resolution": False,
+                            }
+                        )
 
         # Log and potentially auto-resolve alerts
         for alert in alerts:

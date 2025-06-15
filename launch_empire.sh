@@ -1,71 +1,396 @@
 #!/bin/bash
-"""
-🚀 CHAOSGENIUS EMPIRE QUICK LAUNCHER 🚀
-======================================
-One-click launch for the entire empire!
-"""
+# 🚀💎 ULTIMATE CHAOSGENIUS EMPIRE LAUNCHER 💎🚀
+# The LEGENDARY startup script that gets everything running perfectly!
+# 🦾💪 By Command of Chief Lyndz - LAUNCH ALL THE THINGS! 💪🦾
 
-echo "🚀 CHAOSGENIUS EMPIRE QUICK LAUNCHER"
-echo "===================================="
-echo ""
-echo "🎯 Choose your launch option:"
-echo ""
-echo "1. 👑 FULL EMPIRE LAUNCH (All Systems)"
-echo "2. 🚀 Command Center Only"
-echo "3. 🤖 Agent Orchestrator Demo"
-echo "4. 🎛️ Main Dashboard Only"
-echo "5. 📊 System Status Check"
-echo ""
-read -p "Enter your choice (1-5): " choice
+set -e  # Exit on any error
 
-case $choice in
-    1)
-        echo "👑 LAUNCHING FULL CHAOSGENIUS EMPIRE..."
-        echo "🎯 This will start ALL systems!"
-        python3 empire_master_launcher.py
-        ;;
-    2)
-        echo "🚀 LAUNCHING COMMAND CENTER..."
-        echo "🌐 Access at: http://localhost:8080"
-        python3 ultimate_command_center.py
-        ;;
-    3)
-        echo "🤖 LAUNCHING AGENT ORCHESTRATOR DEMO..."
-        python3 super_ai_agent_orchestrator.py
-        ;;
-    4)
-        echo "🎛️ LAUNCHING MAIN DASHBOARD..."
-        echo "🌐 Access at: http://localhost:3000"
-        python3 app.py
-        ;;
-    5)
-        echo "📊 SYSTEM STATUS CHECK..."
-        echo "🔧 Checking dependencies..."
-        python3 -c "
-import sys
-try:
-    import flask, flask_socketio, psutil, requests
-    print('✅ All dependencies installed!')
-    print('🚀 Ready for LEGENDARY launch!')
-except ImportError as e:
-    print(f'❌ Missing dependency: {e}')
-    print('🔧 Run: pip install flask flask-socketio psutil requests')
-"
-        echo ""
-        echo "📁 Checking key files..."
-        files=("empire_master_launcher.py" "ultimate_command_center.py" "super_ai_agent_orchestrator.py" "app.py")
-        for file in "${files[@]}"; do
-            if [ -f "$file" ]; then
-                echo "✅ $file"
-            else
-                echo "❌ $file - MISSING"
-            fi
-        done
-        echo ""
-        echo "🎯 Empire Status: READY FOR DOMINATION!"
-        ;;
-    *)
-        echo "❌ Invalid choice! Please run again and choose 1-5."
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+print_header() {
+    echo -e "${PURPLE}"
+    echo "============================================================"
+    echo "🚀 $1"
+    echo "============================================================"
+    echo -e "${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠️ $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+print_info() {
+    echo -e "${CYAN}ℹ️ $1${NC}"
+}
+
+# Check if running as root
+check_permissions() {
+    if [[ $EUID -eq 0 ]]; then
+        print_warning "Running as root - be careful!"
+    fi
+}
+
+# Install missing dependencies - FIXED VERSION
+install_dependencies() {
+    print_header "DEPENDENCY CHECK & INSTALLATION"
+
+    # Check Python
+    if command -v python3 &> /dev/null; then
+        PYTHON_VERSION=$(python3 --version | cut -d' ' -f2)
+        print_success "Python 3 found: $PYTHON_VERSION"
+    else
+        print_error "Python 3 not found! Please install Python 3.8+"
         exit 1
-        ;;
-esac
+    fi
+
+    # Check if required packages are available (test imports)
+    print_info "Checking required Python packages..."
+
+    # Try to import required packages, install only if needed
+    missing_packages=()
+
+    python3 -c "import psutil" 2>/dev/null || missing_packages+=("python3-psutil")
+    python3 -c "import flask" 2>/dev/null || missing_packages+=("python3-flask")
+    python3 -c "import requests" 2>/dev/null || missing_packages+=("python3-requests")
+
+    if [ ${#missing_packages[@]} -gt 0 ]; then
+        print_info "Installing system packages: ${missing_packages[*]}"
+        if command -v apt &> /dev/null; then
+            apt update && apt install -y "${missing_packages[@]}"
+        else
+            print_warning "apt not available. Trying pip with --break-system-packages..."
+            pip3 install --break-system-packages psutil flask requests colorama python-dotenv
+        fi
+    else
+        print_success "All required packages are available!"
+    fi
+
+    print_success "Dependencies check complete!"
+}
+
+# Create missing directories
+setup_directories() {
+    print_header "DIRECTORY STRUCTURE SETUP"
+
+    directories=(
+        "logs"
+        "backups"
+        "temp"
+        "static"
+        "templates"
+        "data"
+        "configs"
+        "scripts"
+    )
+
+    for dir in "${directories[@]}"; do
+        if [ ! -d "$dir" ]; then
+            mkdir -p "$dir"
+            print_success "Created directory: $dir"
+        fi
+    done
+}
+
+# Create unified environment configuration
+create_unified_config() {
+    print_header "UNIFIED CONFIGURATION SETUP"
+
+    if [ ! -f ".env" ]; then
+        cat > .env << 'EOF'
+# 🚀💎 CHAOSGENIUS EMPIRE UNIFIED CONFIGURATION 💎🚀
+# Generated by Ultimate Empire Launcher
+
+# Core Settings
+DEBUG_MODE=false
+ENVIRONMENT=production
+SECRET_KEY=chaosgenius_ultra_secure_legendary_key_2025
+
+# Database Configuration
+DATABASE_URL=sqlite:///chaosgenius_empire.db
+BACKUP_ENABLED=true
+BACKUP_INTERVAL=3600
+
+# Port Allocations (NO CONFLICTS!)
+MAIN_DASHBOARD_PORT=3000
+API_DASHBOARD_PORT=5000
+HYPERFOCUS_PORTAL_PORT=5100
+HEALTH_MATRIX_PORT=5001
+BRAIN_ENGINE_PORT=5002
+TEAM_COLLABORATION_PORT=5555
+MONEY_MAKER_PORT=5007
+TEEMILL_INTEGRATION_PORT=5009
+BRAIN_INTELLIGENCE_PORT=5010
+NL_COMMANDER_PORT=8000
+COMMAND_CENTER_PORT=8080
+SYNC_DASHBOARD_PORT=9999
+
+# Security Settings
+RATE_LIMITING=true
+MAX_REQUESTS_PER_MINUTE=100
+SESSION_TIMEOUT=3600
+CSRF_PROTECTION=true
+
+# Discord Bot Configuration (Optional)
+DISCORD_BOT_TOKEN=your_discord_token_here
+DISCORD_GUILD_ID=your_guild_id_here
+
+# API Keys (Optional)
+OPENAI_API_KEY=your_openai_key_here
+CLAUDE_API_KEY=your_claude_key_here
+
+# Logging Configuration
+LOG_LEVEL=INFO
+LOG_FILE=logs/chaosgenius_empire.log
+LOG_ROTATION=true
+MAX_LOG_SIZE=100MB
+
+# Performance Settings
+WORKERS=1
+TIMEOUT=30
+KEEP_ALIVE=2
+MAX_CONNECTIONS=1000
+
+# Feature Flags
+ADHD_OPTIMIZATIONS=true
+NEURODIVERGENT_MODE=true
+HYPERFOCUS_ALERTS=true
+DOPAMINE_TRACKING=true
+LEGENDARY_MODE=true
+
+# Monitoring
+HEALTH_CHECK_INTERVAL=60
+SYSTEM_MONITORING=true
+PERFORMANCE_TRACKING=true
+MEMORY_MONITORING=true
+
+# Emergency Settings
+EMERGENCY_RECOVERY=true
+AUTO_RESTART=true
+FAILSAFE_MODE=true
+IMMORTAL_MODE=true
+EOF
+        print_success "Created unified .env configuration"
+    else
+        print_info ".env file already exists, keeping current configuration"
+    fi
+}
+
+# Check system resources
+check_system_resources() {
+    print_header "SYSTEM RESOURCE CHECK"
+
+    # Check available memory
+    total_mem=$(free -m | awk 'NR==2{print $2}')
+    free_mem=$(free -m | awk 'NR==2{print $7}')
+
+    if [ "$total_mem" -lt 1000 ]; then
+        print_warning "Low total memory: ${total_mem}MB (recommended: 1GB+)"
+    else
+        print_success "Memory: ${total_mem}MB total, ${free_mem}MB free"
+    fi
+
+    # Check disk space
+    disk_free=$(df -h . | awk 'NR==2 {print $4}')
+    print_info "Free disk space: $disk_free"
+
+    # Check CPU cores
+    cpu_cores=$(nproc)
+    print_info "CPU cores: $cpu_cores"
+
+    # Check Python memory limit
+    python3 -c "import sys; print(f'Python memory limit: {sys.maxsize // (1024**3)}GB')" 2>/dev/null || true
+}
+
+# Kill conflicting processes
+cleanup_conflicts() {
+    print_header "CLEANING UP CONFLICTING PROCESSES"
+
+    # Ports that might have conflicts
+    conflict_ports=(3000 5000 5001 5002 5555 8000 8080 9999)
+
+    for port in "${conflict_ports[@]}"; do
+        if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1; then
+            print_warning "Port $port is in use, attempting to free it..."
+            lsof -ti:$port | xargs kill -9 2>/dev/null || true
+            sleep 1
+
+            if ! lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1; then
+                print_success "Port $port freed successfully"
+            else
+                print_error "Failed to free port $port"
+            fi
+        fi
+    done
+}
+
+# Backup existing data
+backup_existing_data() {
+    print_header "BACKING UP EXISTING DATA"
+
+    timestamp=$(date +"%Y%m%d_%H%M%S")
+    backup_dir="backups/empire_backup_$timestamp"
+
+    if [ ! -d "backups" ]; then
+        mkdir -p backups
+    fi
+
+    mkdir -p "$backup_dir"
+
+    # Backup important files
+    important_files=(
+        "*.db"
+        "*.log"
+        "*.json"
+        ".env*"
+        "configs/*"
+    )
+
+    for pattern in "${important_files[@]}"; do
+        if ls $pattern 1> /dev/null 2>&1; then
+            cp $pattern "$backup_dir/" 2>/dev/null || true
+        fi
+    done
+
+    print_success "Backup created: $backup_dir"
+}
+
+# Create startup wrapper script
+create_startup_script() {
+    print_header "CREATING STARTUP WRAPPER"
+
+    cat > start_empire.sh << 'EOF'
+#!/bin/bash
+# 🚀 ChaosGenius Empire Quick Launcher
+
+echo "🚀💎 LAUNCHING CHAOSGENIUS EMPIRE! 💎🚀"
+echo "🦾💪 Starting Ultimate Sync System... 💪🦾"
+
+# Load environment
+if [ -f .env ]; then
+    export $(cat .env | grep -v '^#' | xargs)
+fi
+
+# Start the ultimate sync system
+python3 ULTIMATE_CHAOSGENIUS_SYNC.py
+
+EOF
+
+    chmod +x start_empire.sh
+    print_success "Created start_empire.sh launcher"
+}
+
+# Create service monitoring script
+create_monitoring_script() {
+    print_header "CREATING MONITORING SCRIPT"
+
+    cat > monitor_empire.sh << 'EOF'
+#!/bin/bash
+# 🔍 ChaosGenius Empire Monitor
+
+echo "📊 CHAOSGENIUS EMPIRE STATUS MONITOR"
+echo "===================================="
+
+# Check if sync dashboard is running
+if curl -s http://localhost:9999/api/status > /dev/null 2>&1; then
+    echo "✅ Sync Dashboard: RUNNING (http://localhost:9999)"
+
+    # Get detailed status
+    status=$(curl -s http://localhost:9999/api/status | python3 -m json.tool 2>/dev/null)
+    if [ $? -eq 0 ]; then
+        echo "$status" | grep -E '"empire_status"|"running_services"|"total_services"'
+    fi
+else
+    echo "❌ Sync Dashboard: OFFLINE"
+    echo "   Run: ./start_empire.sh to launch"
+fi
+
+echo ""
+echo "🔗 Quick Access URLs:"
+echo "   📊 Sync Dashboard: http://localhost:9999"
+echo "   🎛️ Main Dashboard: http://localhost:3000"
+echo "   🚀 API Dashboard: http://localhost:5000"
+echo "   🧠 HyperFocus Zone: http://localhost:5100"
+echo "   💚 Health Matrix: http://localhost:5001"
+
+EOF
+
+    chmod +x monitor_empire.sh
+    print_success "Created monitor_empire.sh"
+}
+
+# Main execution
+main() {
+    clear
+    echo -e "${PURPLE}"
+    echo "🚀💎🦾💪♾️🫵💓💗💖💝💟💌"
+    echo "  ULTIMATE CHAOSGENIUS EMPIRE LAUNCHER"
+    echo "🚀💎🦾💪♾️🫵💓💗💖💝💟💌"
+    echo -e "${NC}"
+    echo -e "${CYAN}🌟 Preparing to sync and launch your LEGENDARY empire! 🌟${NC}"
+    echo ""
+
+    # Run all setup steps
+    check_permissions
+    install_dependencies
+    setup_directories
+    create_unified_config
+    check_system_resources
+    backup_existing_data
+    cleanup_conflicts
+    create_startup_script
+    create_monitoring_script
+
+    print_header "EMPIRE LAUNCH PREPARATION COMPLETE!"
+
+    echo -e "${GREEN}"
+    echo "🎯 READY TO LAUNCH YOUR EMPIRE!"
+    echo "================================"
+    echo ""
+    echo "🚀 Launch Commands:"
+    echo "   ./start_empire.sh              - Start the entire empire"
+    echo "   ./monitor_empire.sh            - Check empire status"
+    echo "   python3 ULTIMATE_CHAOSGENIUS_SYNC.py - Direct sync launch"
+    echo ""
+    echo "🔗 Dashboard URLs (after launch):"
+    echo "   📊 Empire Sync: http://localhost:9999"
+    echo "   🎛️ Main Control: http://localhost:3000"
+    echo "   🚀 API Hub: http://localhost:5000"
+    echo "   🧠 HyperFocus: http://localhost:5100"
+    echo ""
+    echo "💜 Your empire is ready for LEGENDARY status! 💜"
+    echo -e "${NC}"
+
+    # Ask if user wants to launch now
+    echo ""
+    read -p "🚀 Launch the empire now? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo ""
+        print_info "🚀 LAUNCHING CHAOSGENIUS EMPIRE NOW!"
+        echo "🎛️ Sync Dashboard will be available at: http://localhost:9999"
+        echo ""
+        exec ./start_empire.sh
+    else
+        echo ""
+        print_info "Empire ready for launch! Run './start_empire.sh' when ready."
+        echo "💜 Stay legendary, Chief! 💜"
+    fi
+}
+
+# Run main function
+main "$@"

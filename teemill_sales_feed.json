@@ -1,0 +1,45 @@
+{
+  "sales": [
+    {
+      "timestamp": "2025-06-13T22:48:04.482348",
+      "sale_id": "teemill_1749854884_Manual_Entry",
+      "sale_data": {
+        "product_name": "Manual Entry",
+        "amount": 29.99,
+        "currency": "GBP",
+        "quantity": 1,
+        "source": "manual_entry"
+      },
+      "broski_reward": 2.999,
+      "integration_status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-06-13T22:52:05.271005",
+      "sale_id": "teemill_1749855125_BROski_Empire_T-Shirt",
+      "sale_data": {
+        "product_name": "BROski Empire T-Shirt",
+        "amount": 19.99,
+        "currency": "GBP",
+        "quantity": 2,
+        "source": "manual_entry"
+      },
+      "broski_reward": 1.9989999999999999,
+      "integration_status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-06-13T23:01:05.261974",
+      "sale_id": "teemill_1749855665_Test_Product_-_HyperFocus_Hoodie",
+      "sale_data": {
+        "product_name": "Test Product - HyperFocus Hoodie",
+        "amount": 29.99,
+        "currency": "GBP",
+        "quantity": 1,
+        "source": "manual_entry"
+      },
+      "broski_reward": 2.999,
+      "integration_status": "SUCCESS"
+    }
+  ],
+  "total_revenue": 79.97,
+  "total_broski_earned": 7.997
+}

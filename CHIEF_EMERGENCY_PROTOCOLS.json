@@ -1,0 +1,17 @@
+{
+  "agent_rebellion": {
+    "action": "Immediate shutdown of rogue agents",
+    "authority": "CHIEF_LYNDZ",
+    "backup": "BROski\u267e\ufe0f"
+  },
+  "system_compromise": {
+    "action": "Full empire lockdown",
+    "authority": "CHIEF_LYNDZ",
+    "backup": "BROski\u267e\ufe0f"
+  },
+  "hierarchy_challenge": {
+    "action": "Reassert Chief authority",
+    "authority": "CHIEF_LYNDZ",
+    "backup": "BROski\u267e\ufe0f"
+  }
+}

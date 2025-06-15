@@ -1,0 +1,15 @@
+{
+  "auto_organize": true,
+  "duplicate_handling": "prompt",
+  "max_file_size_mb": 1000,
+  "excluded_paths": [
+    ".git",
+    "__pycache__",
+    "node_modules"
+  ],
+  "organization_enabled": true,
+  "scan_interval_hours": 24,
+  "backup_before_move": true,
+  "custom_categories": {},
+  "notification_enabled": true
+}
